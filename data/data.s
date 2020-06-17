@@ -674,7 +674,19 @@ gUnknown_08F66FD6:
 
     .global gUnknown_08F66FD8
 gUnknown_08F66FD8:
-    .incbin "baserom.gba", 0x00F66FD8, 0x34
+    .word sub_8F0F560+1
+    .word sub_8F0F570+1
+    .word sub_8F0F734+1
+    .word sub_8F0F820+1
+    .word sub_8F1129C+1
+    .word sub_8F0F940+1
+    .word sub_8F0FA90+1
+    .word sub_8F0FD24+1
+    .word sub_8F0FD44+1
+    .word sub_8F100A0+1
+    .word sub_8F100BC+1
+    .word sub_8F100F4+1
+    .word sub_8F0F890+1
 
     .global gUnknown_08F6700C
 gUnknown_08F6700C:
@@ -718,7 +730,42 @@ gUnknown_08F70840:
 
     .global MPlyJmpTbl
 MPlyJmpTbl:
-    .incbin "baserom.gba", 0x00F70F18, 0x90
+    .word ply_fine+1
+    .word ply_goto+1
+    .word ply_patt+1
+    .word ply_pend+1
+    .word ply_rept+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_prio+1
+    .word ply_tempo+1
+    .word ply_keysh+1
+    .word ply_voice+1
+    .word ply_vol+1
+    .word ply_pan+1
+    .word ply_bend+1
+    .word ply_bendr+1
+    .word ply_lfos_rev01+1
+    .word ply_lfodl+1
+    .word ply_mod_rev01+1
+    .word ply_modt+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_tune+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_fine+1
+    .word ply_port+1
+    .word ply_fine+1
+    .word ply_endtie_rev01+1
+    .word SampFreqSet_rev01+1
+    .word TrackStop_rev01+1
+    .word FadeOutBody_rev01+1
+    .word TrkVolPitSet_rev01+1
+    .word ClearChain+1
+    .word SoundMainBTM+1
 
     .global gUnknown_08F70FA8
 gUnknown_08F70FA8:

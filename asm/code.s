@@ -37880,7 +37880,9 @@ _08F130DE:
 	str r1, [r0, #0x2c]
 _08F130E2:
 	bx lr
-_08F130E4:
+    
+ 	thumb_func_start ply_fine   
+ply_fine:
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	ldr r4, [r5, #0x20]
@@ -37954,9 +37956,11 @@ ld_r3_r2_i_sub: @ 0x08F1314A
 	ldrb r3, [r2]
 	b _08F1312E
 	.align 2, 0
-_08F13154:
+    
+    thumb_func_start ply_goto
+ply_goto:
 	push {lr}
-_08F13156:
+ply_goto_01:
 	ldr r2, [r1, #0x40]
 	ldrb r0, [r2, #3]
 	lsls r0, r0, #8
@@ -37985,9 +37989,9 @@ ply_patt: @ 0x08F13174
 	ldrb r2, [r1, #2]
 	adds r2, #1
 	strb r2, [r1, #2]
-	b _08F13154
+	b ply_goto
 _08F1318C:
-	b _08F130E4
+	b ply_fine
 	.align 2, 0
 
 	thumb_func_start ply_pend
@@ -38013,7 +38017,7 @@ ply_rept: @ 0x08F131A4
 	bne _08F131B4
 	adds r2, #1
 	str r2, [r1, #0x40]
-	b _08F13156
+	b ply_goto_01
 _08F131B4:
 	ldrb r3, [r1, #3]
 	adds r3, #1
@@ -38022,7 +38026,7 @@ _08F131B4:
 	bl ld_r3_tp_adr_i
 	cmp ip, r3
 	bhs _08F131C6
-	b _08F13156
+	b ply_goto_01
 _08F131C6:
 	movs r3, #0
 	strb r3, [r1, #3]
