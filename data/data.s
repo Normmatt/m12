@@ -754,13 +754,16 @@ gUnknown_08F7118C:
 
     .global gUnknown_08F711C0
 gUnknown_08F711C0:
-    .incbin "baserom.gba", 0x00F711C0, 0xA38
-
-    .global mplay_table
-mplay_table:
-    .incbin "baserom.gba", 0x00F71BF8, 0x3C
-
-    .global song_table
-song_table:
-    .incbin "baserom.gba", 0x00F71C34, 0x8E3CC
+    .word ply_xxx+1
+    .word ply_xwave+1
+    .word ply_xtype+1
+    .word ply_xxx+1
+    .word ply_xatta+1
+    .word ply_xdeca+1
+    .word ply_xsust+1
+    .word ply_xrele+1
+    .word ply_xiecv+1
+    .word ply_xiecl+1
+    .word ply_xleng+1
+    .word ply_xswee+1
 

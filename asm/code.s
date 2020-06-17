@@ -39121,7 +39121,7 @@ m4aSoundInit: @ 0x08F13934
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _08F13982
-	ldr r5, _08F139A4 @ =mplay_table
+	ldr r5, _08F139A4 @ =gMPlayTable
 	adds r6, r0, #0
 _08F13966:
 	ldr r4, [r5]
@@ -39149,7 +39149,7 @@ _08F13994: .4byte m4a_sound
 _08F13998: .4byte m4a_cgbchn
 _08F1399C: .4byte 0x0093D200
 _08F139A0: .4byte 0x00000005
-_08F139A4: .4byte mplay_table
+_08F139A4: .4byte gMPlayTable
 _08F139A8: .4byte gUnknown_03004950
 
 	thumb_func_start m4aSoundMain
@@ -39164,8 +39164,8 @@ m4aSoundMain: @ 0x08F139AC
 m4aSongNumStart: @ 0x08F139B8
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _08F139DC @ =mplay_table
-	ldr r1, _08F139E0 @ =song_table
+	ldr r2, _08F139DC @ =gMPlayTable
+	ldr r1, _08F139E0 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -39180,15 +39180,15 @@ m4aSongNumStart: @ 0x08F139B8
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F139DC: .4byte mplay_table
-_08F139E0: .4byte song_table
+_08F139DC: .4byte gMPlayTable
+_08F139E0: .4byte gSongTable
 
 	thumb_func_start m4aSongNumStartOrChange
 m4aSongNumStartOrChange: @ 0x08F139E4
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _08F13A10 @ =mplay_table
-	ldr r1, _08F13A14 @ =song_table
+	ldr r2, _08F13A10 @ =gMPlayTable
+	ldr r1, _08F13A14 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -39206,8 +39206,8 @@ m4aSongNumStartOrChange: @ 0x08F139E4
 	bl MPlayStart_rev01
 	b _08F13A2C
 	.align 2, 0
-_08F13A10: .4byte mplay_table
-_08F13A14: .4byte song_table
+_08F13A10: .4byte gMPlayTable
+_08F13A14: .4byte gSongTable
 _08F13A18:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -39227,8 +39227,8 @@ _08F13A2C:
 m4aSongNumStartOrContinue: @ 0x08F13A30
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _08F13A5C @ =mplay_table
-	ldr r1, _08F13A60 @ =song_table
+	ldr r2, _08F13A5C @ =gMPlayTable
+	ldr r1, _08F13A60 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -39246,8 +39246,8 @@ m4aSongNumStartOrContinue: @ 0x08F13A30
 	bl MPlayStart_rev01
 	b _08F13A80
 	.align 2, 0
-_08F13A5C: .4byte mplay_table
-_08F13A60: .4byte song_table
+_08F13A5C: .4byte gMPlayTable
+_08F13A60: .4byte gSongTable
 _08F13A64:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -39270,8 +39270,8 @@ _08F13A80:
 m4aSongNumStop: @ 0x08F13A84
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _08F13AB0 @ =mplay_table
-	ldr r1, _08F13AB4 @ =song_table
+	ldr r2, _08F13AB0 @ =gMPlayTable
+	ldr r1, _08F13AB4 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -39290,15 +39290,15 @@ _08F13AAA:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F13AB0: .4byte mplay_table
-_08F13AB4: .4byte song_table
+_08F13AB0: .4byte gMPlayTable
+_08F13AB4: .4byte gSongTable
 
 	thumb_func_start m4aSongNumContinue
 m4aSongNumContinue: @ 0x08F13AB8
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _08F13AE4 @ =mplay_table
-	ldr r1, _08F13AE8 @ =song_table
+	ldr r2, _08F13AE4 @ =gMPlayTable
+	ldr r1, _08F13AE8 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -39317,8 +39317,8 @@ _08F13ADE:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F13AE4: .4byte mplay_table
-_08F13AE8: .4byte song_table
+_08F13AE4: .4byte gMPlayTable
+_08F13AE8: .4byte gSongTable
 
 	thumb_func_start m4aMPlayAllStop
 m4aMPlayAllStop: @ 0x08F13AEC
@@ -39328,7 +39328,7 @@ m4aMPlayAllStop: @ 0x08F13AEC
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _08F13B0A
-	ldr r5, _08F13B14 @ =mplay_table
+	ldr r5, _08F13B14 @ =gMPlayTable
 	adds r4, r0, #0
 _08F13AFC:
 	ldr r0, [r5]
@@ -39343,7 +39343,7 @@ _08F13B0A:
 	bx r0
 	.align 2, 0
 _08F13B10: .4byte 0x00000005
-_08F13B14: .4byte mplay_table
+_08F13B14: .4byte gMPlayTable
 
 	thumb_func_start m4aMPlayContinue
 m4aMPlayContinue: @ 0x08F13B18
@@ -39361,7 +39361,7 @@ m4aMPlayAllContinue: @ 0x08F13B24
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _08F13B42
-	ldr r5, _08F13B4C @ =mplay_table
+	ldr r5, _08F13B4C @ =gMPlayTable
 	adds r4, r0, #0
 _08F13B34:
 	ldr r0, [r5]
@@ -39376,7 +39376,7 @@ _08F13B42:
 	bx r0
 	.align 2, 0
 _08F13B48: .4byte 0x00000005
-_08F13B4C: .4byte mplay_table
+_08F13B4C: .4byte gMPlayTable
 
 	thumb_func_start m4aMPlayFadeOut
 m4aMPlayFadeOut: @ 0x08F13B50

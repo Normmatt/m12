@@ -36,6 +36,8 @@ SECTIONS
 	ALIGN(4)
     {
         data/data.o(.data);
+        sound/sound.o(.data);
+        data/data_after_sound.o(.data);
     } = 0
     
     /* DWARF debug sections.

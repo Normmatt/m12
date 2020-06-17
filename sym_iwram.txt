@@ -1,4 +1,9 @@
 . = 0x00000000; gUnknown_03000000 = .;
+. = 0x00000008; gUnknown_03000008 = .;
+. = 0x000001E8; gUnknown_030001E8 = .;
+. = 0x00000238; gUnknown_03000238 = .;
+. = 0x00000288; gUnknown_03000288 = .;
+. = 0x000002D8; gUnknown_030002D8 = .;
 . = 0x00000378; SoundMainRAM_Buffer = .;
 . = 0x00000379; gUnknown_03000379 = .;
 . = 0x00000780; gUnknown_03000780 = .;
@@ -179,7 +184,11 @@
 . = 0x0000474C; gUnknown_0300474C = .;
 . = 0x00004750; m4a_cgbchn = .;
 . = 0x00004850; gUnknown_03004850 = .;
+. = 0x00004890; gUnknown_03004890 = .;
+. = 0x000048D0; gUnknown_030048D0 = .;
+. = 0x00004910; gUnknown_03004910 = .;
 . = 0x00004950; gUnknown_03004950 = .;
+. = 0x00004960; gUnknown_03004960 = .;
 . = 0x00007C00; gUnknown_03007C00 = .;
 . = 0x00007F00; gUnknown_03007F00 = .;
 . = 0x00007FF0; SOUND_AREA_ADR = .;
