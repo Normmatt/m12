@@ -442,6 +442,7 @@ gUnknown_08F71F68:
 gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F72A8A:
 	.byte	0xBB
 	.byte	0x21
 	.byte	0xB0
@@ -462,6 +463,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x40
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F72A9E:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xEF
@@ -479,6 +481,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x02
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F72AAF:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xEB
@@ -500,15 +503,10 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x9C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72A9E
 	.byte	0xB3
-	.byte	0xAF
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72AAF
+gUnknown_08F72ACD:
 	.byte	0xBD
 	.byte	0x03
 	.byte	0xC4
@@ -532,6 +530,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x02
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F72AE4:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xE7
@@ -554,6 +553,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x02
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F72AFA:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xEF
@@ -570,6 +570,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x02
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F72B0A:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xE7
@@ -602,25 +603,14 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCD
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72ACD
 	.byte	0xB3
-	.byte	0xE4
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72AE4
 	.byte	0xB3
-	.byte	0xFA
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72AFA
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x2B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72B0A
+gUnknown_08F72B3D:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xE7
@@ -650,10 +640,8 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE4
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72AE4
+gUnknown_08F72B5E:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xE7
@@ -678,6 +666,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x47
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F72B76:
 	.byte	0xE7
 	.byte	0x42
 	.byte	0x7F
@@ -708,25 +697,13 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x2B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72B3D
 	.byte	0xB3
-	.byte	0xE4
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72AE4
 	.byte	0xB3
-	.byte	0x5E
-	.byte	0x2B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72B5E
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x2B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72B76
 	.byte	0xBD
 	.byte	0x02
 	.byte	0xC4
@@ -774,10 +751,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 	.byte	0x02
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0x8A
-	.byte	0x2A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72A8A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -786,6 +760,7 @@ gUnknown_08F72F6C_1:	@ 0x08F72A88
 gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F72BDD:
 	.byte	0xBD
 	.byte	0x01
 	.byte	0xBF
@@ -828,6 +803,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x62
 	.byte	0x24
 	.byte	0x92
+gUnknown_08F72C07:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x5F
@@ -861,6 +837,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x24
 	.byte	0x92
 	.byte	0xB4
+gUnknown_08F72C28:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x5F
@@ -895,30 +872,15 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x92
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C07
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C28
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C07
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C28
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C07
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x5F
@@ -951,6 +913,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x56
 	.byte	0x24
 	.byte	0x92
+gUnknown_08F72C82:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x53
@@ -984,6 +947,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x24
 	.byte	0x92
 	.byte	0xB4
+gUnknown_08F72CA3:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4F
@@ -1017,6 +981,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x28
 	.byte	0x92
 	.byte	0xB4
+gUnknown_08F72CC4:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x51
@@ -1069,25 +1034,14 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x83
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x82
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C82
 	.byte	0xB3
-	.byte	0x82
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72C82
 	.byte	0xB3
-	.byte	0xA3
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72CA3
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0x2C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72CC4
+gUnknown_08F72D0B:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4A
@@ -1133,6 +1087,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x48
 	.byte	0x89
 	.byte	0xB4
+gUnknown_08F72D38:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4A
@@ -1178,6 +1133,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x48
 	.byte	0x89
 	.byte	0xB4
+gUnknown_08F72D65:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4C
@@ -1223,6 +1179,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x44
 	.byte	0x89
 	.byte	0xB4
+gUnknown_08F72D92:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x56
@@ -1263,25 +1220,14 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x2D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72D0B
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x2D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72D38
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x2D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72D65
 	.byte	0xB3
-	.byte	0x92
-	.byte	0x2D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72D92
+gUnknown_08F72DCD:
 	.byte	0xD0
 	.byte	0x53
 	.byte	0x70
@@ -1333,15 +1279,9 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 	.byte	0x89
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCD
-	.byte	0x2D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72DCD
 	.byte	0xB2
-	.byte	0xDD
-	.byte	0x2B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72BDD
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -1350,6 +1290,7 @@ gUnknown_08F72F6C_2:	@ 0x08F72BDB
 gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F72E0C:
 	.byte	0xBD
 	.byte	0x58
 	.byte	0xC5
@@ -1378,6 +1319,7 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0xC4
 	.byte	0x02
 	.byte	0x9C
+gUnknown_08F72E28:
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xEF
@@ -1411,10 +1353,8 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0x02
 	.byte	0x9C
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E28
+gUnknown_08F72E4D:
 	.byte	0xEF
 	.byte	0x43
 	.byte	0x64
@@ -1422,6 +1362,7 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0x42
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F72E54:
 	.byte	0xEF
 	.byte	0x41
 	.byte	0x64
@@ -1430,25 +1371,14 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E4D
 	.byte	0xB3
-	.byte	0x54
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E54
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E4D
 	.byte	0xB3
-	.byte	0x54
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E54
+gUnknown_08F72E6F:
 	.byte	0xEF
 	.byte	0x3C
 	.byte	0x64
@@ -1456,6 +1386,7 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0x3D
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F72E76:
 	.byte	0xE7
 	.byte	0x3E
 	.byte	0x64
@@ -1468,25 +1399,14 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E4D
 	.byte	0xB3
-	.byte	0x54
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E54
 	.byte	0xB3
-	.byte	0x6F
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E6F
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E76
+gUnknown_08F72E95:
 	.byte	0xEF
 	.byte	0x37
 	.byte	0x64
@@ -1494,6 +1414,7 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0x36
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F72E9C:
 	.byte	0xEF
 	.byte	0x35
 	.byte	0x64
@@ -1502,35 +1423,18 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x6F
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E6F
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E76
 	.byte	0xB3
-	.byte	0x95
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E95
 	.byte	0xB3
-	.byte	0x9C
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E9C
 	.byte	0xB3
-	.byte	0x6F
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E6F
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E76
+gUnknown_08F72EC1:
 	.byte	0xEF
 	.byte	0x37
 	.byte	0x64
@@ -1539,15 +1443,9 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC1
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EC1
 	.byte	0xB2
-	.byte	0x0C
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72E0C
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -1556,6 +1454,7 @@ gUnknown_08F72F6C_3:	@ 0x08F72E0A
 gUnknown_08F72F6C_4:	@ 0x08F72ED3
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F72ED5:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -1573,6 +1472,7 @@ gUnknown_08F72F6C_4:	@ 0x08F72ED3
 	.byte	0xA0
 	.byte	0xD0
 	.byte	0x98
+gUnknown_08F72EE6:
 	.byte	0x98
 	.byte	0xD0
 	.byte	0x52
@@ -1582,130 +1482,55 @@ gUnknown_08F72F6C_4:	@ 0x08F72ED3
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72EE6
 	.byte	0xB2
-	.byte	0xD5
-	.byte	0x2E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72ED5
 	.byte	0xB1
 
 	.align 2
@@ -1853,6 +1678,7 @@ gUnknown_08F733A8_1:	@ 0x08F72FB4
 	.byte	0x83
 	.byte	0x5A
 	.byte	0x83
+gUnknown_08F72FFB:
 	.byte	0xBB
 	.byte	0x38
 	.byte	0xBD
@@ -1912,6 +1738,7 @@ gUnknown_08F733A8_1:	@ 0x08F72FB4
 	.byte	0x3F
 	.byte	0x64
 	.byte	0x84
+gUnknown_08F73036:
 	.byte	0xD3
 	.byte	0x40
 	.byte	0x7F
@@ -1936,6 +1763,7 @@ gUnknown_08F733A8_1:	@ 0x08F72FB4
 	.byte	0x3F
 	.byte	0x84
 	.byte	0xB4
+gUnknown_08F7304E:
 	.byte	0xD3
 	.byte	0x40
 	.byte	0x7F
@@ -1961,15 +1789,9 @@ gUnknown_08F733A8_1:	@ 0x08F72FB4
 	.byte	0x83
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x36
-	.byte	0x30
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73036
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x30
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7304E
 	.byte	0x88
 	.byte	0xD3
 	.byte	0x3C
@@ -2087,10 +1909,7 @@ gUnknown_08F733A8_1:	@ 0x08F72FB4
 	.byte	0xD8
 	.byte	0x98
 	.byte	0xB2
-	.byte	0xFB
-	.byte	0x2F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F72FFB
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -2164,6 +1983,7 @@ gUnknown_08F733A8_2:	@ 0x08F730EA
 	.byte	0x83
 	.byte	0x59
 	.byte	0x83
+gUnknown_08F7312D:
 	.byte	0xBD
 	.byte	0x0C
 	.byte	0xBE
@@ -2218,6 +2038,7 @@ gUnknown_08F733A8_2:	@ 0x08F730EA
 	.byte	0xBD
 	.byte	0x11
 	.byte	0x97
+gUnknown_08F73163:
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x70
@@ -2235,6 +2056,7 @@ gUnknown_08F733A8_2:	@ 0x08F730EA
 	.byte	0x3A
 	.byte	0x90
 	.byte	0xB4
+gUnknown_08F73174:
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x70
@@ -2259,15 +2081,9 @@ gUnknown_08F733A8_2:	@ 0x08F730EA
 	.byte	0x83
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x63
-	.byte	0x31
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73163
 	.byte	0xB3
-	.byte	0x74
-	.byte	0x31
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73174
 	.byte	0x88
 	.byte	0xD3
 	.byte	0x33
@@ -2358,10 +2174,7 @@ gUnknown_08F733A8_2:	@ 0x08F730EA
 	.byte	0xD8
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x2D
-	.byte	0x31
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7312D
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -2438,6 +2251,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0xBD
 	.byte	0x09
 	.byte	0x81
+gUnknown_08F7323A:
 	.byte	0x0F
 	.byte	0xBE
 	.byte	0x45
@@ -2459,6 +2273,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x8C
 	.byte	0x34
 	.byte	0x8C
+gUnknown_08F7324F:
 	.byte	0xDB
 	.byte	0x3C
 	.byte	0x64
@@ -2478,6 +2293,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F73262:
 	.byte	0xDB
 	.byte	0x35
 	.byte	0x64
@@ -2497,6 +2313,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x33
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F73275:
 	.byte	0xDB
 	.byte	0x30
 	.byte	0x64
@@ -2516,6 +2333,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F73288:
 	.byte	0xDB
 	.byte	0x37
 	.byte	0x64
@@ -2535,6 +2353,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x3D
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7329B:
 	.byte	0xDB
 	.byte	0x3C
 	.byte	0x64
@@ -2555,45 +2374,21 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7324F
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7324F
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7324F
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7324F
 	.byte	0xB3
-	.byte	0x62
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73262
 	.byte	0xB3
-	.byte	0x75
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73275
 	.byte	0xB3
-	.byte	0x88
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73288
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7329B
 	.byte	0xD5
 	.byte	0x3C
 	.byte	0x78
@@ -2629,10 +2424,7 @@ gUnknown_08F733A8_3:	@ 0x08F731F4
 	.byte	0xDB
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x3A
-	.byte	0x32
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7323A
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -2652,6 +2444,7 @@ gUnknown_08F733A8_4:	@ 0x08F732FE
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F7330B:
 	.byte	0xD1
 	.byte	0x48
 	.byte	0x38
@@ -2699,70 +2492,31 @@ gUnknown_08F733A8_4:	@ 0x08F732FE
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xD1
 	.byte	0x40
 	.byte	0x7F
@@ -2803,10 +2557,7 @@ gUnknown_08F733A8_4:	@ 0x08F732FE
 	.byte	0xD2
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x0B
-	.byte	0x33
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7330B
 	.byte	0xB1
 	.byte	0x00
 
@@ -2922,6 +2673,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0x90
 	.byte	0xD9
 	.byte	0x90
+gUnknown_08F7341C:
 	.byte	0x4F
 	.byte	0x50
 	.byte	0x90
@@ -3161,6 +2913,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0x86
 	.byte	0x47
 	.byte	0x86
+gUnknown_08F7350B:
 	.byte	0xBD
 	.byte	0x16
 	.byte	0xC4
@@ -3178,6 +2931,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0xEE
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7351C:
 	.byte	0x81
 	.byte	0xBD
 	.byte	0x16
@@ -3195,15 +2949,9 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x35
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7350B
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x35
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7351C
 	.byte	0xBD
 	.byte	0x02
 	.byte	0xD5
@@ -3224,6 +2972,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0xE5
 	.byte	0x3F
 	.byte	0x98
+gUnknown_08F7354A:
 	.byte	0xDB
 	.byte	0x43
 	.byte	0x7F
@@ -3243,6 +2992,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0x3C
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7355D:
 	.byte	0xD5
 	.byte	0x48
 	.byte	0x7F
@@ -3262,6 +3012,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0x4B
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F73570:
 	.byte	0xD5
 	.byte	0x4F
 	.byte	0x7F
@@ -3314,20 +3065,11 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0x3F
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x4A
-	.byte	0x35
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7354A
 	.byte	0xB3
-	.byte	0x5D
-	.byte	0x35
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7355D
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x35
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73570
 	.byte	0xBD
 	.byte	0x12
 	.byte	0xBE
@@ -3348,10 +3090,7 @@ gUnknown_08F739E4_1:	@ 0x08F733C0
 	.byte	0xD9
 	.byte	0x90
 	.byte	0xB2
-	.byte	0x1C
-	.byte	0x34
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7341C
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -3445,6 +3184,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0x90
 	.byte	0xD9
 	.byte	0x90
+gUnknown_08F73622:
 	.byte	0xDA
 	.byte	0x4A
 	.byte	0x50
@@ -3460,6 +3200,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0x90
 	.byte	0xDA
 	.byte	0x90
+gUnknown_08F73631:
 	.byte	0xBD
 	.byte	0x15
 	.byte	0x8A
@@ -3490,10 +3231,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0xA8
 	.byte	0x81
 	.byte	0xB3
-	.byte	0x31
-	.byte	0x36
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73631
 	.byte	0x91
 	.byte	0xD2
 	.byte	0x4B
@@ -3659,6 +3397,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0x86
 	.byte	0x3E
 	.byte	0x86
+gUnknown_08F736F8:
 	.byte	0xBD
 	.byte	0x17
 	.byte	0xC4
@@ -3676,6 +3415,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0xEE
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F73709:
 	.byte	0x81
 	.byte	0xBD
 	.byte	0x17
@@ -3693,21 +3433,16 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xF8
-	.byte	0x36
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F736F8
 	.byte	0xB3
-	.byte	0x09
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73709
 	.byte	0xBD
 	.byte	0x15
 	.byte	0xFF
 	.byte	0x48
 	.byte	0x50
 	.byte	0xB0
+gUnknown_08F73729:
 	.byte	0xEF
 	.byte	0x46
 	.byte	0x50
@@ -3719,28 +3454,19 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0x48
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73729
 	.byte	0xFF
 	.byte	0x48
 	.byte	0x50
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73729
 	.byte	0xFF
 	.byte	0x48
 	.byte	0x50
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73729
 	.byte	0xBD
 	.byte	0x13
 	.byte	0xBE
@@ -3761,10 +3487,7 @@ gUnknown_08F739E4_2:	@ 0x08F735CB
 	.byte	0xD9
 	.byte	0x90
 	.byte	0xB2
-	.byte	0x22
-	.byte	0x36
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73622
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -3862,6 +3585,7 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x8C
 	.byte	0x32
 	.byte	0x8C
+gUnknown_08F737BE:
 	.byte	0xDB
 	.byte	0x37
 	.byte	0x64
@@ -3881,6 +3605,7 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x32
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F737D1:
 	.byte	0xDB
 	.byte	0x37
 	.byte	0x64
@@ -3901,40 +3626,19 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xBE
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737BE
 	.byte	0xB3
-	.byte	0xD1
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737D1
 	.byte	0xB3
-	.byte	0xBE
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737BE
 	.byte	0xB3
-	.byte	0xD1
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737D1
 	.byte	0xB3
-	.byte	0xBE
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737BE
 	.byte	0xB3
-	.byte	0xD1
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737D1
 	.byte	0xB3
-	.byte	0xBE
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737BE
 	.byte	0xDB
 	.byte	0x37
 	.byte	0x64
@@ -4001,6 +3705,7 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x8C
 	.byte	0x3E
 	.byte	0x8C
+gUnknown_08F73849:
 	.byte	0xD3
 	.byte	0x37
 	.byte	0x64
@@ -4037,20 +3742,12 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x49
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73849
 	.byte	0xB3
-	.byte	0x49
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73849
 	.byte	0xB3
-	.byte	0x49
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73849
+gUnknown_08F7387B:
 	.byte	0xDB
 	.byte	0x3C
 	.byte	0x64
@@ -4070,6 +3767,7 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x33
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7388E:
 	.byte	0xDB
 	.byte	0x3F
 	.byte	0x64
@@ -4090,45 +3788,21 @@ gUnknown_08F739E4_3:	@ 0x08F73763
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7387B
 	.byte	0xB3
-	.byte	0x8E
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7388E
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7387B
 	.byte	0xB3
-	.byte	0x8E
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7388E
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7387B
 	.byte	0xB3
-	.byte	0x8E
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7388E
 	.byte	0xB3
-	.byte	0xD1
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737D1
 	.byte	0xB2
-	.byte	0xBE
-	.byte	0x37
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F737BE
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -4148,6 +3822,7 @@ gUnknown_08F739E4_4:	@ 0x08F738CA
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F738D7:
 	.byte	0xD1
 	.byte	0x52
 	.byte	0x38
@@ -4191,71 +3866,34 @@ gUnknown_08F739E4_4:	@ 0x08F738CA
 	.byte	0xD1
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F73902:
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
+gUnknown_08F73943:
 	.byte	0xD1
 	.byte	0x52
 	.byte	0x38
@@ -4303,20 +3941,12 @@ gUnknown_08F739E4_4:	@ 0x08F738CA
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x43
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73943
 	.byte	0xB3
-	.byte	0x43
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73943
 	.byte	0xB3
-	.byte	0x43
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73943
+gUnknown_08F73980:
 	.byte	0xD1
 	.byte	0x52
 	.byte	0x38
@@ -4369,50 +3999,23 @@ gUnknown_08F739E4_4:	@ 0x08F738CA
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0x80
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73980
 	.byte	0xB3
-	.byte	0xD7
-	.byte	0x38
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F738D7
 	.byte	0xB2
-	.byte	0x02
-	.byte	0x39
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73902
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -4513,6 +4116,7 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0xC4
 	.byte	0x00
 	.byte	0x81
+gUnknown_08F73A47:
 	.byte	0xBB
 	.byte	0x5A
 	.byte	0xBD
@@ -4890,6 +4494,7 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0x40
 	.byte	0x7F
 	.byte	0xA4
+gUnknown_08F73BC0:
 	.byte	0xD7
 	.byte	0x34
 	.byte	0x7F
@@ -4909,6 +4514,7 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F73BD3:
 	.byte	0xD7
 	.byte	0x34
 	.byte	0x7F
@@ -4929,15 +4535,10 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC0
-	.byte	0x3B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73BC0
 	.byte	0xB3
-	.byte	0xD3
-	.byte	0x3B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73BD3
+gUnknown_08F73BF0:
 	.byte	0xD7
 	.byte	0x39
 	.byte	0x7F
@@ -4974,10 +4575,8 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0x39
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xC0
-	.byte	0x3B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73BC0
+gUnknown_08F73C18:
 	.byte	0xD7
 	.byte	0x37
 	.byte	0x7F
@@ -5014,25 +4613,13 @@ gUnknown_08F7401C_1:	@ 0x08F739FC
 	.byte	0x3B
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0x3B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73BF0
 	.byte	0xB3
-	.byte	0xC0
-	.byte	0x3B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73BC0
 	.byte	0xB3
-	.byte	0x18
-	.byte	0x3C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73C18
 	.byte	0xB2
-	.byte	0x47
-	.byte	0x3A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73A47
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -5111,6 +4698,7 @@ gUnknown_08F7401C_2:	@ 0x08F73C50
 	.byte	0xBE
 	.byte	0x67
 	.byte	0x81
+gUnknown_08F73C98:
 	.byte	0xBD
 	.byte	0x1B
 	.byte	0xBE
@@ -5225,6 +4813,7 @@ gUnknown_08F7401C_2:	@ 0x08F73C50
 	.byte	0x8C
 	.byte	0xD7
 	.byte	0x8C
+gUnknown_08F73D0A:
 	.byte	0xD7
 	.byte	0x2D
 	.byte	0x64
@@ -5245,15 +4834,10 @@ gUnknown_08F7401C_2:	@ 0x08F73C50
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
+gUnknown_08F73D27:
 	.byte	0xD7
 	.byte	0x32
 	.byte	0x64
@@ -5274,20 +4858,11 @@ gUnknown_08F7401C_2:	@ 0x08F73C50
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D27
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
 	.byte	0xD7
 	.byte	0x34
 	.byte	0x64
@@ -5307,25 +4882,13 @@ gUnknown_08F7401C_2:	@ 0x08F73C50
 	.byte	0xD7
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D27
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73D0A
 	.byte	0xB2
-	.byte	0x98
-	.byte	0x3C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73C98
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -5402,6 +4965,7 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0xBD
 	.byte	0x09
 	.byte	0x81
+gUnknown_08F73DB6:
 	.byte	0x09
 	.byte	0xBE
 	.byte	0x67
@@ -5433,6 +4997,7 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0x8C
 	.byte	0xD8
 	.byte	0x8C
+gUnknown_08F73DD5:
 	.byte	0xD6
 	.byte	0x3E
 	.byte	0x7F
@@ -5453,10 +5018,8 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DD5
+gUnknown_08F73DED:
 	.byte	0xD6
 	.byte	0x39
 	.byte	0x7F
@@ -5477,10 +5040,8 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
+gUnknown_08F73E05:
 	.byte	0xD6
 	.byte	0x40
 	.byte	0x7F
@@ -5501,10 +5062,7 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DD5
 	.byte	0xD6
 	.byte	0x39
 	.byte	0x7F
@@ -5540,70 +5098,31 @@ gUnknown_08F7401C_3:	@ 0x08F73D70
 	.byte	0xD6
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DD5
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DD5
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0x05
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73E05
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DD5
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB3
-	.byte	0xED
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DED
 	.byte	0xB2
-	.byte	0xB6
-	.byte	0x3D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73DB6
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -5623,6 +5142,7 @@ gUnknown_08F7401C_4:	@ 0x08F73E81
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F73E8E:
 	.byte	0xA0
 	.byte	0xD1
 	.byte	0x4C
@@ -5649,6 +5169,7 @@ gUnknown_08F7401C_4:	@ 0x08F73E81
 	.byte	0x8C
 	.byte	0xD1
 	.byte	0x8C
+gUnknown_08F73EA8:
 	.byte	0xD1
 	.byte	0x4C
 	.byte	0x64
@@ -5669,35 +5190,17 @@ gUnknown_08F7401C_4:	@ 0x08F73E81
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x7F
@@ -5733,60 +5236,27 @@ gUnknown_08F7401C_4:	@ 0x08F73E81
 	.byte	0xD1
 	.byte	0x86
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73EA8
 	.byte	0xD1
 	.byte	0x4C
 	.byte	0x64
@@ -5815,10 +5285,7 @@ gUnknown_08F7401C_4:	@ 0x08F73E81
 	.byte	0xD1
 	.byte	0x86
 	.byte	0xB2
-	.byte	0x8E
-	.byte	0x3E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73E8E
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -5838,6 +5305,7 @@ gUnknown_08F7401C_5:	@ 0x08F73F53
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F73F60:
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x3C
@@ -5864,6 +5332,7 @@ gUnknown_08F7401C_5:	@ 0x08F73F53
 	.byte	0x8C
 	.byte	0xD3
 	.byte	0x8C
+gUnknown_08F73F7A:
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
@@ -5878,35 +5347,17 @@ gUnknown_08F7401C_5:	@ 0x08F73F53
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x7F
@@ -5942,60 +5393,27 @@ gUnknown_08F7401C_5:	@ 0x08F73F53
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F7A
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
@@ -6021,10 +5439,7 @@ gUnknown_08F7401C_5:	@ 0x08F73F53
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB2
-	.byte	0x60
-	.byte	0x3F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F73F60
 	.byte	0xB1
 
 	.align 2
@@ -6378,6 +5793,7 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x56
 	.byte	0x24
 	.byte	0xB0
+gUnknown_08F74178:
 	.byte	0xBD
 	.byte	0x51
 	.byte	0xBE
@@ -6409,12 +5825,14 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x4A
 	.byte	0x70
 	.byte	0x8C
+gUnknown_08F74197:
 	.byte	0xAF
 	.byte	0x81
 	.byte	0xC4
 	.byte	0x00
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F7419D:
 	.byte	0xD8
 	.byte	0x47
 	.byte	0x78
@@ -6438,6 +5856,7 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F741B4:
 	.byte	0x9B
 	.byte	0x83
 	.byte	0xC4
@@ -6481,20 +5900,11 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x70
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x41
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74197
 	.byte	0xB3
-	.byte	0x9D
-	.byte	0x41
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7419D
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x41
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F741B4
 	.byte	0xD8
 	.byte	0x42
 	.byte	0x78
@@ -6625,6 +6035,7 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x8C
 	.byte	0x49
 	.byte	0x8C
+gUnknown_08F7426F:
 	.byte	0xD9
 	.byte	0x4A
 	.byte	0x78
@@ -6659,10 +6070,7 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0xD9
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x6F
-	.byte	0x42
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7426F
 	.byte	0xD9
 	.byte	0x4A
 	.byte	0x78
@@ -6696,10 +6104,7 @@ gUnknown_08F74858_1:	@ 0x08F740BC
 	.byte	0x00
 	.byte	0x82
 	.byte	0xB2
-	.byte	0x78
-	.byte	0x41
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74178
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -6764,6 +6169,7 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0xAC
 	.byte	0xCE
 	.byte	0x8C
+gUnknown_08F742F5:
 	.byte	0x81
 	.byte	0xBD
 	.byte	0x4A
@@ -6805,6 +6211,7 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0x49
 	.byte	0x48
 	.byte	0x86
+gUnknown_08F7431E:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x3E
@@ -6844,6 +6251,7 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0x48
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F74345:
 	.byte	0xD0
 	.byte	0x43
 	.byte	0x7F
@@ -6876,6 +6284,7 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0x48
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F74365:
 	.byte	0xD0
 	.byte	0x41
 	.byte	0x7F
@@ -6964,20 +6373,11 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0x48
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x1E
-	.byte	0x43
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7431E
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x43
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74345
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x43
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74365
 	.byte	0x8C
 	.byte	0xD1
 	.byte	0x3B
@@ -7433,10 +6833,7 @@ gUnknown_08F74858_2:	@ 0x08F742BB
 	.byte	0x00
 	.byte	0x82
 	.byte	0xB2
-	.byte	0xF5
-	.byte	0x42
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F742F5
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -7486,6 +6883,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0x81
 	.byte	0xCE
 	.byte	0x8B
+gUnknown_08F745C2:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x64
@@ -7497,6 +6895,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0xDB
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F745CD:
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x64
@@ -7508,6 +6907,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0xDB
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F745D8:
 	.byte	0xDB
 	.byte	0x43
 	.byte	0x64
@@ -7519,6 +6919,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0xDB
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F745E3:
 	.byte	0xDB
 	.byte	0x41
 	.byte	0x64
@@ -7531,25 +6932,13 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC2
-	.byte	0x45
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F745C2
 	.byte	0xB3
-	.byte	0xCD
-	.byte	0x45
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F745CD
 	.byte	0xB3
-	.byte	0xD8
-	.byte	0x45
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F745D8
 	.byte	0xB3
-	.byte	0xE3
-	.byte	0x45
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F745E3
 	.byte	0xD6
 	.byte	0x47
 	.byte	0x60
@@ -7631,6 +7020,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0x9C
 	.byte	0xDA
 	.byte	0x8C
+gUnknown_08F74653:
 	.byte	0xD6
 	.byte	0x43
 	.byte	0x60
@@ -7667,10 +7057,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0xD6
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x53
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74653
 	.byte	0xD6
 	.byte	0x40
 	.byte	0x60
@@ -7693,10 +7080,7 @@ gUnknown_08F74858_3:	@ 0x08F74597
 	.byte	0x3E
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xC2
-	.byte	0x45
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F745C2
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -7729,6 +7113,7 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x98
 	.byte	0xD0
 	.byte	0x8C
+gUnknown_08F746B0:
 	.byte	0xD0
 	.byte	0x55
 	.byte	0x7F
@@ -7745,10 +7130,7 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746B0
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x55
@@ -7756,6 +7138,7 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0xA8
+gUnknown_08F746CB:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x55
@@ -7771,40 +7154,20 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
+gUnknown_08F746FC:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -7825,15 +7188,9 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -7844,6 +7201,7 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x8C
 	.byte	0x55
 	.byte	0xA4
+gUnknown_08F74723:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -7860,15 +7218,9 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x23
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74723
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -7884,25 +7236,13 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x55
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746FC
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -7918,10 +7258,7 @@ gUnknown_08F74858_4:	@ 0x08F74696
 	.byte	0x55
 	.byte	0x9C
 	.byte	0xB2
-	.byte	0xCB
-	.byte	0x46
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F746CB
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -7969,6 +7306,7 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0x8C
 	.byte	0x48
 	.byte	0x8C
+gUnknown_08F7479B:
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -7988,40 +7326,20 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
+gUnknown_08F747D0:
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -8039,15 +7357,9 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -8069,6 +7381,7 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0x8C
 	.byte	0xD2
 	.byte	0x8C
+gUnknown_08F747FF:
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -8086,15 +7399,9 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xFF
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747FF
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -8113,25 +7420,13 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0xD2
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F747D0
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x60
@@ -8152,10 +7447,7 @@ gUnknown_08F74858_5:	@ 0x08F74772
 	.byte	0xD2
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0x9B
-	.byte	0x47
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7479B
 	.byte	0xB1
 	.byte	0x00
 
@@ -8207,6 +7499,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0x48
 	.byte	0x98
+gUnknown_08F7488F:
 	.byte	0xD8
 	.byte	0x49
 	.byte	0x64
@@ -8227,6 +7520,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x64
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F748A3:
 	.byte	0xD9
 	.byte	0x4B
 	.byte	0x60
@@ -8239,15 +7533,9 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8F
-	.byte	0x48
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7488F
 	.byte	0xB3
-	.byte	0xA3
-	.byte	0x48
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F748A3
 	.byte	0x98
 	.byte	0xDB
 	.byte	0x5A
@@ -8314,6 +7602,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0x43
 	.byte	0x98
+gUnknown_08F748FA:
 	.byte	0xDB
 	.byte	0x40
 	.byte	0x7F
@@ -8333,6 +7622,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x41
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7490D:
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x7F
@@ -8353,15 +7643,9 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xFA
-	.byte	0x48
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F748FA
 	.byte	0xB3
-	.byte	0x0D
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7490D
 	.byte	0x98
 	.byte	0xD8
 	.byte	0x4D
@@ -8416,6 +7700,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0x48
 	.byte	0x98
+gUnknown_08F74960:
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x52
@@ -8430,6 +7715,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0xD9
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7496E:
 	.byte	0xD9
 	.byte	0x50
 	.byte	0x5C
@@ -8444,25 +7730,13 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x60
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74960
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7496E
 	.byte	0xB3
-	.byte	0x60
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74960
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7496E
 	.byte	0xF7
 	.byte	0x49
 	.byte	0x58
@@ -8491,6 +7765,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x8C
 	.byte	0xD8
 	.byte	0x8C
+gUnknown_08F749AB:
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x4D
@@ -8506,6 +7781,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0xD9
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F749BA:
 	.byte	0xD9
 	.byte	0x4B
 	.byte	0x5C
@@ -8520,15 +7796,9 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xAB
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F749AB
 	.byte	0xB3
-	.byte	0xBA
-	.byte	0x49
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F749BA
 	.byte	0x98
 	.byte	0xEF
 	.byte	0x44
@@ -8563,10 +7833,7 @@ gUnknown_08F74D58_1:	@ 0x08F74874
 	.byte	0x42
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x8F
-	.byte	0x48
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7488F
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -8598,6 +7865,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x98
 	.byte	0x45
 	.byte	0x98
+gUnknown_08F74A11:
 	.byte	0x86
 	.byte	0xD9
 	.byte	0x46
@@ -8620,6 +7888,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x7F
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F74A27:
 	.byte	0xD9
 	.byte	0x47
 	.byte	0x60
@@ -8628,15 +7897,9 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0xA8
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x11
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74A11
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74A27
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0x86
@@ -8729,6 +7992,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x98
 	.byte	0x45
 	.byte	0x98
+gUnknown_08F74A94:
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x4E
@@ -8743,6 +8007,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0xD9
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F74AA2:
 	.byte	0xD9
 	.byte	0x4D
 	.byte	0x5C
@@ -8757,25 +8022,13 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74A94
 	.byte	0xB3
-	.byte	0xA2
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74AA2
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74A94
 	.byte	0xB3
-	.byte	0xA2
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74AA2
 	.byte	0xF7
 	.byte	0x41
 	.byte	0x58
@@ -8806,6 +8059,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x41
 	.byte	0x40
 	.byte	0x86
+gUnknown_08F74AE1:
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x44
@@ -8821,6 +8075,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0xD9
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F74AF0:
 	.byte	0xD9
 	.byte	0x42
 	.byte	0x5C
@@ -8835,15 +8090,9 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74AE1
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74AF0
 	.byte	0x98
 	.byte	0xEF
 	.byte	0x41
@@ -8870,10 +8119,7 @@ gUnknown_08F74D58_2:	@ 0x08F749F8
 	.byte	0x3A
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x11
-	.byte	0x4A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74A11
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -8897,6 +8143,7 @@ gUnknown_08F74D58_3:	@ 0x08F74B26
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F74B37:
 	.byte	0xE1
 	.byte	0x36
 	.byte	0x7F
@@ -8909,30 +8156,16 @@ gUnknown_08F74D58_3:	@ 0x08F74B26
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
+gUnknown_08F74B5B:
 	.byte	0xE1
 	.byte	0x31
 	.byte	0x7F
@@ -8945,135 +8178,57 @@ gUnknown_08F74D58_3:	@ 0x08F74B26
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B5B
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB2
-	.byte	0x37
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74B37
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -9093,6 +8248,7 @@ gUnknown_08F74D58_4:	@ 0x08F74BE9
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F74BF6:
 	.byte	0x98
 	.byte	0xD2
 	.byte	0x57
@@ -9104,165 +8260,69 @@ gUnknown_08F74D58_4:	@ 0x08F74BE9
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB2
-	.byte	0xF6
-	.byte	0x4B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74BF6
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -9282,6 +8342,7 @@ gUnknown_08F74D58_5:	@ 0x08F74CA1
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F74CAE:
 	.byte	0xDD
 	.byte	0x41
 	.byte	0x7F
@@ -9290,165 +8351,69 @@ gUnknown_08F74D58_5:	@ 0x08F74CA1
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB2
-	.byte	0xAE
-	.byte	0x4C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74CAE
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -9498,6 +8463,7 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0xA7
 	.byte	0x83
 	.byte	0xA8
+gUnknown_08F74D8C:
 	.byte	0xC0
 	.byte	0x34
 	.byte	0xEE
@@ -9532,6 +8498,7 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0x40
 	.byte	0x93
 	.byte	0xB4
+gUnknown_08F74DAE:
 	.byte	0xC0
 	.byte	0x34
 	.byte	0xEE
@@ -9699,15 +8666,9 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0xA5
 	.byte	0x81
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x4D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74D8C
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x4D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74DAE
 	.byte	0xC0
 	.byte	0x33
 	.byte	0xF7
@@ -9945,6 +8906,7 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0x8C
 	.byte	0x58
 	.byte	0x8C
+gUnknown_08F74F4B:
 	.byte	0xEF
 	.byte	0x5B
 	.byte	0x64
@@ -9972,10 +8934,7 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0x58
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x4B
-	.byte	0x4F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74F4B
 	.byte	0xF7
 	.byte	0x5A
 	.byte	0x64
@@ -10003,10 +8962,7 @@ gUnknown_08F755D4_1:	@ 0x08F74D74
 	.byte	0xA7
 	.byte	0x83
 	.byte	0xB2
-	.byte	0x8C
-	.byte	0x4D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74D8C
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -10035,6 +8991,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0xA7
 	.byte	0x83
 	.byte	0xA8
+gUnknown_08F74FA0:
 	.byte	0x9A
 	.byte	0xC0
 	.byte	0x33
@@ -10054,6 +9011,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0x40
 	.byte	0x9C
 	.byte	0x81
+gUnknown_08F74FB3:
 	.byte	0x86
 	.byte	0xC0
 	.byte	0x33
@@ -10262,10 +9220,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0x9C
 	.byte	0x81
 	.byte	0xB3
-	.byte	0xB3
-	.byte	0x4F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74FB3
 	.byte	0x86
 	.byte	0xC0
 	.byte	0x32
@@ -10525,6 +9480,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0x8C
 	.byte	0x5F
 	.byte	0x8C
+gUnknown_08F7518A:
 	.byte	0xDB
 	.byte	0x5B
 	.byte	0x58
@@ -10537,6 +9493,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0x5B
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F75196:
 	.byte	0x8C
 	.byte	0xE7
 	.byte	0x5D
@@ -10558,15 +9515,9 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0x5F
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x51
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7518A
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x51
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75196
 	.byte	0x9C
 	.byte	0xF7
 	.byte	0x56
@@ -10593,10 +9544,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 	.byte	0xA7
 	.byte	0x83
 	.byte	0xB2
-	.byte	0xA0
-	.byte	0x4F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F74FA0
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -10605,6 +9553,7 @@ gUnknown_08F755D4_2:	@ 0x08F74F8A
 gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F751D5:
 	.byte	0xBD
 	.byte	0x09
 	.byte	0xBE
@@ -10688,6 +9637,7 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x40
 	.byte	0x85
 	.byte	0xB4
+gUnknown_08F75228:
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xDB
@@ -10759,26 +9709,16 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x40
 	.byte	0x85
 	.byte	0xB4
+gUnknown_08F7526F:
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
+gUnknown_08F75283:
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xDB
@@ -10851,60 +9791,28 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x85
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75283
+gUnknown_08F75301:
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xDB
@@ -10977,10 +9885,8 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x85
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x01
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75301
+gUnknown_08F7534D:
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xDB
@@ -11053,30 +9959,15 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x85
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7534D
 	.byte	0xB3
-	.byte	0x01
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75301
 	.byte	0xB3
-	.byte	0x01
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75301
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7534D
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x53
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7534D
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xDB
@@ -11210,6 +10101,7 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x81
 	.byte	0x40
 	.byte	0x94
+gUnknown_08F75432:
 	.byte	0xC0
 	.byte	0x33
 	.byte	0xD9
@@ -11253,42 +10145,21 @@ gUnknown_08F755D4_3:	@ 0x08F751D3
 	.byte	0x94
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75432
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75432
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75432
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75432
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x51
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F751D5
 	.byte	0xB3
-	.byte	0x28
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75228
 	.byte	0xB2
-	.byte	0x6F
-	.byte	0x52
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7526F
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -11316,6 +10187,7 @@ gUnknown_08F755D4_4:	@ 0x08F75482
 	.byte	0x8C
 	.byte	0xD1
 	.byte	0x98
+gUnknown_08F75497:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -11324,6 +10196,7 @@ gUnknown_08F755D4_4:	@ 0x08F75482
 	.byte	0xD1
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7549F:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -11335,185 +10208,77 @@ gUnknown_08F755D4_4:	@ 0x08F75482
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB3
-	.byte	0x97
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75497
 	.byte	0xB2
-	.byte	0x9F
-	.byte	0x54
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7549F
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -11539,6 +10304,7 @@ gUnknown_08F755D4_5:	@ 0x08F7555E
 	.byte	0xA4
 	.byte	0xD2
 	.byte	0x8C
+gUnknown_08F75571:
 	.byte	0xD2
 	.byte	0xA8
 	.byte	0xA4
@@ -11630,10 +10396,7 @@ gUnknown_08F755D4_5:	@ 0x08F7555E
 	.byte	0xD2
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0x71
-	.byte	0x55
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75571
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -11662,6 +10425,7 @@ gUnknown_08F755D4:	@ 0x08F755D4
 gUnknown_08F75A48_1:	@ 0x08F755F0
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F755F2:
 	.byte	0xBB
 	.byte	0x26
 	.byte	0xBD
@@ -11905,6 +10669,7 @@ gUnknown_08F75A48_1:	@ 0x08F755F0
 	.byte	0x88
 	.byte	0x42
 	.byte	0x88
+gUnknown_08F756E5:
 	.byte	0xE7
 	.byte	0x43
 	.byte	0x7C
@@ -11923,6 +10688,7 @@ gUnknown_08F75A48_1:	@ 0x08F755F0
 	.byte	0x4B
 	.byte	0x84
 	.byte	0xB4
+gUnknown_08F756F7:
 	.byte	0xE7
 	.byte	0x4A
 	.byte	0x7C
@@ -11994,15 +10760,9 @@ gUnknown_08F75A48_1:	@ 0x08F755F0
 	.byte	0x42
 	.byte	0x84
 	.byte	0xB3
-	.byte	0xE5
-	.byte	0x56
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F756E5
 	.byte	0xB3
-	.byte	0xF7
-	.byte	0x56
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F756F7
 	.byte	0xD2
 	.byte	0x56
 	.byte	0x7F
@@ -12093,10 +10853,7 @@ gUnknown_08F75A48_1:	@ 0x08F755F0
 	.byte	0x4E
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0xF2
-	.byte	0x55
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F755F2
 	.byte	0x8C
 	.byte	0xB1
 
@@ -12106,6 +10863,7 @@ gUnknown_08F75A48_1:	@ 0x08F755F0
 gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F757A9:
 	.byte	0x8C
 	.byte	0xBD
 	.byte	0x29
@@ -12148,6 +10906,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0xE7
 	.byte	0x4C
 	.byte	0x8C
+gUnknown_08F757D3:
 	.byte	0x8C
 	.byte	0xDF
 	.byte	0x47
@@ -12257,10 +11016,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xD3
-	.byte	0x57
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F757D3
 	.byte	0x84
 	.byte	0xD7
 	.byte	0x4F
@@ -12318,6 +11074,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0xDF
 	.byte	0x4D
 	.byte	0x8C
+gUnknown_08F7587D:
 	.byte	0x84
 	.byte	0xD3
 	.byte	0x4C
@@ -12408,10 +11165,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0x4D
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x7D
-	.byte	0x58
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7587D
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x7F
@@ -12508,10 +11262,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 	.byte	0x4E
 	.byte	0x9C
 	.byte	0xB2
-	.byte	0xA9
-	.byte	0x57
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F757A9
 	.byte	0x8C
 	.byte	0xB1
 
@@ -12521,6 +11272,7 @@ gUnknown_08F75A48_2:	@ 0x08F757A7
 gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75943:
 	.byte	0xBD
 	.byte	0x09
 	.byte	0xBE
@@ -12555,6 +11307,7 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0xD7
 	.byte	0x48
 	.byte	0x88
+gUnknown_08F75965:
 	.byte	0xDF
 	.byte	0x3C
 	.byte	0x7F
@@ -12578,6 +11331,7 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x4C
 	.byte	0x88
 	.byte	0xB4
+gUnknown_08F7597C:
 	.byte	0xDF
 	.byte	0x37
 	.byte	0x7F
@@ -12601,6 +11355,7 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x43
 	.byte	0x88
 	.byte	0xB4
+gUnknown_08F75993:
 	.byte	0xDF
 	.byte	0x37
 	.byte	0x7F
@@ -12643,20 +11398,12 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x48
 	.byte	0x88
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75965
 	.byte	0xB3
-	.byte	0x7C
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7597C
 	.byte	0xB3
-	.byte	0x93
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75993
+gUnknown_08F759CB:
 	.byte	0xD7
 	.byte	0x33
 	.byte	0x7F
@@ -12681,10 +11428,8 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x88
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F759CB
+gUnknown_08F759E7:
 	.byte	0xD5
 	.byte	0x32
 	.byte	0x7F
@@ -12716,20 +11461,11 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x88
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE7
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F759E7
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F759CB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F759CB
 	.byte	0xD5
 	.byte	0x32
 	.byte	0x7F
@@ -12773,10 +11509,7 @@ gUnknown_08F75A48_3:	@ 0x08F75941
 	.byte	0x3E
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x43
-	.byte	0x59
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75943
 	.byte	0x8C
 	.byte	0xB1
 	.byte	0x00
@@ -12804,6 +11537,7 @@ gUnknown_08F75A48:	@ 0x08F75A48
 gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75A5E:
 	.byte	0xBB
 	.byte	0x2D
 	.byte	0xBD
@@ -12832,6 +11566,7 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0x8C
 	.byte	0x35
 	.byte	0x8C
+gUnknown_08F75A7A:
 	.byte	0xE1
 	.byte	0x34
 	.byte	0x34
@@ -12846,15 +11581,9 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75A7A
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75A7A
 	.byte	0xBD
 	.byte	0x2D
 	.byte	0xBE
@@ -12871,6 +11600,7 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0xFE
 	.byte	0x38
 	.byte	0xB0
+gUnknown_08F75AA1:
 	.byte	0xA0
 	.byte	0x82
 	.byte	0xBD
@@ -12884,6 +11614,7 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0x9F
 	.byte	0x82
 	.byte	0xB4
+gUnknown_08F75AAE:
 	.byte	0xD8
 	.byte	0x59
 	.byte	0x3C
@@ -12926,20 +11657,11 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0x38
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xA1
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75AA1
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75AAE
 	.byte	0xB3
-	.byte	0xAE
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75AAE
 	.byte	0xBD
 	.byte	0x2D
 	.byte	0xBE
@@ -12976,10 +11698,7 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 	.byte	0x39
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x5E
-	.byte	0x5A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75A5E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -12988,6 +11707,7 @@ gUnknown_08F75D84_1:	@ 0x08F75A5C
 gUnknown_08F75D84_2:	@ 0x08F75B0F
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75B11:
 	.byte	0xBD
 	.byte	0x2B
 	.byte	0xBE
@@ -13014,6 +11734,7 @@ gUnknown_08F75D84_2:	@ 0x08F75B0F
 	.byte	0x8C
 	.byte	0x3C
 	.byte	0x8C
+gUnknown_08F75B2B:
 	.byte	0xDB
 	.byte	0x3B
 	.byte	0x58
@@ -13028,85 +11749,37 @@ gUnknown_08F75D84_2:	@ 0x08F75B0F
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B2B
 	.byte	0xBD
 	.byte	0x1E
 	.byte	0xBE
@@ -13136,10 +11809,7 @@ gUnknown_08F75D84_2:	@ 0x08F75B0F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x11
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75B11
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -13148,6 +11818,7 @@ gUnknown_08F75D84_2:	@ 0x08F75B0F
 gUnknown_08F75D84_3:	@ 0x08F75BAA
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75BAC:
 	.byte	0xBD
 	.byte	0x09
 	.byte	0xBE
@@ -13174,6 +11845,7 @@ gUnknown_08F75D84_3:	@ 0x08F75BAA
 	.byte	0x8C
 	.byte	0x35
 	.byte	0x8C
+gUnknown_08F75BC6:
 	.byte	0xE2
 	.byte	0x34
 	.byte	0x60
@@ -13188,85 +11860,37 @@ gUnknown_08F75D84_3:	@ 0x08F75BAA
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BC6
 	.byte	0xE2
 	.byte	0x37
 	.byte	0x60
@@ -13311,10 +11935,7 @@ gUnknown_08F75D84_3:	@ 0x08F75BAA
 	.byte	0xD6
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0xAC
-	.byte	0x5B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75BAC
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -13323,6 +11944,7 @@ gUnknown_08F75D84_3:	@ 0x08F75BAA
 gUnknown_08F75D84_4:	@ 0x08F75C54
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75C56:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -13341,6 +11963,7 @@ gUnknown_08F75D84_4:	@ 0x08F75C54
 	.byte	0x54
 	.byte	0x7F
 	.byte	0x98
+gUnknown_08F75C68:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -13351,95 +11974,41 @@ gUnknown_08F75D84_4:	@ 0x08F75C54
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C68
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x48
@@ -13468,10 +12037,7 @@ gUnknown_08F75D84_4:	@ 0x08F75C54
 	.byte	0xD1
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0x56
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75C56
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -13480,6 +12046,7 @@ gUnknown_08F75D84_4:	@ 0x08F75C54
 gUnknown_08F75D84_5:	@ 0x08F75CEC
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75CEE:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -13498,6 +12065,7 @@ gUnknown_08F75D84_5:	@ 0x08F75CEC
 	.byte	0x98
 	.byte	0xD3
 	.byte	0xA0
+gUnknown_08F75D00:
 	.byte	0xD3
 	.byte	0x4F
 	.byte	0x7F
@@ -13508,95 +12076,41 @@ gUnknown_08F75D84_5:	@ 0x08F75CEC
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xB3
-	.byte	0x00
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75D00
 	.byte	0xD3
 	.byte	0x4F
 	.byte	0x7F
@@ -13624,10 +12138,7 @@ gUnknown_08F75D84_5:	@ 0x08F75CEC
 	.byte	0xD3
 	.byte	0x8C
 	.byte	0xB2
-	.byte	0xEE
-	.byte	0x5C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75CEE
 	.byte	0xB1
 	.byte	0x00
 
@@ -13654,6 +12165,7 @@ gUnknown_08F75D84:	@ 0x08F75D84
 gUnknown_08F76020_1:	@ 0x08F75DA0
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75DA2:
 	.byte	0xBB
 	.byte	0x39
 	.byte	0xBD
@@ -13672,6 +12184,7 @@ gUnknown_08F76020_1:	@ 0x08F75DA0
 	.byte	0x40
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F75DB4:
 	.byte	0xD3
 	.byte	0x28
 	.byte	0x7F
@@ -13688,10 +12201,7 @@ gUnknown_08F76020_1:	@ 0x08F75DA0
 	.byte	0x2A
 	.byte	0xAE
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75DB4
 	.byte	0xD3
 	.byte	0x2E
 	.byte	0x7F
@@ -13774,10 +12284,7 @@ gUnknown_08F76020_1:	@ 0x08F75DA0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xA2
-	.byte	0x5D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75DA2
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -13786,6 +12293,7 @@ gUnknown_08F76020_1:	@ 0x08F75DA0
 gUnknown_08F76020_2:	@ 0x08F75E1F
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75E21:
 	.byte	0xBD
 	.byte	0x24
 	.byte	0xBE
@@ -13802,6 +12310,7 @@ gUnknown_08F76020_2:	@ 0x08F75E1F
 	.byte	0x40
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F75E31:
 	.byte	0x93
 	.byte	0xD3
 	.byte	0x28
@@ -13822,10 +12331,7 @@ gUnknown_08F76020_2:	@ 0x08F75E1F
 	.byte	0xA7
 	.byte	0x83
 	.byte	0xB3
-	.byte	0x31
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75E31
 	.byte	0x93
 	.byte	0xD3
 	.byte	0x2E
@@ -13922,10 +12428,7 @@ gUnknown_08F76020_2:	@ 0x08F75E1F
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x21
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75E21
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -13934,6 +12437,7 @@ gUnknown_08F76020_2:	@ 0x08F75E1F
 gUnknown_08F76020_3:	@ 0x08F75EAE
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75EB0:
 	.byte	0xBD
 	.byte	0x0F
 	.byte	0xBE
@@ -13966,6 +12470,7 @@ gUnknown_08F76020_3:	@ 0x08F75EAE
 	.byte	0x8C
 	.byte	0xD3
 	.byte	0x8C
+gUnknown_08F75ED0:
 	.byte	0xD3
 	.byte	0x34
 	.byte	0x7F
@@ -13986,65 +12491,29 @@ gUnknown_08F76020_3:	@ 0x08F75EAE
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xFF
 	.byte	0x3C
 	.byte	0x5C
@@ -14073,25 +12542,13 @@ gUnknown_08F76020_3:	@ 0x08F75EAE
 	.byte	0xD3
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75ED0
 	.byte	0xB2
-	.byte	0xB0
-	.byte	0x5E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75EB0
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -14100,6 +12557,7 @@ gUnknown_08F76020_3:	@ 0x08F75EAE
 gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F75F51:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -14120,6 +12578,7 @@ gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0x98
 	.byte	0x3C
 	.byte	0x98
+gUnknown_08F75F65:
 	.byte	0xE7
 	.byte	0x48
 	.byte	0x48
@@ -14131,6 +12590,7 @@ gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0x3C
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F75F70:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x50
@@ -14151,25 +12611,13 @@ gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F65
 	.byte	0xFF
 	.byte	0x35
 	.byte	0x3C
@@ -14210,20 +12658,11 @@ gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0xD4
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xD4
 	.byte	0x41
 	.byte	0x44
@@ -14287,25 +12726,13 @@ gUnknown_08F76020_4:	@ 0x08F75F4F
 	.byte	0xD1
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB3
-	.byte	0x70
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F70
 	.byte	0xB2
-	.byte	0x51
-	.byte	0x5F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F75F51
 	.byte	0xB1
 
 	.align 2
@@ -14352,6 +12779,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F76050:
 	.byte	0xD9
 	.byte	0x5B
 	.byte	0x3C
@@ -14372,15 +12800,9 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x50
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76050
 	.byte	0xB3
-	.byte	0x50
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76050
 	.byte	0xD9
 	.byte	0x5B
 	.byte	0x3C
@@ -14407,6 +12829,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xA0
 	.byte	0x5B
 	.byte	0xA0
+gUnknown_08F76087:
 	.byte	0xEF
 	.byte	0x5A
 	.byte	0x3C
@@ -14421,6 +12844,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xCE
 	.byte	0xAA
 	.byte	0x81
+gUnknown_08F76095:
 	.byte	0xEF
 	.byte	0x4F
 	.byte	0x3C
@@ -14429,10 +12853,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x87
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76087
 	.byte	0xCF
 	.byte	0x59
 	.byte	0x3C
@@ -14441,6 +12862,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xCE
 	.byte	0xAA
 	.byte	0x81
+gUnknown_08F760A9:
 	.byte	0xEF
 	.byte	0x4C
 	.byte	0x3C
@@ -14448,6 +12870,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0x52
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F760B0:
 	.byte	0xEF
 	.byte	0x51
 	.byte	0x3C
@@ -14462,6 +12885,7 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0xCE
 	.byte	0xAA
 	.byte	0x81
+gUnknown_08F760BE:
 	.byte	0xB0
 	.byte	0x81
 	.byte	0xC4
@@ -14558,50 +12982,32 @@ gUnknown_08F76470_1:	@ 0x08F76038
 	.byte	0x5B
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x87
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76087
 	.byte	0xFF
 	.byte	0x59
 	.byte	0x3C
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x95
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76095
 	.byte	0xB3
-	.byte	0x87
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76087
 	.byte	0xFF
 	.byte	0x59
 	.byte	0x3C
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F760A9
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F760B0
 	.byte	0xFF
 	.byte	0x4A
 	.byte	0x3C
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xBE
-	.byte	0x60
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F760BE
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -14634,6 +13040,7 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F76165:
 	.byte	0x8F
 	.byte	0xEF
 	.byte	0x4F
@@ -14643,6 +13050,7 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0x9B
 	.byte	0x81
 	.byte	0xB4
+gUnknown_08F7616E:
 	.byte	0x8F
 	.byte	0xEF
 	.byte	0x5A
@@ -14652,6 +13060,7 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0x9B
 	.byte	0x81
 	.byte	0xB4
+gUnknown_08F76177:
 	.byte	0x8F
 	.byte	0xCF
 	.byte	0x59
@@ -14663,20 +13072,11 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0xCE
 	.byte	0xA5
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76165
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7616E
 	.byte	0xB3
-	.byte	0x77
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76177
 	.byte	0x9B
 	.byte	0xCE
 	.byte	0x59
@@ -14703,6 +13103,7 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0x9B
 	.byte	0xCE
 	.byte	0xA5
+gUnknown_08F761AA:
 	.byte	0xB0
 	.byte	0x81
 	.byte	0xC4
@@ -14813,10 +13214,8 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0x9B
 	.byte	0x81
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7616E
+gUnknown_08F7621C:
 	.byte	0x8F
 	.byte	0xFF
 	.byte	0x59
@@ -14826,20 +13225,11 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0xB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76165
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7616E
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7621C
 	.byte	0xB0
 	.byte	0x8F
 	.byte	0xEF
@@ -14862,10 +13252,7 @@ gUnknown_08F76470_2:	@ 0x08F7614B
 	.byte	0x81
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xAA
-	.byte	0x61
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F761AA
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -14897,6 +13284,7 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0xFF
 	.byte	0x37
 	.byte	0xB0
+gUnknown_08F76267:
 	.byte	0xEF
 	.byte	0x33
 	.byte	0x5C
@@ -14930,10 +13318,7 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x37
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x67
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76267
 	.byte	0xFB
 	.byte	0x32
 	.byte	0x5C
@@ -14949,6 +13334,7 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0xB0
+gUnknown_08F7629B:
 	.byte	0xEF
 	.byte	0x37
 	.byte	0x34
@@ -14960,23 +13346,18 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x3F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFB
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
+gUnknown_08F762B7:
 	.byte	0xEF
 	.byte	0x3C
 	.byte	0x34
@@ -14984,6 +13365,7 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x42
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F762BE:
 	.byte	0xEF
 	.byte	0x41
 	.byte	0x34
@@ -14995,29 +13377,21 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x3A
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F762C9:
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
@@ -15040,10 +13414,7 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x4D
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
@@ -15057,61 +13428,40 @@ gUnknown_08F76470_3:	@ 0x08F7624E
 	.byte	0x3D
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x9B
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7629B
 	.byte	0xFF
 	.byte	0x3F
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xB7
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F762B7
 	.byte	0xB3
-	.byte	0xBE
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F762BE
 	.byte	0xFF
 	.byte	0x3A
 	.byte	0x34
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xC9
-	.byte	0x62
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F762C9
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -15137,6 +13487,7 @@ gUnknown_08F76470_4:	@ 0x08F7633F
 	.byte	0x57
 	.byte	0x34
 	.byte	0xA0
+gUnknown_08F76352:
 	.byte	0xD1
 	.byte	0x57
 	.byte	0x34
@@ -15145,25 +13496,13 @@ gUnknown_08F76470_4:	@ 0x08F7633F
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76352
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76352
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76352
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76352
 	.byte	0xD1
 	.byte	0x57
 	.byte	0x34
@@ -15209,6 +13548,7 @@ gUnknown_08F76470_4:	@ 0x08F7633F
 	.byte	0x86
 	.byte	0xD3
 	.byte	0x8C
+gUnknown_08F7639A:
 	.byte	0xD1
 	.byte	0x57
 	.byte	0x34
@@ -15224,6 +13564,7 @@ gUnknown_08F76470_4:	@ 0x08F7633F
 	.byte	0xD1
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F763A9:
 	.byte	0xA8
 	.byte	0xD1
 	.byte	0x57
@@ -15235,190 +13576,80 @@ gUnknown_08F76470_4:	@ 0x08F7633F
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
+gUnknown_08F763E5:
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB3
-	.byte	0x9A
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7639A
 	.byte	0xB3
-	.byte	0xA9
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763A9
 	.byte	0xB2
-	.byte	0xE5
-	.byte	0x63
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F763E5
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -15446,6 +13677,7 @@ gUnknown_08F76470:	@ 0x08F76470
 gUnknown_08F767F0_1:	@ 0x08F76488
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7648A:
 	.byte	0xBB
 	.byte	0x26
 	.byte	0xBD
@@ -15506,6 +13738,7 @@ gUnknown_08F767F0_1:	@ 0x08F76488
 	.byte	0x4C
 	.byte	0x1C
 	.byte	0x92
+gUnknown_08F764C6:
 	.byte	0xD0
 	.byte	0x4C
 	.byte	0x7F
@@ -15596,10 +13829,7 @@ gUnknown_08F767F0_1:	@ 0x08F76488
 	.byte	0x1C
 	.byte	0x92
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x64
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F764C6
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
@@ -15701,10 +13931,7 @@ gUnknown_08F767F0_1:	@ 0x08F76488
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x8A
-	.byte	0x64
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7648A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -15713,6 +13940,7 @@ gUnknown_08F767F0_1:	@ 0x08F76488
 gUnknown_08F767F0_2:	@ 0x08F7658E
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76590:
 	.byte	0xBD
 	.byte	0x21
 	.byte	0xBE
@@ -15761,6 +13989,7 @@ gUnknown_08F767F0_2:	@ 0x08F7658E
 	.byte	0x86
 	.byte	0x3B
 	.byte	0x86
+gUnknown_08F765C0:
 	.byte	0xD0
 	.byte	0x39
 	.byte	0x48
@@ -15829,10 +14058,8 @@ gUnknown_08F767F0_2:	@ 0x08F7658E
 	.byte	0x3B
 	.byte	0x86
 	.byte	0xB3
-	.byte	0xC0
-	.byte	0x65
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F765C0
+gUnknown_08F76608:
 	.byte	0xD1
 	.byte	0x39
 	.byte	0x50
@@ -15861,49 +14088,25 @@ gUnknown_08F767F0_2:	@ 0x08F7658E
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB3
-	.byte	0x08
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76608
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x90
-	.byte	0x65
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76590
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -15912,6 +14115,7 @@ gUnknown_08F767F0_2:	@ 0x08F7658E
 gUnknown_08F767F0_3:	@ 0x08F76650
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76652:
 	.byte	0xBD
 	.byte	0x0F
 	.byte	0xBE
@@ -15932,6 +14136,7 @@ gUnknown_08F767F0_3:	@ 0x08F76650
 	.byte	0xA0
 	.byte	0x44
 	.byte	0xA0
+gUnknown_08F76666:
 	.byte	0xE7
 	.byte	0x3D
 	.byte	0x60
@@ -15949,10 +14154,8 @@ gUnknown_08F767F0_3:	@ 0x08F76650
 	.byte	0x44
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x66
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76666
+gUnknown_08F7667B:
 	.byte	0xDB
 	.byte	0x39
 	.byte	0x50
@@ -15972,65 +14175,29 @@ gUnknown_08F767F0_3:	@ 0x08F76650
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7667B
 	.byte	0xB2
-	.byte	0x52
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76652
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -16039,6 +14206,7 @@ gUnknown_08F767F0_3:	@ 0x08F76650
 gUnknown_08F767F0_4:	@ 0x08F766CA
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F766CC:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -16076,6 +14244,7 @@ gUnknown_08F767F0_4:	@ 0x08F766CA
 	.byte	0x86
 	.byte	0xD0
 	.byte	0x86
+gUnknown_08F766F1:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x74
@@ -16105,10 +14274,7 @@ gUnknown_08F767F0_4:	@ 0x08F766CA
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xF1
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F766F1
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x74
@@ -16127,6 +14293,7 @@ gUnknown_08F767F0_4:	@ 0x08F766CA
 	.byte	0xD0
 	.byte	0xA2
 	.byte	0x81
+gUnknown_08F76724:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x54
@@ -16148,65 +14315,29 @@ gUnknown_08F767F0_4:	@ 0x08F766CA
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76724
 	.byte	0xB2
-	.byte	0xCC
-	.byte	0x66
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F766CC
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -16215,6 +14346,7 @@ gUnknown_08F767F0_4:	@ 0x08F766CA
 gUnknown_08F767F0_5:	@ 0x08F76775
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76777:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -16234,6 +14366,7 @@ gUnknown_08F767F0_5:	@ 0x08F76775
 	.byte	0x92
 	.byte	0x3C
 	.byte	0x98
+gUnknown_08F7678A:
 	.byte	0x98
 	.byte	0xD3
 	.byte	0x3C
@@ -16245,10 +14378,7 @@ gUnknown_08F767F0_5:	@ 0x08F76775
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7678A
 	.byte	0x98
 	.byte	0xD3
 	.byte	0x3C
@@ -16264,6 +14394,7 @@ gUnknown_08F767F0_5:	@ 0x08F76775
 	.byte	0x86
 	.byte	0xD3
 	.byte	0x8C
+gUnknown_08F767A8:
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
@@ -16276,65 +14407,29 @@ gUnknown_08F767F0_5:	@ 0x08F76775
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB3
-	.byte	0xA8
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F767A8
 	.byte	0xB2
-	.byte	0x77
-	.byte	0x67
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76777
 	.byte	0xB1
 
 	.align 2
@@ -16360,6 +14455,7 @@ gUnknown_08F767F0:	@ 0x08F767F0
 gUnknown_08F76BA4_1:	@ 0x08F7680C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7680E:
 	.byte	0xBB
 	.byte	0x4B
 	.byte	0xBD
@@ -16631,10 +14727,7 @@ gUnknown_08F76BA4_1:	@ 0x08F7680C
 	.byte	0x48
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x0E
-	.byte	0x68
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7680E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -16643,6 +14736,7 @@ gUnknown_08F76BA4_1:	@ 0x08F7680C
 gUnknown_08F76BA4_2:	@ 0x08F76922
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76924:
 	.byte	0xBD
 	.byte	0x30
 	.byte	0xBE
@@ -16912,10 +15006,7 @@ gUnknown_08F76BA4_2:	@ 0x08F76922
 	.byte	0x48
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x24
-	.byte	0x69
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76924
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -16924,6 +15015,7 @@ gUnknown_08F76BA4_2:	@ 0x08F76922
 gUnknown_08F76BA4_3:	@ 0x08F76A36
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76A38:
 	.byte	0xBD
 	.byte	0x0F
 	.byte	0xBE
@@ -16952,6 +15044,7 @@ gUnknown_08F76BA4_3:	@ 0x08F76A36
 	.byte	0x98
 	.byte	0x3B
 	.byte	0x98
+gUnknown_08F76A54:
 	.byte	0xDE
 	.byte	0x3C
 	.byte	0x60
@@ -16967,6 +15060,7 @@ gUnknown_08F76BA4_3:	@ 0x08F76A36
 	.byte	0x98
 	.byte	0x39
 	.byte	0x98
+gUnknown_08F76A63:
 	.byte	0xDE
 	.byte	0x37
 	.byte	0x60
@@ -16975,35 +15069,20 @@ gUnknown_08F76BA4_3:	@ 0x08F76A36
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x63
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A63
 	.byte	0xDE
 	.byte	0x3C
 	.byte	0x60
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x63
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A63
 	.byte	0xB3
-	.byte	0x63
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A63
 	.byte	0xB3
-	.byte	0x54
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A54
 	.byte	0xB3
-	.byte	0x54
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A54
 	.byte	0xDE
 	.byte	0x41
 	.byte	0x60
@@ -17037,10 +15116,7 @@ gUnknown_08F76BA4_3:	@ 0x08F76A36
 	.byte	0x3C
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x38
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76A38
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -17049,6 +15125,7 @@ gUnknown_08F76BA4_3:	@ 0x08F76A36
 gUnknown_08F76BA4_4:	@ 0x08F76AAE
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76AB0:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -17076,6 +15153,7 @@ gUnknown_08F76BA4_4:	@ 0x08F76AAE
 	.byte	0x54
 	.byte	0x70
 	.byte	0x86
+gUnknown_08F76ACB:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -17095,50 +15173,27 @@ gUnknown_08F76BA4_4:	@ 0x08F76AAE
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
 	.byte	0xB3
-	.byte	0xCB
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ACB
+gUnknown_08F76B0A:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -17162,15 +15217,9 @@ gUnknown_08F76BA4_4:	@ 0x08F76AAE
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B0A
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B0A
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -17180,10 +15229,7 @@ gUnknown_08F76BA4_4:	@ 0x08F76AAE
 	.byte	0xD0
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0xB0
-	.byte	0x6A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76AB0
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -17192,6 +15238,7 @@ gUnknown_08F76BA4_4:	@ 0x08F76AAE
 gUnknown_08F76BA4_5:	@ 0x08F76B38
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F76B3A:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -17212,6 +15259,7 @@ gUnknown_08F76BA4_5:	@ 0x08F76B38
 	.byte	0x98
 	.byte	0x59
 	.byte	0x98
+gUnknown_08F76B4E:
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
@@ -17224,65 +15272,32 @@ gUnknown_08F76BA4_5:	@ 0x08F76B38
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B4E
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x7F
@@ -17292,10 +15307,7 @@ gUnknown_08F76BA4_5:	@ 0x08F76B38
 	.byte	0xD3
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x3A
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76B3A
 	.byte	0xB1
 	.byte	0x00
 
@@ -17372,6 +15384,7 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0x86
 	.byte	0xD1
 	.byte	0x86
+gUnknown_08F76BF4:
 	.byte	0xDC
 	.byte	0x3F
 	.byte	0x4C
@@ -17388,6 +15401,7 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0x3A
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F76C04:
 	.byte	0xD1
 	.byte	0x3C
 	.byte	0x34
@@ -17423,6 +15437,7 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0xD1
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F76C27:
 	.byte	0xDC
 	.byte	0x3F
 	.byte	0x4C
@@ -17434,25 +15449,14 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0xA4
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x04
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C04
 	.byte	0xB3
-	.byte	0xF4
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76BF4
 	.byte	0xB3
-	.byte	0x04
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C04
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C27
+gUnknown_08F76C45:
 	.byte	0xBD
 	.byte	0x33
 	.byte	0xEE
@@ -17462,6 +15466,7 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0x44
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F76C4E:
 	.byte	0xEE
 	.byte	0x46
 	.byte	0x4C
@@ -17470,15 +15475,10 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C45
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C4E
+gUnknown_08F76C5F:
 	.byte	0xBD
 	.byte	0x32
 	.byte	0xD1
@@ -17517,85 +15517,37 @@ gUnknown_08F77158_1:	@ 0x08F76BC0
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xF4
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76BF4
 	.byte	0xB3
-	.byte	0x04
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C04
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C27
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C45
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C4E
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C45
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C4E
 	.byte	0xB3
-	.byte	0x5F
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C5F
 	.byte	0xB3
-	.byte	0xF4
-	.byte	0x6B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76BF4
 	.byte	0xB3
-	.byte	0x04
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C04
 	.byte	0xB3
-	.byte	0x27
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C27
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C45
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C4E
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C45
 	.byte	0xB3
-	.byte	0x4E
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C4E
 	.byte	0xB2
-	.byte	0x5F
-	.byte	0x6C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76C5F
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -17652,6 +15604,7 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0x86
 	.byte	0xD1
 	.byte	0x86
+gUnknown_08F76D07:
 	.byte	0xDC
 	.byte	0x2C
 	.byte	0x64
@@ -17668,6 +15621,7 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0x27
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F76D17:
 	.byte	0xD1
 	.byte	0x29
 	.byte	0x74
@@ -17703,6 +15657,7 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0xD1
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F76D3A:
 	.byte	0xDC
 	.byte	0x2C
 	.byte	0x64
@@ -17714,25 +15669,14 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0xA4
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x17
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D17
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D07
 	.byte	0xB3
-	.byte	0x17
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D17
 	.byte	0xB3
-	.byte	0x3A
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D3A
+gUnknown_08F76D58:
 	.byte	0xBD
 	.byte	0x34
 	.byte	0xEE
@@ -17742,6 +15686,7 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0x3D
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F76D61:
 	.byte	0xEE
 	.byte	0x3F
 	.byte	0x50
@@ -17749,6 +15694,7 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0x3D
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F76D68:
 	.byte	0xEE
 	.byte	0x3C
 	.byte	0x50
@@ -17757,10 +15703,8 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x61
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D61
+gUnknown_08F76D74:
 	.byte	0xBD
 	.byte	0x30
 	.byte	0xD1
@@ -17799,85 +15743,37 @@ gUnknown_08F77158_2:	@ 0x08F76CD5
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D07
 	.byte	0xB3
-	.byte	0x17
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D17
 	.byte	0xB3
-	.byte	0x3A
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D3A
 	.byte	0xB3
-	.byte	0x58
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D58
 	.byte	0xB3
-	.byte	0x61
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D61
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D68
 	.byte	0xB3
-	.byte	0x61
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D61
 	.byte	0xB3
-	.byte	0x74
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D74
 	.byte	0xB3
-	.byte	0x07
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D07
 	.byte	0xB3
-	.byte	0x17
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D17
 	.byte	0xB3
-	.byte	0x3A
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D3A
 	.byte	0xB3
-	.byte	0x58
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D58
 	.byte	0xB3
-	.byte	0x61
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D61
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D68
 	.byte	0xB3
-	.byte	0x61
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D61
 	.byte	0xB2
-	.byte	0x74
-	.byte	0x6D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76D74
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -17908,6 +15804,7 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0xDB
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F76E02:
 	.byte	0xE3
 	.byte	0x35
 	.byte	0x4C
@@ -17922,15 +15819,10 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
+gUnknown_08F76E19:
 	.byte	0xDC
 	.byte	0x38
 	.byte	0x64
@@ -17947,6 +15839,7 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xCE
+gUnknown_08F76E29:
 	.byte	0xD6
 	.byte	0x30
 	.byte	0x7F
@@ -17981,30 +15874,16 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E29
+gUnknown_08F76E4F:
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x19
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E19
 	.byte	0xCF
 	.byte	0x3C
 	.byte	0x3C
@@ -18012,35 +15891,17 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0xB0
 	.byte	0xCE
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E29
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E29
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x02
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E02
 	.byte	0xB3
-	.byte	0x19
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E19
 	.byte	0xCF
 	.byte	0x3C
 	.byte	0x3C
@@ -18048,20 +15909,11 @@ gUnknown_08F77158_3:	@ 0x08F76DEA
 	.byte	0xB0
 	.byte	0xCE
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E29
 	.byte	0xB3
-	.byte	0x29
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E29
 	.byte	0xB2
-	.byte	0x4F
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76E4F
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -18091,6 +15943,7 @@ gUnknown_08F77158_4:	@ 0x08F76E9D
 	.byte	0xD2
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F76EB4:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -18121,10 +15974,8 @@ gUnknown_08F77158_4:	@ 0x08F76E9D
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
+gUnknown_08F76ED6:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -18162,25 +16013,14 @@ gUnknown_08F77158_4:	@ 0x08F76E9D
 	.byte	0xB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
+gUnknown_08F76F0E:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x54
@@ -18209,77 +16049,35 @@ gUnknown_08F77158_4:	@ 0x08F76E9D
 	.byte	0xD0
 	.byte	0x86
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xD6
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ED6
 	.byte	0xB3
-	.byte	0xD6
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ED6
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76EB4
 	.byte	0xB3
-	.byte	0xD6
-	.byte	0x6E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76ED6
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x0E
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76F0E
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -18380,6 +16178,7 @@ gUnknown_08F77158_5:	@ 0x08F76F72
 	.byte	0x86
 	.byte	0xD3
 	.byte	0x86
+gUnknown_08F76FD0:
 	.byte	0xD3
 	.byte	0x33
 	.byte	0x7F
@@ -18413,10 +16212,7 @@ gUnknown_08F77158_5:	@ 0x08F76F72
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xD3
 	.byte	0x3C
 	.byte	0x64
@@ -18523,80 +16319,36 @@ gUnknown_08F77158_5:	@ 0x08F76F72
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
+gUnknown_08F77072:
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xD1
 	.byte	0x3C
 	.byte	0x64
@@ -18652,15 +16404,9 @@ gUnknown_08F77158_5:	@ 0x08F76F72
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x6F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F76FD0
 	.byte	0xD3
 	.byte	0x33
 	.byte	0x7F
@@ -18765,10 +16511,7 @@ gUnknown_08F77158_5:	@ 0x08F76F72
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB2
-	.byte	0x72
-	.byte	0x70
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77072
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -18820,6 +16563,7 @@ gUnknown_08F77370_1:	@ 0x08F77174
 	.byte	0xF3
 	.byte	0xA4
 	.byte	0x81
+gUnknown_08F7718E:
 	.byte	0xB0
 	.byte	0xBD
 	.byte	0x28
@@ -18834,6 +16578,7 @@ gUnknown_08F77370_1:	@ 0x08F77174
 	.byte	0xEE
 	.byte	0x45
 	.byte	0xAA
+gUnknown_08F7719C:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -18845,6 +16590,7 @@ gUnknown_08F77370_1:	@ 0x08F77174
 	.byte	0x3A
 	.byte	0xAA
 	.byte	0xB4
+gUnknown_08F771A7:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -18858,30 +16604,15 @@ gUnknown_08F77370_1:	@ 0x08F77174
 	.byte	0xAA
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9C
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7719C
 	.byte	0xB3
-	.byte	0xA7
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F771A7
 	.byte	0xB3
-	.byte	0x9C
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7719C
 	.byte	0xB3
-	.byte	0xA7
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F771A7
 	.byte	0xB3
-	.byte	0x9C
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7719C
 	.byte	0xB0
 	.byte	0x82
 	.byte	0xBD
@@ -18920,10 +16651,7 @@ gUnknown_08F77370_1:	@ 0x08F77174
 	.byte	0x5D
 	.byte	0x84
 	.byte	0xB2
-	.byte	0x8E
-	.byte	0x71
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7718E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -18954,6 +16682,7 @@ gUnknown_08F77370_2:	@ 0x08F771F7
 	.byte	0xEF
 	.byte	0x49
 	.byte	0xA0
+gUnknown_08F7720F:
 	.byte	0xBD
 	.byte	0x36
 	.byte	0xBE
@@ -19002,6 +16731,7 @@ gUnknown_08F77370_2:	@ 0x08F771F7
 	.byte	0x86
 	.byte	0x5F
 	.byte	0x86
+gUnknown_08F7723F:
 	.byte	0xD3
 	.byte	0x59
 	.byte	0x48
@@ -19038,45 +16768,21 @@ gUnknown_08F77370_2:	@ 0x08F771F7
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7723F
 	.byte	0xD5
 	.byte	0x59
 	.byte	0x48
@@ -19112,10 +16818,7 @@ gUnknown_08F77370_2:	@ 0x08F771F7
 	.byte	0x5F
 	.byte	0x86
 	.byte	0xB2
-	.byte	0x0F
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7720F
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -19145,6 +16848,7 @@ gUnknown_08F77370_3:	@ 0x08F772B2
 	.byte	0xF3
 	.byte	0x45
 	.byte	0xA4
+gUnknown_08F772C9:
 	.byte	0xBD
 	.byte	0x59
 	.byte	0xBE
@@ -19169,6 +16873,7 @@ gUnknown_08F77370_3:	@ 0x08F772B2
 	.byte	0x98
 	.byte	0xE1
 	.byte	0x98
+gUnknown_08F772E1:
 	.byte	0xE1
 	.byte	0x30
 	.byte	0x7F
@@ -19181,20 +16886,12 @@ gUnknown_08F77370_3:	@ 0x08F772B2
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772E1
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772E1
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772E1
+gUnknown_08F772FB:
 	.byte	0xE1
 	.byte	0x35
 	.byte	0x7F
@@ -19207,27 +16904,15 @@ gUnknown_08F77370_3:	@ 0x08F772B2
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xFB
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772FB
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772E1
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772E1
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xC9
-	.byte	0x72
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F772C9
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -19256,6 +16941,7 @@ gUnknown_08F77370_4:	@ 0x08F7731D
 	.byte	0x98
 	.byte	0xD0
 	.byte	0x98
+gUnknown_08F77333:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -19268,52 +16954,25 @@ gUnknown_08F77370_4:	@ 0x08F7731D
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB3
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x33
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77333
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -19340,6 +16999,7 @@ gUnknown_08F77370:	@ 0x08F77370
 gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7738A:
 	.byte	0xBB
 	.byte	0x32
 	.byte	0xBD
@@ -19363,6 +17023,7 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0xE7
 	.byte	0x49
 	.byte	0x98
+gUnknown_08F773A1:
 	.byte	0xEB
 	.byte	0x48
 	.byte	0x7F
@@ -19374,6 +17035,7 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0x44
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F773AC:
 	.byte	0xEF
 	.byte	0x48
 	.byte	0x7F
@@ -19386,24 +17048,16 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0x48
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0xAC
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773AC
 	.byte	0xB3
-	.byte	0xA1
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773A1
 	.byte	0xB3
-	.byte	0xAC
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773AC
 	.byte	0xF6
 	.byte	0x48
 	.byte	0x7F
 	.byte	0xA8
+gUnknown_08F773CA:
 	.byte	0xEF
 	.byte	0x4B
 	.byte	0x7F
@@ -19412,6 +17066,7 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0x4C
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F773D2:
 	.byte	0xEB
 	.byte	0x4B
 	.byte	0x7F
@@ -19424,24 +17079,15 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773CA
 	.byte	0xF6
 	.byte	0x4B
 	.byte	0x7F
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773CA
 	.byte	0xB3
-	.byte	0xD2
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F773D2
 	.byte	0xE7
 	.byte	0x46
 	.byte	0x7F
@@ -19454,10 +17100,7 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 	.byte	0x4B
 	.byte	0xA8
 	.byte	0xB2
-	.byte	0x8A
-	.byte	0x73
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7738A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -19466,6 +17109,7 @@ gUnknown_08F7758C_1:	@ 0x08F77388
 gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F77403:
 	.byte	0xBD
 	.byte	0x21
 	.byte	0xBE
@@ -19484,6 +17128,7 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0x50
 	.byte	0x38
 	.byte	0xA8
+gUnknown_08F77415:
 	.byte	0xD4
 	.byte	0x4D
 	.byte	0x38
@@ -19498,16 +17143,14 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0x50
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0x15
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77415
 	.byte	0xD4
 	.byte	0x50
 	.byte	0x38
 	.byte	0xA8
 	.byte	0x4D
 	.byte	0xA8
+gUnknown_08F7742D:
 	.byte	0xD4
 	.byte	0x4E
 	.byte	0x70
@@ -19545,6 +17188,7 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0x28
 	.byte	0x8E
 	.byte	0xB4
+gUnknown_08F77452:
 	.byte	0xD4
 	.byte	0x47
 	.byte	0x70
@@ -19560,25 +17204,13 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0x82
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x2D
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7742D
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77452
 	.byte	0xB3
-	.byte	0x2D
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7742D
 	.byte	0xB3
-	.byte	0x52
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77452
 	.byte	0xD4
 	.byte	0x3D
 	.byte	0x70
@@ -19629,10 +17261,7 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 	.byte	0xA4
 	.byte	0x82
 	.byte	0xB2
-	.byte	0x03
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77403
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -19641,6 +17270,7 @@ gUnknown_08F7758C_2:	@ 0x08F77401
 gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F774AD:
 	.byte	0xBD
 	.byte	0x58
 	.byte	0xBE
@@ -19663,6 +17293,7 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x98
 	.byte	0x4B
 	.byte	0x98
+gUnknown_08F774C3:
 	.byte	0xE7
 	.byte	0x3D
 	.byte	0x60
@@ -19672,6 +17303,7 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x49
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F774CC:
 	.byte	0xE7
 	.byte	0x44
 	.byte	0x60
@@ -19682,30 +17314,16 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC3
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774C3
 	.byte	0xB3
-	.byte	0xCC
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774CC
 	.byte	0xB3
-	.byte	0xC3
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774C3
 	.byte	0xB3
-	.byte	0xCC
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774CC
 	.byte	0xB3
-	.byte	0xC3
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774C3
+gUnknown_08F774EE:
 	.byte	0xE7
 	.byte	0x47
 	.byte	0x60
@@ -19715,6 +17333,7 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x4E
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F774F7:
 	.byte	0xE7
 	.byte	0x40
 	.byte	0x60
@@ -19725,25 +17344,13 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xEE
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774EE
 	.byte	0xB3
-	.byte	0xF7
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774F7
 	.byte	0xB3
-	.byte	0xEE
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774EE
 	.byte	0xB3
-	.byte	0xF7
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774F7
 	.byte	0xE7
 	.byte	0x46
 	.byte	0x60
@@ -19756,10 +17363,7 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 	.byte	0x43
 	.byte	0xA8
 	.byte	0xB2
-	.byte	0xAD
-	.byte	0x74
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F774AD
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -19768,6 +17372,7 @@ gUnknown_08F7758C_3:	@ 0x08F774AB
 gUnknown_08F7758C_4:	@ 0x08F77525
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F77527:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -19785,6 +17390,7 @@ gUnknown_08F7758C_4:	@ 0x08F77525
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x98
+gUnknown_08F77538:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -19794,80 +17400,35 @@ gUnknown_08F7758C_4:	@ 0x08F77525
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB3
-	.byte	0x38
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77538
 	.byte	0xB2
-	.byte	0x27
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77527
 	.byte	0xB1
 
 	.align 2
@@ -19922,6 +17483,7 @@ gUnknown_08F777AC_1:	@ 0x08F775A4
 	.byte	0x86
 	.byte	0xD4
 	.byte	0x92
+gUnknown_08F775C4:
 	.byte	0xBD
 	.byte	0x18
 	.byte	0xC1
@@ -19970,10 +17532,7 @@ gUnknown_08F777AC_1:	@ 0x08F775A4
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xC4
-	.byte	0x75
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F775C4
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -20013,6 +17572,7 @@ gUnknown_08F777AC_2:	@ 0x08F775F9
 	.byte	0x86
 	.byte	0xD4
 	.byte	0x92
+gUnknown_08F7761A:
 	.byte	0xBD
 	.byte	0x29
 	.byte	0xC1
@@ -20071,10 +17631,7 @@ gUnknown_08F777AC_2:	@ 0x08F775F9
 	.byte	0x83
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x1A
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7761A
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -20123,6 +17680,7 @@ gUnknown_08F777AC_3:	@ 0x08F77659
 	.byte	0x86
 	.byte	0xD4
 	.byte	0x92
+gUnknown_08F77683:
 	.byte	0xD5
 	.byte	0x37
 	.byte	0x7F
@@ -20140,6 +17698,7 @@ gUnknown_08F777AC_3:	@ 0x08F77659
 	.byte	0xD3
 	.byte	0x9E
 	.byte	0xB4
+gUnknown_08F77694:
 	.byte	0xD5
 	.byte	0x37
 	.byte	0x7F
@@ -20167,40 +17726,19 @@ gUnknown_08F777AC_3:	@ 0x08F77659
 	.byte	0x83
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77683
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77694
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77683
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77694
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77683
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77694
 	.byte	0xB2
-	.byte	0x83
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77683
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -20222,6 +17760,7 @@ gUnknown_08F777AC_4:	@ 0x08F776D2
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xA0
+gUnknown_08F776E1:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4F
@@ -20242,6 +17781,7 @@ gUnknown_08F777AC_4:	@ 0x08F776D2
 	.byte	0xD0
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F776F5:
 	.byte	0x8C
 	.byte	0xD0
 	.byte	0x4F
@@ -20264,40 +17804,19 @@ gUnknown_08F777AC_4:	@ 0x08F776D2
 	.byte	0x83
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776E1
 	.byte	0xB3
-	.byte	0xF5
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776F5
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776E1
 	.byte	0xB3
-	.byte	0xF5
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776F5
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776E1
 	.byte	0xB3
-	.byte	0xF5
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776F5
 	.byte	0xB2
-	.byte	0xE1
-	.byte	0x76
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F776E1
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -20359,6 +17878,7 @@ gUnknown_08F777AC_5:	@ 0x08F7772E
 	.byte	0x86
 	.byte	0xD2
 	.byte	0x92
+gUnknown_08F77765:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -20376,6 +17896,7 @@ gUnknown_08F777AC_5:	@ 0x08F7772E
 	.byte	0x7F
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F77776:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -20394,40 +17915,19 @@ gUnknown_08F777AC_5:	@ 0x08F7772E
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77765
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77776
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77765
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77776
 	.byte	0xB3
-	.byte	0x65
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77765
 	.byte	0xB3
-	.byte	0x76
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77776
 	.byte	0xB2
-	.byte	0x65
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77765
 	.byte	0xB1
 	.byte	0x00
 
@@ -20476,6 +17976,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x9F
 	.byte	0x82
 	.byte	0xB0
+gUnknown_08F777E0:
 	.byte	0x98
 	.byte	0xBE
 	.byte	0x5F
@@ -20510,10 +18011,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0xB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x77
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F777E0
 	.byte	0xBD
 	.byte	0x3A
 	.byte	0xBE
@@ -20536,6 +18034,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x8C
 	.byte	0x38
 	.byte	0x8C
+gUnknown_08F7781C:
 	.byte	0xD1
 	.byte	0x34
 	.byte	0x7F
@@ -20556,14 +18055,12 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7781C
 	.byte	0xD3
 	.byte	0x34
 	.byte	0x7F
 	.byte	0xB0
+gUnknown_08F77838:
 	.byte	0x81
 	.byte	0xBD
 	.byte	0x3C
@@ -20589,6 +18086,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0xDB
 	.byte	0x44
 	.byte	0x8C
+gUnknown_08F77851:
 	.byte	0xE7
 	.byte	0x49
 	.byte	0x7F
@@ -20607,6 +18105,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0xE7
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F77863:
 	.byte	0x8C
 	.byte	0xE5
 	.byte	0x49
@@ -20619,6 +18118,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0xDA
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7786F:
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x7F
@@ -20630,6 +18130,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x44
 	.byte	0xA8
 	.byte	0xB4
+gUnknown_08F7787A:
 	.byte	0x8C
 	.byte	0xD8
 	.byte	0x40
@@ -20651,6 +18152,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x44
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7788F:
 	.byte	0xE7
 	.byte	0x49
 	.byte	0x7F
@@ -20667,6 +18169,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7789F:
 	.byte	0xE5
 	.byte	0x4C
 	.byte	0x7F
@@ -20681,6 +18184,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x44
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F778AD:
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x7F
@@ -20696,6 +18200,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x40
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F778BC:
 	.byte	0xEE
 	.byte	0x42
 	.byte	0x7F
@@ -20706,6 +18211,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x42
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F778C6:
 	.byte	0xEE
 	.byte	0x40
 	.byte	0x7F
@@ -20720,6 +18226,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x40
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F778D4:
 	.byte	0xD3
 	.byte	0x40
 	.byte	0x7F
@@ -20752,70 +18259,31 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD4
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778D4
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7787A
 	.byte	0xB3
-	.byte	0x51
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77851
 	.byte	0xB3
-	.byte	0x63
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77863
 	.byte	0xB3
-	.byte	0x6F
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7786F
 	.byte	0xB3
-	.byte	0x7A
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7787A
 	.byte	0xB3
-	.byte	0x8F
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7788F
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7789F
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778AD
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778BC
 	.byte	0xB3
-	.byte	0xC6
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778C6
 	.byte	0xB3
-	.byte	0xD4
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778D4
 	.byte	0xB3
-	.byte	0xD4
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F778D4
 	.byte	0x8C
 	.byte	0xDA
 	.byte	0x47
@@ -20909,10 +18377,7 @@ gUnknown_08F77EDC_1:	@ 0x08F777C8
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x38
-	.byte	0x78
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77838
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -20941,6 +18406,7 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x9F
 	.byte	0x82
 	.byte	0xB0
+gUnknown_08F779AC:
 	.byte	0xEA
 	.byte	0x2F
 	.byte	0x5C
@@ -20974,10 +18440,7 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0xB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xAC
-	.byte	0x79
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F779AC
 	.byte	0xBD
 	.byte	0x3B
 	.byte	0xC0
@@ -21051,6 +18514,7 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0x2C
 	.byte	0x8C
+gUnknown_08F77A1A:
 	.byte	0xD2
 	.byte	0x28
 	.byte	0x7F
@@ -21071,10 +18535,8 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
+gUnknown_08F77A32:
 	.byte	0xD2
 	.byte	0x2D
 	.byte	0x7F
@@ -21095,30 +18557,16 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A32
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
+gUnknown_08F77A5E:
 	.byte	0xD2
 	.byte	0x2F
 	.byte	0x7F
@@ -21138,6 +18586,7 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x2F
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F77A71:
 	.byte	0xD2
 	.byte	0x2D
 	.byte	0x7F
@@ -21158,75 +18607,33 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A32
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x32
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A32
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x5E
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A5E
 	.byte	0xB3
-	.byte	0x71
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A71
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xD2
 	.byte	0x33
 	.byte	0x7F
@@ -21245,6 +18652,7 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0x2F
 	.byte	0x8C
+gUnknown_08F77ADC:
 	.byte	0xD2
 	.byte	0x2D
 	.byte	0x7F
@@ -21313,10 +18721,8 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x2C
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xDC
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77ADC
+gUnknown_08F77B24:
 	.byte	0xD2
 	.byte	0x2A
 	.byte	0x7F
@@ -21337,34 +18743,19 @@ gUnknown_08F77EDC_2:	@ 0x08F77996
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x24
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B24
 	.byte	0xB3
-	.byte	0x5E
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A5E
 	.byte	0xDA
 	.byte	0x33
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB2
-	.byte	0x1A
-	.byte	0x7A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77A1A
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -21388,6 +18779,7 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xA0
+gUnknown_08F77B66:
 	.byte	0xDB
 	.byte	0x34
 	.byte	0x70
@@ -21407,6 +18799,7 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x38
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F77B79:
 	.byte	0xDD
 	.byte	0x34
 	.byte	0x64
@@ -21415,15 +18808,10 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0xA4
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x66
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B66
 	.byte	0xB3
-	.byte	0x79
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B79
+gUnknown_08F77B8A:
 	.byte	0xD5
 	.byte	0x34
 	.byte	0x64
@@ -21444,30 +18832,17 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
+gUnknown_08F77BAC:
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
+gUnknown_08F77BB6:
 	.byte	0xD5
 	.byte	0x39
 	.byte	0x64
@@ -21488,30 +18863,16 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
+gUnknown_08F77BE2:
 	.byte	0xD5
 	.byte	0x3B
 	.byte	0x64
@@ -21532,80 +18893,36 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0xE2
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BE2
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
+gUnknown_08F77C40:
 	.byte	0xD5
 	.byte	0x38
 	.byte	0x64
@@ -21626,15 +18943,9 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
 	.byte	0xB3
-	.byte	0x40
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77C40
 	.byte	0xD5
 	.byte	0x3D
 	.byte	0x64
@@ -21654,15 +18965,10 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0xD5
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x40
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77C40
 	.byte	0xB3
-	.byte	0xB6
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BB6
+gUnknown_08F77C79:
 	.byte	0xD5
 	.byte	0x36
 	.byte	0x64
@@ -21683,34 +18989,19 @@ gUnknown_08F77EDC_3:	@ 0x08F77B55
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x79
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77C79
 	.byte	0xB3
-	.byte	0xE2
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BE2
 	.byte	0xD5
 	.byte	0x3B
 	.byte	0x64
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB3
-	.byte	0x8A
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77B8A
 	.byte	0xB2
-	.byte	0xAC
-	.byte	0x7B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77BAC
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -21734,6 +19025,7 @@ gUnknown_08F77EDC_4:	@ 0x08F77CAA
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F77CBB:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x78
@@ -21754,200 +19046,87 @@ gUnknown_08F77EDC_4:	@ 0x08F77CAA
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB0
+gUnknown_08F77CD9:
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x78
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CBB
 	.byte	0xB2
-	.byte	0xD9
-	.byte	0x7C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77CD9
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -21981,6 +19160,7 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x40
 	.byte	0x64
 	.byte	0x8C
+gUnknown_08F77DAD:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x64
@@ -21998,15 +19178,9 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x7D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77DAD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x7D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77DAD
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x64
@@ -22031,6 +19205,7 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x54
 	.byte	0x64
 	.byte	0x8C
+gUnknown_08F77DDF:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x64
@@ -22048,15 +19223,9 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xDF
-	.byte	0x7D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77DDF
 	.byte	0xB3
-	.byte	0xDF
-	.byte	0x7D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77DDF
 	.byte	0xD2
 	.byte	0x54
 	.byte	0x7F
@@ -22079,6 +19248,7 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x8C
 	.byte	0xD2
 	.byte	0x8C
+gUnknown_08F77E0F:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -22092,6 +19262,7 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x54
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F77E1C:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -22108,179 +19279,77 @@ gUnknown_08F77EDC_5:	@ 0x08F77D92
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0xDF
-	.byte	0x7D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77DDF
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E1C
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB2
-	.byte	0x0F
-	.byte	0x7E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77E0F
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -22416,6 +19485,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x4A
 	.byte	0x24
 	.byte	0x9C
+gUnknown_08F77F66:
 	.byte	0xBD
 	.byte	0x28
 	.byte	0xBE
@@ -22435,6 +19505,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x98
 	.byte	0x48
 	.byte	0x98
+gUnknown_08F77F79:
 	.byte	0xEF
 	.byte	0x4A
 	.byte	0x7F
@@ -22445,6 +19516,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x41
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F77F83:
 	.byte	0xEF
 	.byte	0x43
 	.byte	0x7F
@@ -22467,19 +19539,14 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x79
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77F79
 	.byte	0xB3
-	.byte	0x83
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77F83
 	.byte	0xFF
 	.byte	0x4A
 	.byte	0x7F
 	.byte	0xB0
+gUnknown_08F77FA6:
 	.byte	0x98
 	.byte	0xE5
 	.byte	0x4A
@@ -22490,6 +19557,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F77FB0:
 	.byte	0xE7
 	.byte	0x4D
 	.byte	0x7F
@@ -22502,10 +19570,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xA6
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77FA6
 	.byte	0xE7
 	.byte	0x4A
 	.byte	0x7F
@@ -22517,20 +19582,11 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xA6
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77FA6
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77FB0
 	.byte	0xB3
-	.byte	0xA6
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77FA6
 	.byte	0xE7
 	.byte	0x4A
 	.byte	0x7F
@@ -22565,10 +19621,7 @@ gUnknown_08F78340_1:	@ 0x08F77EF8
 	.byte	0x4A
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x66
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77F66
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -22755,6 +19808,7 @@ gUnknown_08F78340_2:	@ 0x08F78000
 	.byte	0x59
 	.byte	0x60
 	.byte	0x87
+gUnknown_08F780B4:
 	.byte	0xBD
 	.byte	0x21
 	.byte	0x81
@@ -22777,6 +19831,7 @@ gUnknown_08F78340_2:	@ 0x08F78000
 	.byte	0x8C
 	.byte	0x41
 	.byte	0x8C
+gUnknown_08F780CA:
 	.byte	0xD4
 	.byte	0x43
 	.byte	0x64
@@ -22796,6 +19851,7 @@ gUnknown_08F78340_2:	@ 0x08F78000
 	.byte	0x43
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F780DD:
 	.byte	0x8C
 	.byte	0xD4
 	.byte	0x41
@@ -22815,70 +19871,31 @@ gUnknown_08F78340_2:	@ 0x08F78000
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780DD
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780CA
 	.byte	0xBD
 	.byte	0x15
 	.byte	0xBE
@@ -23012,10 +20029,7 @@ gUnknown_08F78340_2:	@ 0x08F78000
 	.byte	0x60
 	.byte	0x87
 	.byte	0xB2
-	.byte	0xB4
-	.byte	0x80
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F780B4
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -23042,6 +20056,7 @@ gUnknown_08F78340_3:	@ 0x08F781BA
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F781CE:
 	.byte	0xEF
 	.byte	0x33
 	.byte	0x58
@@ -23049,6 +20064,7 @@ gUnknown_08F78340_3:	@ 0x08F781BA
 	.byte	0x3F
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F781D5:
 	.byte	0xEF
 	.byte	0x35
 	.byte	0x58
@@ -23057,84 +20073,39 @@ gUnknown_08F78340_3:	@ 0x08F781BA
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781D5
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xCE
-	.byte	0x81
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F781CE
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -23159,6 +20130,7 @@ gUnknown_08F78340_4:	@ 0x08F7822C
 	.byte	0xA0
 	.byte	0xD1
 	.byte	0xA0
+gUnknown_08F7823E:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x7F
@@ -23167,15 +20139,10 @@ gUnknown_08F78340_4:	@ 0x08F7822C
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
+gUnknown_08F7824F:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -23188,6 +20155,7 @@ gUnknown_08F78340_4:	@ 0x08F7822C
 	.byte	0xD1
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7825B:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -23206,100 +20174,43 @@ gUnknown_08F78340_4:	@ 0x08F7822C
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7825B
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7823E
 	.byte	0xB2
-	.byte	0x4F
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7824F
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -23332,6 +20243,7 @@ gUnknown_08F78340_5:	@ 0x08F782CC
 	.byte	0xD2
 	.byte	0x48
 	.byte	0xA0
+gUnknown_08F782E6:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -23340,84 +20252,39 @@ gUnknown_08F78340_5:	@ 0x08F782CC
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0x82
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F782E6
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x66
-	.byte	0x7F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F77F66
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -23446,6 +20313,7 @@ gUnknown_08F78340:	@ 0x08F78340
 gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7835E:
 	.byte	0xBB
 	.byte	0x4B
 	.byte	0xB0
@@ -23466,6 +20334,7 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F78372:
 	.byte	0xD5
 	.byte	0x36
 	.byte	0x7F
@@ -23504,6 +20373,7 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0xD0
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F78398:
 	.byte	0xD5
 	.byte	0x36
 	.byte	0x7F
@@ -23535,15 +20405,9 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x72
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78372
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xD0
 	.byte	0x35
 	.byte	0x7F
@@ -23971,6 +20835,7 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0x84
 	.byte	0x4F
 	.byte	0x84
+gUnknown_08F7856B:
 	.byte	0xD3
 	.byte	0x51
 	.byte	0x4C
@@ -24046,10 +20911,7 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0x84
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x6B
-	.byte	0x85
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7856B
 	.byte	0xD3
 	.byte	0x40
 	.byte	0x60
@@ -24195,45 +21057,21 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 	.byte	0xD2
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78398
 	.byte	0xB2
-	.byte	0x5E
-	.byte	0x83
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7835E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -24242,6 +21080,7 @@ gUnknown_08F78DFC_1:	@ 0x08F7835C
 gUnknown_08F78DFC_2:	@ 0x08F78673
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78675:
 	.byte	0xB0
 	.byte	0xBD
 	.byte	0x30
@@ -24260,6 +21099,7 @@ gUnknown_08F78DFC_2:	@ 0x08F78673
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F78687:
 	.byte	0xD5
 	.byte	0x31
 	.byte	0x70
@@ -24298,6 +21138,7 @@ gUnknown_08F78DFC_2:	@ 0x08F78673
 	.byte	0xD0
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F786AD:
 	.byte	0xD5
 	.byte	0x31
 	.byte	0x70
@@ -24329,15 +21170,9 @@ gUnknown_08F78DFC_2:	@ 0x08F78673
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x87
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78687
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xD0
 	.byte	0x30
 	.byte	0x70
@@ -24947,45 +21782,21 @@ gUnknown_08F78DFC_2:	@ 0x08F78673
 	.byte	0x9F
 	.byte	0x82
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB3
-	.byte	0xAD
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F786AD
 	.byte	0xB2
-	.byte	0x75
-	.byte	0x86
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78675
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -24994,6 +21805,7 @@ gUnknown_08F78DFC_2:	@ 0x08F78673
 gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78960:
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xBD
@@ -25035,6 +21847,7 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0x86
 	.byte	0x39
 	.byte	0x86
+gUnknown_08F78989:
 	.byte	0xD5
 	.byte	0x36
 	.byte	0x7F
@@ -25073,6 +21886,7 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0xD4
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F789AF:
 	.byte	0xD5
 	.byte	0x36
 	.byte	0x7F
@@ -25110,15 +21924,10 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x89
-	.byte	0x89
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78989
 	.byte	0xB3
-	.byte	0xAF
-	.byte	0x89
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F789AF
+gUnknown_08F789DD:
 	.byte	0xD4
 	.byte	0x35
 	.byte	0x7F
@@ -25155,15 +21964,9 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x89
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F789DD
 	.byte	0xB3
-	.byte	0xDD
-	.byte	0x89
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F789DD
 	.byte	0xB0
 	.byte	0xFF
 	.byte	0x3E
@@ -25176,6 +21979,7 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xCE
+gUnknown_08F78A16:
 	.byte	0xD4
 	.byte	0x32
 	.byte	0x7F
@@ -25212,40 +22016,19 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xB3
-	.byte	0x16
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A16
 	.byte	0xE5
 	.byte	0x37
 	.byte	0x7F
@@ -25256,6 +22039,7 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0xB0
 	.byte	0xE5
 	.byte	0xB0
+gUnknown_08F78A66:
 	.byte	0xD4
 	.byte	0x36
 	.byte	0x7F
@@ -25286,25 +22070,13 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x66
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A66
 	.byte	0xB3
-	.byte	0x66
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A66
 	.byte	0xB3
-	.byte	0x66
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A66
 	.byte	0xB2
-	.byte	0x60
-	.byte	0x89
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78960
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -25313,6 +22085,7 @@ gUnknown_08F78DFC_3:	@ 0x08F7895E
 gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78A9A:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -25367,6 +22140,7 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0x4E
 	.byte	0x50
 	.byte	0x86
+gUnknown_08F78AD0:
 	.byte	0xD1
 	.byte	0x4E
 	.byte	0x50
@@ -25413,11 +22187,9 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78AD0
 	.byte	0xB0
+gUnknown_08F78B03:
 	.byte	0xD1
 	.byte	0x4E
 	.byte	0x7F
@@ -25448,10 +22220,8 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
+gUnknown_08F78B25:
 	.byte	0xD1
 	.byte	0x4E
 	.byte	0x7F
@@ -25489,85 +22259,37 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0xB4
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B03
 	.byte	0xD2
 	.byte	0x4E
 	.byte	0x7F
@@ -25593,30 +22315,15 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 	.byte	0xD1
 	.byte	0xA2
 	.byte	0xB3
-	.byte	0x25
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B25
 	.byte	0xB3
-	.byte	0x25
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B25
 	.byte	0xB3
-	.byte	0x25
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B25
 	.byte	0xB3
-	.byte	0x25
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78B25
 	.byte	0xB2
-	.byte	0x9A
-	.byte	0x8A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78A9A
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -25625,6 +22332,7 @@ gUnknown_08F78DFC_4:	@ 0x08F78A98
 gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78BCD:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -25679,6 +22387,7 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x3C
 	.byte	0x4C
 	.byte	0x86
+gUnknown_08F78C03:
 	.byte	0xD1
 	.byte	0x3C
 	.byte	0x4C
@@ -25725,10 +22434,7 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x03
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C03
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x64
@@ -25784,6 +22490,7 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x86
 	.byte	0xD1
 	.byte	0x86
+gUnknown_08F78C6C:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x4C
@@ -25817,10 +22524,7 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -25908,80 +22612,35 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0xD3
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0x8C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78C6C
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x64
@@ -26125,6 +22784,7 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x3C
 	.byte	0x4C
 	.byte	0x86
+gUnknown_08F78DC1:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x4C
@@ -26169,20 +22829,11 @@ gUnknown_08F78DFC_5:	@ 0x08F78BCB
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xC1
-	.byte	0x8D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78DC1
 	.byte	0xB3
-	.byte	0xC1
-	.byte	0x8D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78DC1
 	.byte	0xB2
-	.byte	0xCD
-	.byte	0x8B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78BCD
 	.byte	0xB1
 
 	.align 2
@@ -26208,6 +22859,7 @@ gUnknown_08F78DFC:	@ 0x08F78DFC
 gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78E1A:
 	.byte	0xBB
 	.byte	0x2D
 	.byte	0xBD
@@ -26251,6 +22903,7 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0x8C
 	.byte	0x45
 	.byte	0x8C
+gUnknown_08F78E45:
 	.byte	0xD1
 	.byte	0x43
 	.byte	0x6C
@@ -26301,10 +22954,8 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x8E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78E45
+gUnknown_08F78E7B:
 	.byte	0xD1
 	.byte	0x40
 	.byte	0x6C
@@ -26327,6 +22978,7 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0x3F
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F78E91:
 	.byte	0xD1
 	.byte	0x39
 	.byte	0x6C
@@ -26350,15 +23002,9 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x7B
-	.byte	0x8E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78E7B
 	.byte	0xB3
-	.byte	0x91
-	.byte	0x8E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78E91
 	.byte	0xD0
 	.byte	0x3A
 	.byte	0x6C
@@ -26459,10 +23105,7 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 	.byte	0x45
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x1A
-	.byte	0x8E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78E1A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -26471,6 +23114,7 @@ gUnknown_08F78FEC_1:	@ 0x08F78E18
 gUnknown_08F78FEC_2:	@ 0x08F78F1A
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78F1C:
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
@@ -26489,6 +23133,7 @@ gUnknown_08F78FEC_2:	@ 0x08F78F1A
 	.byte	0xC0
 	.byte	0x40
 	.byte	0xB0
+gUnknown_08F78F2E:
 	.byte	0xA4
 	.byte	0xD0
 	.byte	0x4C
@@ -26497,6 +23142,7 @@ gUnknown_08F78FEC_2:	@ 0x08F78F1A
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F78F36:
 	.byte	0xA4
 	.byte	0xD0
 	.byte	0x47
@@ -26506,15 +23152,9 @@ gUnknown_08F78FEC_2:	@ 0x08F78F1A
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x2E
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F2E
 	.byte	0xB3
-	.byte	0x36
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F36
 	.byte	0xBD
 	.byte	0x3E
 	.byte	0xBE
@@ -26570,10 +23210,7 @@ gUnknown_08F78FEC_2:	@ 0x08F78F1A
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x1C
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F1C
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -26582,6 +23219,7 @@ gUnknown_08F78FEC_2:	@ 0x08F78F1A
 gUnknown_08F78FEC_3:	@ 0x08F78F84
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F78F86:
 	.byte	0xBD
 	.byte	0x58
 	.byte	0xBE
@@ -26606,6 +23244,7 @@ gUnknown_08F78FEC_3:	@ 0x08F78F84
 	.byte	0x3C
 	.byte	0xA0
 	.byte	0x81
+gUnknown_08F78F9E:
 	.byte	0xDA
 	.byte	0x3C
 	.byte	0x7F
@@ -26618,15 +23257,10 @@ gUnknown_08F78FEC_3:	@ 0x08F78F84
 	.byte	0x81
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F9E
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F9E
+gUnknown_08F78FB3:
 	.byte	0xDA
 	.byte	0x39
 	.byte	0x7F
@@ -26639,20 +23273,11 @@ gUnknown_08F78FEC_3:	@ 0x08F78F84
 	.byte	0x81
 	.byte	0xB4
 	.byte	0xB3
+	.word	gUnknown_08F78FB3
 	.byte	0xB3
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78FB3
 	.byte	0xB3
-	.byte	0xB3
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
-	.byte	0xB3
-	.byte	0xB3
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78FB3
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xDA
@@ -26677,10 +23302,7 @@ gUnknown_08F78FEC_3:	@ 0x08F78F84
 	.byte	0x3E
 	.byte	0xA0
 	.byte	0xB2
-	.byte	0x86
-	.byte	0x8F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F78F86
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -26737,6 +23359,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0xEF
 	.byte	0x40
 	.byte	0xA0
+gUnknown_08F79021:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x7F
@@ -26751,6 +23374,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x45
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7902F:
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x7F
@@ -26766,6 +23390,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x3E
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F7903E:
 	.byte	0xDB
 	.byte	0x43
 	.byte	0x7F
@@ -26778,6 +23403,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x39
 	.byte	0xA4
 	.byte	0xB4
+gUnknown_08F7904A:
 	.byte	0xE7
 	.byte	0x3B
 	.byte	0x7F
@@ -26789,6 +23415,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x43
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F79055:
 	.byte	0xDB
 	.byte	0x42
 	.byte	0x7F
@@ -26808,6 +23435,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x40
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79068:
 	.byte	0xDB
 	.byte	0x3B
 	.byte	0x7F
@@ -26824,6 +23452,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x3D
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F79078:
 	.byte	0xE7
 	.byte	0x3E
 	.byte	0x7F
@@ -26837,6 +23466,7 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x3E
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F79085:
 	.byte	0xBE
 	.byte	0x45
 	.byte	0xDB
@@ -26851,45 +23481,21 @@ gUnknown_08F79184_1:	@ 0x08F79000
 	.byte	0x40
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x21
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79021
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7902F
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7903E
 	.byte	0xB3
-	.byte	0x4A
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7904A
 	.byte	0xB3
-	.byte	0x55
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79055
 	.byte	0xB3
-	.byte	0x68
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79068
 	.byte	0xB3
-	.byte	0x78
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79078
 	.byte	0xB2
-	.byte	0x85
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79085
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -26929,6 +23535,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x40
 	.byte	0x9C
 	.byte	0x83
+gUnknown_08F790DC:
 	.byte	0x89
 	.byte	0xDB
 	.byte	0x4A
@@ -26945,6 +23552,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x9C
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F790EC:
 	.byte	0x89
 	.byte	0xDB
 	.byte	0x47
@@ -26962,6 +23570,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x98
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F790FD:
 	.byte	0x89
 	.byte	0xDB
 	.byte	0x43
@@ -26976,6 +23585,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0xA0
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F7910B:
 	.byte	0x89
 	.byte	0xE7
 	.byte	0x3B
@@ -26988,6 +23598,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x43
 	.byte	0x8F
 	.byte	0xB4
+gUnknown_08F79117:
 	.byte	0x89
 	.byte	0xDB
 	.byte	0x42
@@ -27008,6 +23619,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x40
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F7912B:
 	.byte	0x89
 	.byte	0xDB
 	.byte	0x3B
@@ -27025,6 +23637,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x3D
 	.byte	0x8F
 	.byte	0xB4
+gUnknown_08F7913C:
 	.byte	0x89
 	.byte	0xE7
 	.byte	0x3E
@@ -27040,6 +23653,7 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x9C
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F7914B:
 	.byte	0x89
 	.byte	0xBE
 	.byte	0x2B
@@ -27056,45 +23670,21 @@ gUnknown_08F79184_2:	@ 0x08F790BB
 	.byte	0x9C
 	.byte	0x83
 	.byte	0xB3
-	.byte	0xDC
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F790DC
 	.byte	0xB3
-	.byte	0xEC
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F790EC
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x90
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F790FD
 	.byte	0xB3
-	.byte	0x0B
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7910B
 	.byte	0xB3
-	.byte	0x17
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79117
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7912B
 	.byte	0xB3
-	.byte	0x3C
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7913C
 	.byte	0xB2
-	.byte	0x4B
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7914B
 	.byte	0x8C
 	.byte	0xB1
 
@@ -27118,6 +23708,7 @@ gUnknown_08F79184:	@ 0x08F79184
 gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79196:
 	.byte	0xBB
 	.byte	0x29
 	.byte	0xBD
@@ -27152,6 +23743,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0x98
 	.byte	0x43
 	.byte	0x98
+gUnknown_08F791B8:
 	.byte	0x98
 	.byte	0xD5
 	.byte	0x40
@@ -27185,10 +23777,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0x43
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xB8
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F791B8
 	.byte	0x98
 	.byte	0xD5
 	.byte	0x44
@@ -27220,6 +23809,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0x98
 	.byte	0x4A
 	.byte	0x98
+gUnknown_08F791FC:
 	.byte	0x98
 	.byte	0xD5
 	.byte	0x4C
@@ -27246,10 +23836,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0x4A
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0xFC
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F791FC
 	.byte	0xE0
 	.byte	0x48
 	.byte	0x7F
@@ -27285,10 +23872,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x96
-	.byte	0x91
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79196
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -27297,6 +23881,7 @@ gUnknown_08F79354_1:	@ 0x08F79194
 gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79244:
 	.byte	0xBD
 	.byte	0x3F
 	.byte	0xBE
@@ -27320,6 +23905,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0x98
 	.byte	0x40
 	.byte	0x98
+gUnknown_08F7925B:
 	.byte	0xEB
 	.byte	0x37
 	.byte	0x7F
@@ -27339,10 +23925,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0x40
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x92
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7925B
 	.byte	0xDB
 	.byte	0x38
 	.byte	0x7F
@@ -27377,6 +23960,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0x8C
 	.byte	0x35
 	.byte	0x8C
+gUnknown_08F79294:
 	.byte	0xE6
 	.byte	0x40
 	.byte	0x7F
@@ -27406,10 +23990,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0x47
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0x94
-	.byte	0x92
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79294
 	.byte	0xE1
 	.byte	0x45
 	.byte	0x7F
@@ -27458,10 +24039,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 	.byte	0x34
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x44
-	.byte	0x92
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79244
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -27470,6 +24048,7 @@ gUnknown_08F79354_2:	@ 0x08F79242
 gUnknown_08F79354_3:	@ 0x08F792EA
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F792EC:
 	.byte	0xBD
 	.byte	0x58
 	.byte	0xBE
@@ -27494,6 +24073,7 @@ gUnknown_08F79354_3:	@ 0x08F792EA
 	.byte	0x98
 	.byte	0x40
 	.byte	0x98
+gUnknown_08F79304:
 	.byte	0xEB
 	.byte	0x3C
 	.byte	0x7F
@@ -27515,16 +24095,14 @@ gUnknown_08F79354_3:	@ 0x08F792EA
 	.byte	0x40
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x04
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79304
 	.byte	0xFF
 	.byte	0x34
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0x41
 	.byte	0xB0
+gUnknown_08F79323:
 	.byte	0xEF
 	.byte	0x3C
 	.byte	0x7F
@@ -27539,10 +24117,7 @@ gUnknown_08F79354_3:	@ 0x08F792EA
 	.byte	0x37
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0x23
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79323
 	.byte	0xE7
 	.byte	0x35
 	.byte	0x7F
@@ -27567,10 +24142,7 @@ gUnknown_08F79354_3:	@ 0x08F792EA
 	.byte	0xB0
 	.byte	0xCE
 	.byte	0xB2
-	.byte	0xEC
-	.byte	0x92
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F792EC
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -27596,6 +24168,7 @@ gUnknown_08F79354:	@ 0x08F79354
 gUnknown_08F79488_1:	@ 0x08F79368
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7936A:
 	.byte	0xBB
 	.byte	0x2D
 	.byte	0xBD
@@ -27633,6 +24206,7 @@ gUnknown_08F79488_1:	@ 0x08F79368
 	.byte	0x56
 	.byte	0x8C
 	.byte	0xB0
+gUnknown_08F7938F:
 	.byte	0xD3
 	.byte	0x53
 	.byte	0x7F
@@ -27652,6 +24226,7 @@ gUnknown_08F79488_1:	@ 0x08F79368
 	.byte	0x51
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F793A2:
 	.byte	0x9C
 	.byte	0xD3
 	.byte	0x4F
@@ -27678,15 +24253,9 @@ gUnknown_08F79488_1:	@ 0x08F79368
 	.byte	0x8C
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x8F
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7938F
 	.byte	0xB3
-	.byte	0xA2
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F793A2
 	.byte	0xD3
 	.byte	0x4E
 	.byte	0x7F
@@ -27729,10 +24298,7 @@ gUnknown_08F79488_1:	@ 0x08F79368
 	.byte	0x56
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x6A
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7936A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -27741,6 +24307,7 @@ gUnknown_08F79488_1:	@ 0x08F79368
 gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F793F6:
 	.byte	0xBD
 	.byte	0x24
 	.byte	0xC3
@@ -27771,6 +24338,7 @@ gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0xD4
 	.byte	0x58
 	.byte	0x94
+gUnknown_08F79414:
 	.byte	0x84
 	.byte	0xD3
 	.byte	0x55
@@ -27779,6 +24347,7 @@ gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0x56
 	.byte	0xAB
 	.byte	0xB4
+gUnknown_08F7941C:
 	.byte	0x99
 	.byte	0xD3
 	.byte	0x53
@@ -27794,6 +24363,7 @@ gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0x5A
 	.byte	0x94
 	.byte	0xB4
+gUnknown_08F7942B:
 	.byte	0x84
 	.byte	0xD3
 	.byte	0x56
@@ -27819,20 +24389,11 @@ gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0x58
 	.byte	0x94
 	.byte	0xB3
-	.byte	0x14
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79414
 	.byte	0xB3
-	.byte	0x1C
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7941C
 	.byte	0xB3
-	.byte	0x2B
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7942B
 	.byte	0x99
 	.byte	0xD3
 	.byte	0x4E
@@ -27879,10 +24440,7 @@ gUnknown_08F79488_2:	@ 0x08F793F4
 	.byte	0x56
 	.byte	0xA7
 	.byte	0xB2
-	.byte	0xF6
-	.byte	0x93
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F793F6
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -27942,6 +24500,7 @@ gUnknown_08F795D0_1:	@ 0x08F79498
 	.byte	0x83
 	.byte	0x49
 	.byte	0x83
+gUnknown_08F794BC:
 	.byte	0xDB
 	.byte	0x48
 	.byte	0x7F
@@ -27958,35 +24517,18 @@ gUnknown_08F795D0_1:	@ 0x08F79498
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
+gUnknown_08F794D0:
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x7F
@@ -28002,20 +24544,11 @@ gUnknown_08F795D0_1:	@ 0x08F79498
 	.byte	0x44
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB3
-	.byte	0xBC
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794BC
 	.byte	0xB2
-	.byte	0xD0
-	.byte	0x94
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F794D0
 	.byte	0x8E
 	.byte	0xB1
 
@@ -28070,6 +24603,7 @@ gUnknown_08F795D0_2:	@ 0x08F79508
 	.byte	0x8C
 	.byte	0x40
 	.byte	0x8A
+gUnknown_08F79537:
 	.byte	0x82
 	.byte	0xDB
 	.byte	0x45
@@ -28086,31 +24620,17 @@ gUnknown_08F795D0_2:	@ 0x08F79508
 	.byte	0x40
 	.byte	0x8A
 	.byte	0xB4
+gUnknown_08F79547:
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0x82
 	.byte	0xDB
 	.byte	0x45
@@ -28140,15 +24660,9 @@ gUnknown_08F795D0_2:	@ 0x08F79508
 	.byte	0x40
 	.byte	0x8A
 	.byte	0xB3
-	.byte	0x37
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79537
 	.byte	0xB2
-	.byte	0x47
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79547
 	.byte	0x82
 	.byte	0xDB
 	.byte	0x45
@@ -28200,6 +24714,7 @@ gUnknown_08F795D0_3:	@ 0x08F7958C
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xCE
+gUnknown_08F795B4:
 	.byte	0xCF
 	.byte	0x37
 	.byte	0x7F
@@ -28222,10 +24737,7 @@ gUnknown_08F795D0_3:	@ 0x08F7958C
 	.byte	0xA8
 	.byte	0xCE
 	.byte	0xB2
-	.byte	0xB4
-	.byte	0x95
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F795B4
 	.byte	0x8E
 	.byte	0xB1
 
@@ -28404,6 +24916,7 @@ gUnknown_08F79660:	@ 0x08F79660
 gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79676:
 	.byte	0xBB
 	.byte	0x4B
 	.byte	0xBD
@@ -28427,6 +24940,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0x9C
 	.byte	0x39
 	.byte	0x9C
+gUnknown_08F7968D:
 	.byte	0xEA
 	.byte	0x36
 	.byte	0x74
@@ -28436,6 +24950,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0x39
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F79696:
 	.byte	0x98
 	.byte	0xD6
 	.byte	0x38
@@ -28444,6 +24959,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0x39
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F7969E:
 	.byte	0xEE
 	.byte	0x39
 	.byte	0x74
@@ -28452,71 +24968,36 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x8D
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7968D
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7969E
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x8D
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7968D
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7969E
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x8D
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7968D
 	.byte	0xB3
-	.byte	0x96
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79696
 	.byte	0xB3
-	.byte	0x9E
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7969E
 	.byte	0xFF
 	.byte	0x38
 	.byte	0x74
 	.byte	0xB0
 	.byte	0xFF
 	.byte	0xB0
+gUnknown_08F796E7:
 	.byte	0xDA
 	.byte	0x38
 	.byte	0x74
@@ -28550,10 +25031,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0xFF
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xE7
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F796E7
 	.byte	0xDA
 	.byte	0x4A
 	.byte	0x5C
@@ -28566,10 +25044,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 	.byte	0x9C
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x76
-	.byte	0x96
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79676
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -28578,6 +25053,7 @@ gUnknown_08F79B3C_1:	@ 0x08F79674
 gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7971F:
 	.byte	0xBD
 	.byte	0x15
 	.byte	0xBE
@@ -28599,6 +25075,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x9C
 	.byte	0x36
 	.byte	0x9C
+gUnknown_08F79734:
 	.byte	0xEA
 	.byte	0x32
 	.byte	0x7F
@@ -28608,6 +25085,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x36
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F7973D:
 	.byte	0x98
 	.byte	0xD6
 	.byte	0x34
@@ -28616,6 +25094,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x36
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F79745:
 	.byte	0xEE
 	.byte	0x31
 	.byte	0x7F
@@ -28624,15 +25103,10 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7973D
 	.byte	0xB3
-	.byte	0x34
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79734
+gUnknown_08F79756:
 	.byte	0x98
 	.byte	0xD6
 	.byte	0x34
@@ -28642,56 +25116,30 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x9C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79745
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7973D
 	.byte	0xB3
-	.byte	0x34
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79734
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7973D
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79745
 	.byte	0xB3
-	.byte	0x56
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79756
 	.byte	0xB3
-	.byte	0x34
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79734
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7973D
 	.byte	0xB3
-	.byte	0x45
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79745
 	.byte	0xFF
 	.byte	0x34
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0x33
 	.byte	0xB0
+gUnknown_08F79791:
 	.byte	0xDA
 	.byte	0x31
 	.byte	0x7F
@@ -28710,10 +25158,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x33
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x91
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79791
 	.byte	0xDA
 	.byte	0x45
 	.byte	0x74
@@ -28729,10 +25174,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 	.byte	0x9C
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x1F
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7971F
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -28741,6 +25183,7 @@ gUnknown_08F79B3C_2:	@ 0x08F7971D
 gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F797BD:
 	.byte	0xBD
 	.byte	0x44
 	.byte	0xC1
@@ -28775,6 +25218,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x8C
 	.byte	0xD5
 	.byte	0x8C
+gUnknown_08F797DF:
 	.byte	0xD5
 	.byte	0x34
 	.byte	0x7F
@@ -28794,6 +25238,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x3B
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F797F2:
 	.byte	0xD5
 	.byte	0x34
 	.byte	0x7F
@@ -28822,6 +25267,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0xA0
 	.byte	0x32
 	.byte	0xA0
+gUnknown_08F7980E:
 	.byte	0xD5
 	.byte	0x34
 	.byte	0x7F
@@ -28842,15 +25288,9 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xDF
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F797DF
 	.byte	0xB3
-	.byte	0xF2
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F797F2
 	.byte	0xEE
 	.byte	0x31
 	.byte	0x7F
@@ -28976,15 +25416,10 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0xD5
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x0E
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7980E
 	.byte	0xB3
-	.byte	0x0E
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7980E
+gUnknown_08F798B1:
 	.byte	0xDD
 	.byte	0x31
 	.byte	0x7F
@@ -29001,25 +25436,14 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x90
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0E
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7980E
 	.byte	0xB3
-	.byte	0x0E
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7980E
 	.byte	0xB3
-	.byte	0x0E
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7980E
 	.byte	0xB3
-	.byte	0xB1
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F798B1
+gUnknown_08F798D4:
 	.byte	0xD5
 	.byte	0x31
 	.byte	0x7F
@@ -29054,6 +25478,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x3D
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F798F6:
 	.byte	0xD5
 	.byte	0x31
 	.byte	0x7F
@@ -29076,6 +25501,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x3B
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7990C:
 	.byte	0x8C
 	.byte	0xE4
 	.byte	0x39
@@ -29100,20 +25526,11 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x3D
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xD4
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F798D4
 	.byte	0xB3
-	.byte	0xF6
-	.byte	0x98
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F798F6
 	.byte	0xB3
-	.byte	0x0C
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7990C
 	.byte	0xD9
 	.byte	0x36
 	.byte	0x7F
@@ -29229,10 +25646,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 	.byte	0x40
 	.byte	0x81
 	.byte	0xB2
-	.byte	0xBD
-	.byte	0x97
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F797BD
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -29241,6 +25655,7 @@ gUnknown_08F79B3C_3:	@ 0x08F797BB
 gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F799AC:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -29258,6 +25673,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0xA0
 	.byte	0xD1
 	.byte	0x98
+gUnknown_08F799BD:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -29267,16 +25683,10 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799BD
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799BD
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -29293,6 +25703,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x7F
 	.byte	0x98
 	.byte	0xB0
+gUnknown_08F799E0:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x3C
@@ -29313,50 +25724,23 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799E0
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x3C
@@ -29386,6 +25770,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x8C
 	.byte	0xD1
 	.byte	0x8C
+gUnknown_08F79A3D:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x48
@@ -29406,10 +25791,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3D
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79A3D
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x48
@@ -29434,10 +25816,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 	.byte	0x9C
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xAC
-	.byte	0x99
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F799AC
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -29446,6 +25825,7 @@ gUnknown_08F79B3C_4:	@ 0x08F799AA
 gUnknown_08F79B3C_5:	@ 0x08F79A72
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79A74:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -29506,6 +25886,7 @@ gUnknown_08F79B3C_5:	@ 0x08F79A72
 	.byte	0x86
 	.byte	0x3C
 	.byte	0x8C
+gUnknown_08F79AB0:
 	.byte	0xD2
 	.byte	0x39
 	.byte	0x7F
@@ -29520,50 +25901,23 @@ gUnknown_08F79B3C_5:	@ 0x08F79A72
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xD2
 	.byte	0x39
 	.byte	0x7F
@@ -29599,20 +25953,11 @@ gUnknown_08F79B3C_5:	@ 0x08F79A72
 	.byte	0xD2
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xB3
-	.byte	0xB0
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79AB0
 	.byte	0xD2
 	.byte	0x42
 	.byte	0x7F
@@ -29638,10 +25983,7 @@ gUnknown_08F79B3C_5:	@ 0x08F79A72
 	.byte	0xD2
 	.byte	0x86
 	.byte	0xB2
-	.byte	0x74
-	.byte	0x9A
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79A74
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -29758,6 +26100,7 @@ gUnknown_08F79C4C_1:	@ 0x08F79B58
 	.byte	0x5E
 	.byte	0x4C
 	.byte	0x8B
+gUnknown_08F79BB2:
 	.byte	0xD2
 	.byte	0x4F
 	.byte	0x7F
@@ -29784,10 +26127,8 @@ gUnknown_08F79C4C_1:	@ 0x08F79B58
 	.byte	0x8B
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB2
-	.byte	0x9B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79BB2
+gUnknown_08F79BD0:
 	.byte	0xD2
 	.byte	0x50
 	.byte	0x7F
@@ -29814,15 +26155,9 @@ gUnknown_08F79C4C_1:	@ 0x08F79B58
 	.byte	0x8B
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xD0
-	.byte	0x9B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79BD0
 	.byte	0xB2
-	.byte	0xB2
-	.byte	0x9B
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79BB2
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -29858,15 +26193,13 @@ gUnknown_08F79C4C_2:	@ 0x08F79BF4
 	.byte	0x70
 	.byte	0x98
 	.byte	0xA0
+gUnknown_08F79C11:
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xB2
-	.byte	0x11
-	.byte	0x9C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79C11
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -29910,15 +26243,13 @@ gUnknown_08F79C4C_3:	@ 0x08F79C1B
 	.byte	0x3F
 	.byte	0xA0
 	.byte	0xA0
+gUnknown_08F79C40:
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xA8
 	.byte	0xB2
-	.byte	0x40
-	.byte	0x9C
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79C40
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -30248,6 +26579,7 @@ gUnknown_08F79D68:	@ 0x08F79D68
 gUnknown_08F79EC8_1:	@ 0x08F79D7C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79D7E:
 	.byte	0xBB
 	.byte	0x32
 	.byte	0xBD
@@ -30274,6 +26606,7 @@ gUnknown_08F79EC8_1:	@ 0x08F79D7C
 	.byte	0x90
 	.byte	0x42
 	.byte	0xA0
+gUnknown_08F79D98:
 	.byte	0xD4
 	.byte	0x3C
 	.byte	0x70
@@ -30281,6 +26614,7 @@ gUnknown_08F79EC8_1:	@ 0x08F79D7C
 	.byte	0x42
 	.byte	0xAB
 	.byte	0xB4
+gUnknown_08F79D9F:
 	.byte	0xD4
 	.byte	0x3C
 	.byte	0x70
@@ -30293,10 +26627,7 @@ gUnknown_08F79EC8_1:	@ 0x08F79D7C
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79D98
 	.byte	0xD4
 	.byte	0x38
 	.byte	0x70
@@ -30312,20 +26643,11 @@ gUnknown_08F79EC8_1:	@ 0x08F79D7C
 	.byte	0x41
 	.byte	0xAB
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79D9F
 	.byte	0xB3
-	.byte	0x98
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79D98
 	.byte	0xB2
-	.byte	0x7E
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79D7E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -30334,6 +26656,7 @@ gUnknown_08F79EC8_1:	@ 0x08F79D7C
 gUnknown_08F79EC8_2:	@ 0x08F79DCD
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79DCF:
 	.byte	0xBD
 	.byte	0x2E
 	.byte	0xBE
@@ -30367,10 +26690,7 @@ gUnknown_08F79EC8_2:	@ 0x08F79DCD
 	.byte	0x3C
 	.byte	0xAB
 	.byte	0xB2
-	.byte	0xCF
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79DCF
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -30379,6 +26699,7 @@ gUnknown_08F79EC8_2:	@ 0x08F79DCD
 gUnknown_08F79EC8_3:	@ 0x08F79DF5
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79DF7:
 	.byte	0xBD
 	.byte	0x44
 	.byte	0xC1
@@ -30417,6 +26738,7 @@ gUnknown_08F79EC8_3:	@ 0x08F79DF5
 	.byte	0xD7
 	.byte	0x3F
 	.byte	0x88
+gUnknown_08F79E1D:
 	.byte	0xD4
 	.byte	0x38
 	.byte	0x7F
@@ -30441,15 +26763,10 @@ gUnknown_08F79EC8_3:	@ 0x08F79DF5
 	.byte	0x88
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1D
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E1D
 	.byte	0xB3
-	.byte	0x1D
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E1D
+gUnknown_08F79E3E:
 	.byte	0xD4
 	.byte	0x31
 	.byte	0x7F
@@ -30474,25 +26791,13 @@ gUnknown_08F79EC8_3:	@ 0x08F79DF5
 	.byte	0x88
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E3E
 	.byte	0xB3
-	.byte	0x1D
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E1D
 	.byte	0xB3
-	.byte	0x1D
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E1D
 	.byte	0xB2
-	.byte	0xF7
-	.byte	0x9D
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79DF7
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -30501,6 +26806,7 @@ gUnknown_08F79EC8_3:	@ 0x08F79DF5
 gUnknown_08F79EC8_4:	@ 0x08F79E6A
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F79E6C:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -30533,6 +26839,7 @@ gUnknown_08F79EC8_4:	@ 0x08F79E6A
 	.byte	0x54
 	.byte	0x44
 	.byte	0x88
+gUnknown_08F79E8C:
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x44
@@ -30557,40 +26864,19 @@ gUnknown_08F79EC8_4:	@ 0x08F79E6A
 	.byte	0x88
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB3
-	.byte	0x8C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E8C
 	.byte	0xB2
-	.byte	0x6C
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79E6C
 	.byte	0xB1
 	.byte	0x00
 
@@ -30643,6 +26929,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0xED
 	.byte	0x37
 	.byte	0xA4
+gUnknown_08F79EFD:
 	.byte	0x8C
 	.byte	0xDB
 	.byte	0x39
@@ -30656,35 +26943,17 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0xA4
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0x81
 	.byte	0xBD
 	.byte	0x1A
@@ -30700,6 +26969,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x98
 	.byte	0x4C
 	.byte	0x8C
+gUnknown_08F79F36:
 	.byte	0x9C
 	.byte	0xDB
 	.byte	0x45
@@ -30712,6 +26982,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x47
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79F42:
 	.byte	0xA0
 	.byte	0xDB
 	.byte	0x47
@@ -30723,6 +26994,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x47
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79F4D:
 	.byte	0x8C
 	.byte	0xEA
 	.byte	0x49
@@ -30737,6 +27009,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79F5B:
 	.byte	0xA0
 	.byte	0xDB
 	.byte	0x49
@@ -30749,6 +27022,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79F67:
 	.byte	0xA0
 	.byte	0xDB
 	.byte	0x4E
@@ -30762,6 +27036,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79F74:
 	.byte	0xA0
 	.byte	0xDB
 	.byte	0x49
@@ -30787,35 +27062,17 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x36
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F36
 	.byte	0xB3
-	.byte	0x42
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F42
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F4D
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F5B
 	.byte	0xB3
-	.byte	0x67
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F67
 	.byte	0xB3
-	.byte	0x74
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F74
 	.byte	0xA0
 	.byte	0xE7
 	.byte	0x49
@@ -30829,6 +27086,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x8C
 	.byte	0xB0
 	.byte	0xB0
+gUnknown_08F79FB7:
 	.byte	0x98
 	.byte	0xE2
 	.byte	0x48
@@ -30852,6 +27110,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0xE5
 	.byte	0x47
 	.byte	0x98
+gUnknown_08F79FCE:
 	.byte	0xEF
 	.byte	0x43
 	.byte	0x6C
@@ -30864,6 +27123,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F79FDA:
 	.byte	0xEF
 	.byte	0x4F
 	.byte	0x6C
@@ -30872,10 +27132,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB7
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79FB7
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x6C
@@ -30895,10 +27152,7 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x47
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0xB7
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79FB7
 	.byte	0xDB
 	.byte	0x47
 	.byte	0x6C
@@ -30914,15 +27168,9 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x47
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xCE
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79FCE
 	.byte	0xB3
-	.byte	0xDA
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79FDA
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x48
@@ -30976,35 +27224,17 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x36
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F36
 	.byte	0xB3
-	.byte	0x42
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F42
 	.byte	0xB3
-	.byte	0x4D
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F4D
 	.byte	0xB3
-	.byte	0x5B
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F5B
 	.byte	0xB3
-	.byte	0x67
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F67
 	.byte	0xB3
-	.byte	0x74
-	.byte	0x9F
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79F74
 	.byte	0xA0
 	.byte	0xE7
 	.byte	0x49
@@ -31019,15 +27249,9 @@ gUnknown_08F7A610_1:	@ 0x08F79EE0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0xB3
-	.byte	0xFD
-	.byte	0x9E
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F79EFD
 	.byte	0x8C
 	.byte	0xDB
 	.byte	0x39
@@ -31082,6 +27306,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0xEF
 	.byte	0x2D
 	.byte	0xB0
+gUnknown_08F7A0AF:
 	.byte	0xEF
 	.byte	0x2D
 	.byte	0x7F
@@ -31097,23 +27322,18 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x2D
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xAF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0AF
 	.byte	0xEF
 	.byte	0x2D
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xAF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0AF
 	.byte	0xEF
 	.byte	0x2D
 	.byte	0x7F
 	.byte	0xB0
+gUnknown_08F7A0CF:
 	.byte	0xD7
 	.byte	0x34
 	.byte	0x7F
@@ -31134,10 +27354,8 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0CF
+gUnknown_08F7A0E7:
 	.byte	0xD7
 	.byte	0x33
 	.byte	0x7F
@@ -31157,6 +27375,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x38
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A0FA:
 	.byte	0xD7
 	.byte	0x38
 	.byte	0x7F
@@ -31176,6 +27395,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x35
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A10D:
 	.byte	0xD7
 	.byte	0x39
 	.byte	0x7F
@@ -31195,6 +27415,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x36
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A120:
 	.byte	0xD7
 	.byte	0x39
 	.byte	0x7F
@@ -31214,6 +27435,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x32
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A133:
 	.byte	0xD7
 	.byte	0x3D
 	.byte	0x7F
@@ -31233,6 +27455,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A146:
 	.byte	0xD7
 	.byte	0x38
 	.byte	0x7F
@@ -31253,45 +27476,22 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0CF
 	.byte	0xB3
-	.byte	0xCF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0CF
 	.byte	0xB3
-	.byte	0xE7
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0E7
 	.byte	0xB3
-	.byte	0xFA
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0FA
 	.byte	0xB3
-	.byte	0x0D
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A10D
 	.byte	0xB3
-	.byte	0x20
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A120
 	.byte	0xB3
-	.byte	0x33
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A133
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A146
+gUnknown_08F7A181:
 	.byte	0xD7
 	.byte	0x39
 	.byte	0x7F
@@ -31312,10 +27512,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x81
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A181
 	.byte	0xD3
 	.byte	0x35
 	.byte	0x6C
@@ -31328,6 +27525,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x9C
 	.byte	0x40
 	.byte	0x98
+gUnknown_08F7A1A5:
 	.byte	0xD2
 	.byte	0x37
 	.byte	0x6C
@@ -31341,6 +27539,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x3E
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7A1B2:
 	.byte	0xD2
 	.byte	0x37
 	.byte	0x6C
@@ -31354,6 +27553,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x3C
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7A1BF:
 	.byte	0xD2
 	.byte	0x3B
 	.byte	0x6C
@@ -31373,6 +27573,7 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7A1D2:
 	.byte	0xD2
 	.byte	0x35
 	.byte	0x6C
@@ -31387,15 +27588,9 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xA5
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1A5
 	.byte	0xB3
-	.byte	0xB2
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1B2
 	.byte	0xD2
 	.byte	0x3B
 	.byte	0x6C
@@ -31415,25 +27610,13 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0x34
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0xD2
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1D2
 	.byte	0xB3
-	.byte	0xA5
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1A5
 	.byte	0xB3
-	.byte	0xB2
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1B2
 	.byte	0xB3
-	.byte	0xBF
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A1BF
 	.byte	0x98
 	.byte	0xD9
 	.byte	0x45
@@ -31476,60 +27659,27 @@ gUnknown_08F7A610_2:	@ 0x08F7A092
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0xCF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0CF
 	.byte	0xB3
-	.byte	0xCF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0CF
 	.byte	0xB3
-	.byte	0xE7
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0E7
 	.byte	0xB3
-	.byte	0xFA
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0FA
 	.byte	0xB3
-	.byte	0x0D
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A10D
 	.byte	0xB3
-	.byte	0x20
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A120
 	.byte	0xB3
-	.byte	0x33
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A133
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A146
 	.byte	0xB3
-	.byte	0x81
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A181
 	.byte	0xB3
-	.byte	0x81
-	.byte	0xA1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A181
 	.byte	0xB3
-	.byte	0xAF
-	.byte	0xA0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A0AF
 	.byte	0xEF
 	.byte	0x2D
 	.byte	0x7F
@@ -31722,6 +27872,7 @@ gUnknown_08F7A610_4:	@ 0x08F7A312
 	.byte	0xA0
 	.byte	0xD1
 	.byte	0x98
+gUnknown_08F7A325:
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
@@ -31731,15 +27882,13 @@ gUnknown_08F7A610_4:	@ 0x08F7A312
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x25
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A325
 	.byte	0x98
 	.byte	0xD1
 	.byte	0x54
 	.byte	0x7F
 	.byte	0xA8
+gUnknown_08F7A337:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -31760,255 +27909,108 @@ gUnknown_08F7A610_4:	@ 0x08F7A312
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xA3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A337
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -32080,6 +28082,7 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x98
+gUnknown_08F7A486:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32094,15 +28097,9 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x86
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A486
 	.byte	0xB3
-	.byte	0x86
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A486
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x7F
@@ -32127,6 +28124,7 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x8C
 	.byte	0xD2
 	.byte	0x8C
+gUnknown_08F7A4B5:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32139,85 +28137,37 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32236,6 +28186,7 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x8C
 	.byte	0xD2
 	.byte	0x8C
+gUnknown_08F7A522:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32249,6 +28200,7 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7A52F:
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32267,75 +28219,33 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xB3
-	.byte	0x22
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A522
 	.byte	0xB3
-	.byte	0x2F
-	.byte	0xA5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A52F
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32347,50 +28257,23 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0xD2
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xB3
-	.byte	0xB5
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A4B5
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -32410,15 +28293,9 @@ gUnknown_08F7A610_5:	@ 0x08F7A469
 	.byte	0xD2
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x86
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A486
 	.byte	0xB3
-	.byte	0x86
-	.byte	0xA4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7A486
 	.byte	0xD2
 	.byte	0x3C
 	.byte	0x7F
@@ -33606,6 +29483,7 @@ gUnknown_08F7AA34:	@ 0x08F7AA34
 gUnknown_08F7AA98_1:	@ 0x08F7AA44
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7AA46:
 	.byte	0xBB
 	.byte	0x41
 	.byte	0xBD
@@ -33653,10 +29531,7 @@ gUnknown_08F7AA98_1:	@ 0x08F7AA44
 	.byte	0xA5
 	.byte	0x81
 	.byte	0xB2
-	.byte	0x46
-	.byte	0xAA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AA46
 	.byte	0xB0
 	.byte	0xB1
 
@@ -33666,6 +29541,7 @@ gUnknown_08F7AA98_1:	@ 0x08F7AA44
 gUnknown_08F7AA98_2:	@ 0x08F7AA7B
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7AA7D:
 	.byte	0xBD
 	.byte	0x40
 	.byte	0xBE
@@ -33685,10 +29561,7 @@ gUnknown_08F7AA98_2:	@ 0x08F7AA7B
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x7D
-	.byte	0xAA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AA7D
 	.byte	0xB0
 	.byte	0xB1
 	.byte	0x00
@@ -33858,6 +29731,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4C
 	.byte	0x60
 	.byte	0xB0
+gUnknown_08F7AB3A:
 	.byte	0xE1
 	.byte	0x56
 	.byte	0x7F
@@ -33875,6 +29749,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x51
 	.byte	0x60
 	.byte	0xB0
+gUnknown_08F7AB4B:
 	.byte	0xE1
 	.byte	0x53
 	.byte	0x7F
@@ -33892,6 +29767,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x98
 	.byte	0x4A
 	.byte	0xA8
+gUnknown_08F7AB5C:
 	.byte	0xE1
 	.byte	0x4F
 	.byte	0x7F
@@ -33907,6 +29783,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB0
+gUnknown_08F7AB6B:
 	.byte	0xEE
 	.byte	0x47
 	.byte	0x7F
@@ -33914,6 +29791,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x49
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7AB72:
 	.byte	0xEE
 	.byte	0x4A
 	.byte	0x7F
@@ -33921,6 +29799,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4F
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7AB79:
 	.byte	0xE1
 	.byte	0x4E
 	.byte	0x7F
@@ -33934,6 +29813,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4E
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7AB86:
 	.byte	0xE1
 	.byte	0x4C
 	.byte	0x7F
@@ -33947,6 +29827,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4C
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7AB93:
 	.byte	0xE1
 	.byte	0x47
 	.byte	0x7F
@@ -33960,6 +29841,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x45
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7ABA0:
 	.byte	0xEE
 	.byte	0x4C
 	.byte	0x7F
@@ -33967,6 +29849,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x49
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7ABA7:
 	.byte	0xEE
 	.byte	0x4A
 	.byte	0x7F
@@ -33993,65 +29876,35 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x60
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x3A
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB3A
 	.byte	0xE5
 	.byte	0x51
 	.byte	0x60
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x4B
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB4B
 	.byte	0x98
 	.byte	0xEB
 	.byte	0x4A
 	.byte	0x7F
 	.byte	0xA8
 	.byte	0xB3
-	.byte	0x5C
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB5C
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x6B
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB6B
 	.byte	0xB3
-	.byte	0x72
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB72
 	.byte	0xB3
-	.byte	0x79
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB79
 	.byte	0xB3
-	.byte	0x86
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB86
 	.byte	0xB3
-	.byte	0x93
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AB93
 	.byte	0xB3
-	.byte	0xA0
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7ABA0
 	.byte	0xB3
-	.byte	0xA7
-	.byte	0xAB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7ABA7
 	.byte	0xEE
 	.byte	0x4A
 	.byte	0x7F
@@ -34102,6 +29955,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0xE6
 	.byte	0x4A
 	.byte	0x98
+gUnknown_08F7AC2E:
 	.byte	0xEF
 	.byte	0x4A
 	.byte	0x7F
@@ -34109,6 +29963,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4C
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7AC35:
 	.byte	0xEF
 	.byte	0x45
 	.byte	0x7F
@@ -34119,6 +29974,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x48
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7AC3F:
 	.byte	0xEF
 	.byte	0x47
 	.byte	0x7F
@@ -34127,6 +29983,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x43
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7AC47:
 	.byte	0xEF
 	.byte	0x43
 	.byte	0x7F
@@ -34137,6 +29994,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x40
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7AC51:
 	.byte	0xE7
 	.byte	0x42
 	.byte	0x7F
@@ -34148,6 +30006,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x47
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7AC5C:
 	.byte	0xEF
 	.byte	0x42
 	.byte	0x7F
@@ -34158,6 +30017,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0xFF
 	.byte	0x3E
 	.byte	0xB0
+gUnknown_08F7AC66:
 	.byte	0xEF
 	.byte	0x47
 	.byte	0x7F
@@ -34170,74 +30030,35 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x2E
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC2E
 	.byte	0xB3
-	.byte	0x35
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC35
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC3F
 	.byte	0xB3
-	.byte	0x47
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC47
 	.byte	0xB3
-	.byte	0x51
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC51
 	.byte	0xB3
-	.byte	0x5C
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC5C
 	.byte	0xFF
 	.byte	0x3E
 	.byte	0x7F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x66
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC66
 	.byte	0xB3
-	.byte	0x2E
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC2E
 	.byte	0xB3
-	.byte	0x35
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC35
 	.byte	0xB3
-	.byte	0x3F
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC3F
 	.byte	0xB3
-	.byte	0x47
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC47
 	.byte	0xB3
-	.byte	0x51
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC51
 	.byte	0xB3
-	.byte	0x5C
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AC5C
 	.byte	0xFF
 	.byte	0x3E
 	.byte	0x7F
@@ -34308,6 +30129,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x81
 	.byte	0xCE
 	.byte	0x83
+gUnknown_08F7ACFC:
 	.byte	0xBD
 	.byte	0x4F
 	.byte	0xBE
@@ -34413,10 +30235,7 @@ gUnknown_08F7B740_1:	@ 0x08F7AAA8
 	.byte	0x4F
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xFC
-	.byte	0xAC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7ACFC
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -34689,6 +30508,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x5A
 	.byte	0x28
 	.byte	0x8A
+gUnknown_08F7AE74:
 	.byte	0xD0
 	.byte	0x51
 	.byte	0x7F
@@ -34906,10 +30726,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x9B
 	.byte	0x82
 	.byte	0xB3
-	.byte	0x74
-	.byte	0xAE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7AE74
 	.byte	0xD0
 	.byte	0x4F
 	.byte	0x7F
@@ -35091,6 +30908,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x56
 	.byte	0x28
 	.byte	0x8A
+gUnknown_08F7B006:
 	.byte	0xDB
 	.byte	0x45
 	.byte	0x60
@@ -35127,15 +30945,9 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x43
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x06
-	.byte	0xB0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B006
 	.byte	0xB3
-	.byte	0x06
-	.byte	0xB0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B006
 	.byte	0xDB
 	.byte	0x45
 	.byte	0x60
@@ -35377,6 +31189,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x8C
 	.byte	0x4A
 	.byte	0x8C
+gUnknown_08F7B124:
 	.byte	0xDB
 	.byte	0x4F
 	.byte	0x50
@@ -35396,6 +31209,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4C
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B137:
 	.byte	0xDB
 	.byte	0x4E
 	.byte	0x50
@@ -35415,6 +31229,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B14A:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x50
@@ -35434,6 +31249,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x47
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B15D:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x50
@@ -35453,6 +31269,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x47
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B170:
 	.byte	0xDB
 	.byte	0x49
 	.byte	0x50
@@ -35472,6 +31289,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B183:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x50
@@ -35491,6 +31309,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x45
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7B196:
 	.byte	0xDB
 	.byte	0x4A
 	.byte	0x50
@@ -35531,40 +31350,20 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x24
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B124
 	.byte	0xB3
-	.byte	0x37
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B137
 	.byte	0xB3
-	.byte	0x4A
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B14A
 	.byte	0xB3
-	.byte	0x5D
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B15D
 	.byte	0xB3
-	.byte	0x70
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B170
 	.byte	0xB3
-	.byte	0x83
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B183
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B196
+gUnknown_08F7B1E0:
 	.byte	0xD5
 	.byte	0x4F
 	.byte	0x50
@@ -35600,6 +31399,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B203:
 	.byte	0xD5
 	.byte	0x4F
 	.byte	0x50
@@ -35635,6 +31435,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4C
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B226:
 	.byte	0xD5
 	.byte	0x4E
 	.byte	0x50
@@ -35670,6 +31471,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B249:
 	.byte	0xD5
 	.byte	0x4A
 	.byte	0x50
@@ -35705,6 +31507,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x47
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B26C:
 	.byte	0xD5
 	.byte	0x4A
 	.byte	0x50
@@ -35740,6 +31543,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B28F:
 	.byte	0xD5
 	.byte	0x4C
 	.byte	0x50
@@ -35775,6 +31579,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4C
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B2B2:
 	.byte	0xD5
 	.byte	0x4A
 	.byte	0x50
@@ -35810,6 +31615,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x45
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7B2D5:
 	.byte	0xD5
 	.byte	0x4A
 	.byte	0x50
@@ -35846,45 +31652,21 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE0
-	.byte	0xB1
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B1E0
 	.byte	0xB3
-	.byte	0x03
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B203
 	.byte	0xB3
-	.byte	0x26
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B226
 	.byte	0xB3
-	.byte	0x49
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B249
 	.byte	0xB3
-	.byte	0x6C
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B26C
 	.byte	0xB3
-	.byte	0x8F
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B28F
 	.byte	0xB3
-	.byte	0xB2
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B2B2
 	.byte	0xB3
-	.byte	0xD5
-	.byte	0xB2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B2D5
 	.byte	0xBD
 	.byte	0x4E
 	.byte	0xBE
@@ -35899,6 +31681,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x98
 	.byte	0x4A
 	.byte	0x98
+gUnknown_08F7B32E:
 	.byte	0xE3
 	.byte	0x4F
 	.byte	0x7F
@@ -35919,10 +31702,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x4A
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x2E
-	.byte	0xB3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B32E
 	.byte	0xD4
 	.byte	0x4F
 	.byte	0x64
@@ -35933,6 +31713,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x98
 	.byte	0x48
 	.byte	0x98
+gUnknown_08F7B350:
 	.byte	0xBD
 	.byte	0x38
 	.byte	0xBE
@@ -36076,10 +31857,7 @@ gUnknown_08F7B740_2:	@ 0x08F7AD6A
 	.byte	0x47
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x50
-	.byte	0xB3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B350
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -36129,6 +31907,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0xB0
 	.byte	0x36
 	.byte	0xB0
+gUnknown_08F7B40F:
 	.byte	0xF7
 	.byte	0x37
 	.byte	0x7F
@@ -36138,6 +31917,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB0
+gUnknown_08F7B418:
 	.byte	0xF7
 	.byte	0x37
 	.byte	0x7F
@@ -36147,6 +31927,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB0
+gUnknown_08F7B421:
 	.byte	0xEF
 	.byte	0x37
 	.byte	0x7F
@@ -36154,6 +31935,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x39
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7B428:
 	.byte	0xEF
 	.byte	0x3B
 	.byte	0x7F
@@ -36183,27 +31965,15 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x36
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x0F
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B40F
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x18
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B418
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B421
 	.byte	0xB3
-	.byte	0x28
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B428
 	.byte	0xFF
 	.byte	0x3E
 	.byte	0x7F
@@ -36240,6 +32010,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0xB0
 	.byte	0x3E
 	.byte	0xB0
+gUnknown_08F7B47E:
 	.byte	0xEF
 	.byte	0x3E
 	.byte	0x7F
@@ -36263,10 +32034,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x3E
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x7E
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B47E
 	.byte	0xEF
 	.byte	0x37
 	.byte	0x7F
@@ -36308,10 +32076,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0x32
 	.byte	0xB0
 	.byte	0xB3
-	.byte	0x7E
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B47E
 	.byte	0xEF
 	.byte	0x43
 	.byte	0x7F
@@ -36364,6 +32129,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xCE
+gUnknown_08F7B4FA:
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
@@ -36381,10 +32147,7 @@ gUnknown_08F7B740_3:	@ 0x08F7B3E4
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xFA
-	.byte	0xB4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B4FA
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -36502,6 +32265,7 @@ gUnknown_08F7B740_4:	@ 0x08F7B510
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
+gUnknown_08F7B57F:
 	.byte	0x9C
 	.byte	0xD2
 	.byte	0x54
@@ -36517,66 +32281,49 @@ gUnknown_08F7B740_4:	@ 0x08F7B510
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB3
-	.byte	0x7F
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B57F
 	.byte	0xA0
 	.byte	0xD3
 	.byte	0x54
 	.byte	0x74
 	.byte	0xA0
 	.byte	0xB0
+gUnknown_08F7B5CA:
 	.byte	0xD2
 	.byte	0x54
 	.byte	0x70
@@ -36587,80 +32334,35 @@ gUnknown_08F7B740_4:	@ 0x08F7B510
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xB3
-	.byte	0xCA
-	.byte	0xB5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B5CA
 	.byte	0xA0
 	.byte	0xD0
 	.byte	0x54
@@ -36676,6 +32378,7 @@ gUnknown_08F7B740_4:	@ 0x08F7B510
 	.byte	0xD0
 	.byte	0xA0
 	.byte	0xB0
+gUnknown_08F7B62D:
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
@@ -36693,10 +32396,7 @@ gUnknown_08F7B740_4:	@ 0x08F7B510
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x2D
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B62D
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -36825,6 +32525,7 @@ gUnknown_08F7B740_5:	@ 0x08F7B643
 	.byte	0xD3
 	.byte	0x36
 	.byte	0x98
+gUnknown_08F7B6BD:
 	.byte	0xD4
 	.byte	0x45
 	.byte	0x7F
@@ -36832,6 +32533,7 @@ gUnknown_08F7B740_5:	@ 0x08F7B643
 	.byte	0x3C
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7B6C4:
 	.byte	0x8C
 	.byte	0xD4
 	.byte	0x47
@@ -36843,96 +32545,43 @@ gUnknown_08F7B740_5:	@ 0x08F7B643
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB3
-	.byte	0xBD
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6BD
 	.byte	0xB3
-	.byte	0xC4
-	.byte	0xB6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B6C4
 	.byte	0xB0
+gUnknown_08F7B729:
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB0
@@ -36950,10 +32599,7 @@ gUnknown_08F7B740_5:	@ 0x08F7B643
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x29
-	.byte	0xB7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B729
 	.byte	0xB1
 	.byte	0x00
 
@@ -36980,6 +32626,7 @@ gUnknown_08F7B740:	@ 0x08F7B740
 gUnknown_08F7C3CC_1:	@ 0x08F7B75C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7B75E:
 	.byte	0xBB
 	.byte	0x20
 	.byte	0xBD
@@ -38436,10 +34083,7 @@ gUnknown_08F7C3CC_1:	@ 0x08F7B75C
 	.byte	0x2F
 	.byte	0x88
 	.byte	0xB2
-	.byte	0x5E
-	.byte	0xB7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7B75E
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -38448,6 +34092,7 @@ gUnknown_08F7C3CC_1:	@ 0x08F7B75C
 gUnknown_08F7C3CC_2:	@ 0x08F7BD13
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7BD15:
 	.byte	0xBD
 	.byte	0x41
 	.byte	0xBE
@@ -39916,10 +35561,7 @@ gUnknown_08F7C3CC_2:	@ 0x08F7BD13
 	.byte	0x26
 	.byte	0x88
 	.byte	0xB2
-	.byte	0x15
-	.byte	0xBD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7BD15
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -39928,6 +35570,7 @@ gUnknown_08F7C3CC_2:	@ 0x08F7BD13
 gUnknown_08F7C3CC_3:	@ 0x08F7C2D6
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C2D8:
 	.byte	0xBD
 	.byte	0x60
 	.byte	0xBE
@@ -39952,6 +35595,7 @@ gUnknown_08F7C3CC_3:	@ 0x08F7C2D6
 	.byte	0x98
 	.byte	0xD7
 	.byte	0x98
+gUnknown_08F7C2F0:
 	.byte	0xD7
 	.byte	0x24
 	.byte	0x7F
@@ -39964,20 +35608,12 @@ gUnknown_08F7C3CC_3:	@ 0x08F7C2D6
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2F0
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2F0
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2F0
+gUnknown_08F7C30A:
 	.byte	0xD7
 	.byte	0x29
 	.byte	0x7F
@@ -39990,27 +35626,15 @@ gUnknown_08F7C3CC_3:	@ 0x08F7C2D6
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x0A
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C30A
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2F0
 	.byte	0xB3
-	.byte	0xF0
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2F0
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0xD8
-	.byte	0xC2
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C2D8
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -40019,6 +35643,7 @@ gUnknown_08F7C3CC_3:	@ 0x08F7C2D6
 gUnknown_08F7C3CC_4:	@ 0x08F7C32C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C32E:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBE
@@ -40043,6 +35668,7 @@ gUnknown_08F7C3CC_4:	@ 0x08F7C32C
 	.byte	0x98
 	.byte	0xD2
 	.byte	0x98
+gUnknown_08F7C346:
 	.byte	0xD2
 	.byte	0x48
 	.byte	0x70
@@ -40055,47 +35681,23 @@ gUnknown_08F7C3CC_4:	@ 0x08F7C32C
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB3
-	.byte	0x46
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C346
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x2E
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C32E
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -40104,6 +35706,7 @@ gUnknown_08F7C3CC_4:	@ 0x08F7C32C
 gUnknown_08F7C3CC_5:	@ 0x08F7C37C
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C37E:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBE
@@ -40128,6 +35731,7 @@ gUnknown_08F7C3CC_5:	@ 0x08F7C37C
 	.byte	0x98
 	.byte	0xD0
 	.byte	0x98
+gUnknown_08F7C396:
 	.byte	0xD0
 	.byte	0x54
 	.byte	0x7F
@@ -40140,47 +35744,23 @@ gUnknown_08F7C3CC_5:	@ 0x08F7C37C
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB3
-	.byte	0x96
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C396
 	.byte	0xB0
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x7E
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C37E
 	.byte	0xB1
 
 	.align 2
@@ -40206,6 +35786,7 @@ gUnknown_08F7C3CC:	@ 0x08F7C3CC
 gUnknown_08F7C418_1:	@ 0x08F7C3E8
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C3EA:
 	.byte	0xBB
 	.byte	0x43
 	.byte	0xBD
@@ -40244,10 +35825,7 @@ gUnknown_08F7C418_1:	@ 0x08F7C3E8
 	.byte	0xAA
 	.byte	0x81
 	.byte	0xB2
-	.byte	0xEA
-	.byte	0xC3
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C3EA
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
@@ -40272,6 +35850,7 @@ gUnknown_08F7C418:	@ 0x08F7C418
 gUnknown_08F7C784_1:	@ 0x08F7C424
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C426:
 	.byte	0xBB
 	.byte	0x21
 	.byte	0xBD
@@ -40363,6 +35942,7 @@ gUnknown_08F7C784_1:	@ 0x08F7C424
 	.byte	0x53
 	.byte	0x14
 	.byte	0x86
+gUnknown_08F7C481:
 	.byte	0xD0
 	.byte	0x4C
 	.byte	0x38
@@ -40501,10 +36081,7 @@ gUnknown_08F7C784_1:	@ 0x08F7C424
 	.byte	0x14
 	.byte	0x86
 	.byte	0xB3
-	.byte	0x81
-	.byte	0xC4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C481
 	.byte	0xBD
 	.byte	0x4B
 	.byte	0xD0
@@ -40579,6 +36156,7 @@ gUnknown_08F7C784_1:	@ 0x08F7C424
 	.byte	0x4C
 	.byte	0x14
 	.byte	0x8B
+gUnknown_08F7C559:
 	.byte	0xD0
 	.byte	0x53
 	.byte	0x50
@@ -40713,15 +36291,9 @@ gUnknown_08F7C784_1:	@ 0x08F7C424
 	.byte	0x14
 	.byte	0x8B
 	.byte	0xB3
-	.byte	0x59
-	.byte	0xC5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C559
 	.byte	0xB2
-	.byte	0x26
-	.byte	0xC4
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C426
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -40730,6 +36302,7 @@ gUnknown_08F7C784_1:	@ 0x08F7C424
 gUnknown_08F7C784_2:	@ 0x08F7C5E9
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C5EB:
 	.byte	0xBD
 	.byte	0x49
 	.byte	0xC3
@@ -40810,6 +36383,7 @@ gUnknown_08F7C784_2:	@ 0x08F7C5E9
 	.byte	0x47
 	.byte	0x14
 	.byte	0x8E
+gUnknown_08F7C63B:
 	.byte	0xD0
 	.byte	0x45
 	.byte	0x3C
@@ -40940,10 +36514,7 @@ gUnknown_08F7C784_2:	@ 0x08F7C5E9
 	.byte	0x14
 	.byte	0x8E
 	.byte	0xB3
-	.byte	0x3B
-	.byte	0xC6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C63B
 	.byte	0xBD
 	.byte	0x4A
 	.byte	0xD0
@@ -40984,6 +36555,7 @@ gUnknown_08F7C784_2:	@ 0x08F7C5E9
 	.byte	0x86
 	.byte	0xD0
 	.byte	0x86
+gUnknown_08F7C6E9:
 	.byte	0xD0
 	.byte	0x58
 	.byte	0x60
@@ -41024,20 +36596,11 @@ gUnknown_08F7C784_2:	@ 0x08F7C5E9
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE9
-	.byte	0xC6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C6E9
 	.byte	0xB3
-	.byte	0xE9
-	.byte	0xC6
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C6E9
 	.byte	0xB2
-	.byte	0xEB
-	.byte	0xC5
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C5EB
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -41046,6 +36609,7 @@ gUnknown_08F7C784_2:	@ 0x08F7C5E9
 gUnknown_08F7C784_3:	@ 0x08F7C720
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C722:
 	.byte	0xBD
 	.byte	0x58
 	.byte	0xC3
@@ -41074,6 +36638,7 @@ gUnknown_08F7C784_3:	@ 0x08F7C720
 	.byte	0x98
 	.byte	0x5A
 	.byte	0x98
+gUnknown_08F7C73E:
 	.byte	0xD0
 	.byte	0x58
 	.byte	0x7F
@@ -41098,10 +36663,8 @@ gUnknown_08F7C784_3:	@ 0x08F7C720
 	.byte	0x5A
 	.byte	0x98
 	.byte	0xB3
-	.byte	0x3E
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C73E
+gUnknown_08F7C75A:
 	.byte	0xDB
 	.byte	0x3D
 	.byte	0x60
@@ -41115,6 +36678,7 @@ gUnknown_08F7C784_3:	@ 0x08F7C720
 	.byte	0x39
 	.byte	0x9C
 	.byte	0xB4
+gUnknown_08F7C767:
 	.byte	0xDB
 	.byte	0x39
 	.byte	0x60
@@ -41129,20 +36693,11 @@ gUnknown_08F7C784_3:	@ 0x08F7C720
 	.byte	0x9C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C75A
 	.byte	0xB3
-	.byte	0x67
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C767
 	.byte	0xB2
-	.byte	0x22
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C722
 	.byte	0xB1
 
 	.align 2
@@ -41166,6 +36721,7 @@ gUnknown_08F7C784:	@ 0x08F7C784
 gUnknown_08F7C830_1:	@ 0x08F7C798
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C79A:
 	.byte	0xBB
 	.byte	0x20
 	.byte	0xBD
@@ -41232,10 +36788,7 @@ gUnknown_08F7C830_1:	@ 0x08F7C798
 	.byte	0xB0
 	.byte	0x98
 	.byte	0xB2
-	.byte	0x9A
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C79A
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -41244,6 +36797,7 @@ gUnknown_08F7C830_1:	@ 0x08F7C798
 gUnknown_08F7C830_2:	@ 0x08F7C7E1
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C7E3:
 	.byte	0xBD
 	.byte	0x29
 	.byte	0xC3
@@ -41315,10 +36869,7 @@ gUnknown_08F7C830_2:	@ 0x08F7C7E1
 	.byte	0xB0
 	.byte	0x90
 	.byte	0xB2
-	.byte	0xE3
-	.byte	0xC7
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C7E3
 	.byte	0xB1
 	.byte	0x00
 
@@ -41362,6 +36913,7 @@ gUnknown_08F7C920_1:	@ 0x08F7C840
 	.byte	0x65
 	.byte	0x7F
 	.byte	0xA0
+gUnknown_08F7C856:
 	.byte	0xEE
 	.byte	0x65
 	.byte	0x7F
@@ -41370,30 +36922,15 @@ gUnknown_08F7C920_1:	@ 0x08F7C840
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x56
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C856
 	.byte	0xB3
-	.byte	0x56
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C856
 	.byte	0xB3
-	.byte	0x56
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C856
 	.byte	0xB3
-	.byte	0x56
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C856
 	.byte	0xB2
-	.byte	0x56
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C856
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -41420,6 +36957,7 @@ gUnknown_08F7C920_2:	@ 0x08F7C877
 	.byte	0x62
 	.byte	0x7F
 	.byte	0xA0
+gUnknown_08F7C88B:
 	.byte	0xEE
 	.byte	0x62
 	.byte	0x7F
@@ -41428,30 +36966,15 @@ gUnknown_08F7C920_2:	@ 0x08F7C877
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8B
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C88B
 	.byte	0xB3
-	.byte	0x8B
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C88B
 	.byte	0xB3
-	.byte	0x8B
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C88B
 	.byte	0xB3
-	.byte	0x8B
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C88B
 	.byte	0xB2
-	.byte	0x8B
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C88B
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -41475,6 +36998,7 @@ gUnknown_08F7C920_3:	@ 0x08F7C8AC
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xA0
+gUnknown_08F7C8BD:
 	.byte	0x98
 	.byte	0xD2
 	.byte	0x28
@@ -41511,10 +37035,7 @@ gUnknown_08F7C920_3:	@ 0x08F7C8AC
 	.byte	0xAC
 	.byte	0x82
 	.byte	0xB2
-	.byte	0xBD
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C8BD
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -41538,6 +37059,7 @@ gUnknown_08F7C920_4:	@ 0x08F7C8E6
 	.byte	0xC4
 	.byte	0x00
 	.byte	0xA0
+gUnknown_08F7C8F7:
 	.byte	0x98
 	.byte	0xD2
 	.byte	0x48
@@ -41574,10 +37096,7 @@ gUnknown_08F7C920_4:	@ 0x08F7C8E6
 	.byte	0xAC
 	.byte	0x82
 	.byte	0xB2
-	.byte	0xF7
-	.byte	0xC8
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C8F7
 	.byte	0xB1
 
 	.align 2
@@ -41729,6 +37248,7 @@ gUnknown_08F7CA14_1:	@ 0x08F7C938
 gUnknown_08F7CA14_2:	@ 0x08F7C9B2
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7C9B4:
 	.byte	0xBD
 	.byte	0x00
 	.byte	0xBF
@@ -41746,6 +37266,7 @@ gUnknown_08F7CA14_2:	@ 0x08F7C9B2
 	.byte	0xD0
 	.byte	0xA0
 	.byte	0xB4
+gUnknown_08F7C9C5:
 	.byte	0xD0
 	.byte	0x53
 	.byte	0x64
@@ -41754,75 +37275,33 @@ gUnknown_08F7CA14_2:	@ 0x08F7C9B2
 	.byte	0xA0
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB3
-	.byte	0xB4
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9B4
 	.byte	0xB3
-	.byte	0xC5
-	.byte	0xC9
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7C9C5
 	.byte	0xB1
 	.byte	0x00
 
@@ -41846,6 +37325,7 @@ gUnknown_08F7CA14:	@ 0x08F7CA14
 gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7CA26:
 	.byte	0xBB
 	.byte	0x41
 	.byte	0xBD
@@ -41999,6 +37479,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x98
 	.byte	0xEB
 	.byte	0x9C
+gUnknown_08F7CABF:
 	.byte	0xDB
 	.byte	0x48
 	.byte	0x7F
@@ -42018,6 +37499,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x00
 	.byte	0x83
 	.byte	0xB4
+gUnknown_08F7CAD2:
 	.byte	0xDB
 	.byte	0x46
 	.byte	0x7F
@@ -42033,6 +37515,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x46
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CAE1:
 	.byte	0xDB
 	.byte	0x45
 	.byte	0x7F
@@ -42057,20 +37540,11 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0xEB
 	.byte	0x9C
 	.byte	0xB3
-	.byte	0xBF
-	.byte	0xCA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CABF
 	.byte	0xB3
-	.byte	0xD2
-	.byte	0xCA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CAD2
 	.byte	0xB3
-	.byte	0xE1
-	.byte	0xCA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CAE1
 	.byte	0xBD
 	.byte	0x1A
 	.byte	0x98
@@ -42089,6 +37563,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x8C
 	.byte	0xDB
 	.byte	0x8C
+gUnknown_08F7CB19:
 	.byte	0xE5
 	.byte	0x4D
 	.byte	0x7F
@@ -42100,6 +37575,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x4C
 	.byte	0x98
 	.byte	0xB4
+gUnknown_08F7CB24:
 	.byte	0xD9
 	.byte	0x4A
 	.byte	0x7F
@@ -42113,6 +37589,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x48
 	.byte	0xA8
 	.byte	0xB4
+gUnknown_08F7CB31:
 	.byte	0xBD
 	.byte	0x23
 	.byte	0xD5
@@ -42154,20 +37631,11 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0xDB
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x19
-	.byte	0xCB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CB19
 	.byte	0xB3
-	.byte	0x24
-	.byte	0xCB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CB24
 	.byte	0xB3
-	.byte	0x31
-	.byte	0xCB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CB31
 	.byte	0xBD
 	.byte	0x25
 	.byte	0xE3
@@ -42212,10 +37680,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 	.byte	0x41
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x26
-	.byte	0xCA
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CA26
 	.byte	0xB1
 
 	@********************** Track  2 **********************@
@@ -42224,6 +37689,7 @@ gUnknown_08F7D078_1:	@ 0x08F7CA24
 gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7CB9B:
 	.byte	0xBD
 	.byte	0x21
 	.byte	0xC5
@@ -42419,6 +37885,7 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x8C
 	.byte	0x52
 	.byte	0x8C
+gUnknown_08F7CC5E:
 	.byte	0x8B
 	.byte	0xD5
 	.byte	0x58
@@ -42435,6 +37902,7 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x54
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CC6E:
 	.byte	0x8B
 	.byte	0xD5
 	.byte	0x56
@@ -42451,6 +37919,7 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x52
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CC7E:
 	.byte	0x8B
 	.byte	0xD5
 	.byte	0x58
@@ -42481,20 +37950,12 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x52
 	.byte	0x8C
 	.byte	0xB3
-	.byte	0x5E
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CC5E
 	.byte	0xB3
-	.byte	0x6E
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CC6E
 	.byte	0xB3
-	.byte	0x7E
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CC7E
+gUnknown_08F7CCAA:
 	.byte	0xD1
 	.byte	0x45
 	.byte	0x60
@@ -42546,15 +38007,9 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xAA
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CCAA
 	.byte	0xB3
-	.byte	0xAA
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CCAA
 	.byte	0xBD
 	.byte	0x24
 	.byte	0xD5
@@ -42573,15 +38028,9 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0xDE
 	.byte	0x98
 	.byte	0xB3
-	.byte	0xAA
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CCAA
 	.byte	0xB3
-	.byte	0xAA
-	.byte	0xCC
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CCAA
 	.byte	0xD1
 	.byte	0x45
 	.byte	0x60
@@ -42694,10 +38143,7 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 	.byte	0x39
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x9B
-	.byte	0xCB
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CB9B
 	.byte	0xB1
 
 	@********************** Track  3 **********************@
@@ -42706,6 +38152,7 @@ gUnknown_08F7D078_2:	@ 0x08F7CB99
 gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7CD78:
 	.byte	0xBD
 	.byte	0x09
 	.byte	0xBE
@@ -42727,6 +38174,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0xA0
 	.byte	0xDB
 	.byte	0x98
+gUnknown_08F7CD8D:
 	.byte	0x98
 	.byte	0xDB
 	.byte	0x3E
@@ -42736,10 +38184,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x8D
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CD8D
 	.byte	0x98
 	.byte	0xDB
 	.byte	0x3E
@@ -42751,6 +38196,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x8C
 	.byte	0x37
 	.byte	0x8C
+gUnknown_08F7CDA5:
 	.byte	0xDE
 	.byte	0x35
 	.byte	0x5C
@@ -42773,6 +38219,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x3A
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CDBB:
 	.byte	0xDE
 	.byte	0x3C
 	.byte	0x5C
@@ -42795,6 +38242,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x35
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CDD1:
 	.byte	0xDE
 	.byte	0x3A
 	.byte	0x5C
@@ -42817,6 +38265,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x37
 	.byte	0x8C
 	.byte	0xB4
+gUnknown_08F7CDE7:
 	.byte	0xDE
 	.byte	0x39
 	.byte	0x5C
@@ -42840,25 +38289,14 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xA5
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CDA5
 	.byte	0xB3
-	.byte	0xBB
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CDBB
 	.byte	0xB3
-	.byte	0xD1
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CDD1
 	.byte	0xB3
-	.byte	0xE7
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CDE7
+gUnknown_08F7CE11:
 	.byte	0xD3
 	.byte	0x35
 	.byte	0x5C
@@ -42883,6 +38321,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0xD2
 	.byte	0x86
 	.byte	0xB4
+gUnknown_08F7CE29:
 	.byte	0xD3
 	.byte	0x39
 	.byte	0x5C
@@ -42908,25 +38347,14 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x11
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CE11
 	.byte	0xB3
-	.byte	0x29
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CE29
 	.byte	0xB3
-	.byte	0x11
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CE11
 	.byte	0xB3
-	.byte	0x29
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CE29
+gUnknown_08F7CE55:
 	.byte	0xD3
 	.byte	0x39
 	.byte	0x5C
@@ -42951,10 +38379,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x55
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CE55
 	.byte	0xDE
 	.byte	0x3A
 	.byte	0x5C
@@ -43002,10 +38427,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 	.byte	0x35
 	.byte	0xB0
 	.byte	0xB2
-	.byte	0x78
-	.byte	0xCD
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CD78
 	.byte	0xB1
 
 	@********************** Track  4 **********************@
@@ -43014,6 +38436,7 @@ gUnknown_08F7D078_3:	@ 0x08F7CD76
 gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7CEA7:
 	.byte	0xBD
 	.byte	0x04
 	.byte	0xBF
@@ -43066,6 +38489,7 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x50
 	.byte	0x3C
 	.byte	0x86
+gUnknown_08F7CEDB:
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x3C
@@ -43110,10 +38534,7 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xDB
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CEDB
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x3C
@@ -43136,6 +38557,7 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x50
 	.byte	0x3C
 	.byte	0xA2
+gUnknown_08F7CF21:
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x64
@@ -43159,40 +38581,20 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
 	.byte	0xB3
-	.byte	0x21
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF21
+gUnknown_08F7CF5A:
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x64
@@ -43228,40 +38630,20 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x86
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
 	.byte	0xB3
-	.byte	0x5A
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF5A
+gUnknown_08F7CF9F:
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x64
@@ -43282,15 +38664,9 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0x8C
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF9F
 	.byte	0xB3
-	.byte	0x9F
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CF9F
 	.byte	0xD0
 	.byte	0x50
 	.byte	0x64
@@ -43302,10 +38678,7 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 	.byte	0xD0
 	.byte	0xA4
 	.byte	0xB2
-	.byte	0xA7
-	.byte	0xCE
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CEA7
 	.byte	0xB1
 
 	@********************** Track  5 **********************@
@@ -43314,6 +38687,7 @@ gUnknown_08F7D078_4:	@ 0x08F7CEA5
 gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0xBC
 	.byte	0x00
+gUnknown_08F7CFCE:
 	.byte	0xBD
 	.byte	0x7F
 	.byte	0xBF
@@ -43338,6 +38712,7 @@ gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0x86
 	.byte	0x49
 	.byte	0x8C
+gUnknown_08F7CFE6:
 	.byte	0xD4
 	.byte	0x40
 	.byte	0x7F
@@ -43356,40 +38731,20 @@ gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
 	.byte	0xB3
-	.byte	0xE6
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFE6
+gUnknown_08F7D01A:
 	.byte	0xD4
 	.byte	0x40
 	.byte	0x7F
@@ -43404,40 +38759,20 @@ gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
 	.byte	0xB3
-	.byte	0x1A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D01A
+gUnknown_08F7D04A:
 	.byte	0xD4
 	.byte	0x40
 	.byte	0x7F
@@ -43452,15 +38787,9 @@ gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0x98
 	.byte	0xB4
 	.byte	0xB3
-	.byte	0x4A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D04A
 	.byte	0xB3
-	.byte	0x4A
-	.byte	0xD0
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7D04A
 	.byte	0xD4
 	.byte	0x40
 	.byte	0x7F
@@ -43476,10 +38805,7 @@ gUnknown_08F7D078_5:	@ 0x08F7CFCC
 	.byte	0x57
 	.byte	0x98
 	.byte	0xB2
-	.byte	0xCE
-	.byte	0xCF
-	.byte	0xF7
-	.byte	0x08
+	.word	gUnknown_08F7CFCE
 	.byte	0xB1
 	.byte	0x00
 	.byte	0x00
