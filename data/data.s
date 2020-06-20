@@ -10685,40 +10685,40 @@ MPlyJmpTbl:
     .word ClearChain+1
     .word SoundMainBTM+1
 
-    .global gUnknown_08F70FA8
-gUnknown_08F70FA8:
+    .global ScaleTable
+ScaleTable:
     .incbin "baserom.gba", 0x00F70FA8, 0xB4
 
-    .global gUnknown_08F7105C
-gUnknown_08F7105C:
+    .global FreqTable
+FreqTable:
     .incbin "baserom.gba", 0x00F7105C, 0x30
 
-    .global gUnknown_08F7108C
-gUnknown_08F7108C:
+    .global pcmVBtbl_rev
+pcmVBtbl_rev:
     .incbin "baserom.gba", 0x00F7108C, 0x18
 
-    .global gUnknown_08F710A4
-gUnknown_08F710A4:
+    .global CgbScTable
+CgbScTable:
     .incbin "baserom.gba", 0x00F710A4, 0x84
 
-    .global gUnknown_08F71128
-gUnknown_08F71128:
+    .global CgbFrTable
+CgbFrTable:
     .incbin "baserom.gba", 0x00F71128, 0x18
 
-    .global gUnknown_08F71140
-gUnknown_08F71140:
+    .global NoiseTable
+NoiseTable:
     .incbin "baserom.gba", 0x00F71140, 0x3C
 
-    .global gUnknown_08F7117C
-gUnknown_08F7117C:
+    .global Cgb3vol
+Cgb3vol:
     .incbin "baserom.gba", 0x00F7117C, 0x10
 
-    .global gUnknown_08F7118C
-gUnknown_08F7118C:
+    .global clock_tbl_rev01
+clock_tbl_rev01:
     .incbin "baserom.gba", 0x00F7118C, 0x34
 
-    .global gUnknown_08F711C0
-gUnknown_08F711C0:
+    .global xcmd_tbl
+xcmd_tbl:
     .word ply_xxx+1
     .word ply_xwave+1
     .word ply_xtype+1

@@ -771,7 +771,7 @@ _08F007D2:
 	bne _08F0087E
 	ldr r4, _08F007F8 @ =gUnknown_03004850
 	adds r0, r4, #0
-	bl sub_8F13BA8
+	bl m4aMPlayImmInit
 	ldr r0, _08F007F0 @ =gUnknown_03003190
 	ldr r2, _08F007FC @ =0x0000021E
 	adds r1, r0, r2
@@ -26466,7 +26466,7 @@ _08F0D4E2:
 	adds r1, r6, #0
 	movs r2, #0xc0
 	lsls r2, r2, #2
-	bl sub_8F14E84
+	bl ReadSram
 	adds r0, r6, #0
 	bl sub_8F0D490
 	cmp r0, #0
@@ -26493,7 +26493,7 @@ sub_8F0D510: @ 0x08F0D510
 	ldr r0, _08F0D530 @ =0x0E001200
 	mov r1, sp
 	movs r2, #4
-	bl sub_8F14E84
+	bl ReadSram
 	mov r1, sp
 	ldr r0, _08F0D534 @ =0x0000E9B0
 	ldrh r1, [r1]
@@ -26530,7 +26530,7 @@ _08F0D556:
 	adds r1, r5, #0
 	movs r2, #0xc0
 	lsls r2, r2, #2
-	bl sub_8F14FBC
+	bl WriteSramEx
 	movs r0, #0x90
 	lsls r0, r0, #4
 	adds r5, r5, r0
@@ -26555,7 +26555,7 @@ sub_8F0D574: @ 0x08F0D574
 	ldr r1, _08F0D598 @ =0x0E001200
 	mov r0, sp
 	movs r2, #4
-	bl sub_8F14FBC
+	bl WriteSramEx
 	add sp, #4
 	pop {r0}
 	bx r0
@@ -38376,7 +38376,7 @@ _08F1340C:
 	beq _08F13494
 	b _08F13438
 _08F1342E:
-	ldr r0, _08F13580 @ =gUnknown_08F7118C
+	ldr r0, _08F13580 @ =clock_tbl_rev01
 	subs r1, #0x80
 	adds r1, r1, r0
 	ldrb r0, [r1]
@@ -38496,7 +38496,7 @@ _08F134F6:
 	movs r0, #3
 	tst r0, r3
 	beq _08F13514
-	bl sub_8F135D0
+	bl ChnVolSetAsm
 	cmp r6, #0
 	beq _08F13514
 	ldrb r0, [r4, #0x1d]
@@ -38565,7 +38565,7 @@ _08F1356C:
 .call_r3_rev: @ 0x08F1357C
 	bx r3
 	.align 2, 0
-_08F13580: .4byte gUnknown_08F7118C
+_08F13580: .4byte clock_tbl_rev01
 _08F13584: .4byte SOUND_AREA_ADR
 _08F13588: .4byte 0x68736D53
 
@@ -38609,8 +38609,8 @@ _08F135C4:
 	.align 2, 0
 _08F135CC: .4byte SOUND_AREA_ADR
 
-	thumb_func_start sub_8F135D0
-sub_8F135D0: @ 0x08F135D0
+	thumb_func_start ChnVolSetAsm
+ChnVolSetAsm: @ 0x08F135D0
 	ldrb r1, [r4, #0x12]
 	movs r0, #0x14
 	ldrsb r2, [r4, r0]
@@ -38652,7 +38652,7 @@ ply_note_rev01: @ 0x08F13600
 	ldr r1, _08F137F8 @ =SOUND_AREA_ADR
 	ldr r1, [r1]
 	str r1, [sp, #4]
-	ldr r1, _08F137FC @ =gUnknown_08F7118C
+	ldr r1, _08F137FC @ =clock_tbl_rev01
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	strb r0, [r5, #4]
@@ -38859,7 +38859,7 @@ _08F13766:
 	str r0, [r4, #4]
 	ldrh r0, [r5, #0x1e]
 	strh r0, [r4, #0xc]
-	bl sub_8F135D0
+	bl ChnVolSetAsm
 	ldrb r1, [r4, #8]
 	movs r0, #8
 	ldrsb r0, [r5, r0]
@@ -38915,7 +38915,7 @@ _08F137E6:
 	bx r0
 	.align 2, 0
 _08F137F8: .4byte SOUND_AREA_ADR
-_08F137FC: .4byte gUnknown_08F7118C
+_08F137FC: .4byte clock_tbl_rev01
 
 	thumb_func_start ply_endtie_rev01
 ply_endtie_rev01: @ 0x08F13800
@@ -39025,10 +39025,10 @@ MidiKey2fr: @ 0x08F13890
 	movs r7, #0xff
 	lsls r7, r7, #0x18
 _08F138A4:
-	ldr r3, _08F138EC @ =gUnknown_08F70FA8
+	ldr r3, _08F138EC @ =ScaleTable
 	adds r0, r6, r3
 	ldrb r5, [r0]
-	ldr r4, _08F138F0 @ =gUnknown_08F7105C
+	ldr r4, _08F138F0 @ =FreqTable
 	movs r2, #0xf
 	adds r0, r5, #0
 	ands r0, r2
@@ -39060,8 +39060,8 @@ _08F138A4:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08F138EC: .4byte gUnknown_08F70FA8
-_08F138F0: .4byte gUnknown_08F7105C
+_08F138EC: .4byte ScaleTable
+_08F138F0: .4byte FreqTable
 
 	thumb_func_start DummyFunc
 DummyFunc: @ 0x08F138F4
@@ -39135,7 +39135,7 @@ _08F13966:
 	bl MPlayOpen_rev01
 	ldrh r0, [r5, #0xa]
 	strb r0, [r4, #0xb]
-	ldr r0, _08F139A8 @ =gUnknown_03004950
+	ldr r0, _08F139A8 @ =m4a_memacc_area
 	str r0, [r4, #0x18]
 	adds r5, #0xc
 	subs r6, #1
@@ -39154,7 +39154,7 @@ _08F13998: .4byte m4a_cgbchn
 _08F1399C: .4byte 0x0093D200
 _08F139A0: .4byte 0x00000005
 _08F139A4: .4byte gMPlayTable
-_08F139A8: .4byte gUnknown_03004950
+_08F139A8: .4byte m4a_memacc_area
 
 	thumb_func_start m4aSoundMain
 m4aSoundMain: @ 0x08F139AC
@@ -39392,8 +39392,8 @@ m4aMPlayFadeOut: @ 0x08F13B50
 	bx r0
 	.align 2, 0
 
-	thumb_func_start sub_8F13B60
-sub_8F13B60: @ 0x08F13B60
+	thumb_func_start m4aMPlayFadeOutPause
+m4aMPlayFadeOutPause: @ 0x08F13B60
 	adds r2, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
@@ -39411,8 +39411,8 @@ _08F13B76:
 _08F13B78: .4byte 0x68736D53
 _08F13B7C: .4byte 0x00000101
 
-	thumb_func_start sub_8F13B80
-sub_8F13B80: @ 0x08F13B80
+	thumb_func_start m4aMPlayFadeInContinue
+m4aMPlayFadeInContinue: @ 0x08F13B80
 	adds r2, r0, #0
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
@@ -39434,8 +39434,8 @@ _08F13B9E:
 _08F13BA0: .4byte 0x68736D53
 _08F13BA4: .4byte 0x7FFFFFFF
 
-	thumb_func_start sub_8F13BA8
-sub_8F13BA8: @ 0x08F13BA8
+	thumb_func_start m4aMPlayImmInit
+m4aMPlayImmInit: @ 0x08F13BA8
 	push {r4, r5, r6, r7, lr}
 	ldrb r5, [r0, #8]
 	ldr r4, [r0, #0x2c]
@@ -39749,7 +39749,7 @@ SampFreqSet_rev01: @ 0x08F13E2C
 	lsrs r2, r0, #0x10
 	movs r6, #0
 	strb r2, [r4, #8]
-	ldr r1, _08F13EB0 @ =gUnknown_08F7108C
+	ldr r1, _08F13EB0 @ =pcmVBtbl_rev
 	subs r0, r2, #1
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -39801,7 +39801,7 @@ _08F13E98:
 	bx r0
 	.align 2, 0
 _08F13EAC: .4byte SOUND_AREA_ADR
-_08F13EB0: .4byte gUnknown_08F7108C
+_08F13EB0: .4byte pcmVBtbl_rev
 _08F13EB4: .4byte 0x00091D1B
 _08F13EB8: .4byte 0x00001388
 _08F13EBC: .4byte 0x00002710
@@ -40490,12 +40490,12 @@ _08F143A8:
 	bls _08F143B6
 	movs r5, #0x3b
 _08F143B6:
-	ldr r0, _08F143C0 @ =gUnknown_08F71140
+	ldr r0, _08F143C0 @ =NoiseTable
 	adds r0, r5, r0
 	ldrb r0, [r0]
 	b _08F14426
 	.align 2, 0
-_08F143C0: .4byte gUnknown_08F71140
+_08F143C0: .4byte NoiseTable
 _08F143C4:
 	cmp r5, #0x23
 	bhi _08F143D0
@@ -40514,10 +40514,10 @@ _08F143D0:
 	movs r1, #0xff
 	mov ip, r1
 _08F143E2:
-	ldr r3, _08F1442C @ =gUnknown_08F710A4
+	ldr r3, _08F1442C @ =CgbScTable
 	adds r0, r5, r3
 	ldrb r6, [r0]
-	ldr r4, _08F14430 @ =gUnknown_08F71128
+	ldr r4, _08F14430 @ =CgbFrTable
 	movs r2, #0xf
 	adds r0, r6, #0
 	ands r0, r2
@@ -40553,8 +40553,8 @@ _08F14426:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08F1442C: .4byte gUnknown_08F710A4
-_08F14430: .4byte gUnknown_08F71128
+_08F1442C: .4byte CgbScTable
+_08F14430: .4byte CgbFrTable
 
 	thumb_func_start CgbOscOff
 CgbOscOff: @ 0x08F14434
@@ -41177,7 +41177,7 @@ _08F14892:
 	strb r0, [r1]
 	cmp r6, #3
 	bne _08F148E4
-	ldr r0, _08F148E0 @ =gUnknown_08F7117C
+	ldr r0, _08F148E0 @ =Cgb3vol
 	ldrb r1, [r4, #9]
 	adds r0, r1, r0
 	ldrb r0, [r0]
@@ -41201,7 +41201,7 @@ _08F14892:
 	b _08F14918
 	.align 2, 0
 _08F148DC: .4byte 0x04000081
-_08F148E0: .4byte gUnknown_08F7117C
+_08F148E0: .4byte Cgb3vol
 _08F148E4:
 	movs r0, #0xf
 	mov r1, r8
@@ -41786,7 +41786,7 @@ ply_xcmd: @ 0x08F14D04
 	ldrb r3, [r2]
 	adds r2, #1
 	str r2, [r1, #0x40]
-	ldr r2, _08F14D20 @ =gUnknown_08F711C0
+	ldr r2, _08F14D20 @ =xcmd_tbl
 	lsls r3, r3, #2
 	adds r3, r3, r2
 	ldr r2, [r3]
@@ -41794,7 +41794,7 @@ ply_xcmd: @ 0x08F14D04
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F14D20: .4byte gUnknown_08F711C0
+_08F14D20: .4byte xcmd_tbl
 
 	thumb_func_start ply_xxx
 ply_xxx: @ 0x08F14D24
@@ -41998,8 +41998,8 @@ SoftResetRom: @ 0x08F14E44
 _08F14E58: .4byte 0x04000208
 _08F14E5C: .4byte gUnknown_03007FFA
 
-	thumb_func_start sub_8F14E60
-sub_8F14E60:
+	thumb_func_start ReadSram_Core
+ReadSram_Core:
 	push {r4, lr}
 	adds r4, r0, #0
 	subs r3, r2, #1
@@ -42021,8 +42021,8 @@ _08F14E7C:
 	bx r0
 	.align 2, 0
 
-	thumb_func_start sub_8F14E84
-sub_8F14E84: @ 0x08F14E84
+	thumb_func_start ReadSram
+ReadSram: @ 0x08F14E84
 	push {r4, r5, r6, lr}
 	sub sp, #0x80
 	adds r4, r0, #0
@@ -42035,20 +42035,20 @@ sub_8F14E84: @ 0x08F14E84
 	movs r1, #3
 	orrs r0, r1
 	strh r0, [r2]
-	ldr r3, _08F14EB8 @ =sub_8F14E60+1
+	ldr r3, _08F14EB8 @ =ReadSram_Core+1
 	movs r0, #1
 	eors r3, r0
 	mov r2, sp
-	ldr r0, _08F14EBC @ =sub_8F14E84
-	ldr r1, _08F14EB8 @ =sub_8F14E60+1
+	ldr r0, _08F14EBC @ =ReadSram
+	ldr r1, _08F14EB8 @ =ReadSram_Core+1
 	subs r0, r0, r1
 	lsls r0, r0, #0xf
 	b _08F14ECC
 	.align 2, 0
 _08F14EB0: .4byte 0x04000204
 _08F14EB4: .4byte 0x0000FFFC
-_08F14EB8: .4byte sub_8F14E60+1
-_08F14EBC: .4byte sub_8F14E84
+_08F14EB8: .4byte ReadSram_Core+1
+_08F14EBC: .4byte ReadSram
 _08F14EC0:
 	ldrh r0, [r3]
 	strh r0, [r2]
@@ -42071,8 +42071,8 @@ _08F14ECC:
 	pop {r0}
 	bx r0
 
-	thumb_func_start sub_8F14EE8
-sub_8F14EE8: @ 0x08F14EE8
+	thumb_func_start WriteSram
+WriteSram: @ 0x08F14EE8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -42106,8 +42106,8 @@ _08F14F18:
 _08F14F20: .4byte 0x04000204
 _08F14F24: .4byte 0x0000FFFC
 
-	thumb_func_start sub_8F14F28
-sub_8F14F28:
+	thumb_func_start VerifySram_Core
+VerifySram_Core:
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r3, r1, #0
@@ -42137,8 +42137,8 @@ _08F14F50:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F14F58
-sub_8F14F58: @ 0x08F14F58
+	thumb_func_start VerifySram
+VerifySram: @ 0x08F14F58
 	push {r4, r5, r6, lr}
 	sub sp, #0xc0
 	adds r4, r0, #0
@@ -42151,20 +42151,20 @@ sub_8F14F58: @ 0x08F14F58
 	movs r1, #3
 	orrs r0, r1
 	strh r0, [r2]
-	ldr r3, _08F14F8C @ =sub_8F14F28+1
+	ldr r3, _08F14F8C @ =VerifySram_Core+1
 	movs r0, #1
 	eors r3, r0
 	mov r2, sp
-	ldr r0, _08F14F90 @ =sub_8F14F58
-	ldr r1, _08F14F8C @ =sub_8F14F28+1
+	ldr r0, _08F14F90 @ =VerifySram
+	ldr r1, _08F14F8C @ =VerifySram_Core+1
 	subs r0, r0, r1
 	lsls r0, r0, #0xf
 	b _08F14FA0
 	.align 2, 0
 _08F14F84: .4byte 0x04000204
 _08F14F88: .4byte 0x0000FFFC
-_08F14F8C: .4byte sub_8F14F28+1
-_08F14F90: .4byte sub_8F14F58
+_08F14F8C: .4byte VerifySram_Core+1
+_08F14F90: .4byte VerifySram
 _08F14F94:
 	ldrh r0, [r3]
 	strh r0, [r2]
@@ -42187,8 +42187,8 @@ _08F14FA0:
 	pop {r1}
 	bx r1
 
-	thumb_func_start sub_8F14FBC
-sub_8F14FBC: @ 0x08F14FBC
+	thumb_func_start WriteSramEx
+WriteSramEx: @ 0x08F14FBC
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	adds r5, r1, #0
@@ -42205,11 +42205,11 @@ _08F14FCE:
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_8F14EE8
+	bl WriteSram
 	adds r0, r6, #0
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_8F14F58
+	bl VerifySram
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _08F14FC8
