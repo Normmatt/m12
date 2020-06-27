@@ -61,22 +61,22 @@ gUnknown_08F1B678:
     .incbin "baserom.gba", 0x00F1B678, 0x8
 
     .align 2
-    .global gUnknown_08F1B680
-gUnknown_08F1B680:
-    .word sub_8F00A54+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
-    .word sub_8F00A78+1
+    .global IntrTable
+IntrTable:
+    .word VblankIntr+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
+    .word IntrDummy+1
 
     .align 2
     .global gUnknown_08F1B6B8
