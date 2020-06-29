@@ -195,4 +195,3 @@
 . = 0x00007FF8; gUnknown_03007FF8 = .;
 . = 0x00007FFA; gUnknown_03007FFA = .;
 . = 0x00007FFC; gUnknown_03007FFC = .;
-. = 0x00BF0000; gUnknown_03BF0000 = .;

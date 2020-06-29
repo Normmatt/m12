@@ -1,4 +1,10 @@
+#ifdef NDS_VERSION
+#include "macros.inc"
+#define OAM_VRAM_OFFSET 0x00400000
+#else
 .include "asm/macros.inc"
+#define OAM_VRAM_OFFSET 0x00010000
+#endif
 
 .syntax unified
 .section .text
@@ -6,7 +12,11 @@
 	arm_func_start start
 start: @ 0x08F00000
 	b crt0
+#ifdef NDS_VERSION
+	#include "rom_header.inc"
+#else
 	.include "asm/rom_header.inc"
+#endif
     
 crt0:
 	mov r0, #0x12
@@ -349,6 +359,9 @@ _08F003D4:
 	bl sub_8F02AFC
 	bl sub_8F0191C
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F040E0
 	ldr r0, _08F00594 @ =gUnknown_03001530
 	str r0, [r5]
@@ -363,6 +376,13 @@ _08F003D4:
 	ldr r0, _08F0059C @ =0x06001000
 	str r0, [r5, #4]
 	str r1, [r5, #8]
+#ifdef NDS_VERSION
+	ldr r0, _08F00598_2 @ =gUnknown_03000000+0x2970
+	str r0, [r5]
+	ldr r0, _08F0059C_2 @ =0x06001000
+	str r0, [r5, #4]
+	str r1, [r5, #8]
+#endif
 	ldr r0, [r5, #8]
 	ldr r0, _08F004D4 @ =gUnknown_03002450
 	str r0, [r5]
@@ -460,13 +480,13 @@ _08F004F8: .4byte 0x04000010
 _08F004FC: .4byte gUnknown_03000844
 _08F00500: .4byte gUnknown_0300318C
 _08F00504: .4byte gUnknown_08F339A0
-_08F00508: .4byte 0x06010000
+_08F00508: .4byte 0x06000000+OAM_VRAM_OFFSET
 _08F0050C: .4byte gUnknown_08F67080
-_08F00510: .4byte 0x06012000
+_08F00510: .4byte 0x06002000+OAM_VRAM_OFFSET
 _08F00514: .4byte gUnknown_08F379A0
-_08F00518: .4byte 0x06014000
+_08F00518: .4byte 0x06004000+OAM_VRAM_OFFSET
 _08F0051C: .4byte gUnknown_08F381A0
-_08F00520: .4byte 0x06015000
+_08F00520: .4byte 0x06005000+OAM_VRAM_OFFSET
 _08F00524: .4byte gUnknown_08F64564
 _08F00528: .4byte 0x05000200
 _08F0052C: .4byte gUnknown_03001488
@@ -498,6 +518,10 @@ _08F00590: .4byte gUnknown_03003498
 _08F00594: .4byte gUnknown_03001530
 _08F00598: .4byte gUnknown_03002970
 _08F0059C: .4byte 0x06001000
+#ifdef NDS_VERSION
+_08F00598_2: .4byte gBg2TilemapBuffer2
+_08F0059C_2: .4byte 0x06001800
+#endif
 _08F005A0: .4byte 0x04000018
 _08F005A4: .4byte gUnknown_030007EC
 _08F005A8: .4byte 0x000003FF
@@ -1717,7 +1741,7 @@ sub_8F00F48: @ 0x08F00F48
 	adds r6, r0, #0
 	mov sl, r2
 	lsls r1, r1, #0x10
-	ldr r0, _08F00F74 @ =gUnknown_03BF0000
+	ldr r0, _08F00F74 @ =0x03BF0000
 	cmp r1, r0
 	bls _08F00F78
 	movs r4, #0
@@ -1733,7 +1757,7 @@ _08F00F62:
 	bls _08F00F62
 	b _08F0100E
 	.align 2, 0
-_08F00F74: .4byte gUnknown_03BF0000
+_08F00F74: .4byte 0x03BF0000
 _08F00F78:
 	asrs r4, r1, #0x10
 	adds r0, r4, #0
@@ -2398,7 +2422,7 @@ _08F01480: .4byte gUnknown_03000830
 _08F01484: .4byte gUnknown_08F64574
 _08F01488: .4byte gUnknown_030007D0
 _08F0148C: .4byte gUnknown_08F6453C
-_08F01490: .4byte 0x06011000
+_08F01490: .4byte 0x06001000+OAM_VRAM_OFFSET
 
 	thumb_func_start DrawBg2Tilemap
 DrawBg2Tilemap: @ 0x08F01494
@@ -2651,7 +2675,11 @@ _08F01678:
 	lsls r0, r3, #0x10
 	lsrs r6, r0, #0x10
 	ldr r1, [sp, #0x10]
+#ifdef NDS_VERSION
+	cmp r1, #0xfb
+#else
 	cmp r1, #0xab
+#endif
 	bgt _08F0168C
 	b _08F014BE
 _08F0168C:
@@ -3042,7 +3070,11 @@ _08F01972:
 	cmp r0, #0
 	blt _08F01994
 	ldr r3, _08F019AC @ =gUnknown_03002450
+#ifdef NDS_VERSION
+	movs r2, #0xc0
+#else
 	movs r2, #0xa0
+#endif
 _08F01980:
 	ldrb r4, [r1]
 	lsls r0, r4, #3
@@ -7936,7 +7968,7 @@ _08F03F64:
 	.align 2, 0
 _08F03F68: .4byte gUnknown_030007D0
 _08F03F6C: .4byte gUnknown_08F6453C
-_08F03F70: .4byte 0x06011000
+_08F03F70: .4byte 0x06001000+OAM_VRAM_OFFSET
 
 	thumb_func_start sub_8F03F74
 sub_8F03F74: @ 0x08F03F74
@@ -14817,6 +14849,9 @@ _08F0759C:
 	bl sub_8F01700
 	bl sub_8F0191C
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F040E0
 	ldr r1, _08F07694 @ =0x040000D4
 	ldr r0, _08F07698 @ =gUnknown_03002970
@@ -14937,6 +14972,9 @@ _08F076FA:
 _08F0770E:
 	bl sub_8F01388
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F03128
 	ldr r1, _08F07A94 @ =0x040000D4
 	ldr r0, _08F07A98 @ =gUnknown_03002970
@@ -15033,15 +15071,25 @@ _08F077B2:
 	ldrsb r0, [r2, r0]
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
+#ifdef NDS_VERSION
+	movs r0, #0x80
+	lsls r0, r0, #2 @@nds - 256*2
+#else
 	movs r0, #0xf0
 	lsls r0, r0, #1
+#endif
 	add r0, r8
 	ldr r3, _08F07AA8 @ =gUnknown_03000788
 	ldrh r3, [r3]
 	adds r0, r3, r0
 	lsls r0, r0, #0x10
+#ifdef NDS_VERSION
+	movs r4, #0xd0
+	lsls r4, r4, #1 @@nds - 192*2 + 32
+#else
 	movs r4, #0xb0
 	lsls r4, r4, #1
+#endif
 	adds r1, r7, r4
 	mov r5, sl
 	ldrh r5, [r5]
@@ -15433,6 +15481,9 @@ _08F07B1E:
 	bl sub_8F01254
 	bl sub_8F01388
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F03128
 	ldr r1, _08F07D3C @ =0x040000D4
 	ldr r0, _08F07D40 @ =gUnknown_03002970
@@ -15475,6 +15526,9 @@ _08F07B8A:
 _08F07BA2:
 	bl sub_8F01388
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F03128
 	ldr r1, _08F07D3C @ =0x040000D4
 	ldr r0, _08F07D40 @ =gUnknown_03002970
@@ -15730,6 +15784,9 @@ _08F07DB6:
 	bl sub_8F011E4
 	bl sub_8F01388
 	bl DrawBg2Tilemap
+#ifdef NDS_VERSION
+	bl DrawBg2Tilemap2
+#endif
 	bl sub_8F03128
 	ldr r1, _08F07E94 @ =0x040000D4
 	ldr r0, _08F07E98 @ =gUnknown_03002970
@@ -20542,8 +20599,8 @@ _08F0A582:
 	.align 2, 0
 _08F0A5B0: .4byte 0x0600C000
 _08F0A5B4: .4byte 0x0600C800
-_08F0A5B8: .4byte 0x06010000
-_08F0A5BC: .4byte 0x06011000
+_08F0A5B8: .4byte 0x06000000+OAM_VRAM_OFFSET
+_08F0A5BC: .4byte 0x06001000+OAM_VRAM_OFFSET
 _08F0A5C0:
 	ldrb r3, [r4, #2]
 	lsls r0, r3, #8
@@ -20954,7 +21011,7 @@ _08F0A8F8:
 	bl sub_8F0A9E8
 	b _08F0A576
 	.align 2, 0
-_08F0A904: .4byte 0x06011000
+_08F0A904: .4byte 0x06001000+OAM_VRAM_OFFSET
 _08F0A908:
 	ldrb r0, [r4, #1]
 	ldr r1, _08F0A948 @ =0x0600D000
@@ -20987,8 +21044,8 @@ _08F0A948: .4byte 0x0600D000
 _08F0A94C: .4byte 0x0600D800
 _08F0A950: .4byte 0x0600C000
 _08F0A954: .4byte 0x0600C800
-_08F0A958: .4byte 0x06010000
-_08F0A95C: .4byte 0x06011000
+_08F0A958: .4byte 0x06000000+OAM_VRAM_OFFSET
+_08F0A95C: .4byte 0x06001000+OAM_VRAM_OFFSET
 _08F0A960:
 	ldrb r1, [r4, #1]
 	str r1, [sp, #4]
@@ -21498,25 +21555,47 @@ sub_8F0AD0C: @ 0x08F0AD0C
 	ldr r1, _08F0ADF8 @ =0x85000200
 	str r1, [r0, #8]
 	ldr r1, [r0, #8]
+#ifdef NDS_VERSION
+	@nds stack is in dtcm by default and can't be dma'd from/to
+	ldr r1, _08F0ADD8 @ =gUnknown_08F29F58  @@nds
+#else
 	mov r1, sp
+#endif
 	str r1, [r0]
 	ldr r1, _08F0ADFC @ =0x050001E0
 	str r1, [r0, #4]
 	ldr r2, _08F0AE00 @ =0x84000002
 	str r2, [r0, #8]
 	ldr r1, [r0, #8]
+#ifdef NDS_VERSION
+	@nds stack is in dtcm by default and can't be dma'd from/to
+	ldr r1, _08F0ADDC @ =gUnknown_08F29F60 @@nds
+#else
 	mov r1, r8
+#endif
 	str r1, [r0]
 	ldr r1, _08F0AE04 @ =0x050001C0
 	str r1, [r0, #4]
 	str r2, [r0, #8]
 	ldr r1, [r0, #8]
+#ifdef NDS_VERSION
+	@nds stack is in dtcm by default and can't be dma'd from/to
+	ldr r1, _08F0ADE0 @ =gUnknown_08F29F68  @@nds
+	str r1, [r0] @@nds
+#else
 	str r6, [r0]
+#endif
 	ldr r1, _08F0AE08 @ =0x050001A0
 	str r1, [r0, #4]
 	str r2, [r0, #8]
 	ldr r1, [r0, #8]
+#ifdef NDS_VERSION
+	@nds stack is in dtcm by default and can't be dma'd from/to
+	ldr r1, _08F0ADE4 @ =gUnknown_08F29F70  @@nds
+	str r1, [r0] @@nds
+#else
 	str r5, [r0]
+#endif
 	ldr r1, _08F0AE0C @ =0x05000180
 	str r1, [r0, #4]
 	str r2, [r0, #8]
@@ -26466,7 +26545,11 @@ _08F0D4E2:
 	adds r1, r6, #0
 	movs r2, #0xc0
 	lsls r2, r2, #2
+#ifdef NDS_VERSION
+	bl ReadSram_DS
+#else
 	bl ReadSram
+#endif
 	adds r0, r6, #0
 	bl M1_ValidateChecksum
 	cmp r0, #0
@@ -26493,7 +26576,11 @@ sub_8F0D510: @ 0x08F0D510
 	ldr r0, _08F0D530 @ =0x0E001200
 	mov r1, sp
 	movs r2, #4
+#ifdef NDS_VERSION
+	bl ReadSram_DS
+#else
 	bl ReadSram
+#endif
 	mov r1, sp
 	ldr r0, _08F0D534 @ =0x0000E9B0
 	ldrh r1, [r1]
@@ -26530,7 +26617,11 @@ _08F0D556:
 	adds r1, r5, #0
 	movs r2, #0xc0
 	lsls r2, r2, #2
+#ifdef NDS_VERSION
+	bl WriteSramEx_DS
+#else
 	bl WriteSramEx
+#endif
 	movs r0, #0x90
 	lsls r0, r0, #4
 	adds r5, r5, r0
@@ -26555,7 +26646,11 @@ sub_8F0D574: @ 0x08F0D574
 	ldr r1, _08F0D598 @ =0x0E001200
 	mov r0, sp
 	movs r2, #4
+#ifdef NDS_VERSION
+	bl WriteSramEx_DS
+#else
 	bl WriteSramEx
+#endif
 	add sp, #4
 	pop {r0}
 	bx r0
@@ -26840,8 +26935,17 @@ sub_8F0D59C: @ 0x08F0D59C
 	subs r1, #0x50
 	movs r2, #0x88
 	lsls r2, r2, #5
+#ifdef NDS_VERSION
+	@tilesets is now 0x10000 later in vram on the NDS
+	movs r0, #0x1       @@NDS
+	lsls r0, r0, #16    @@NDS
+    orrs r2, r2, r0     @@NDS
+	adds r0, r2, #0
+	str  r0, [r1]
+#else
 	adds r0, r2, #0
 	strh r0, [r1]
+#endif
 	movs r4, #0
 	movs r0, #0x80
 	lsls r0, r0, #6
@@ -27038,7 +27142,7 @@ _08F0D974: .4byte 0x06008000
 _08F0D978: .4byte gUnknown_08F62F1C
 _08F0D97C: .4byte 0x06009000
 _08F0D980: .4byte gUnknown_08F63A1C
-_08F0D984: .4byte 0x06010000
+_08F0D984: .4byte 0x06000000+OAM_VRAM_OFFSET
 _08F0D988: .4byte 0x05000200
 _08F0D98C: .4byte 0x04000010
 _08F0D990: .4byte 0x04000050
@@ -39487,6 +39591,9 @@ MPlayExtender: @ 0x08F13BF0
 	movs r2, #0
 	strh r2, [r3]
 	ldr r0, _08F13CC0 @ =0x04000063
+#ifdef NDS_VERSION
+	@TODO: implement ipc to send these gbc sound channel writes to the arm7
+#else
 	movs r1, #8
 	strb r1, [r0]
 	adds r0, #6
@@ -39504,6 +39611,7 @@ MPlayExtender: @ 0x08F13BF0
 	strb r2, [r0]
 	movs r0, #0x77
 	strb r0, [r3]
+#endif
 	ldr r0, _08F13CC4 @ =SOUND_AREA_ADR
 	ldr r4, [r0]
 	ldr r6, [r4]
@@ -40558,6 +40666,9 @@ _08F14430: .4byte CgbFrTable
 
 	thumb_func_start CgbOscOff
 CgbOscOff: @ 0x08F14434
+#ifdef NDS_VERSION
+	bx lr @@nds - Stub entire function as its useless
+#endif
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	adds r1, r0, #0
@@ -40667,6 +40778,9 @@ _08F144D0:
 
 	thumb_func_start CgbSound
 CgbSound: @ 0x08F144EC
+#ifdef NDS_VERSION
+	bx lr @@nds - Stub entire function as its useless
+#endif
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -42294,6 +42408,7 @@ _call_via_lr: @ 0x08F1502C
 	bx lr
 	nop
 
+#ifndef NDS_VERSION
 	thumb_func_start __divsi3
 __divsi3: @ 0x08F15030
 	cmp r1, #0
@@ -42694,6 +42809,7 @@ _08F152C6:
 	bl __div0
 	movs r0, #0
 	pop {pc}
+#endif
 
 	thumb_func_start memcpy
 memcpy: @ 0x08F152D0

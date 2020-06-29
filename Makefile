@@ -203,7 +203,8 @@ $(SRC_ASM_BUILDDIR)/%.o: $(C_SUBDIR)/%.s
 	$(PREPROC) $< charmap.txt | $(AS) $(ASFLAGS) -o $@
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
-	$(PREPROC) $< charmap.txt | $(AS) $(ASFLAGS) -o $@
+	$(CPP) $(CPPFLAGS) $< -o $(ASM_BUILDDIR)/$*.i
+	$(PREPROC) $(ASM_BUILDDIR)/$*.i charmap.txt | $(AS) $(ASFLAGS) -o $@
     
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 	$(PREPROC) $< charmap.txt > $(DATA_ASM_BUILDDIR)/$*.p.i
