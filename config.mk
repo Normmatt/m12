@@ -1,6 +1,7 @@
 ### Build Configuration ###
 
 # Default variables
+GAME_VERSION  ?= GBA
 GAME_REVISION ?= 0
 GAME_LANGUAGE ?= JAPANESE
 DEBUG         ?= 0

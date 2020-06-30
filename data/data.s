@@ -1,5 +1,7 @@
 	.section .data
     
+    .align 3, 0
+    
     .global gUnknown_08F15390
 gUnknown_08F15390:
     .incbin "baserom.gba", 0x00F15390, 0x1FF5

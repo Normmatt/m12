@@ -30,6 +30,18 @@ SECTIONS
 	ALIGN(4)
 	{
 		asm/code.o(.text);
+		asm/mks4agbLib.o(.text);
+		asm/libagbsyscall.o(.text);
+		asm/libagbbackup_AgbSram.o(.text);
+        tools/agbcc/lib/libgcc.a:_call_via_rX.o(.text);
+        tools/agbcc/lib/libgcc.a:_divsi3.o(.text);
+        tools/agbcc/lib/libgcc.a:_dvmd_tls.o(.text);
+        tools/agbcc/lib/libgcc.a:_modsi3.o(.text);
+        tools/agbcc/lib/libgcc.a:_udivsi3.o(.text);
+        tools/agbcc/lib/libgcc.a:_umodsi3.o(.text);
+        tools/agbcc/lib/libc.a:memcpy.o(.text);
+        tools/agbcc/lib/libc.a:memset.o(.text);
+		asm/code_trunks.o(.text);
 	} = 0
 
     .data :
