@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #define ALIGN(m)	__attribute__((aligned (m)))
+#define PACKED __attribute__ ((packed))
 
 typedef uint8_t   u8;
 typedef uint16_t u16;
