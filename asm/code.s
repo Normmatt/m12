@@ -1226,7 +1226,7 @@ _08F00B2C:
 	bl sub_8F00744
 	movs r0, #0x10
 	bl sub_8F0090C
-	ldr r0, _08F00B68 @ =gUnknown_08F64484
+	ldr r0, _08F00B68 @ =gNESPalette+0x68
 	ldrh r5, [r0]
 	movs r4, #0x1f
 _08F00B3E:
@@ -1248,7 +1248,7 @@ _08F00B3E:
 	bge _08F00B3E
 	b _08F00BE0
 	.align 2, 0
-_08F00B68: .4byte gUnknown_08F64484
+_08F00B68: .4byte gNESPalette+0x68
 _08F00B6C: .4byte 0x05000200
 _08F00B70:
 	bl sub_8F099D8
@@ -1273,7 +1273,7 @@ _08F00B8E:
 	bl sub_8F06FF0
 	b _08F00BE0
 _08F00BA4:
-	ldr r0, _08F00BD4 @ =gUnknown_08F64460
+	ldr r0, _08F00BD4 @ =gNESPalette+0x44
 	ldrh r5, [r0]
 	movs r4, #0xf
 _08F00BAA:
@@ -1295,7 +1295,7 @@ _08F00BAA:
 	bge _08F00BAA
 	b _08F00BE0
 	.align 2, 0
-_08F00BD4: .4byte gUnknown_08F64460
+_08F00BD4: .4byte gNESPalette+0x44
 _08F00BD8: .4byte 0x05000200
 _08F00BDC:
 	bl FadeOut
@@ -1651,7 +1651,7 @@ sub_8F00EA8: @ 0x08F00EA8
 	adds r4, r0, #0
 	adds r6, r1, #0
 	movs r2, #0
-	ldr r5, _08F00EDC @ =gUnknown_08F6441C
+	ldr r5, _08F00EDC @ =gNESPalette
 _08F00EB2:
 	lsls r0, r2, #5
 	adds r1, r2, #1
@@ -1675,7 +1675,7 @@ _08F00EBA:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F00EDC: .4byte gUnknown_08F6441C
+_08F00EDC: .4byte gNESPalette
 
 	thumb_func_start sub_8F00EE0
 sub_8F00EE0: @ 0x08F00EE0
@@ -2111,7 +2111,7 @@ sub_8F011E4: @ 0x08F011E4
 	lsls r0, r0, #0x18
 	movs r2, #0xa0
 	lsls r2, r2, #0x13
-	ldr r1, _08F01204 @ =gUnknown_08F6441C
+	ldr r1, _08F01204 @ =gNESPalette
 	lsrs r0, r0, #0x17
 	adds r0, r0, r1
 	ldrh r0, [r0]
@@ -2124,7 +2124,7 @@ sub_8F011E4: @ 0x08F011E4
 	strh r0, [r1]
 	bx lr
 	.align 2, 0
-_08F01204: .4byte gUnknown_08F6441C
+_08F01204: .4byte gNESPalette
 
 	thumb_func_start sub_8F01208
 sub_8F01208: @ 0x08F01208
@@ -13564,7 +13564,7 @@ _08F06B74: .4byte gUnknown_030034CC
 	thumb_func_start sub_8F06B78
 sub_8F06B78: @ 0x08F06B78
 	push {r4, r5, lr}
-	ldr r5, _08F06BA0 @ =gUnknown_08F6441C
+	ldr r5, _08F06BA0 @ =gNESPalette
 	movs r4, #7
 _08F06B7E:
 	movs r0, #0xa0
@@ -13582,7 +13582,7 @@ _08F06B7E:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F06BA0: .4byte gUnknown_08F6441C
+_08F06BA0: .4byte gNESPalette
 
 	thumb_func_start sub_8F06BA4
 sub_8F06BA4: @ 0x08F06BA4
@@ -19148,7 +19148,7 @@ sub_8F09888: @ 0x08F09888
 	mov sb, r1
 	ldr r2, _08F09970 @ =0x0400001E
 	mov r8, r2
-	ldr r7, _08F09974 @ =gUnknown_08F6441C
+	ldr r7, _08F09974 @ =gNESPalette
 _08F09922:
 	adds r0, r4, #0
 	movs r1, #0x3c
@@ -19178,7 +19178,7 @@ _08F09964: .4byte 0x11111111
 _08F09968: .4byte 0x11111000
 _08F0996C: .4byte 0x0400001C
 _08F09970: .4byte 0x0400001E
-_08F09974: .4byte gUnknown_08F6441C
+_08F09974: .4byte gNESPalette
 _08F09978:
 	adds r0, r4, #0
 	movs r1, #0x3c
@@ -19249,7 +19249,7 @@ sub_8F099D8: @ 0x08F099D8
 	bl sub_8F09A44
 	movs r0, #0xa0
 	lsls r0, r0, #0x13
-	ldr r1, _08F09A3C @ =gUnknown_08F6441C
+	ldr r1, _08F09A3C @ =gNESPalette
 	adds r1, #0x60
 	ldrh r4, [r1]
 	adds r1, r4, #0
@@ -19267,7 +19267,7 @@ sub_8F099D8: @ 0x08F099D8
 	.align 2, 0
 _08F09A34: .4byte gUnknown_03001520
 _08F09A38: .4byte gUnknown_03001480
-_08F09A3C: .4byte gUnknown_08F6441C
+_08F09A3C: .4byte gNESPalette
 _08F09A40: .4byte 0x05000200
 
 	thumb_func_start sub_8F09A44
@@ -19276,7 +19276,7 @@ sub_8F09A44: @ 0x08F09A44
 	lsls r0, r0, #0x18
 	movs r6, #0xa0
 	lsls r6, r6, #0x13
-	ldr r1, _08F09A9C @ =gUnknown_08F6441C
+	ldr r1, _08F09A9C @ =gNESPalette
 	lsrs r0, r0, #0x17
 	adds r0, r0, r1
 	ldrh r4, [r0]
@@ -19311,7 +19311,7 @@ sub_8F09A44: @ 0x08F09A44
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F09A9C: .4byte gUnknown_08F6441C
+_08F09A9C: .4byte gNESPalette
 _08F09AA0: .4byte 0x05000200
 _08F09AA4: .4byte gUnknown_03001480
 
@@ -19438,7 +19438,7 @@ sub_8F09B98: @ 0x08F09B98
 	mov sl, r0
 	add r1, sp, #0x10
 	mov sb, r1
-	ldr r0, _08F09CE4 @ =gUnknown_08F6441C
+	ldr r0, _08F09CE4 @ =gNESPalette
 	ldrh r4, [r0, #0x22]
 _08F09BC2:
 	movs r0, #0xa0
@@ -19583,7 +19583,7 @@ _08F09C88:
 	strh r0, [r5]
 	b _08F09D24
 	.align 2, 0
-_08F09CE4: .4byte gUnknown_08F6441C
+_08F09CE4: .4byte gNESPalette
 _08F09CE8: .4byte 0x05000200
 _08F09CEC: .4byte 0x0000FF60
 _08F09CF0: .4byte 0x0000FFB0
@@ -19692,7 +19692,7 @@ sub_8F09DAC: @ 0x08F09DAC
 	mov sl, r0
 	add r1, sp, #0x10
 	mov sb, r1
-	ldr r0, _08F09F58 @ =gUnknown_08F6441C
+	ldr r0, _08F09F58 @ =gNESPalette
 	ldrh r4, [r0, #0x22]
 	ldr r5, _08F09F5C @ =0x0400004C
 _08F09DDE:
@@ -19875,7 +19875,7 @@ _08F09EF8:
 	bx r0
 	.align 2, 0
 _08F09F54: .4byte 0x0400000C
-_08F09F58: .4byte gUnknown_08F6441C
+_08F09F58: .4byte gNESPalette
 _08F09F5C: .4byte 0x0400004C
 _08F09F60: .4byte 0x05000200
 _08F09F64: .4byte 0x0000FFBF
@@ -19891,7 +19891,7 @@ _08F09F80: .4byte gUnknown_03001488
 sub_8F09F84: @ 0x08F09F84
 	push {r4, r5, lr}
 	movs r5, #0
-	ldr r0, _08F09FDC @ =gUnknown_08F6448C
+	ldr r0, _08F09FDC @ =gNESPalette+0x70
 	ldrh r4, [r0]
 _08F09F8C:
 	movs r0, #0xa0
@@ -19927,7 +19927,7 @@ _08F09F8C:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F09FDC: .4byte gUnknown_08F6448C
+_08F09FDC: .4byte gNESPalette+0x70
 _08F09FE0: .4byte 0x05000200
 _08F09FE4: .4byte gUnknown_03004850
 
@@ -20474,7 +20474,7 @@ sub_8F0A464: @ 0x08F0A464
 _08F0A486:
 	movs r4, #0xa0
 	lsls r4, r4, #0x13
-	ldr r1, _08F0A4B4 @ =gUnknown_08F6441C
+	ldr r1, _08F0A4B4 @ =gNESPalette
 	ldrb r0, [r2]
 	add r0, sp
 	ldrb r0, [r0]
@@ -20493,7 +20493,7 @@ _08F0A486:
 	.align 2, 0
 _08F0A4AC: .4byte gUnknown_08F1BCB8
 _08F0A4B0: .4byte gUnknown_03000000
-_08F0A4B4: .4byte gUnknown_08F6441C
+_08F0A4B4: .4byte gNESPalette
 
 	thumb_func_start sub_8F0A4B8
 sub_8F0A4B8: @ 0x08F0A4B8
@@ -20890,7 +20890,7 @@ _08F0A804:
 	lsls r1, r1, #0x13
 	bl sub_8F00EA8
 	ldr r1, _08F0A840 @ =0x050001E0
-	ldr r2, _08F0A844 @ =gUnknown_08F6441C
+	ldr r2, _08F0A844 @ =gNESPalette
 	ldrb r3, [r4, #1]
 	lsls r0, r3, #1
 	adds r0, r0, r2
@@ -20914,7 +20914,7 @@ _08F0A83A:
 	b _08F0A4E6
 	.align 2, 0
 _08F0A840: .4byte 0x050001E0
-_08F0A844: .4byte gUnknown_08F6441C
+_08F0A844: .4byte gNESPalette
 _08F0A848: .4byte 0x04000050
 _08F0A84C:
 	ldrb r2, [r4, #1]
@@ -29184,7 +29184,7 @@ sub_8F0EA18: @ 0x08F0EA18
 	push {lr}
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	ldr r2, _08F0EA5C @ =gUnknown_08F6441C
+	ldr r2, _08F0EA5C @ =gNESPalette
 	lsls r1, r0, #1
 	adds r1, r1, r2
 	ldrh r2, [r1]
@@ -29217,7 +29217,7 @@ _08F0EA4A:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F0EA5C: .4byte gUnknown_08F6441C
+_08F0EA5C: .4byte gNESPalette
 _08F0EA60: .4byte 0x05000182
 
 	thumb_func_start sub_8F0EA64

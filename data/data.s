@@ -880,21 +880,9 @@ gUnknown_08F63A1C:
 gUnknown_08F6421C:
     .incbin "baserom.gba", 0x00F6421C, 0x200
 
-    .global gUnknown_08F6441C
-gUnknown_08F6441C:
-    .incbin "baserom.gba", 0x00F6441C, 0x44
-
-    .global gUnknown_08F64460
-gUnknown_08F64460:
-    .incbin "baserom.gba", 0x00F64460, 0x24
-
-    .global gUnknown_08F64484
-gUnknown_08F64484:
-    .incbin "baserom.gba", 0x00F64484, 0x8
-
-    .global gUnknown_08F6448C
-gUnknown_08F6448C:
-    .incbin "baserom.gba", 0x00F6448C, 0x10
+    .global gNESPalette
+gNESPalette:
+    .incbin "data/nes_palette.gbapal"
 
     .align 2
     .global gUnknown_08F6449C
