@@ -424,7 +424,7 @@ gUnknown_08F1BCE0:
     .word gUnknown_08F6271C @ 1 / 0x1
     .word gUnknown_08F62B1C @ 2 / 0x2
 
-    .include "data/main_strings.inc"
+    #include "main_strings.inc"
     
     .global gUnknown_08F29C80
 gUnknown_08F29C80:
