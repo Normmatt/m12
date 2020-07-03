@@ -8718,22 +8718,22 @@ gUnknown_08F2711C:
     .global gUnknown_08F27122
 gUnknown_08F27122:
     JAPANESE_TEXT("ややおそい\0")
-    ENGLISH_TEXT("ややおそい\0")
+    ENGLISH_TEXT("Slow \0")
 
     .global gUnknown_08F27128
 gUnknown_08F27128:
     JAPANESE_TEXT("ふつう  \0")
-    ENGLISH_TEXT("ふつう  \0")
+    ENGLISH_TEXT("Norm.\0")
 
     .global gUnknown_08F2712E
 gUnknown_08F2712E:
     JAPANESE_TEXT("ややはやい\0")
-    ENGLISH_TEXT("ややはやい\0")
+    ENGLISH_TEXT("VFast\0")
 
     .global gUnknown_08F27134
 gUnknown_08F27134:
     JAPANESE_TEXT("はやい  \0")
-    ENGLISH_TEXT("はやい  \0")
+    ENGLISH_TEXT("Fast \0")
 
     .global gUnknown_08F2713A
 gUnknown_08F2713A:
