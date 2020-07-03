@@ -21076,7 +21076,7 @@ _08F0A98C: .4byte gUnknown_03001D40
 _08F0A990:
 	movs r0, #1
 	movs r1, #0x10
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r3, [r4, #2]
 	lsls r0, r3, #8
 	ldrb r1, [r4, #1]
@@ -21088,7 +21088,7 @@ _08F0A9A4:
 _08F0A9A8:
 	ldrb r0, [r4, #3]
 	ldrb r1, [r4, #4]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r2, [r4, #2]
 	lsls r0, r2, #8
 	ldrb r3, [r4, #1]
@@ -21606,7 +21606,7 @@ sub_8F0AD0C: @ 0x08F0AD0C
 	str r0, [r1]
 	movs r0, #0
 	movs r1, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #0x20
 	movs r1, #0x14
 	bl sub_8F0CC84
@@ -21709,7 +21709,7 @@ _08F0AE7A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0AEF8 @ =gUnknown_030034B0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -21746,7 +21746,7 @@ _08F0AEC6:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0AF08 @ =gUnknown_08F26D3A
 	bl HandleControlCodes
 	ldrb r1, [r5, #1]
@@ -21801,7 +21801,7 @@ _08F0AF3C:
 	lsrs r4, r0, #0x18
 	movs r0, #2
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	adds r0, r5, #0
 	adds r0, #0x38
 	bl HandleControlCodes
@@ -21811,7 +21811,7 @@ _08F0AF3C:
 	bne _08F0AFAC
 	movs r0, #8
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrh r0, [r5, #0x14]
 	movs r1, #5
 	bl sub_8F0CB5C
@@ -21866,7 +21866,7 @@ _08F0AFC8:
 _08F0AFD4:
 	movs r0, #0
 	movs r1, #0x13
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0AFF8 @ =gUnknown_030034B0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -21899,7 +21899,11 @@ sub_8F0B004: @ 0x08F0B004
 	bne _08F0B026
 	mov r0, sp
 	bl sub_8F0BFB0
+#ifdef JAPANESE
 	bl sub_8F0AE50
+#elif ENGLISH
+	@keep game from updating character status on top of dialog boxes
+#endif
 	mov r0, sp
 	bl sub_8F0C004
 _08F0B026:
@@ -22009,7 +22013,7 @@ _08F0B0EA:
 	bl HandleControlCodes
 	movs r0, #0xb
 	movs r1, #1
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r5, [r5]
 	lsls r0, r5, #6
 	adds r1, r4, #0
@@ -22024,7 +22028,7 @@ _08F0B10A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0x12
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0B180 @ =gUnknown_0300084C
 	ldrb r0, [r0]
 	subs r0, #1
@@ -22116,7 +22120,7 @@ _08F0B1AA:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0x12
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r2, #0x8d
 	lsls r2, r2, #3
 	adds r0, r4, r2
@@ -22296,8 +22300,16 @@ _08F0B318:
 	bx r1
 	.align 2, 0
 _08F0B334: .4byte gUnknown_08F29FA0
+#ifdef JAPANESE
 _08F0B338: .4byte 0x00020001
 _08F0B33C: .4byte 0x00090002
+#elif ENGLISH
+@ horizontal positions for cursor locations when given options in main text (note: numbers need to be -1 their actual X position)
+@ note: these numbers need to be -1 their actual X coordinates
+@ note: these numbers are shared for ALL options, not just yes/no. Other examples include "Continue/Save", "Medicine/Sleep", and a few others
+_08F0B338: .4byte 0x00020001
+_08F0B33C: .4byte 0x000C0002
+#endif
 _08F0B340: .4byte gUnknown_030034AC
 _08F0B344: .4byte gUnknown_030034D4
 _08F0B348: .4byte gUnknown_030034B8
@@ -22552,7 +22564,7 @@ _08F0B53A:
 	bl HandleControlCodes
 	movs r0, #7
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r7, sb
 	lsls r0, r7, #6
 	adds r1, r5, #0
@@ -22615,7 +22627,7 @@ _08F0B588:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldrb r1, [r5, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r1, #0x8d
 	lsls r1, r1, #3
 	adds r0, r4, r1
@@ -22732,7 +22744,7 @@ _08F0B68A:
 	bl HandleControlCodes
 	movs r0, #7
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r2, r8
 	lsls r0, r2, #6
 	adds r1, r5, #0
@@ -22767,7 +22779,7 @@ _08F0B6D2:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldrb r1, [r5, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r2, #0xfa
 	lsls r2, r2, #2
 	adds r0, r6, r2
@@ -22906,7 +22918,7 @@ _08F0B806:
 	bl HandleControlCodes
 	movs r0, #7
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0B838 @ =gUnknown_08F278F8
 	bl HandleControlCodes
 	movs r7, #0
@@ -22928,7 +22940,7 @@ _08F0B840: .4byte gUnknown_08F29E88
 _08F0B844:
 	movs r0, #5
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0B8C4 @ =0x000080DC
 	bl WriteCharacterToTilemap
 	ldr r0, _08F0B8C8 @ =0x000080FE
@@ -22962,7 +22974,7 @@ _08F0B86E:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldrb r1, [r5, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r1, #0xfa
 	lsls r1, r1, #2
 	adds r0, r6, r1
@@ -23070,7 +23082,7 @@ _08F0B942:
 	strb r0, [r1, #3]
 	ldrb r1, [r1, #3]
 	movs r0, #1
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0B9F0 @ =0x00008010
 	bl WriteCharacterToTilemap
 	adds r0, r5, #1
@@ -23093,7 +23105,7 @@ _08F0B978:
 	lsrs r4, r0, #0x18
 	movs r0, #0
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0B9F4 @ =gUnknown_08F26E03
 	bl HandleControlCodes
 	mov r0, sp
@@ -23104,24 +23116,36 @@ _08F0B978:
 	bgt _08F0BA1C
 	movs r0, #0
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
+#ifdef JAPANESE
 	movs r0, #7
+#elif ENGLISH
+	movs r0, #8 @delete expanded "Who?" window properly
+#endif
 	bl sub_8F0CABC
 	movs r1, #0x10
 	subs r1, r1, r6
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
+#ifdef JAPANESE
 	movs r0, #7
+#elif ENGLISH
+	movs r0, #8 @delete expanded "Who?" window properly
+#endif
 	bl sub_8F0CABC
 	movs r1, #0x11
 	subs r1, r1, r6
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
+#ifdef JAPANESE
 	movs r0, #7
+#elif ENGLISH
+	movs r0, #8 @delete expanded "Who?" window properly
+#endif
 	bl sub_8F0CABC
 	movs r5, #0
 	mov r0, sp
@@ -23136,7 +23160,7 @@ _08F0B9F8:
 	adds r1, r3, r0
 	ldrb r0, [r1, #2]
 	ldrb r1, [r1, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0BA28 @ =0x00008010
 	bl WriteCharacterToTilemap
 	adds r0, r5, #1
@@ -23224,7 +23248,7 @@ _08F0BA9C:
 	lsls r1, r4, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	lsls r0, r5, #0x18
 	adds r6, r0, #0
 	cmp r6, #0
@@ -23248,8 +23272,12 @@ _08F0BAC4:
 _08F0BAD4:
 	lsls r1, r4, #0x18
 	lsrs r1, r1, #0x18
+#ifdef JAPANESE
 	movs r0, #0xd
-	bl sub_8F0CA54
+#elif ENGLISH
+	movs r0, #0xe @expand store menu width
+#endif
+	bl SetTextPosition
 	ldr r0, _08F0BAFC @ =0x000080A4
 	bl WriteCharacterToTilemap
 	cmp r6, #0
@@ -23321,7 +23349,7 @@ sub_8F0BB5C: @ 0x08F0BB5C
 	bl HandleControlCodes
 	movs r0, #5
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0BBF0 @ =gUnknown_08F278FF
 	bl HandleControlCodes
 	ldr r0, _08F0BBF4 @ =gUnknown_03003190
@@ -23349,7 +23377,7 @@ _08F0BB8E:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldrb r1, [r4, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r1, _08F0BC00 @ =0x000004CF
 	adds r0, r5, r1
 	lsls r0, r0, #0x10
@@ -23438,7 +23466,11 @@ _08F0BC4E:
 	adds r1, r0, #0
 	cmp r5, r0
 	bge _08F0BC78
+#ifdef JAPANESE
 	movs r2, #0xdf
+#elif ENGLISH
+	movs r2, #0xfc @change the question marks when typing a name to dots
+#endif
 _08F0BC64:
 	mov r6, sl
 	adds r0, r6, r5
@@ -23469,7 +23501,7 @@ _08F0BC90:
 	bl HandleControlCodes
 	movs r0, #7
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sl
 	bl HandleControlCodes
 	movs r2, #0
@@ -23484,7 +23516,7 @@ _08F0BC90:
 _08F0BCB6:
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #8
 	mov r6, sb
 	ands r0, r6
@@ -23513,7 +23545,7 @@ _08F0BCF2:
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #8
 	mov r2, sb
 	ands r0, r2
@@ -23583,12 +23615,12 @@ _08F0BD86:
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sp
 	adds r0, r0, r6
 	adds r0, #4
@@ -23608,7 +23640,7 @@ _08F0BDBC:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r6, sl
 	adds r4, r6, r5
 	ldrb r0, [r4]
@@ -23616,7 +23648,11 @@ _08F0BDBC:
 	cmp r5, #0
 	beq _08F0BDE2
 	ldrb r4, [r4]
+#ifdef JAPANESE
 	cmp r4, #0xdf
+#elif ENGLISH
+	cmp r4, #0xfc @change the question marks when typing a name to dots
+#endif
 	bne _08F0BDE2
 	subs r0, r5, #1
 	lsls r0, r0, #0x18
@@ -23624,13 +23660,17 @@ _08F0BDBC:
 _08F0BDE2:
 	mov r0, sl
 	adds r4, r0, r5
+#ifdef JAPANESE
 	movs r0, #0xdf
+#elif ENGLISH
+	movs r0, #0xfc @change the question marks when typing a name to dots
+#endif
 	strb r0, [r4]
 	adds r0, r5, #7
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	mov r1, sb
@@ -23645,7 +23685,7 @@ _08F0BE04:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #2
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	mov r6, sb
@@ -23816,7 +23856,7 @@ _08F0BF46:
 	bl sub_8F0090C
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r6, [sp, #0x94]
 	lsls r0, r6, #2
 	add r0, sp
@@ -23841,7 +23881,11 @@ _08F0BF82:
 	mov r2, sl
 	adds r1, r2, r5
 	ldrb r6, [r1]
+#ifdef JAPANESE
 	cmp r6, #0xdf
+#elif ENGLISH
+	cmp r6, #0xfc @change the question marks when typing a name to dots
+#endif
 	bne _08F0BF90
 	movs r0, #0
 	strb r0, [r1]
@@ -24108,7 +24152,7 @@ _08F0C226:
 	ldrb r0, [r6]
 	adds r6, #1
 	ldrb r1, [r6]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	b _08F0C798
 _08F0C234:
 	adds r6, #1
@@ -24690,7 +24734,11 @@ _08F0C6A4:
 _08F0C6B2:
 	ldrb r0, [r0]
 _08F0C6B4:
+#ifdef JAPANESE
 	movs r1, #6
+#elif ENGLISH
+	movs r1, #4 @Alter the Status menu - fix status menu number alignment
+#endif
 	bl sub_8F0CB5C
 	b _08F0C798
 	.align 2, 0
@@ -25158,8 +25206,8 @@ _08F0CA48: .4byte 0x00008010
 _08F0CA4C: .4byte gUnknown_030034B8
 _08F0CA50: .4byte gUnknown_030034AC
 
-	thumb_func_start sub_8F0CA54
-sub_8F0CA54: @ 0x08F0CA54
+	thumb_func_start SetTextPosition
+SetTextPosition: @ 0x08F0CA54
 	lsls r0, r0, #0x18
 	lsls r1, r1, #0x18
 	lsrs r2, r1, #0x18
@@ -26086,18 +26134,22 @@ _08F0D118:
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0D208 @ =gUnknown_08F270CC
 	bl HandleControlCodes
+#ifdef JAPANESE
 	movs r0, #6
+#elif ENGLISH
+	movs r0, #3	
+#endif
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x78
 	bl HandleControlCodes
 	movs r0, #0xe
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x50
 	ldrb r0, [r0]
@@ -26106,9 +26158,13 @@ _08F0D118:
 	adds r5, #3
 	lsls r5, r5, #0x18
 	lsrs r5, r5, #0x18
+#ifdef JAPANESE
 	movs r0, #0x14
+#elif ENGLISH
+	movs r0, #0x17	
+#endif
 	adds r1, r5, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r2, #0
 	ldr r0, _08F0D20C @ =gUnknown_08F662EC
 	str r6, [sp, #0xac]
@@ -26202,12 +26258,16 @@ _08F0D214:
 	lsrs r4, r4, #0x18
 	movs r0, #1
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0D2A4 @ =gUnknown_08F27085
 	bl HandleControlCodes
+#ifdef JAPANESE
 	movs r0, #0xb
+#elif ENGLISH
+	movs r0, #0x8
+#endif
 	adds r1, r4, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r4, r8
 	adds r4, #1
 	adds r0, r4, #0
@@ -26333,13 +26393,13 @@ _08F0D31E:
 	bl M1_ReadSave
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x78
 	bl HandleControlCodes
 	movs r0, #0xf
 	movs r1, #0x10
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x50
 	ldrb r0, [r0]
@@ -26369,15 +26429,19 @@ _08F0D384:
 	adds r0, r4, #0
 	mov r1, sb
 	bl M1_ReadSave
+#ifdef JAPANESE
 	movs r0, #7
+#elif ENGLISH
+	movs r0, #5 @X coordinate of the name and level number
+#endif
 	movs r1, #0x10
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x78
 	bl HandleControlCodes
 	movs r0, #0xf
 	movs r1, #0x10
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sb
 	adds r0, #0x50
 	ldrb r0, [r0]
@@ -27324,30 +27388,30 @@ _08F0DAD2:
 	bl sub_8F0B040
 	movs r0, #0xf
 	movs r1, #4
-	bl sub_8F0CA54
+	bl SetTextPosition
 	adds r0, r4, #0
 	subs r0, #0xc0
 	bl HandleControlCodes
 	movs r0, #0xf
 	movs r1, #6
-	bl sub_8F0CA54
+	bl SetTextPosition
 	adds r0, r4, #0
 	subs r0, #0x80
 	bl HandleControlCodes
 	movs r0, #0xf
 	movs r1, #8
-	bl sub_8F0CA54
+	bl SetTextPosition
 	adds r0, r4, #0
 	subs r0, #0x40
 	bl HandleControlCodes
 	movs r0, #0xf
 	movs r1, #0xa
-	bl sub_8F0CA54
+	bl SetTextPosition
 	adds r0, r4, #0
 	bl HandleControlCodes
 	movs r0, #8
 	movs r1, #0xc
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, _08F0DBF0 @ =gUnknown_08F27459
 	bl HandleControlCodes
 	adds r0, r5, #0
@@ -27439,9 +27503,15 @@ _08F0DC14:
 	movs r0, #0x1e
 	strb r0, [r5]
 	strb r0, [r4]
+#ifdef JAPANESE
 	movs r0, #2
 	movs r1, #1
-	bl sub_8F0CA54
+#elif ENGLISH
+	@starting X,Y positions for this intro text "In the early 1900s..."
+	movs r0, #0
+	movs r1, #1
+#endif
+	bl SetTextPosition
 	movs r0, #0x20
 	movs r1, #0x14
 	bl sub_8F0CC84
@@ -27459,9 +27529,15 @@ _08F0DC14:
 	ldrh r0, [r3, #0xc]
 	ldr r3, _08F0DCB0 @ =0x04000012
 	strh r0, [r3]
+#ifdef JAPANESE
 	movs r0, #4
 	movs r1, #8
-	bl sub_8F0CA54
+#elif ENGLISH
+	@starting X,Y positions for this intro text "1988, outside the..."
+	movs r0, #3
+	movs r1, #8
+#endif
+	bl SetTextPosition
 	mov r1, r8
 	strb r7, [r1]
 	ldr r0, _08F0DCCC @ =gUnknown_08F275D0
@@ -27579,7 +27655,11 @@ _08F0DD66:
 	ldr r1, [sp, #0x348]
 	cmp r5, r1
 	bge _08F0DD88
+#ifdef JAPANESE
 	movs r2, #0xdf
+#elif ENGLISH
+	movs r2, #0xfc @change the question marks when typing a name to dots
+#endif
 _08F0DD74:
 	ldr r6, [sp, #0x334]
 	adds r0, r6, r5
@@ -27609,13 +27689,21 @@ _08F0DDA0:
 	adds r0, r3, #0
 	bl HandleControlCodes
 	movs r0, #5
+#ifdef JAPANESE
 	movs r1, #3
-	bl sub_8F0CA54
+#elif ENGLISH
+	movs r1, #2 @move desc. text up one row
+#endif
+	bl SetTextPosition
 	ldr r0, [sp, #0x330]
 	bl HandleControlCodes
+#ifdef JAPANESE
 	movs r0, #0x15
+#elif ENGLISH
+	movs r0, #0x05 @move name to be below the text
+#endif
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, [sp, #0x334]
 	bl HandleControlCodes
 	ldr r5, _08F0DE50 @ =gUnknown_030007B8
@@ -27632,7 +27720,11 @@ _08F0DDA0:
 	lsrs r0, r0, #0x10
 	movs r2, #4
 	rsbs r2, r2, #0
+#ifdef JAPANESE
 	movs r3, #0xc
+#elif ENGLISH
+	movs r3, #0x10 @move the naming screen sprites up a few pixels
+#endif
 	rsbs r3, r3, #0
 	movs r1, #4
 	bl sub_8F01700
@@ -27670,7 +27762,7 @@ _08F0DDEA:
 _08F0DE28:
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #8
 	mov r2, sb
 	ands r0, r2
@@ -27698,11 +27790,15 @@ _08F0DE68:
 	bl WriteCharacterToTilemap
 _08F0DE76:
 	adds r4, r5, #0
+#ifdef JAPANESE
 	adds r4, #0x15
+#elif ENGLISH
+	adds r4, #0x05 @move name to be below the text
+#endif
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #8
 	mov r6, sb
 	ands r0, r6
@@ -27765,14 +27861,14 @@ _08F0DF00:
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r2, [sp, #0x334]
 	adds r0, r2, r5
 	ldrb r0, [r0]
 	bl WriteCharacterToTilemap
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r0, sp
 	adds r0, r0, r6
 	adds r0, #4
@@ -27801,17 +27897,25 @@ _08F0DF38:
 _08F0DF4C: .4byte gUnknown_030034D0
 _08F0DF50:
 	adds r0, r5, #0
+#ifdef JAPANESE
 	adds r0, #0x15
+#elif ENGLISH
+	adds r0, #0x05 @move name to be below the text
+#endif
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldr r0, [sp, #0x334]
 	adds r4, r0, r5
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	ldrb r4, [r4]
+#ifdef JAPANESE
 	cmp r4, #0xdf
+#elif ENGLISH
+	cmp r4, #0xfc @change the question marks when typing a name to dots
+#endif
 	bne _08F0DF74
 	subs r0, r5, #1
 	lsls r0, r0, #0x18
@@ -27819,14 +27923,22 @@ _08F0DF50:
 _08F0DF74:
 	ldr r1, [sp, #0x334]
 	adds r4, r1, r5
+#ifdef JAPANESE
 	movs r0, #0xdf
+#elif ENGLISH
+	movs r0, #0xfc @change the question marks when typing a name to dots
+#endif
 	strb r0, [r4]
 	adds r0, r5, #0
+#ifdef JAPANESE
 	adds r0, #0x15
+#elif ENGLISH
+	adds r0, #0x05 @move name to be below the text
+#endif
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	mov r2, sb
@@ -27838,11 +27950,15 @@ _08F0DF98:
 	adds r4, r6, r5
 	strb r2, [r4]
 	adds r0, r5, #0
+#ifdef JAPANESE
 	adds r0, #0x15
+#elif ENGLISH
+	adds r0, #0x05 @move name to be below the text
+#endif
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #3
-	bl sub_8F0CA54
+	bl SetTextPosition
 	ldrb r0, [r4]
 	bl WriteCharacterToTilemap
 	mov r0, sb
@@ -28142,7 +28258,7 @@ _08F0E1C2:
 	bl sub_8F0090C
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_8F0CA54
+	bl SetTextPosition
 	mov r1, sl
 	lsls r0, r1, #2
 	add r0, sp
@@ -28167,7 +28283,11 @@ _08F0E1F8:
 	ldr r6, [sp, #0x334]
 	adds r1, r6, r5
 	ldrb r0, [r1]
+#ifdef JAPANESE
 	cmp r0, #0xdf
+#elif ENGLISH
+	cmp r0, #0xfc @change the question marks when typing a name to dots
+#endif
 	bne _08F0E206
 	movs r0, #0
 	strb r0, [r1]
@@ -33893,7 +34013,7 @@ _08F10F28:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldrb r1, [r4, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r0, #0xc
 	bl sub_8F0EA64
 	adds r0, r5, #1
@@ -33962,7 +34082,7 @@ _08F10FAA:
 	strb r1, [r2, #3]
 	adds r0, #6
 	ldrb r1, [r2, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r2, #0xfa
 	lsls r2, r2, #2
 	adds r0, r5, r2
@@ -34178,7 +34298,7 @@ _08F11148:
 	strb r1, [r2, #3]
 	adds r0, #6
 	ldrb r1, [r2, #3]
-	bl sub_8F0CA54
+	bl SetTextPosition
 	movs r2, #0x8d
 	lsls r2, r2, #3
 	adds r4, r4, r2
