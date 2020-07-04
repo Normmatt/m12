@@ -30,6 +30,7 @@ SECTIONS
 	ALIGN(4)
 	{
 		asm/code.o(.text);
+        asm/m1_translation_new_code.o(.text);
 		asm/mks4agbLib.o(.text);
 		asm/libagbsyscall.o(.text);
 		asm/libagbbackup_AgbSram.o(.text);

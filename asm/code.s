@@ -10017,8 +10017,13 @@ sub_8F04FC4: @ 0x08F04FC4
 	movs r1, #0x80
 	ldrb r2, [r0]
 	orrs r1, r2
+#ifdef JAPANESE
 	strb r1, [r0]
 	ldr r0, _08F04FEC @ =gUnknown_08F278E8
+#elif ENGLISH
+	@repointed yes/no main dialog options, make the game know when to choose which one
+	bl choose_yes_no_size
+#endif
 	bl sub_8F0CAD8
 _08F04FD6:
 	movs r0, #0
@@ -16733,8 +16738,13 @@ _08F08570: .4byte 0x000006AF
 	thumb_func_start sub_8F08574
 sub_8F08574: @ 0x08F08574
 	push {lr}
+#ifdef JAPANESE
 	movs r1, #0xd6
 	lsls r1, r1, #3
+#elif ENGLISH
+	@let capsule items be "swallowed" instead of "drank"
+	bl swallow_item
+#endif
 	movs r0, #0xc
 	bl sub_8F0922C
 	pop {r0}
@@ -16743,8 +16753,13 @@ sub_8F08574: @ 0x08F08574
 	thumb_func_start sub_8F08584
 sub_8F08584: @ 0x08F08584
 	push {lr}
+#ifdef JAPANESE
 	movs r1, #0xd6
 	lsls r1, r1, #3
+#elif ENGLISH
+	@let capsule items be "swallowed" instead of "drank"
+	bl swallow_item
+#endif
 	movs r0, #0xd
 	bl sub_8F0922C
 	pop {r0}
@@ -16753,8 +16768,13 @@ sub_8F08584: @ 0x08F08584
 	thumb_func_start sub_8F08594
 sub_8F08594: @ 0x08F08594
 	push {lr}
+#ifdef JAPANESE
 	movs r1, #0xd6
 	lsls r1, r1, #3
+#elif ENGLISH
+	@let capsule items be "swallowed" instead of "drank"
+	bl swallow_item
+#endif
 	movs r0, #0xe
 	bl sub_8F0922C
 	pop {r0}
@@ -16763,8 +16783,13 @@ sub_8F08594: @ 0x08F08594
 	thumb_func_start sub_8F085A4
 sub_8F085A4: @ 0x08F085A4
 	push {lr}
+#ifdef JAPANESE
 	movs r1, #0xd6
 	lsls r1, r1, #3
+#elif ENGLISH
+	@let capsule items be "swallowed" instead of "drank"
+	bl swallow_item
+#endif
 	movs r0, #0xf
 	bl sub_8F0922C
 	pop {r0}
@@ -16773,8 +16798,13 @@ sub_8F085A4: @ 0x08F085A4
 	thumb_func_start sub_8F085B4
 sub_8F085B4: @ 0x08F085B4
 	push {lr}
+#ifdef JAPANESE
 	movs r1, #0xd6
 	lsls r1, r1, #3
+#elif ENGLISH
+	@let capsule items be "swallowed" instead of "drank"
+	bl swallow_item
+#endif
 	movs r0, #0xb
 	bl sub_8F0922C
 	pop {r0}
@@ -24011,8 +24041,13 @@ _08F0C076:
 	ldrb r0, [r6]
 	cmp r0, #0xc0
 	beq _08F0C08C
+#ifdef JAPANESE
 	adds r0, r1, #1
 	strb r0, [r2]
+#elif ENGLISH
+	@only undo auto-indenting if it's battle text
+	bl possibly_ignore_auto_indents
+#endif
 _08F0C08C:
 	ldrb r0, [r6]
 	cmp r0, #4
@@ -25286,7 +25321,11 @@ sub_8F0CAD8: @ 0x08F0CAD8
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08F0CAE8
+#ifdef JAPANESE
 	bl sub_8F0AE34
+#elif ENGLISH
+	bl choose_text_window_type
+#endif
 _08F0CAE8:
 	ldr r4, _08F0CB08 @ =gUnknown_030034CC
 	ldrb r0, [r4]
@@ -25316,8 +25355,12 @@ _08F0CB10:
 	thumb_func_start DrawTextWithId
 DrawTextWithId: @ 0x08F0CB1C
 	push {lr}
+#ifdef JAPANESE
 	lsls r0, r0, #0x10
 	ldr r1, _08F0CB38 @ =gUnknown_030034E8
+#elif ENGLISH
+	bl save_line_number_a
+#endif
 	ldr r1, [r1]
 	lsrs r0, r0, #0xe
 	adds r0, r0, r1
@@ -27409,7 +27452,11 @@ _08F0DAD2:
 	bl SetTextPosition
 	adds r0, r4, #0
 	bl HandleControlCodes
+#ifdef JAPANESE
 	movs r0, #8
+#elif ENGLISH
+	movs r0, #7 @X coordinate of "Fav.Food\0"
+#endif
 	movs r1, #0xc
 	bl SetTextPosition
 	ldr r0, _08F0DBF0 @ =gUnknown_08F27459
@@ -30330,7 +30377,12 @@ _08F0F220:
 	strb r0, [r1]
 _08F0F224:
 	adds r0, r4, #0
+#ifdef JAPANESE
 	bl sub_8F0CB3C
+#elif ENGLISH
+	@get pre-parsing stuff to work so we can do auto line wraps
+	bl copy_battle_line_to_ram
+#endif
 	add r0, sp, #0x15c
 	bl HandleControlCodes
 	ldr r0, _08F0F240 @ =gUnknown_03003190
@@ -30418,8 +30470,13 @@ _08F0F2C2:
 	beq _08F0F2DE
 	lsrs r0, r0, #0x1a
 	adds r0, #0xc0
+#ifdef JAPANESE
 	strb r0, [r5]
 	adds r5, #1
+#elif ENGLISH
+	@add a space between the enemy name and the suffix letters if there are multiple enemies
+	bl add_space_to_enemy_name
+#endif
 _08F0F2DE:
 	movs r0, #0
 	strb r0, [r5]
