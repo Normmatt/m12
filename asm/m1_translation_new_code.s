@@ -40,7 +40,7 @@ increase_offense_end:
 increaseexp:
   movs  r3,r0
   ldr  r0,=gUnknown_030031F0  // see if the Easy Ring is equipped on Ninten
-  ldrb r0,[r0,#0]
+  ldrb r0,[r0,#0x0A]
   cmp  r0,#0x37        // if it isn't, do normal stuff
   bne  increaseexp_end               // else quadruple experience gained
   movs  r0,r3
@@ -63,7 +63,7 @@ increaseexp_end:
 increasemoney:
   push {r1}
   ldr  r1,=gUnknown_030031F0
-  ldrb r1,[r1,#0]
+  ldrb r1,[r1,#0x0A]
   cmp  r1,#0x37
   bne  increasemoney_end
   lsls r0,r0,#1        // double money if easy ring is equipped
@@ -87,7 +87,7 @@ lowerencounterrate:
   ldr  r1,=gUnknown_08F1BB48
 
   ldr  r0,=gUnknown_030031F0    // see if the Easy Ring is equipped on Ninten
-  ldrb r0,[r0,#0]
+  ldrb r0,[r0,#0x0A]
   cmp  r0,#0x37          // if it isn't, do normal stuff
   bne  lowerencounterrate_end                 // else do our easy-making stuff
   ldr  r1,=enratetable
