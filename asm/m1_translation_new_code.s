@@ -45,11 +45,10 @@ increaseexp:
   bne  increaseexp_end               // else quadruple experience gained
   movs  r0,r3
   lsls  r3,r3,#2
-  ldr  r0,=0x8FFFFFF  // increase even more if debug mode is on
-  ldrb r0,[r0,#0]
-  cmp  r0,#0x1
-  bne  increaseexp_end
+#ifdef DEBUG
+  // increase even more if debug mode is on
   lsls  r3,r3,#4
+#endif
 
 increaseexp_end:
   movs r0,r4
@@ -67,11 +66,10 @@ increasemoney:
   cmp  r1,#0x37
   bne  increasemoney_end
   lsls r0,r0,#1        // double money if easy ring is equipped
-  ldr  r1,=0x8FFFFFF  // increase even more if debug mode is on
-  ldrb r1,[r1,#0]
-  cmp  r1,#0x1
-  bne  increasemoney_end
+#ifdef DEBUG
+  // increase even more if debug mode is on
   lsls r0,r0,#3
+#endif
 
 increasemoney_end:
   pop  {r1}
@@ -90,12 +88,12 @@ lowerencounterrate:
   ldrb r0,[r0,#0x0A]
   cmp  r0,#0x37          // if it isn't, do normal stuff
   bne  lowerencounterrate_end                 // else do our easy-making stuff
-  ldr  r1,=enratetable
-  ldr  r0,=0x8FFFFFF    // see if debug mode is on
-  ldrb r0,[r0,#0]
-  cmp  r0,#0x1           // load no-enemies data if debug mode is on
-  bne  lowerencounterrate_end
+#ifdef DEBUG
+  // load no-enemies data if debug mode is on
   ldr  r1,=enratetable2
+#else 
+  ldr  r1,=enratetable1
+#endif
 
 lowerencounterrate_end:
   mov r0, r13
@@ -165,7 +163,7 @@ producescreen2:
 choose_text_window_type:
   push {lr}
   push {r4}
-  ldr  r0,=gUnknown_08F26D4A      // load original, small text box window
+  ldr  r0,=gUnknown_08F26D4A_small      // load original, small text box window
 
   // sometimes r4 doesn't have the actual line number, usually when doing non-dialog stuff
   // like when you use items. So we check for that now here
@@ -179,7 +177,7 @@ choose_text_window_type:
   // so we'll load from a custom table to see if this line needs a small window or not
 
   .load_table_entry:
-  ldr  r1,=0x8FED000      // this is the start of our custom table
+  ldr  r1,=m1_window_data      // this is the start of our custom table
   adds r1,r1,r4
   ldrb r1,[r1,#0]          // if the value in the table is 1, then use small window
   cmp  r1,#0x1
@@ -194,7 +192,7 @@ choose_text_window_type_2:
 
   pop  {r4}
   bl   HandleControlCodes
-  ldr  r1,=0x30034B0
+  ldr  r1,=gUnknown_030034B0
   movs r0,#0x80
   strb r0,[r1,#0]
   pop  {r0}
@@ -210,7 +208,7 @@ choose_yes_no_size:
    push {r1-r7}
    strb r1,[r0,#0x0]
 
-   adr  r0, m1_window_yes_no_small    // load small-sized yes/no window address
+   ldr  r0, =m1_window_yes_no_small    // load small-sized yes/no window address
    ldr  r4,=0x2014300      // let's get the line #, making sure it's not null
    ldrh r4,[r4,#0]
    cmp  r4,#0
@@ -219,13 +217,13 @@ choose_yes_no_size:
    // if we're here, we're looking at a standard dialog line, with the line number in r4
    // so we'll load from a custom table to see if this line needs a small yes/no or not
    .load_table_entry2:
-   ldr  r1,=0x8FED000      // this is the start of our custom table
+   ldr  r1,=m1_window_data      // this is the start of our custom table
    adds r1,r1,r4
    ldrb r1,[r1,#0]          // if the value in the table is 1, then use small window
    cmp  r1,#0x1
    beq  choose_yes_no_size_end
 
-   adr  r0, m1_window_yes_no      // load wide yes/no window
+   ldr  r0, =m1_window_yes_no      // load wide yes/no window
 
 choose_yes_no_size_end:
    pop  {r1-r7}
@@ -239,6 +237,9 @@ m1_window_yes_no:
 .align 2
 m1_window_yes_no_small:
    .incbin "data/english/m1_window_yes_no_small.bin"
+.align 2
+m1_window_data:
+   .incbin "data/english/m1_window_data.bin"
 
 //----------------------------------------------------------------------------------------
 
@@ -522,7 +523,7 @@ control_code_10:
 
 control_code_11:
   push {r0,lr}
-  ldr  r0,=0x3003288
+  ldr  r0,=gUnknown_03003288
   bl   strcopy
   pop  {r0}
   adds r0,#0x2
@@ -534,7 +535,7 @@ control_code_11:
 
 control_code_12:
   push {r0,lr}
-  ldr  r0,=0x3003248
+  ldr  r0,=gUnknown_03003248
   bl   strcopy
   pop  {r0}
   adds r0,#0x2
@@ -546,7 +547,7 @@ control_code_12:
 
 control_code_13:
   push {r0,lr}
-  ldr  r0,=0x30032C8
+  ldr  r0,=gUnknown_030032C8
   bl   strcopy
   pop  {r0}
   adds r0,#0x2
@@ -560,7 +561,7 @@ control_code_16:
   push {lr}
   push {r0,r2}
   push {r1}
-  ldr  r1,=0x3003190
+  ldr  r1,=gUnknown_03003190
   ldrb r2,[r1,#0x8]
   lsls  r0,r2,#0x6
   adds r1,#0x38
@@ -733,6 +734,7 @@ control_code_F1:
 
   .pool
 
+  .align 2
 m1_item_articles:
   .incbin "data/english/m1_item_articles.bin"
 
