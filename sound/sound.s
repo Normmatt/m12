@@ -309,11 +309,11 @@ gUnknown_08F71BE8:
 	.align 2
 	.global gMPlayTable
 gMPlayTable:	@ 0x08F71BF8
-	music_player gUnknown_03004850, gUnknown_03000008, 6, 0
-	music_player gUnknown_03004890, gUnknown_030001E8, 1, 0
-	music_player gUnknown_030048D0, gUnknown_03000238, 1, 1
-	music_player gUnknown_03004960, gUnknown_03000288, 1, 0
-	music_player gUnknown_03004910, gUnknown_030002D8, 2, 0
+	music_player MusicPlayer0Info, gUnknown_03000008, 6, 0
+	music_player MusicPlayer1Info, gUnknown_030001E8, 1, 0
+	music_player MusicPlayer2Info, gUnknown_03000238, 1, 1
+	music_player MusicPlayer3Info, gUnknown_03000288, 1, 0
+	music_player MusicPlayer4Info, gUnknown_030002D8, 2, 0
 
 	.align 2
 	.global gSongTable

@@ -1648,8 +1648,8 @@ gUnknown_08F2A27C:
     NAME_CURSOR_POSITION 0x00, 0x00, 0x00
 #endif
 
-    .global gUnknown_08F2A5A0
-gUnknown_08F2A5A0:
+    .global gFont
+gFont:
     .incbin "baserom.gba", 0x00F2A5A0, 0x1400
 
     .global gUnknown_08F2B9A0

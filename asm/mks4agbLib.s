@@ -74,12 +74,12 @@ _08F12CC6:
 _08F12CE6:
 	str r5, [sp, #8]
 	ldr r6, _08F12D04 @ =0x00000630
-	ldr r3, _08F12CF8 @ =gUnknown_03000379
+	ldr r3, _08F12CF8 @ =SoundMainRAM_Buffer+1
 	bx r3
 	.align 2, 0
 _08F12CF0: .4byte SOUND_AREA_ADR
 _08F12CF4: .4byte 0x68736D53
-_08F12CF8: .4byte gUnknown_03000379
+_08F12CF8: .4byte SoundMainRAM_Buffer+1
 _08F12CFC: .4byte 0x04000006
 _08F12D00: .4byte 0x00000350
 _08F12D04: .4byte 0x00000630

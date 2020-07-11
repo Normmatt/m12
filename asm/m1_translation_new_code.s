@@ -192,7 +192,7 @@ choose_text_window_type_2:
 
   pop  {r4}
   bl   HandleControlCodes
-  ldr  r1,=gUnknown_030034B0
+  ldr  r1,=gTextPlaySfx
   movs r0,#0x80
   strb r0,[r1,#0]
   pop  {r0}
@@ -561,7 +561,7 @@ control_code_16:
   push {lr}
   push {r0,r2}
   push {r1}
-  ldr  r1,=gUnknown_03003190
+  ldr  r1,=gGameInfo
   ldrb r2,[r1,#0x8]
   lsls  r0,r2,#0x6
   adds r1,#0x38
@@ -579,7 +579,7 @@ control_code_16:
 
 control_code_17:
   push {r0,lr}
-  ldr  r0,=gUnknown_03003190
+  ldr  r0,=gGameInfo
   ldrb r0,[r0,#0x9]
   cmp  r0,#0x0
   beq  control_code_17_end
