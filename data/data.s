@@ -2125,10 +2125,10 @@ gUnknown_08F64574:
 gUnknown_08F645B4:
     .incbin "baserom.gba", 0x00F645B4, 0x5E
 
-    .global gUnknown_08F64612
-gUnknown_08F64612:
-    .incbin "baserom.gba", 0x00F64612, 0x1CAE
+    .include "asm/macros/ending_macros.inc"
+    .include "data/EndingScript.inc"
 
+    .align 2
     .global gUnknown_08F662C0
 gUnknown_08F662C0:
     .incbin "baserom.gba", 0x00F662C0, 0xA
