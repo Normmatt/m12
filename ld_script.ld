@@ -31,7 +31,7 @@ SECTIONS
 	{
 		asm/code.o(.text);
         asm/m1_translation_new_code.o(.text);
-		asm/mks4agbLib.o(.text);
+		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);
         src/agb_sram.o(.text);
         tools/agbcc/lib/libgcc.a:_call_via_rX.o(.text);

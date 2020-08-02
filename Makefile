@@ -101,8 +101,6 @@ SUBDIRS  := $(sort $(dir $(OBJS)))
 $(shell mkdir -p $(SUBDIRS))
 
 $(C_BUILDDIR)/agb_sram.o: CC1FLAGS := -O1 -mthumb-interwork
-$(C_BUILDDIR)/test.o: CC1FLAGS := -O0 -mthumb-interwork
-$(C_BUILDDIR)/sub_801E0EC.o: CC1FLAGS := -O0 -mthumb-interwork -g
 
 $(C_BUILDDIR)/m4a_2.o: CC1FLAGS := -mthumb-interwork -O1
 $(C_BUILDDIR)/m4a_4.o: CC1FLAGS := -mthumb-interwork -O1
@@ -201,7 +199,8 @@ $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
 
 $(SRC_ASM_BUILDDIR)/%.o: $(C_SUBDIR)/%.s
-	$(PREPROC) $< charmap.txt | $(AS) $(ASFLAGS) -o $@
+	$(CPP) $(CPPFLAGS) $< -o $(SRC_ASM_BUILDDIR)/$*.i
+	$(PREPROC) $(SRC_ASM_BUILDDIR)/$*.i charmap.txt | $(AS) $(ASFLAGS) -o $@
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
 	$(CPP) $(CPPFLAGS) $< -o $(ASM_BUILDDIR)/$*.i
