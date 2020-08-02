@@ -32,8 +32,8 @@ SECTIONS
 		asm/code.o(.text);
         asm/m1_translation_new_code.o(.text);
 		asm/mks4agbLib.o(.text);
-		asm/libagbsyscall.o(.text);
-		asm/libagbbackup_AgbSram.o(.text);
+		src/libagbsyscall.o(.text);
+        src/agb_sram.o(.text);
         tools/agbcc/lib/libgcc.a:_call_via_rX.o(.text);
         tools/agbcc/lib/libgcc.a:_divsi3.o(.text);
         tools/agbcc/lib/libgcc.a:_dvmd_tls.o(.text);
@@ -50,6 +50,7 @@ SECTIONS
     {
         data/data.o(.data);
         sound/sound.o(.data);
+        src/agb_sram.o(.rodata);
         data/data_after_sound.o(.data);
     } = 0
     

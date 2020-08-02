@@ -1,15 +1,5 @@
 	.section .data
 
-    .global AgbLibSram_ver
-AgbLibSram_ver:
-    .ascii "SRAM_V112"
-    
-    .align 2
-    .word ReadSram_Core+1
-    .word ReadSram+1
-    .word VerifySram_Core+1
-    .word VerifySram+1
-
 @ all of this data is debug monitor rom from is-cgb-emulator
 @ how it got onto the retail rom... who knows...
     .global gUnknown_08F7D8A4
