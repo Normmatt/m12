@@ -82,7 +82,7 @@ increasemoney_end:
 
 	thumb_func_start lowerencounterrate
 lowerencounterrate:
-  ldr  r1,=gUnknown_08F1BB48
+  ldr  r1,=gEncounterRates
 
   ldr  r0,=gUnknown_030031F0    // see if the Easy Ring is equipped on Ninten
   ldrb r0,[r0,#0x0A]
@@ -249,7 +249,7 @@ m1_window_data:
 
 	thumb_func_start swallow_item
 swallow_item:
-   ldr  r1,=gUnknown_030007D4  // this has the current item # (hopefully all the time)
+   ldr  r1,=gCurrentItemId  // this has the current item # (hopefully all the time)
    ldrb r1,[r1,#0]             // load item #
    cmp  r1,#0x4E               // see if the item is between 4E and 52, which are capsules
    blt  .drink                 // if not, then load the normal "drink" line
@@ -602,7 +602,7 @@ control_code_1D:
   push {r0,r2-r7}
   push {r1}
 
-  ldr  r1,=gUnknown_030007D4
+  ldr  r1,=gCurrentItemId
   ldrb r2,[r1,#0x0]
   lsls  r0,r2,#0x18
   cmp  r0,#0
@@ -718,7 +718,7 @@ control_code_F1:
   push {r2-r7}
   push {r0}
 
-  ldr  r4,=gUnknown_030007D4
+  ldr  r4,=gCurrentItemId
   ldrb r0,[r4,#0x0]      // this now has the item number being used
   lsls  r0,r0,#0x4
   ldr  r5,=m1_item_articles

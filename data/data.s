@@ -14,8 +14,8 @@
     
     .align 3, 0
     
-    .global gUnknown_08F15390
-gUnknown_08F15390:
+    .global m1_data_object_table_1
+m1_data_object_table_1:
     .incbin "baserom.gba", 0x00F15390, 0x1FF5
 
     .global gUnknown_08F17385
@@ -30,8 +30,8 @@ gUnknown_08F19252:
 gUnknown_08F1927A:
     .incbin "baserom.gba", 0x00F1927A, 0x1F96
 
-    .global gUnknown_08F1B210
-gUnknown_08F1B210:
+    .global gItemData
+gItemData:
     .incbin "baserom.gba", 0x00F1B210, 0x400
 
     .global gUnknown_08F1B610
@@ -70,8 +70,8 @@ gUnknown_08F1B670:
 gUnknown_08F1B674:
     .incbin "baserom.gba", 0x00F1B674, 0x4
 
-    .global gUnknown_08F1B678
-gUnknown_08F1B678:
+    .global gCanEquipItemMask
+gCanEquipItemMask:
     .incbin "baserom.gba", 0x00F1B678, 0x8
 
     .align 2
@@ -136,143 +136,143 @@ gUnknown_08F1B6B8:
     .word sub_8F03CBC+1
     .word sub_8F03D64+1
     .word sub_8F03EA0+1
-    .word sub_8F03EB4+1
-    .word sub_8F03EE0+1
+    .word SetFlag+1
+    .word ClearFlag+1
     .word sub_8F03F10+1
     .word sub_8F03F28+1
     .word sub_8F03B60+1
     .word sub_8F033FC+1
 
     .align 2
-    .global gUnknown_08F1B774
-gUnknown_08F1B774:
-    .word sub_8F04DA4+1
-    .word sub_8F04DB0+1
-    .word sub_8F04DD0+1
-    .word sub_8F04E70+1
-    .word sub_8F04E7C+1
-    .word sub_8F04EB8+1
-    .word sub_8F04EC8+1
-    .word sub_8F04DA4+1
-    .word sub_8F04ED8+1
-    .word sub_8F04FC4+1
-    .word sub_8F05008+1
-    .word sub_8F05030+1
-    .word sub_8F05058+1
-    .word sub_8F05094+1
-    .word sub_8F050CC+1
-    .word sub_8F050D8+1
-    .word sub_8F050E8+1
-    .word sub_8F05118+1
-    .word sub_8F05148+1
-    .word sub_8F0518C+1
-    .word sub_8F051B0+1
-    .word sub_8F051D4+1
-    .word sub_8F051F8+1
-    .word sub_8F05234+1
-    .word sub_8F05254+1
-    .word sub_8F0529C+1
-    .word sub_8F052B4+1
-    .word sub_8F052E0+1
-    .word sub_8F0530C+1
-    .word sub_8F0533C+1
-    .word sub_8F05368+1
-    .word sub_8F0539C+1
-    .word sub_8F053B8+1
-    .word sub_8F05410+1
-    .word sub_8F05458+1
-    .word sub_8F054BC+1
-    .word sub_8F05530+1
-    .word sub_8F05594+1
-    .word sub_8F055CC+1
-    .word sub_8F055F8+1
-    .word sub_8F05690+1
-    .word sub_8F056C8+1
-    .word sub_8F056FC+1
-    .word sub_8F05748+1
-    .word sub_8F05790+1
-    .word sub_8F057D4+1
-    .word sub_8F05828+1
-    .word sub_8F05850+1
-    .word sub_8F05890+1
-    .word sub_8F058F0+1
-    .word sub_8F0593C+1
-    .word sub_8F05974+1
-    .word sub_8F059C0+1
-    .word sub_8F059E8+1
-    .word sub_8F05A10+1
-    .word sub_8F05A44+1
-    .word sub_8F05A98+1
-    .word sub_8F05ADC+1
-    .word sub_8F05B08+1
-    .word sub_8F05B40+1
-    .word sub_8F05B74+1
-    .word sub_8F05B8C+1
-    .word sub_8F05C28+1
-    .word sub_8F05DA0+1
-    .word sub_8F05DD8+1
-    .word sub_8F05E00+1
-    .word sub_8F05E5C+1
-    .word sub_8F05EB4+1
-    .word sub_8F05F30+1
-    .word sub_8F05F7C+1
-    .word sub_8F05FD8+1
-    .word sub_8F06010+1
-    .word sub_8F06060+1
-    .word sub_8F060E0+1
-    .word sub_8F06180+1
-    .word sub_8F0619C+1
-    .word sub_8F061D4+1
-    .word sub_8F06270+1
-    .word sub_8F06288+1
-    .word sub_8F06294+1
-    .word sub_8F062E8+1
-    .word sub_8F06324+1
-    .word sub_8F06378+1
-    .word sub_8F063B8+1
-    .word sub_8F06434+1
-    .word sub_8F06474+1
-    .word sub_8F06490+1
-    .word sub_8F0651C+1
-    .word sub_8F065F8+1
-    .word sub_8F0660C+1
-    .word sub_8F06638+1
-    .word sub_8F06650+1
-    .word sub_8F06668+1
-    .word sub_8F06680+1
-    .word sub_8F04DA4+1
-    .word sub_8F06698+1
-    .word sub_8F066B4+1
-    .word sub_8F066F0+1
-    .word sub_8F06744+1
-    .word sub_8F06784+1
-    .word sub_8F067C4+1
-    .word sub_8F06B00+1
-    .word sub_8F06B48+1
-    .word sub_8F06B78+1
-    .word sub_8F06BA4+1
-    .word sub_8F06C2C+1
-    .word sub_8F06C60+1
-    .word sub_8F06E0C+1
-    .word sub_8F06E10+1
-    .word sub_8F06E20+1
-    .word sub_8F06E34+1
-    .word sub_8F06E48+1
-    .word sub_8F06E6C+1
+    .global gSCR_CMD_Handlers
+gSCR_CMD_Handlers:
+    .word SCR_CMD_00_End+1
+    .word SCR_CMD_01_Jump+1
+    .word SCR_CMD_02_CallSubroutine+1
+    .word SCR_CMD_03_Return+1
+    .word SCR_CMD_04+1
+    .word SCR_CMD_05+1
+    .word SCR_CMD_06+1
+    .word SCR_CMD_00_End+1
+    .word SCR_CMD_08+1
+    .word SCR_CMD_09+1
+    .word SCR_CMD_0A+1
+    .word SCR_CMD_0B+1
+    .word SCR_CMD_0C+1
+    .word SCR_CMD_0D+1
+    .word SCR_CMD_0E_SoftReset+1
+    .word SCR_CMD_0F_DelayedSoftReset+1
+    .word SCR_CMD_10_SetFlag+1
+    .word SCR_CMD_11_ClearFlag+1
+    .word SCR_CMD_12+1
+    .word SCR_CMD_13+1
+    .word SCR_CMD_14+1
+    .word SCR_CMD_15+1
+    .word SCR_CMD_16+1
+    .word SCR_CMD_17+1
+    .word SCR_CMD_18+1
+    .word SCR_CMD_19_SetCurrentCharacterId+1
+    .word SCR_CMD_1A+1
+    .word SCR_CMD_1B+1
+    .word SCR_CMD_1C+1
+    .word SCR_CMD_1D+1
+    .word SCR_CMD_1E+1
+    .word SCR_CMD_1F_ShowMoney+1
+    .word SCR_CMD_20+1
+    .word SCR_CMD_21+1
+    .word SCR_CMD_22+1
+    .word SCR_CMD_23+1
+    .word SCR_CMD_24+1
+    .word SCR_CMD_25+1
+    .word SCR_CMD_26+1
+    .word SCR_CMD_27+1
+    .word SCR_CMD_28_IncrementMoney+1
+    .word SCR_CMD_29_DecrementMoney+1
+    .word SCR_CMD_2A_IncrementBankedMoney+1
+    .word SCR_CMD_2B_DecrementBankedMoney+1
+    .word SCR_CMD_2C+1
+    .word SCR_CMD_2D+1
+    .word SCR_CMD_2E+1
+    .word SCR_CMD_2F+1
+    .word SCR_CMD_30+1
+    .word SCR_CMD_31+1
+    .word SCR_CMD_32+1
+    .word SCR_CMD_33+1
+    .word SCR_CMD_34+1
+    .word SCR_CMD_35+1
+    .word SCR_CMD_36+1
+    .word SCR_CMD_37+1
+    .word SCR_CMD_38+1
+    .word SCR_CMD_39+1
+    .word SCR_CMD_3A+1
+    .word SCR_CMD_3B+1
+    .word SCR_CMD_3C+1
+    .word SCR_CMD_3D+1
+    .word SCR_CMD_3E+1
+    .word SCR_CMD_3F_JumpToObjectScript+1
+    .word SCR_CMD_40+1
+    .word SCR_CMD_41+1
+    .word SCR_CMD_42+1
+    .word SCR_CMD_43+1
+    .word SCR_CMD_44+1
+    .word SCR_CMD_45+1
+    .word SCR_CMD_46+1
+    .word SCR_CMD_47+1
+    .word SCR_CMD_48+1
+    .word SCR_CMD_49+1
+    .word SCR_CMD_4A+1
+    .word SCR_CMD_4B+1
+    .word SCR_CMD_4C+1
+    .word SCR_CMD_4D+1
+    .word SCR_CMD_4E+1
+    .word SCR_CMD_4F+1
+    .word SCR_CMD_50+1
+    .word SCR_CMD_51+1
+    .word SCR_CMD_52+1
+    .word SCR_CMD_53+1
+    .word SCR_CMD_54+1
+    .word SCR_CMD_55+1
+    .word SCR_CMD_56_SaveGame+1
+    .word SCR_CMD_57_LoadExpForNextLevel+1
+    .word SCR_CMD_58_LoadMoneyToTemp+1
+    .word SCR_CMD_59_InflictCondition+1
+    .word SCR_CMD_5A_ChangeBgMusic+1
+    .word SCR_CMD_5B_PlaySfxById0+1
+    .word SCR_CMD_5C_PlaySfxById1+1
+    .word SCR_CMD_5D_PlaySfxById2+1
+    .word SCR_CMD_00_End+1
+    .word SCR_CMD_5F+1
+    .word SCR_CMD_60+1
+    .word SCR_CMD_61+1
+    .word SCR_CMD_62+1
+    .word SCR_CMD_63+1
+    .word SCR_CMD_64+1
+    .word SCR_CMD_65+1
+    .word SCR_CMD_66+1
+    .word SCR_CMD_67+1
+    .word SCR_CMD_68+1
+    .word SCR_CMD_69_Quake+1
+    .word SCR_CMD_6A+1
+    .word SCR_CMD_6B_Dummy+1
+    .word SCR_CMD_6C+1
+    .word SCR_CMD_6D_SaveCurrentBgMusicId+1
+    .word SCR_CMD_6E_PlayOldBgMusicId+1
+    .word SCR_CMD_6F+1
+    .word SCR_CMD_70+1
 
     .align 2
-    .global gUnknown_08F1B938
-gUnknown_08F1B938:
-    .word sub_8F08094+1
+    .global gItemEffectHandlers
+gItemEffectHandlers:
+    .word NothingHappened+1
     .word sub_8F080A4+1
-    .word sub_8F08094+1
-    .word sub_8F08094+1
-    .word sub_8F08094+1
-    .word sub_8F081B4+1
+    .word NothingHappened+1
+    .word NothingHappened+1
+    .word NothingHappened+1
+    .word UseBread+1
     .word sub_8F082B0+1
     .word sub_8F080A4+1
     .word sub_8F082D0+1
-    .word sub_8F08094+1
+    .word NothingHappened+1
     .word sub_8F082F8+1
     .word sub_8F08310+1
     .word sub_8F0831C+1
@@ -290,15 +290,15 @@ gUnknown_08F1B938:
     .word sub_8F08594+1
     .word sub_8F085A4+1
     .word sub_8F085B4+1
-    .word sub_8F085C4+1
-    .word sub_8F08094+1
-    .word sub_8F08094+1
+    .word GrandFatherDiary+1
+    .word NothingHappened+1
+    .word NothingHappened+1
     .word sub_8F085D4+1
     .word sub_8F08664+1
-    .word sub_8F087D8+1
-    .word sub_8F087E8+1
-    .word sub_8F087F8+1
-    .word sub_8F08AB8+1
+    .word JustTurnThePowerOff+1
+    .word FigureOutLengthsOfManyThings+1
+    .word HandleMap+1
+    .word PlayOcarinaOfHope+1
     .word sub_8F08C44+1
     .word sub_8F08C5C+1
     .word sub_8F08D70+1
@@ -368,8 +368,8 @@ gUnknown_08F1BB18:
 gUnknown_08F1BB28:
     .incbin "baserom.gba", 0x00F1BB28, 0x20
 
-    .global gUnknown_08F1BB48
-gUnknown_08F1BB48:
+    .global gEncounterRates
+gEncounterRates:
     .incbin "baserom.gba", 0x00F1BB48, 0x8
 
     .global gUnknown_08F1BB50
@@ -1872,8 +1872,8 @@ gUnknown_08F593A0:
 gUnknown_08F595A0:
     .incbin "baserom.gba", 0x00F595A0, 0x297C
 
-    .global gUnknown_08F5BF1C
-gUnknown_08F5BF1C:
+    .global gTeleportLocations
+gTeleportLocations:
     .incbin "baserom.gba", 0x00F5BF1C, 0x2
 
     .global gUnknown_08F5BF1E
@@ -1896,8 +1896,8 @@ gUnknown_08F5C51C:
 gUnknown_08F5C71C:
     .incbin "baserom.gba", 0x00F5C71C, 0x400
 
-    .global gUnknown_08F5CB1C
-gUnknown_08F5CB1C:
+    .global gMapTiles
+gMapTiles:
     .incbin "baserom.gba", 0x00F5CB1C, 0xC00
 
     .global gUnknown_08F5D71C
@@ -1976,8 +1976,8 @@ gUnknown_08F6371C:
 gUnknown_08F63A1C:
     .incbin "baserom.gba", 0x00F63A1C, 0x800
 
-    .global gUnknown_08F6421C
-gUnknown_08F6421C:
+    .global gInitialGlobalPlayerInfo
+gInitialGlobalPlayerInfo:
     @.incbin "baserom.gba", 0x00F6421C, 0x200
     .byte 0x00, 0x00, 0xB0, 0xE9, 0x52, 0x08, 0x84, 0x2F, 0x01, 0x00, 0x00, 0x00, 0x52, 0x08, 0x86, 0x2F 
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2D, 0x00, 0x00, 0x6B, 0x84, 0x1C, 0x42, 0x1E 
@@ -2157,8 +2157,8 @@ gUnknown_08F66346:
 gUnknown_08F6634E:
     .incbin "baserom.gba", 0x00F6634E, 0x80
 
-    .global gUnknown_08F663CE
-gUnknown_08F663CE:
+    .global gEnemyGroupsData
+gEnemyGroupsData:
     .incbin "baserom.gba", 0x00F663CE, 0x672
 
     .global gUnknown_08F66A40

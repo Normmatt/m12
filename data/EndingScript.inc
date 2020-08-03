@@ -1,6 +1,6 @@
     .align 1
-    .global gUnknown_08F64612
-gUnknown_08F64612:
+    .global m1_data_ending_script
+m1_data_ending_script:
     ENDING_CMD_01_DELAY 120
     ENDING_CMD_0B_PLAYSFX 0x2D
     ENDING_CMD_01_DELAY 120

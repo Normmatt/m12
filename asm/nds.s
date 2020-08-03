@@ -298,7 +298,7 @@ _08F0168C:
 	ldr r0, [r0]
 	ldr r1, _08F016E8 @ =0x0600C800
 	movs r2, #0x40
-	bl sub_8F00DBC
+	bl BitUnpack
 _08F016C0:
 	add sp, #0x14
 	pop {r3, r4, r5}
