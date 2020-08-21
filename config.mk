@@ -25,7 +25,7 @@ endif
 
 # Language
 ifeq ($(GAME_LANGUAGE), ENGLISH)
-  BUILD_NAME := $(BUILD_NAME)
+  BUILD_NAME := $(BUILD_NAME)_english
   GAME_CODE  := $(GAME_CODE)E
 else
 ifeq ($(GAME_LANGUAGE), JAPANESE)
