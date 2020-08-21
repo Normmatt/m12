@@ -29,6 +29,7 @@ SECTIONS
     .text :
 	ALIGN(4)
 	{
+        src/crt0.o(.text);
 		asm/code.o(.text);
         asm/m1_translation_new_code.o(.text);
 		src/mks4agbLib.o(.text);

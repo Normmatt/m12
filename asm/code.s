@@ -9,92 +9,6 @@
 .syntax unified
 .section .text
 
-	arm_func_start start
-start: @ 0x08F00000
-	b crt0
-#ifdef NDS_VERSION
-	#include "rom_header.inc"
-#else
-	.include "asm/rom_header.inc"
-#endif
-
-	arm_func_start crt0
-crt0:
-	mov r0, #0x12
-	msr cpsr_fc, r0
-	ldr sp, _08F000F8 @ =gUnknown_03007F00
-	mov r0, #0x1f
-	msr cpsr_fc, r0
-	ldr sp, _08F000F4 @ =gUnknown_03007C00
-	ldr r1, _08F001C0 @ =gUnknown_03007FFC
-	add r0, pc, #0x18 @ =intr_main
-	str r0, [r1]
-	ldr r1, _08F001C4 @ =AgbMain
-	mov lr, pc
-	bx r1
-_08F000F0:
-	.byte 0xF2, 0xFF, 0xFF, 0xEA
-_08F000F4: .4byte gUnknown_03007C00
-_08F000F8: .4byte gUnknown_03007F00
-
-	arm_func_start intr_main
-intr_main: @ 0x08F000FC
-	mov r3, #0x4000000
-	add r3, r3, #0x200
-	ldr r2, [r3]
-	and r1, r2, r2, lsr #16
-	ands r0, r1, #0x2000
-_08F00110:
-	bne _08F00110
-	mov r2, #0
-	ands r0, r1, #1
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #2
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #4
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #8
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x10
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x20
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x40
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x80
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x100
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x200
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x400
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x800
-	bne _08F001AC
-	add r2, r2, #4
-	ands r0, r1, #0x1000
-_08F001AC:
-	strh r0, [r3, #2]
-	ldr r1, _08F001C8 @ =IntrTable
-	add r1, r1, r2
-	ldr r0, [r1]
-	bx r0
-	.align 2, 0
-_08F001C0: .4byte gUnknown_03007FFC
-_08F001C4: .4byte AgbMain
-_08F001C8: .4byte IntrTable
-
 	thumb_func_start AgbMain
 AgbMain: @ 0x08F001CC
 	push {r4, r5, r6, lr}
@@ -364,7 +278,7 @@ _08F003D4:
 	bl DrawBg2Tilemap2
 #endif
 	bl sub_8F040E0
-	ldr r0, _08F00594 @ =gUnknown_03001530
+	ldr r0, _08F00594 @ =gBg0TilemapBuffer
 	str r0, [r5]
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
@@ -516,7 +430,7 @@ _08F00584: .4byte gUnknown_030007CC
 _08F00588: .4byte gUnknown_030007C4
 _08F0058C: .4byte gUnknown_03002964
 _08F00590: .4byte gUnknown_03003498
-_08F00594: .4byte gUnknown_03001530
+_08F00594: .4byte gBg0TilemapBuffer
 _08F00598: .4byte gBg2TilemapBuffer
 _08F0059C: .4byte 0x06001000
 #ifdef NDS_VERSION
@@ -8229,7 +8143,7 @@ sub_8F04188: @ 0x08F04188
 	push {lr}
 	bl sub_8F040E0
 	ldr r1, _08F041A8 @ =0x040000D4
-	ldr r0, _08F041AC @ =gUnknown_03001530
+	ldr r0, _08F041AC @ =gBg0TilemapBuffer
 	str r0, [r1]
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
@@ -8242,7 +8156,7 @@ sub_8F04188: @ 0x08F04188
 	bx r0
 	.align 2, 0
 _08F041A8: .4byte 0x040000D4
-_08F041AC: .4byte gUnknown_03001530
+_08F041AC: .4byte gBg0TilemapBuffer
 _08F041B0: .4byte 0x84000200
 
 	thumb_func_start WaitForAnyButtonPress
@@ -10013,7 +9927,7 @@ _08F04FC0: .4byte gUnknown_030007A8
 	thumb_func_start SCR_CMD_09
 SCR_CMD_09: @ 0x08F04FC4
 	push {lr}
-	ldr r0, _08F04FE8 @ =gUnknown_030034CC
+	ldr r0, _08F04FE8 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r1, #0x80
 	ldrb r2, [r0]
 	orrs r1, r2
@@ -10034,7 +9948,7 @@ _08F04FD6:
 	beq _08F05000
 	b _08F04FD6
 	.align 2, 0
-_08F04FE8: .4byte gUnknown_030034CC
+_08F04FE8: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F04FEC: .4byte gUnknown_08F278E8
 _08F04FF0:
 	ldr r1, _08F04FFC @ =gScriptPtr
@@ -10382,7 +10296,7 @@ SCR_CMD_18: @ 0x08F05254
 	adds r4, r0, #0
 	mov r0, sp
 	bl LoadTextSystemState
-	ldr r1, _08F0527C @ =gUnknown_030034CC
+	ldr r1, _08F0527C @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0
 	strb r0, [r1]
 	cmp r4, #0
@@ -10390,7 +10304,7 @@ SCR_CMD_18: @ 0x08F05254
 	bl SCR_CMD_01_Jump
 	b _08F0528C
 	.align 2, 0
-_08F0527C: .4byte gUnknown_030034CC
+_08F0527C: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F05280:
 	ldr r0, _08F05294 @ =gCurrentCharacterId
 	strb r4, [r0]
@@ -10570,7 +10484,7 @@ SCR_CMD_20: @ 0x08F053B8
 	adds r4, r0, #0
 	mov r0, sp
 	bl LoadTextSystemState
-	ldr r1, _08F053E0 @ =gUnknown_030034CC
+	ldr r1, _08F053E0 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0
 	strb r0, [r1]
 	cmp r4, #0
@@ -10578,7 +10492,7 @@ SCR_CMD_20: @ 0x08F053B8
 	bl SCR_CMD_01_Jump
 	b _08F053FC
 	.align 2, 0
-_08F053E0: .4byte gUnknown_030034CC
+_08F053E0: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F053E4:
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
@@ -10611,7 +10525,7 @@ SCR_CMD_21: @ 0x08F05410
 	adds r4, r0, #0
 	mov r0, sp
 	bl LoadTextSystemState
-	ldr r1, _08F05438 @ =gUnknown_030034CC
+	ldr r1, _08F05438 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0
 	strb r0, [r1]
 	cmp r4, #0
@@ -10619,7 +10533,7 @@ SCR_CMD_21: @ 0x08F05410
 	bl SCR_CMD_01_Jump
 	b _08F0544C
 	.align 2, 0
-_08F05438: .4byte gUnknown_030034CC
+_08F05438: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0543C:
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
@@ -10651,7 +10565,7 @@ SCR_CMD_22: @ 0x08F05458
 	adds r5, r0, #0
 	mov r0, sp
 	bl LoadTextSystemState
-	ldr r1, _08F05494 @ =gUnknown_030034CC
+	ldr r1, _08F05494 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0
 	strb r0, [r1]
 	ldr r0, [r4]
@@ -10663,7 +10577,7 @@ SCR_CMD_22: @ 0x08F05458
 	b _08F054B0
 	.align 2, 0
 _08F05490: .4byte gScriptPtr
-_08F05494: .4byte gUnknown_030034CC
+_08F05494: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F05498:
 	lsls r0, r5, #0x18
 	lsrs r0, r0, #0x18
@@ -11429,7 +11343,7 @@ SCR_CMD_37: @ 0x08F05A44
 	ldrb r2, [r2, #1]
 	lsls r1, r2, #8
 	orrs r0, r1
-	ldr r2, _08F05A80 @ =gUnknown_030034CC
+	ldr r2, _08F05A80 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r1, #0x80
 	ldrb r3, [r2]
 	orrs r1, r3
@@ -11445,7 +11359,7 @@ SCR_CMD_37: @ 0x08F05A44
 	b _08F05A92
 	.align 2, 0
 _08F05A7C: .4byte gScriptPtr
-_08F05A80: .4byte gUnknown_030034CC
+_08F05A80: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F05A84:
 	cmp r0, #2
 	beq _08F05A8E
@@ -13554,7 +13468,7 @@ SCR_CMD_66: @ 0x08F06B48
 	bl sub_8F0BC04
 	mov r0, sp
 	bl LoadTextSystemState
-	ldr r1, _08F06B74 @ =gUnknown_030034CC
+	ldr r1, _08F06B74 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0x80
 	ldrb r2, [r1]
 	orrs r0, r2
@@ -13564,7 +13478,7 @@ SCR_CMD_66: @ 0x08F06B48
 	bx r0
 	.align 2, 0
 _08F06B70: .4byte gUnknown_030031B0
-_08F06B74: .4byte gUnknown_030034CC
+_08F06B74: .4byte gTextDelayAfterWriteCharacterEnabled
 
 	thumb_func_start SCR_CMD_67
 SCR_CMD_67: @ 0x08F06B78
@@ -13941,7 +13855,7 @@ _08F06E68: .4byte gTextPlaySfx
 SCR_CMD_70: @ 0x08F06E6C
 	push {r4, r5, lr}
 	movs r0, #0
-	ldr r5, _08F06EA0 @ =gUnknown_03001530
+	ldr r5, _08F06EA0 @ =gBg0TilemapBuffer
 	movs r4, #0
 _08F06E74:
 	movs r1, #0x15
@@ -13966,7 +13880,7 @@ _08F06E7A:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F06EA0: .4byte gUnknown_03001530
+_08F06EA0: .4byte gBg0TilemapBuffer
 
 	thumb_func_start sub_8F06EA4
 sub_8F06EA4: @ 0x08F06EA4
@@ -14628,7 +14542,7 @@ sub_8F07374: @ 0x08F07374
 	ldr r0, _08F0755C @ =gPlayerX
 	mov ip, r0
 	lsls r2, r2, #3
-	ldr r1, _08F07560 @ =gUnknown_08F5BF1E
+	ldr r1, _08F07560 @ =gTeleportLocations+2
 	adds r2, r2, r1
 	ldrh r2, [r2]
 	ldr r3, _08F07564 @ =0xFFFFFE00
@@ -14780,7 +14694,7 @@ _08F07550: .4byte gCurrentItemId
 _08F07554: .4byte 0xFFFFFEE2
 _08F07558: .4byte 0xFFFFFEE3
 _08F0755C: .4byte gPlayerX
-_08F07560: .4byte gUnknown_08F5BF1E
+_08F07560: .4byte gTeleportLocations+2
 _08F07564: .4byte 0xFFFFFE00
 _08F07568: .4byte gPlayerY
 _08F0756C: .4byte gUnknown_03000840
@@ -15405,7 +15319,7 @@ _08F079A4:
 	adds r0, r1, #0
 	strb r0, [r5]
 	ldr r2, _08F07AF8 @ =gPlayerX
-	ldr r0, _08F07AFC @ =gUnknown_08F5C316
+	ldr r0, _08F07AFC @ =gTeleportLocations+0x3FA
 	ldr r3, [sp, #0x38]
 	adds r1, r3, r0
 	ldrh r1, [r1]
@@ -15456,7 +15370,7 @@ _08F07AEC: .4byte gUnknown_03000844
 _08F07AF0: .4byte gUnknown_0300318C
 _08F07AF4: .4byte gUnknown_030007A0
 _08F07AF8: .4byte gPlayerX
-_08F07AFC: .4byte gUnknown_08F5C316
+_08F07AFC: .4byte gTeleportLocations+0x3FA
 _08F07B00: .4byte 0xFFFFFE40
 _08F07B04: .4byte gPlayerY
 _08F07B08: .4byte 0xFFFFFEC0
@@ -16036,7 +15950,7 @@ AskToContinueOrEndAdventure: @ 0x08F07F8C
 	bl DrawTextWithId
 	movs r0, #0x16
 	bl DrawTextWithId
-	ldr r1, _08F07FE4 @ =gUnknown_030034CC
+	ldr r1, _08F07FE4 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0x80
 	ldrb r2, [r1]
 	orrs r0, r2
@@ -16055,7 +15969,7 @@ _08F07FCC:
 	.align 2, 0
 _08F07FDC: .4byte gUnknown_03003498
 _08F07FE0: .4byte gCurrentBgMusic
-_08F07FE4: .4byte gUnknown_030034CC
+_08F07FE4: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F07FE8:
 	movs r0, #0x18
 	bl DrawTextWithId
@@ -16580,7 +16494,7 @@ _08F083FC:
 	strb r0, [r1]
 	ldr r0, _08F08464 @ =0x000006B3
 	bl DrawTextWithId
-	ldr r1, _08F08468 @ =gUnknown_030034CC
+	ldr r1, _08F08468 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r1]
 	orrs r0, r6
 	strb r0, [r1]
@@ -16612,7 +16526,7 @@ _08F08458: .4byte gTempNumber
 _08F0845C: .4byte 0x000006BA
 _08F08460: .4byte gUnknown_03003170
 _08F08464: .4byte 0x000006B3
-_08F08468: .4byte gUnknown_030034CC
+_08F08468: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0846C: .4byte 0x000006B1
 _08F08470: .4byte gGameInfo
 _08F08474: .4byte 0x000006C1
@@ -16675,7 +16589,7 @@ _08F084DA:
 	strb r0, [r1]
 	ldr r0, _08F0853C @ =0x000006B4
 	bl DrawTextWithId
-	ldr r0, _08F08540 @ =gUnknown_030034CC
+	ldr r0, _08F08540 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r1, [r0]
 	orrs r4, r1
 	strb r4, [r0]
@@ -16709,7 +16623,7 @@ _08F08530: .4byte gGameInfo
 _08F08534: .4byte gUnknown_03003174
 _08F08538: .4byte gUnknown_03003170
 _08F0853C: .4byte 0x000006B4
-_08F08540: .4byte gUnknown_030034CC
+_08F08540: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F08544: .4byte 0x000006B1
 _08F08548: .4byte 0x000006C6
 
@@ -17922,7 +17836,7 @@ _08F08EE6:
 	strb r0, [r1]
 	ldr r0, _08F08F38 @ =0x000006B3
 	bl DrawTextWithId
-	ldr r0, _08F08F3C @ =gUnknown_030034CC
+	ldr r0, _08F08F3C @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r1, [r0]
 	orrs r4, r1
 	strb r4, [r0]
@@ -17946,7 +17860,7 @@ _08F08F2C: .4byte gTempNumber
 _08F08F30: .4byte gGameInfo
 _08F08F34: .4byte gUnknown_03003170
 _08F08F38: .4byte 0x000006B3
-_08F08F3C: .4byte gUnknown_030034CC
+_08F08F3C: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F08F40: .4byte 0x000006B1
 _08F08F44: .4byte gUnknown_030007D8
 
@@ -18019,7 +17933,7 @@ _08F08FBE:
 	strb r0, [r1]
 	ldr r0, _08F09000 @ =0x000006B3
 	bl DrawTextWithId
-	ldr r1, _08F09004 @ =gUnknown_030034CC
+	ldr r1, _08F09004 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r1]
 	orrs r0, r7
 	strb r0, [r1]
@@ -18035,7 +17949,7 @@ _08F08FF4: .4byte gUnknown_03003174
 _08F08FF8: .4byte gTempNumber
 _08F08FFC: .4byte gUnknown_03003170
 _08F09000: .4byte 0x000006B3
-_08F09004: .4byte gUnknown_030034CC
+_08F09004: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F09008: .4byte 0x000006B1
 
 	thumb_func_start AttemptRemovalOfCondition
@@ -18372,7 +18286,7 @@ _08F092D0:
 	ldr r1, _08F09310 @ =0x000006AA
 	adds r0, r7, r1
 	bl DrawTextWithId
-	ldr r1, _08F09314 @ =gUnknown_030034CC
+	ldr r1, _08F09314 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0x80
 	ldrb r2, [r1]
 	orrs r0, r2
@@ -18400,7 +18314,7 @@ _08F092FC:
 _08F09308: .4byte gUnknown_03003174
 _08F0930C: .4byte gTempNumber
 _08F09310: .4byte 0x000006AA
-_08F09314: .4byte gUnknown_030034CC
+_08F09314: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F09318: .4byte 0x000006B2
 _08F0931C: .4byte gUnknown_030007D8
 
@@ -21321,7 +21235,7 @@ _08F0AB16:
 	ldr r0, _08F0AB54 @ =0x84000100
 	str r0, [r1, #8]
 	ldr r0, [r1, #8]
-	ldr r0, _08F0AB58 @ =gUnknown_03001530
+	ldr r0, _08F0AB58 @ =gBg0TilemapBuffer
 	str r0, [r1]
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
@@ -21336,7 +21250,7 @@ _08F0AB16:
 _08F0AB4C: .4byte 0x040000D4
 _08F0AB50: .4byte gUnknown_03002450
 _08F0AB54: .4byte 0x84000100
-_08F0AB58: .4byte gUnknown_03001530
+_08F0AB58: .4byte gBg0TilemapBuffer
 _08F0AB5C: .4byte 0x84000200
 
 	thumb_func_start sub_8F0AB60
@@ -21581,7 +21495,7 @@ sub_8F0AD0C: @ 0x08F0AD0C
 	ldr r0, _08F0ADF0 @ =0x040000D4
 	add r1, sp, #0x20
 	str r1, [r0]
-	ldr r1, _08F0ADF4 @ =gUnknown_03001530
+	ldr r1, _08F0ADF4 @ =gBg0TilemapBuffer
 	str r1, [r0, #4]
 	ldr r1, _08F0ADF8 @ =0x85000200
 	str r1, [r0, #8]
@@ -21645,10 +21559,10 @@ sub_8F0AD0C: @ 0x08F0AD0C
 	lsls r2, r2, #8
 	adds r0, r2, #0
 	strh r0, [r1]
-	ldr r0, _08F0AE1C @ =gUnknown_030034B4
+	ldr r0, _08F0AE1C @ =gTextDelayAfterWriteCharacter
 	movs r1, #1
 	strb r1, [r0]
-	ldr r0, _08F0AE20 @ =gUnknown_030034DC
+	ldr r0, _08F0AE20 @ =gTextDelayAfterWritePeriod
 	strb r1, [r0]
 	ldr r0, _08F0AE24 @ =gUnknown_030034E0
 	strb r4, [r0]
@@ -21672,7 +21586,7 @@ _08F0ADE4: .4byte gUnknown_08F29F70
 _08F0ADE8: .4byte gFont
 _08F0ADEC: .4byte 0x06008000
 _08F0ADF0: .4byte 0x040000D4
-_08F0ADF4: .4byte gUnknown_03001530
+_08F0ADF4: .4byte gBg0TilemapBuffer
 _08F0ADF8: .4byte 0x85000200
 _08F0ADFC: .4byte 0x050001E0
 _08F0AE00: .4byte 0x84000002
@@ -21682,8 +21596,8 @@ _08F0AE0C: .4byte 0x05000180
 _08F0AE10: .4byte gUnknown_030034E8
 _08F0AE14: .4byte gUnknown_08F27A90
 _08F0AE18: .4byte gUnknown_030034C0
-_08F0AE1C: .4byte gUnknown_030034B4
-_08F0AE20: .4byte gUnknown_030034DC
+_08F0AE1C: .4byte gTextDelayAfterWriteCharacter
+_08F0AE20: .4byte gTextDelayAfterWritePeriod
 _08F0AE24: .4byte gUnknown_030034E0
 _08F0AE28: .4byte gTextPlaySfx
 _08F0AE2C: .4byte gUnknown_030034D0
@@ -21920,7 +21834,7 @@ _08F0B000: .4byte gUnknown_08F26D41
 sub_8F0B004: @ 0x08F0B004
 	push {lr}
 	sub sp, #8
-	ldr r0, _08F0B02C @ =gUnknown_03001530
+	ldr r0, _08F0B02C @ =gBg0TilemapBuffer
 	movs r1, #0x98
 	lsls r1, r1, #3
 	adds r0, r0, r1
@@ -21941,7 +21855,7 @@ _08F0B026:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F0B02C: .4byte gUnknown_03001530
+_08F0B02C: .4byte gBg0TilemapBuffer
 
 	thumb_func_start DrawMoneyWindow
 DrawMoneyWindow: @ 0x08F0B030
@@ -21978,7 +21892,7 @@ _08F0B068:
 	ldr r0, _08F0B09C @ =0x040000D4
 	mov r1, sp
 	str r1, [r0]
-	ldr r2, _08F0B0A0 @ =gUnknown_03001530
+	ldr r2, _08F0B0A0 @ =gBg0TilemapBuffer
 	str r2, [r0, #4]
 	ldr r1, _08F0B0A4 @ =0x85000200
 	str r1, [r0, #8]
@@ -21999,7 +21913,7 @@ _08F0B068:
 _08F0B094: .4byte gUnknown_03003170
 _08F0B098: .4byte gTextPlaySfx
 _08F0B09C: .4byte 0x040000D4
-_08F0B0A0: .4byte gUnknown_03001530
+_08F0B0A0: .4byte gBg0TilemapBuffer
 _08F0B0A4: .4byte 0x85000200
 _08F0B0A8: .4byte 0x84000200
 
@@ -22247,7 +22161,7 @@ _08F0B28C: .4byte gUnknown_08F29F84
 _08F0B290: .4byte gUnknown_08F26CAD
 _08F0B294: .4byte gTextPlaySfx
 _08F0B298:
-	ldr r2, _08F0B2C0 @ =gUnknown_03001530
+	ldr r2, _08F0B2C0 @ =gBg0TilemapBuffer
 	subs r0, r5, #1
 	lsls r0, r0, #2
 	add r0, sp
@@ -22268,7 +22182,7 @@ _08F0B2B6:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08F0B2C0: .4byte gUnknown_03001530
+_08F0B2C0: .4byte gBg0TilemapBuffer
 _08F0B2C4: .4byte gUnknown_030034C0
 
 	thumb_func_start sub_8F0B2C8
@@ -22318,7 +22232,7 @@ _08F0B318:
 	ldr r0, _08F0B340 @ =gTextOriginX
 	ldrb r0, [r0]
 	strb r0, [r1]
-	ldr r1, _08F0B34C @ =gUnknown_030034CC
+	ldr r1, _08F0B34C @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0x80
 	ldrb r4, [r1]
 	orrs r0, r4
@@ -22343,7 +22257,7 @@ _08F0B33C: .4byte 0x000C0002
 _08F0B340: .4byte gTextOriginX
 _08F0B344: .4byte gTextY
 _08F0B348: .4byte gTextX
-_08F0B34C: .4byte gUnknown_030034CC
+_08F0B34C: .4byte gTextDelayAfterWriteCharacterEnabled
 
 	thumb_func_start sub_8F0B350
 sub_8F0B350: @ 0x08F0B350
@@ -22370,7 +22284,7 @@ sub_8F0B350: @ 0x08F0B350
 	strb r4, [r0, #4]
 	adds r0, r6, #0
 	bl HandleControlCodes
-	ldr r0, _08F0B40C @ =gUnknown_030034CC
+	ldr r0, _08F0B40C @ =gTextDelayAfterWriteCharacterEnabled
 	strb r4, [r0]
 	movs r7, #0
 	movs r5, #0
@@ -22388,7 +22302,7 @@ _08F0B390:
 	ands r0, r7
 	cmp r0, #0
 	beq _08F0B3C0
-	ldr r2, _08F0B414 @ =gUnknown_03001530
+	ldr r2, _08F0B414 @ =gBg0TilemapBuffer
 	ldrb r3, [r1]
 	adds r0, r3, r5
 	ldr r1, _08F0B418 @ =gTextY
@@ -22437,9 +22351,9 @@ _08F0B3C0:
 	b _08F0B470
 	.align 2, 0
 _08F0B408: .4byte gUnknown_08F29FAC
-_08F0B40C: .4byte gUnknown_030034CC
+_08F0B40C: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0B410: .4byte gTextX
-_08F0B414: .4byte gUnknown_03001530
+_08F0B414: .4byte gBg0TilemapBuffer
 _08F0B418: .4byte gTextY
 _08F0B41C: .4byte gUnknown_030034C0
 _08F0B420: .4byte gKeysDown
@@ -22541,7 +22455,7 @@ _08F0B4D6:
 	ldr r0, _08F0B4FC @ =gTextOriginX
 	ldrb r0, [r0]
 	strb r0, [r1]
-	ldr r1, _08F0B500 @ =gUnknown_030034CC
+	ldr r1, _08F0B500 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0x80
 	ldrb r3, [r1]
 	orrs r0, r3
@@ -22556,7 +22470,7 @@ _08F0B4D6:
 	.align 2, 0
 _08F0B4F8: .4byte gTextX
 _08F0B4FC: .4byte gTextOriginX
-_08F0B500: .4byte gUnknown_030034CC
+_08F0B500: .4byte gTextDelayAfterWriteCharacterEnabled
 
 	thumb_func_start SelectPSI
 SelectPSI: @ 0x08F0B504
@@ -23952,7 +23866,7 @@ SaveTextSystemState: @ 0x08F0BFB0
 	ldr r1, _08F0BFF0 @ =gTextOriginY
 	ldrb r1, [r1]
 	strb r1, [r0, #3]
-	ldr r1, _08F0BFF4 @ =gUnknown_030034CC
+	ldr r1, _08F0BFF4 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r1, [r1]
 	strb r1, [r0, #4]
 	ldr r1, _08F0BFF8 @ =gTextMaxCharsPerLine
@@ -23961,7 +23875,7 @@ SaveTextSystemState: @ 0x08F0BFB0
 	ldr r1, _08F0BFFC @ =gTextMaxLines
 	ldrb r1, [r1]
 	strb r1, [r0, #6]
-	ldr r1, _08F0C000 @ =gUnknown_030034E4
+	ldr r1, _08F0C000 @ =gTextNonEnglishCapitalLetter
 	ldrb r1, [r1]
 	strb r1, [r0, #7]
 	bx lr
@@ -23970,10 +23884,10 @@ _08F0BFE4: .4byte gTextX
 _08F0BFE8: .4byte gTextY
 _08F0BFEC: .4byte gTextOriginX
 _08F0BFF0: .4byte gTextOriginY
-_08F0BFF4: .4byte gUnknown_030034CC
+_08F0BFF4: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0BFF8: .4byte gTextMaxCharsPerLine
 _08F0BFFC: .4byte gTextMaxLines
-_08F0C000: .4byte gUnknown_030034E4
+_08F0C000: .4byte gTextNonEnglishCapitalLetter
 
 	thumb_func_start LoadTextSystemState
 LoadTextSystemState: @ 0x08F0C004
@@ -23989,7 +23903,7 @@ LoadTextSystemState: @ 0x08F0C004
 	ldr r2, _08F0C044 @ =gTextOriginY
 	ldrb r1, [r0, #3]
 	strb r1, [r2]
-	ldr r2, _08F0C048 @ =gUnknown_030034CC
+	ldr r2, _08F0C048 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r1, [r0, #4]
 	strb r1, [r2]
 	ldr r2, _08F0C04C @ =gTextMaxCharsPerLine
@@ -23998,7 +23912,7 @@ LoadTextSystemState: @ 0x08F0C004
 	ldr r2, _08F0C050 @ =gTextMaxLines
 	ldrb r1, [r0, #6]
 	strb r1, [r2]
-	ldr r1, _08F0C054 @ =gUnknown_030034E4
+	ldr r1, _08F0C054 @ =gTextNonEnglishCapitalLetter
 	ldrb r0, [r0, #7]
 	strb r0, [r1]
 	bx lr
@@ -24007,10 +23921,10 @@ _08F0C038: .4byte gTextX
 _08F0C03C: .4byte gTextY
 _08F0C040: .4byte gTextOriginX
 _08F0C044: .4byte gTextOriginY
-_08F0C048: .4byte gUnknown_030034CC
+_08F0C048: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0C04C: .4byte gTextMaxCharsPerLine
 _08F0C050: .4byte gTextMaxLines
-_08F0C054: .4byte gUnknown_030034E4
+_08F0C054: .4byte gTextNonEnglishCapitalLetter
 
 	thumb_func_start HandleControlCodes
 HandleControlCodes: @ 0x08F0C058
@@ -24020,7 +23934,7 @@ HandleControlCodes: @ 0x08F0C058
 
 	thumb_func_start sub_08F0C060
 sub_08F0C060: @ 0x08F0C060
-	ldr r0, _08F0C0A0 @ =gUnknown_030034CC
+	ldr r0, _08F0C0A0 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08F0C08C
@@ -24060,7 +23974,7 @@ _08F0C094:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_08F0C0A0: .4byte gUnknown_030034CC
+_08F0C0A0: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0C0A4: .4byte gTextX
 _08F0C0A8: .4byte gTextOriginX
 _08F0C0AC: .4byte _08F0C0B0
@@ -24087,7 +24001,7 @@ _08F0C0D0:
 	strb r0, [r1]
 	ldr r0, _08F0C0F8 @ =gUnknown_030034E0
 	ldrb r0, [r0]
-	bl sub_8F0C840
+	bl UpdateBg0TilemapMultipleTimes
 	b _08F0C798
 	.align 2, 0
 _08F0C0EC: .4byte gTextX
@@ -24870,7 +24784,7 @@ _08F0C76E:
 	ldrb r1, [r2]
 	cmp r1, #0
 	beq _08F0C792
-	ldr r0, _08F0C7B4 @ =gUnknown_030034CC
+	ldr r0, _08F0C7B4 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08F0C792
@@ -24906,9 +24820,10 @@ _08F0C7AA:
 	bx r0
 	.align 2, 0
 _08F0C7B0: .4byte gTextPlaySfx
-_08F0C7B4: .4byte gUnknown_030034CC
+_08F0C7B4: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0C7B8: .4byte gUnknown_030034BC
 
+#ifndef ENGLISH
 	thumb_func_start WriteCharacterToTilemap
 WriteCharacterToTilemap: @ 0x08F0C7BC
 	push {r4, lr}
@@ -24928,7 +24843,7 @@ _08F0C7D4:
 	bl GetFontCharTileId
 	adds r3, r0, #0
 _08F0C7DC:
-	ldr r1, _08F0C814 @ =gUnknown_03001530
+	ldr r1, _08F0C814 @ =gBg0TilemapBuffer
 	ldr r2, _08F0C818 @ =gTextX
 	ldr r0, _08F0C81C @ =gTextY
 	ldrb r0, [r0]
@@ -24944,36 +24859,37 @@ _08F0C7DC:
 	ldrb r0, [r2]
 	adds r0, #1
 	strb r0, [r2]
-	ldr r0, _08F0C824 @ =gUnknown_030034CC
+	ldr r0, _08F0C824 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08F0C834
 	cmp r3, #5
 	bne _08F0C82C
-	ldr r0, _08F0C828 @ =gUnknown_030034DC
+	ldr r0, _08F0C828 @ =gTextDelayAfterWritePeriod
 	ldrb r0, [r0]
-	bl sub_8F0C840
+	bl UpdateBg0TilemapMultipleTimes
 	b _08F0C834
 	.align 2, 0
-_08F0C814: .4byte gUnknown_03001530
+_08F0C814: .4byte gBg0TilemapBuffer
 _08F0C818: .4byte gTextX
 _08F0C81C: .4byte gTextY
 _08F0C820: .4byte gUnknown_030034C0
-_08F0C824: .4byte gUnknown_030034CC
-_08F0C828: .4byte gUnknown_030034DC
+_08F0C824: .4byte gTextDelayAfterWriteCharacterEnabled
+_08F0C828: .4byte gTextDelayAfterWritePeriod
 _08F0C82C:
-	ldr r0, _08F0C83C @ =gUnknown_030034B4
+	ldr r0, _08F0C83C @ =gTextDelayAfterWriteCharacter
 	ldrb r0, [r0]
-	bl sub_8F0C840
+	bl UpdateBg0TilemapMultipleTimes
 _08F0C834:
 	pop {r4}
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F0C83C: .4byte gUnknown_030034B4
+_08F0C83C: .4byte gTextDelayAfterWriteCharacter
+#endif
 
-	thumb_func_start sub_8F0C840
-sub_8F0C840: @ 0x08F0C840
+	thumb_func_start UpdateBg0TilemapMultipleTimes
+UpdateBg0TilemapMultipleTimes: @ 0x08F0C840
 	push {r4, r5, r6, lr}
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
@@ -25003,11 +24919,11 @@ GetFontCharTileId: @ 0x08F0C86C
 	adds r2, r0, #0
 	cmp r2, #0xa7
 	bgt _08F0C87C
-	ldr r1, _08F0C878 @ =gUnknown_030034E4
+	ldr r1, _08F0C878 @ =gTextNonEnglishCapitalLetter
 	movs r0, #1
 	b _08F0C88E
 	.align 2, 0
-_08F0C878: .4byte gUnknown_030034E4
+_08F0C878: .4byte gTextNonEnglishCapitalLetter
 _08F0C87C:
 	adds r0, r2, #0
 	subs r0, #0xc1
@@ -25017,7 +24933,7 @@ _08F0C87C:
 	cmp r0, #0x19
 	bhi _08F0C890
 _08F0C88A:
-	ldr r1, _08F0C8B4 @ =gUnknown_030034E4
+	ldr r1, _08F0C8B4 @ =gTextNonEnglishCapitalLetter
 	movs r0, #0
 _08F0C88E:
 	strb r0, [r1]
@@ -25041,7 +24957,7 @@ _08F0C8AE:
 	adds r0, r2, #0
 	bx lr
 	.align 2, 0
-_08F0C8B4: .4byte gUnknown_030034E4
+_08F0C8B4: .4byte gTextNonEnglishCapitalLetter
 _08F0C8B8: .4byte gUnknown_08F29C80
 _08F0C8BC: .4byte 0xFFFFF7FF
 _08F0C8C0: .4byte gUnknown_08F29E84
@@ -25083,7 +24999,7 @@ _08F0C8F6:
 	bge _08F0C92C
 	lsls r0, r2, #1
 	lsls r1, r5, #6
-	ldr r6, _08F0C9A4 @ =gUnknown_03001530
+	ldr r6, _08F0C9A4 @ =gBg0TilemapBuffer
 	adds r1, r1, r6
 	adds r3, r0, r1
 	lsls r1, r4, #6
@@ -25128,7 +25044,7 @@ _08F0C942:
 	adds r0, r7, r4
 	cmp r4, r0
 	bge _08F0C97E
-	ldr r0, _08F0C9A4 @ =gUnknown_03001530
+	ldr r0, _08F0C9A4 @ =gBg0TilemapBuffer
 	mov r8, r0
 	ldr r6, _08F0C990 @ =gTextY
 	ldr r5, _08F0C9AC @ =gUnknown_030034C0
@@ -25163,7 +25079,7 @@ _08F0C994: .4byte gTextOriginY
 _08F0C998: .4byte gTextMaxLines
 _08F0C99C: .4byte gTextMaxCharsPerLine
 _08F0C9A0: .4byte gTextOriginX
-_08F0C9A4: .4byte gUnknown_03001530
+_08F0C9A4: .4byte gBg0TilemapBuffer
 _08F0C9A8: .4byte gTextX
 _08F0C9AC: .4byte gUnknown_030034C0
 
@@ -25262,8 +25178,8 @@ _08F0CA68:
 	strb r2, [r0]
 	strb r2, [r1]
 _08F0CA76:
-	ldr r2, _08F0CA94 @ =gUnknown_030034E4
-	ldr r1, _08F0CA98 @ =gUnknown_030034CC
+	ldr r2, _08F0CA94 @ =gTextNonEnglishCapitalLetter
+	ldr r1, _08F0CA98 @ =gTextDelayAfterWriteCharacterEnabled
 	movs r0, #0
 	strb r0, [r1]
 	strb r0, [r2]
@@ -25273,8 +25189,8 @@ _08F0CA84: .4byte gTextX
 _08F0CA88: .4byte gTextOriginX
 _08F0CA8C: .4byte gTextY
 _08F0CA90: .4byte gTextOriginY
-_08F0CA94: .4byte gUnknown_030034E4
-_08F0CA98: .4byte gUnknown_030034CC
+_08F0CA94: .4byte gTextNonEnglishCapitalLetter
+_08F0CA98: .4byte gTextDelayAfterWriteCharacterEnabled
 
 	thumb_func_start DrawSpaceTiles
 DrawSpaceTiles: @ 0x08F0CA9C
@@ -25327,7 +25243,7 @@ DrawTextWithIdWaitForButton: @ 0x08F0CAD8
 	bl choose_text_window_type
 #endif
 _08F0CAE8:
-	ldr r4, _08F0CB08 @ =gUnknown_030034CC
+	ldr r4, _08F0CB08 @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r4]
 	cmp r0, #0
 	beq _08F0CB0C
@@ -25341,7 +25257,7 @@ _08F0CAE8:
 	b _08F0CB10
 	.align 2, 0
 _08F0CB04: .4byte gTextPlaySfx
-_08F0CB08: .4byte gUnknown_030034CC
+_08F0CB08: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0CB0C:
 	movs r0, #1
 	strb r0, [r4]
@@ -25617,20 +25533,20 @@ _08F0CCEE:
 	lsls r2, r6, #5
 	adds r1, r7, r2
 	lsls r1, r1, #1
-	ldr r0, _08F0CD14 @ =gUnknown_03001530
+	ldr r0, _08F0CD14 @ =gBg0TilemapBuffer
 	adds r1, r1, r0
 	ldr r0, _08F0CD18 @ =gUnknown_030034C0
 	ldrh r0, [r0]
 	adds r0, #0x10
 	b _08F0CD2C
 	.align 2, 0
-_08F0CD14: .4byte gUnknown_03001530
+_08F0CD14: .4byte gBg0TilemapBuffer
 _08F0CD18: .4byte gUnknown_030034C0
 _08F0CD1C:
 	lsls r2, r6, #5
 	adds r1, r7, r2
 	lsls r1, r1, #1
-	ldr r0, _08F0CDB4 @ =gUnknown_03001530
+	ldr r0, _08F0CDB4 @ =gBg0TilemapBuffer
 	adds r1, r1, r0
 	ldr r0, _08F0CDB8 @ =gUnknown_030034C0
 	ldrh r0, [r0]
@@ -25704,7 +25620,7 @@ _08F0CDA6:
 	bne _08F0CD8A
 	b _08F0CE70
 	.align 2, 0
-_08F0CDB4: .4byte gUnknown_03001530
+_08F0CDB4: .4byte gBg0TilemapBuffer
 _08F0CDB8: .4byte gUnknown_030034C0
 _08F0CDBC: .4byte gKeysDown
 _08F0CDC0: .4byte 0x00000201
@@ -25812,7 +25728,7 @@ _08F0CE78:
 	lsls r0, r6, #5
 	adds r0, r7, r0
 	lsls r0, r0, #1
-	ldr r1, _08F0CEA4 @ =gUnknown_03001530
+	ldr r1, _08F0CEA4 @ =gBg0TilemapBuffer
 	adds r0, r0, r1
 	ldr r1, _08F0CEA8 @ =gUnknown_030034C0
 	ldrh r1, [r1]
@@ -25827,13 +25743,13 @@ _08F0CE78:
 	str r0, [sp, #0x10]
 	b _08F0CCEE
 	.align 2, 0
-_08F0CEA4: .4byte gUnknown_03001530
+_08F0CEA4: .4byte gBg0TilemapBuffer
 _08F0CEA8: .4byte gUnknown_030034C0
 _08F0CEAC:
 	mov r1, sl
 	cmp r1, #0
 	bge _08F0CED0
-	ldr r1, _08F0CEC8 @ =gUnknown_03001530
+	ldr r1, _08F0CEC8 @ =gBg0TilemapBuffer
 	adds r0, r7, r5
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -25844,10 +25760,10 @@ _08F0CEAC:
 	mov r0, sl
 	b _08F0CEF2
 	.align 2, 0
-_08F0CEC8: .4byte gUnknown_03001530
+_08F0CEC8: .4byte gBg0TilemapBuffer
 _08F0CECC: .4byte gUnknown_030034C0
 _08F0CED0:
-	ldr r1, _08F0CF04 @ =gUnknown_03001530
+	ldr r1, _08F0CF04 @ =gBg0TilemapBuffer
 	adds r0, r7, r5
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -25875,7 +25791,7 @@ _08F0CEF2:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08F0CF04: .4byte gUnknown_03001530
+_08F0CF04: .4byte gBg0TilemapBuffer
 _08F0CF08: .4byte gUnknown_030034C0
 
 	thumb_func_start sub_8F0CF0C
@@ -27536,16 +27452,16 @@ _08F0DC14:
 	movs r0, #4
 	ldr r2, _08F0DCB0 @ =0x04000012
 	strh r0, [r2]
-	ldr r3, _08F0DCB4 @ =gUnknown_030034B4
+	ldr r3, _08F0DCB4 @ =gTextDelayAfterWriteCharacter
 	ldrb r3, [r3]
 	mov sb, r3
-	ldr r5, _08F0DCB8 @ =gUnknown_030034DC
+	ldr r5, _08F0DCB8 @ =gTextDelayAfterWritePeriod
 	ldrb r6, [r5]
 	ldr r4, _08F0DCBC @ =gUnknown_030034E0
 	ldrb r0, [r4]
 	mov sl, r0
 	movs r0, #5
-	ldr r1, _08F0DCB4 @ =gUnknown_030034B4
+	ldr r1, _08F0DCB4 @ =gTextDelayAfterWriteCharacter
 	strb r0, [r1]
 	movs r0, #0x1e
 	strb r0, [r5]
@@ -27562,7 +27478,7 @@ _08F0DC14:
 	movs r0, #0x20
 	movs r1, #0x14
 	bl SetLineMaximums
-	ldr r2, _08F0DCC0 @ =gUnknown_030034CC
+	ldr r2, _08F0DCC0 @ =gTextDelayAfterWriteCharacterEnabled
 	mov r8, r2
 	strb r7, [r2]
 	ldr r0, _08F0DCC4 @ =gUnknown_08F274EA
@@ -27590,7 +27506,7 @@ _08F0DC14:
 	ldr r0, _08F0DCCC @ =gUnknown_08F275D0
 	bl HandleControlCodes
 	mov r3, sb
-	ldr r2, _08F0DCB4 @ =gUnknown_030034B4
+	ldr r2, _08F0DCB4 @ =gTextDelayAfterWriteCharacter
 	strb r3, [r2]
 	strb r6, [r5]
 	mov r0, sl
@@ -27609,10 +27525,10 @@ _08F0DC14:
 	bx r0
 	.align 2, 0
 _08F0DCB0: .4byte 0x04000012
-_08F0DCB4: .4byte gUnknown_030034B4
-_08F0DCB8: .4byte gUnknown_030034DC
+_08F0DCB4: .4byte gTextDelayAfterWriteCharacter
+_08F0DCB8: .4byte gTextDelayAfterWritePeriod
 _08F0DCBC: .4byte gUnknown_030034E0
-_08F0DCC0: .4byte gUnknown_030034CC
+_08F0DCC0: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0DCC4: .4byte gUnknown_08F274EA
 _08F0DCC8: .4byte MusicPlayer0Info
 _08F0DCCC: .4byte gUnknown_08F275D0
@@ -29073,7 +28989,7 @@ sub_8F0E7F0: @ 0x08F0E7F0
 	bl sub_8F12338
 	bl sub_8F040E0
 	ldr r1, _08F0E824 @ =0x040000D4
-	ldr r0, _08F0E828 @ =gUnknown_03001530
+	ldr r0, _08F0E828 @ =gBg0TilemapBuffer
 	str r0, [r1]
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
@@ -29094,7 +29010,7 @@ sub_8F0E7F0: @ 0x08F0E7F0
 	bx r0
 	.align 2, 0
 _08F0E824: .4byte 0x040000D4
-_08F0E828: .4byte gUnknown_03001530
+_08F0E828: .4byte gBg0TilemapBuffer
 _08F0E82C: .4byte 0x84000200
 _08F0E830: .4byte gUnknown_03002450
 _08F0E834: .4byte 0x84000100
@@ -30364,14 +30280,14 @@ _08F0F1FC:
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 _08F0F20C:
-	ldr r1, _08F0F21C @ =gUnknown_030034CC
+	ldr r1, _08F0F21C @ =gTextDelayAfterWriteCharacterEnabled
 	ldrb r0, [r1]
 	cmp r0, #0
 	beq _08F0F220
 	bl HandleTextWrapping
 	b _08F0F224
 	.align 2, 0
-_08F0F21C: .4byte gUnknown_030034CC
+_08F0F21C: .4byte gTextDelayAfterWriteCharacterEnabled
 _08F0F220:
 	movs r0, #1
 	strb r0, [r1]
