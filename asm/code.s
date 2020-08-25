@@ -28593,7 +28593,7 @@ _08F0E476:
 	ldr r1, _08F0E534 @ =gUnknown_03003700
 	mov ip, r1
 	lsls r5, r4, #5
-	ldr r6, _08F0E544 @ =gUnknown_08F6F900
+	ldr r6, _08F0E544 @ =gEnemyData
 _08F0E49A:
 	mov r7, ip
 	ldrb r7, [r7]
@@ -28663,7 +28663,7 @@ _08F0E534: .4byte gUnknown_03003700
 _08F0E538: .4byte gGameInfo
 _08F0E53C: .4byte gItemData
 _08F0E540: .4byte gUnknown_03003198
-_08F0E544: .4byte gUnknown_08F6F900
+_08F0E544: .4byte gEnemyData
 _08F0E548:
 	ldr r3, _08F0E638 @ =gUnknown_03003700
 	ldrb r3, [r3]
@@ -29366,7 +29366,7 @@ sub_8F0EAAC: @ 0x08F0EAAC
 _08F0EAC8: .4byte gGameInfo
 _08F0EACC: .4byte gUnknown_03003500
 _08F0EAD0:
-	ldr r2, _08F0EAEC @ =gUnknown_08F6F900
+	ldr r2, _08F0EAEC @ =gEnemyData
 	ldr r0, _08F0EAF0 @ =gUnknown_03003500
 	lsls r1, r1, #5
 	adds r1, r1, r0
@@ -29382,7 +29382,7 @@ _08F0EAE0:
 	movs r0, #0
 	b _08F0EAF6
 	.align 2, 0
-_08F0EAEC: .4byte gUnknown_08F6F900
+_08F0EAEC: .4byte gEnemyData
 _08F0EAF0: .4byte gUnknown_03003500
 _08F0EAF4:
 	movs r0, #1
@@ -29719,7 +29719,7 @@ _08F0ED94:
 	blo _08F0ED52
 _08F0ED9E:
 	ldr r2, _08F0EE7C @ =gUnknown_08F6F880
-	ldr r1, _08F0EE80 @ =gUnknown_08F6F900
+	ldr r1, _08F0EE80 @ =gEnemyData
 	ldr r4, _08F0EE68 @ =gUnknown_03003500
 	ldr r3, [sp, #0x2b8]
 	adds r0, r3, r4
@@ -29809,7 +29809,7 @@ _08F0EE70: .4byte gEnemyGroupPositioning
 _08F0EE74: .4byte gUnknown_03003670
 _08F0EE78: .4byte 0x0600217E
 _08F0EE7C: .4byte gUnknown_08F6F880
-_08F0EE80: .4byte gUnknown_08F6F900
+_08F0EE80: .4byte gEnemyData
 _08F0EE84: .4byte 0x0600E000
 _08F0EE88: .4byte gUnknown_030036C0
 
@@ -32317,7 +32317,7 @@ _08F10228: .4byte gEnemyGroupSpecialEncounter
 _08F1022C:
 	ldrb r1, [r1, #0x18]
 	lsls r0, r1, #5
-	ldr r1, _08F10244 @ =gUnknown_08F6F907
+	ldr r1, _08F10244 @ =gEnemyData+7
 	adds r0, r0, r1
 	movs r1, #0x1c
 	ldrb r0, [r0]
@@ -32328,7 +32328,7 @@ _08F1022C:
 	movs r0, #0x19
 	b _08F10256
 	.align 2, 0
-_08F10244: .4byte gUnknown_08F6F907
+_08F10244: .4byte gEnemyData+7
 _08F10248:
 	cmp r1, #2
 	beq _08F10254
@@ -32403,7 +32403,7 @@ _08F102D0:
 	adds r0, r0, r1
 	ldrb r0, [r0, #0x18]
 	lsls r0, r0, #5
-	ldr r1, _08F1030C @ =gUnknown_08F6F909
+	ldr r1, _08F1030C @ =gEnemyData+9
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	lsrs r0, r0, #2
@@ -32424,7 +32424,7 @@ _08F102F6:
 	.align 2, 0
 _08F10304: .4byte gEnemyGroupSpecialEncounter
 _08F10308: .4byte gUnknown_03003500
-_08F1030C: .4byte gUnknown_08F6F909
+_08F1030C: .4byte gEnemyData+9
 _08F10310: .4byte gUnknown_030036EC
 
 	thumb_func_start Maybe_WinBattle
@@ -32445,7 +32445,7 @@ Maybe_WinBattle: @ 0x08F10314
 	movs r0, #0
 	strb r0, [r4]
 	ldr r3, _08F10378 @ =gExperiencePointsGained
-	ldr r2, _08F1037C @ =gUnknown_08F6F900
+	ldr r2, _08F1037C @ =gEnemyData
 	ldrb r0, [r4, #0x18]
 	lsls r1, r0, #5
 	adds r1, r1, r2
@@ -32478,7 +32478,7 @@ _08F10364:
 	.align 2, 0
 _08F10374: .4byte gUnknown_03003500
 _08F10378: .4byte gExperiencePointsGained
-_08F1037C: .4byte gUnknown_08F6F900
+_08F1037C: .4byte gEnemyData
 _08F10380: .4byte gMoneyGained
 _08F10384: .4byte gUnknown_03003664
 _08F10388:
@@ -32573,7 +32573,7 @@ sub_8F10420: @ 0x08F10420
 	adds r0, r0, r1
 	ldrb r2, [r0, #0x18]
 	lsls r1, r2, #5
-	ldr r2, _08F10450 @ =gUnknown_08F6F900
+	ldr r2, _08F10450 @ =gEnemyData
 	adds r1, r1, r2
 	str r1, [r3]
 	ldr r2, _08F10454 @ =gUnknown_03003684
@@ -32588,7 +32588,7 @@ sub_8F10420: @ 0x08F10420
 	.align 2, 0
 _08F10448: .4byte gMiscContainer
 _08F1044C: .4byte gUnknown_03003500
-_08F10450: .4byte gUnknown_08F6F900
+_08F10450: .4byte gEnemyData
 _08F10454: .4byte gUnknown_03003684
 _08F10458: .4byte gUnknown_030034F4
 
@@ -35041,7 +35041,7 @@ _08F11830: .4byte gUnknown_030036EC
 _08F11834: .4byte gGameInfo
 _08F11838: .4byte gUnknown_03003500
 _08F1183C:
-	ldr r2, _08F11860 @ =gUnknown_08F6F900
+	ldr r2, _08F11860 @ =gEnemyData
 	ldr r1, _08F11864 @ =gUnknown_03003500
 	ldrb r0, [r0]
 	lsls r0, r0, #5
@@ -35061,7 +35061,7 @@ _08F11854:
 	bl sub_8F11CF4
 	b _08F11C06
 	.align 2, 0
-_08F11860: .4byte gUnknown_08F6F900
+_08F11860: .4byte gEnemyData
 _08F11864: .4byte gUnknown_03003500
 _08F11868:
 	ldr r1, _08F1187C @ =gUnknown_03003500
@@ -35771,7 +35771,7 @@ _08F11E34:
 	ldrb r0, [r0, #0x18]
 	lsls r0, r0, #5
 	adds r0, r0, r4
-	ldr r1, _08F11E70 @ =gUnknown_08F6F900
+	ldr r1, _08F11E70 @ =gEnemyData
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	lsls r1, r0, #1
@@ -35801,7 +35801,7 @@ _08F11E56:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F11E70: .4byte gUnknown_08F6F900
+_08F11E70: .4byte gEnemyData
 _08F11E74: .4byte gUnknown_03003680
 _08F11E78: .4byte gUnknown_03003500
 _08F11E7C: .4byte gUnknown_03003708
@@ -35835,7 +35835,7 @@ _08F11EB0:
 	ldrb r0, [r0, #0x18]
 	lsls r1, r0, #5
 	adds r1, r1, r3
-	ldr r0, _08F11EF8 @ =gUnknown_08F6F900
+	ldr r0, _08F11EF8 @ =gEnemyData
 	adds r1, r1, r0
 	ldr r0, _08F11EFC @ =0x000003FF
 	ldrh r1, [r1]
@@ -35870,7 +35870,7 @@ _08F11ED8:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F11EF8: .4byte gUnknown_08F6F900
+_08F11EF8: .4byte gEnemyData
 _08F11EFC: .4byte 0x000003FF
 _08F11F00: .4byte gUnknown_03003680
 _08F11F04: .4byte 0x0000FFFF
@@ -35906,7 +35906,7 @@ _08F11F40:
 	ldrb r0, [r0, #0x18]
 	lsls r0, r0, #5
 	adds r0, r0, r1
-	ldr r1, _08F11F7C @ =gUnknown_08F6F900
+	ldr r1, _08F11F7C @ =gEnemyData
 	adds r0, r0, r1
 	ldr r2, _08F11F80 @ =0x000003FF
 	ldrh r0, [r0]
@@ -35935,7 +35935,7 @@ _08F11F5E:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F11F7C: .4byte gUnknown_08F6F900
+_08F11F7C: .4byte gEnemyData
 _08F11F80: .4byte 0x000003FF
 _08F11F84: .4byte gUnknown_03003680
 _08F11F88: .4byte gUnknown_03003500
@@ -37552,7 +37552,7 @@ sub_8F12C1C: @ 0x08F12C1C
 	movs r2, #0
 	ldr r0, _08F12C68 @ =gMiscContainer
 	ldr r5, [r0]
-	ldr r6, _08F12C6C @ =gUnknown_08F6F900
+	ldr r6, _08F12C6C @ =gEnemyData
 	ldr r4, _08F12C70 @ =0x000003FF
 _08F12C32:
 	adds r0, r5, r2
@@ -37583,5 +37583,5 @@ _08F12C50:
 	.align 2, 0
 _08F12C64: .4byte gUnknown_03003628
 _08F12C68: .4byte gMiscContainer
-_08F12C6C: .4byte gUnknown_08F6F900
+_08F12C6C: .4byte gEnemyData
 _08F12C70: .4byte 0x000003FF
