@@ -1794,167 +1794,167 @@ gUnknown_08F2A27C:
 
     .global gFont
 gFont:
-    .incbin "baserom.gba", 0x00F2A5A0, 0x1400
+    .incbin "data/font.bin"
 
 @ Tileset 1
     .global gUnknown_08F2B9A0
 gUnknown_08F2B9A0:
-    .incbin "baserom.gba", 0x00F2B9A0, 0x400
+    .incbin "data/tilesets/1.bin"
 
 @ Tileset 2
     .global gUnknown_08F2BDA0
 gUnknown_08F2BDA0:
-    .incbin "baserom.gba", 0x00F2BDA0, 0x400
+    .incbin "data/tilesets/2.bin"
 
 @ Tileset 3
     .global gUnknown_08F2C1A0
 gUnknown_08F2C1A0:
-    .incbin "baserom.gba", 0x00F2C1A0, 0x400
+    .incbin "data/tilesets/3.bin"
 
 @ Tileset 4
     .global gUnknown_08F2C5A0
 gUnknown_08F2C5A0:
-    .incbin "baserom.gba", 0x00F2C5A0, 0x400
+    .incbin "data/tilesets/4.bin"
 
 @ Tileset 5
     .global gUnknown_08F2C9A0
 gUnknown_08F2C9A0:
-    .incbin "baserom.gba", 0x00F2C9A0, 0x400
+    .incbin "data/tilesets/5.bin"
 
 @ Tileset 6
     .global gUnknown_08F2CDA0
 gUnknown_08F2CDA0:
-    .incbin "baserom.gba", 0x00F2CDA0, 0x400
+    .incbin "data/tilesets/6.bin"
 
 @ Tileset 7
     .global gUnknown_08F2D1A0
 gUnknown_08F2D1A0:
-    .incbin "baserom.gba", 0x00F2D1A0, 0x400
+    .incbin "data/tilesets/7.bin"
 
 @ Tileset 8
     .global gUnknown_08F2D5A0
 gUnknown_08F2D5A0:
-    .incbin "baserom.gba", 0x00F2D5A0, 0x400
+    .incbin "data/tilesets/8.bin"
 
 @ Tileset 9
     .global gUnknown_08F2D9A0
 gUnknown_08F2D9A0:
-    .incbin "baserom.gba", 0x00F2D9A0, 0x400
+    .incbin "data/tilesets/9.bin"
 
 @ Tileset 10
     .global gUnknown_08F2DDA0
 gUnknown_08F2DDA0:
-    .incbin "baserom.gba", 0x00F2DDA0, 0x400
+    .incbin "data/tilesets/10.bin"
 
 @ Tileset 11
     .global gUnknown_08F2E1A0
 gUnknown_08F2E1A0:
-    .incbin "baserom.gba", 0x00F2E1A0, 0x400
+    .incbin "data/tilesets/11.bin"
 
 @ Tileset 12
     .global gUnknown_08F2E5A0
 gUnknown_08F2E5A0:
-    .incbin "baserom.gba", 0x00F2E5A0, 0x400
+    .incbin "data/tilesets/12.bin"
 
 @ Tileset 13
     .global gUnknown_08F2E9A0
 gUnknown_08F2E9A0:
-    .incbin "baserom.gba", 0x00F2E9A0, 0x400
+    .incbin "data/tilesets/13.bin"
 
 @ Tileset 14
     .global gUnknown_08F2EDA0
 gUnknown_08F2EDA0:
-    .incbin "baserom.gba", 0x00F2EDA0, 0x400
+    .incbin "data/tilesets/14.bin"
 
 @ Tileset 15
     .global gUnknown_08F2F1A0
 gUnknown_08F2F1A0:
-    .incbin "baserom.gba", 0x00F2F1A0, 0x400
+    .incbin "data/tilesets/15.bin"
 
 @ Tileset 16
     .global gUnknown_08F2F5A0
 gUnknown_08F2F5A0:
-    .incbin "baserom.gba", 0x00F2F5A0, 0x400
+    .incbin "data/tilesets/16.bin"
 
 @ Tileset 17
     .global gUnknown_08F2F9A0
 gUnknown_08F2F9A0:
-    .incbin "baserom.gba", 0x00F2F9A0, 0x400
+    .incbin "data/tilesets/17.bin"
 
 @ Tileset 18
     .global gUnknown_08F2FDA0
 gUnknown_08F2FDA0:
-    .incbin "baserom.gba", 0x00F2FDA0, 0x400
+    .incbin "data/tilesets/18.bin"
 
 @ Tileset 19
     .global gUnknown_08F301A0
 gUnknown_08F301A0:
-    .incbin "baserom.gba", 0x00F301A0, 0x400
+    .incbin "data/tilesets/19.bin"
 
 @ Tileset 20
     .global gUnknown_08F305A0
 gUnknown_08F305A0:
-    .incbin "baserom.gba", 0x00F305A0, 0x400
+    .incbin "data/tilesets/20.bin"
 
 @ Tileset 21
     .global gUnknown_08F309A0
 gUnknown_08F309A0:
-    .incbin "baserom.gba", 0x00F309A0, 0x400
+    .incbin "data/tilesets/21.bin"
 
 @ Tileset 22
     .global gUnknown_08F30DA0
 gUnknown_08F30DA0:
-    .incbin "baserom.gba", 0x00F30DA0, 0x400
+    .incbin "data/tilesets/22.bin"
 
 @ Tileset 23
     .global gUnknown_08F311A0
 gUnknown_08F311A0:
-    .incbin "baserom.gba", 0x00F311A0, 0x400
+    .incbin "data/tilesets/23.bin"
 
 @ Tileset 24
     .global gUnknown_08F315A0
 gUnknown_08F315A0:
-    .incbin "baserom.gba", 0x00F315A0, 0x400
+    .incbin "data/tilesets/24.bin"
 
 @ Tileset 25
     .global gUnknown_08F319A0
 gUnknown_08F319A0:
-    .incbin "baserom.gba", 0x00F319A0, 0x400
+    .incbin "data/tilesets/25.bin"
 
 @ Tileset 26
     .global gUnknown_08F31DA0
 gUnknown_08F31DA0:
-    .incbin "baserom.gba", 0x00F31DA0, 0x400
+    .incbin "data/tilesets/26.bin"
 
 @ Tileset 27
     .global gUnknown_08F321A0
 gUnknown_08F321A0:
-    .incbin "baserom.gba", 0x00F321A0, 0x400
+    .incbin "data/tilesets/27.bin"
 
 @ Tileset 28
     .global gUnknown_08F325A0
 gUnknown_08F325A0:
-    .incbin "baserom.gba", 0x00F325A0, 0x400
+    .incbin "data/tilesets/28.bin"
 
 @ Tileset 29
     .global gUnknown_08F329A0
 gUnknown_08F329A0:
-    .incbin "baserom.gba", 0x00F329A0, 0x400
+    .incbin "data/tilesets/29.bin"
 
 @ Tileset 30
     .global gUnknown_08F32DA0
 gUnknown_08F32DA0:
-    .incbin "baserom.gba", 0x00F32DA0, 0x400
+    .incbin "data/tilesets/30.bin"
 
 @ Tileset 31
     .global gUnknown_08F331A0
 gUnknown_08F331A0:
-    .incbin "baserom.gba", 0x00F331A0, 0x400
+    .incbin "data/tilesets/31.bin"
 
 @ Tileset 32
     .global gUnknown_08F335A0
 gUnknown_08F335A0:
-    .incbin "baserom.gba", 0x00F335A0, 0x400
+    .incbin "data/tilesets/32.bin"
 
 @Ninten overworld tiles
     .global gUnknown_08F339A0
