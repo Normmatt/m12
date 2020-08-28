@@ -2671,162 +2671,162 @@ gUnknown_08F67080:
 @ Battle - Monster Tiles 1
     .global gUnknown_08F67880
 gUnknown_08F67880:
-    .incbin "baserom.gba", 0x00F67880, 0x400
+    .incbin "data/battle/enemy/1.bin"
 
 @ Battle - Monster Tiles 2
     .global gUnknown_08F67C80
 gUnknown_08F67C80:
-    .incbin "baserom.gba", 0x00F67C80, 0x400
+    .incbin "data/battle/enemy/2.bin"
 
 @ Battle - Monster Tiles 3
     .global gUnknown_08F68080
 gUnknown_08F68080:
-    .incbin "baserom.gba", 0x00F68080, 0x400
+    .incbin "data/battle/enemy/3.bin"
 
 @ Battle - Monster Tiles 4
     .global gUnknown_08F68480
 gUnknown_08F68480:
-    .incbin "baserom.gba", 0x00F68480, 0x400
+    .incbin "data/battle/enemy/4.bin"
 
 @ Battle - Monster Tiles 5
     .global gUnknown_08F68880
 gUnknown_08F68880:
-    .incbin "baserom.gba", 0x00F68880, 0x400
+    .incbin "data/battle/enemy/5.bin"
 
 @ Battle - Monster Tiles 6
     .global gUnknown_08F68C80
 gUnknown_08F68C80:
-    .incbin "baserom.gba", 0x00F68C80, 0x400
+    .incbin "data/battle/enemy/6.bin"
 
 @ Battle - Monster Tiles 7
     .global gUnknown_08F69080
 gUnknown_08F69080:
-    .incbin "baserom.gba", 0x00F69080, 0x400
+    .incbin "data/battle/enemy/7.bin"
 
 @ Battle - Monster Tiles 8
     .global gUnknown_08F69480
 gUnknown_08F69480:
-    .incbin "baserom.gba", 0x00F69480, 0x400
+    .incbin "data/battle/enemy/8.bin"
 
 @ Battle - Monster Tiles 9
     .global gUnknown_08F69880
 gUnknown_08F69880:
-    .incbin "baserom.gba", 0x00F69880, 0x400
+    .incbin "data/battle/enemy/9.bin"
 
 @ Battle - Monster Tiles 10
     .global gUnknown_08F69C80
 gUnknown_08F69C80:
-    .incbin "baserom.gba", 0x00F69C80, 0x400
+    .incbin "data/battle/enemy/10.bin"
 
 @ Battle - Monster Tiles 11
     .global gUnknown_08F6A080
 gUnknown_08F6A080:
-    .incbin "baserom.gba", 0x00F6A080, 0x400
+    .incbin "data/battle/enemy/11.bin"
 
 @ Battle - Monster Tiles 12
     .global gUnknown_08F6A480
 gUnknown_08F6A480:
-    .incbin "baserom.gba", 0x00F6A480, 0x400
+    .incbin "data/battle/enemy/12.bin"
 
 @ Battle - Monster Tiles 13
     .global gUnknown_08F6A880
 gUnknown_08F6A880:
-    .incbin "baserom.gba", 0x00F6A880, 0x400
+    .incbin "data/battle/enemy/13.bin"
 
 @ Battle - Monster Tiles 14
     .global gUnknown_08F6AC80
 gUnknown_08F6AC80:
-    .incbin "baserom.gba", 0x00F6AC80, 0x400
+    .incbin "data/battle/enemy/14.bin"
 
 @ Battle - Monster Tiles 15
     .global gUnknown_08F6B080
 gUnknown_08F6B080:
-    .incbin "baserom.gba", 0x00F6B080, 0x400
+    .incbin "data/battle/enemy/15.bin"
 
 @ Battle - Monster Tiles 16
     .global gUnknown_08F6B480
 gUnknown_08F6B480:
-    .incbin "baserom.gba", 0x00F6B480, 0x400
+    .incbin "data/battle/enemy/16.bin"
 
 @ Battle - Monster Tiles 17
     .global gUnknown_08F6B880
 gUnknown_08F6B880:
-    .incbin "baserom.gba", 0x00F6B880, 0x400
+    .incbin "data/battle/enemy/17.bin"
 
 @ Battle - Monster Tiles 18
     .global gUnknown_08F6BC80
 gUnknown_08F6BC80:
-    .incbin "baserom.gba", 0x00F6BC80, 0x400
+    .incbin "data/battle/enemy/18.bin"
 
 @ Battle - Monster Tiles 19
     .global gUnknown_08F6C080
 gUnknown_08F6C080:
-    .incbin "baserom.gba", 0x00F6C080, 0x400
+    .incbin "data/battle/enemy/19.bin"
 
 @ Battle - Monster Tiles 20
     .global gUnknown_08F6C480
 gUnknown_08F6C480:
-    .incbin "baserom.gba", 0x00F6C480, 0x400
+    .incbin "data/battle/enemy/20.bin"
 
 @ Battle - Monster Tiles 21
     .global gUnknown_08F6C880
 gUnknown_08F6C880:
-    .incbin "baserom.gba", 0x00F6C880, 0x400
+    .incbin "data/battle/enemy/21.bin"
 
 @ Battle - Monster Tiles 22
     .global gUnknown_08F6CC80
 gUnknown_08F6CC80:
-    .incbin "baserom.gba", 0x00F6CC80, 0x400
+    .incbin "data/battle/enemy/22.bin"
 
 @ Battle - Monster Tiles 23
     .global gUnknown_08F6D080
 gUnknown_08F6D080:
-    .incbin "baserom.gba", 0x00F6D080, 0x400
+    .incbin "data/battle/enemy/23.bin"
 
 @ Battle - Monster Tiles 24
     .global gUnknown_08F6D480
 gUnknown_08F6D480:
-    .incbin "baserom.gba", 0x00F6D480, 0x400
+    .incbin "data/battle/enemy/24.bin"
 
 @ Battle - Monster Tiles 25
     .global gUnknown_08F6D880
 gUnknown_08F6D880:
-    .incbin "baserom.gba", 0x00F6D880, 0x400
+    .incbin "data/battle/enemy/25.bin"
 
 @ Battle - Monster Tiles 26
     .global gUnknown_08F6DC80
 gUnknown_08F6DC80:
-    .incbin "baserom.gba", 0x00F6DC80, 0x400
+    .incbin "data/battle/enemy/26.bin"
 
 @ Battle - Monster Tiles 27
     .global gUnknown_08F6E080
 gUnknown_08F6E080:
-    .incbin "baserom.gba", 0x00F6E080, 0x400
+    .incbin "data/battle/enemy/27.bin"
 
 @ Battle - Monster Tiles 28
     .global gUnknown_08F6E480
 gUnknown_08F6E480:
-    .incbin "baserom.gba", 0x00F6E480, 0x400
+    .incbin "data/battle/enemy/28.bin"
 
 @ Battle - Monster Tiles 29
     .global gUnknown_08F6E880
 gUnknown_08F6E880:
-    .incbin "baserom.gba", 0x00F6E880, 0x400
+    .incbin "data/battle/enemy/29.bin"
 
 @ Battle - Monster Tiles 30
     .global gUnknown_08F6EC80
 gUnknown_08F6EC80:
-    .incbin "baserom.gba", 0x00F6EC80, 0x400
+    .incbin "data/battle/enemy/30.bin"
 
 @ Battle - Monster Tiles 31
     .global gUnknown_08F6F080
 gUnknown_08F6F080:
-    .incbin "baserom.gba", 0x00F6F080, 0x400
+    .incbin "data/battle/enemy/31.bin"
 
 @ Battle - Monster Tiles 32
     .global gUnknown_08F6F480
 gUnknown_08F6F480:
-    .incbin "baserom.gba", 0x00F6F480, 0x400
+    .incbin "data/battle/enemy/32.bin"
 
     .align 2
     .global gUnknown_08F6F880
