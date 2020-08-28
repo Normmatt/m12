@@ -16,23 +16,23 @@
     
     .global m1_data_object_table_1
 m1_data_object_table_1:
-    .incbin "baserom.gba", 0x00F15390, 0x1FF5
+    .incbin "data/unsorted/m1_data_object_table_1.bin"
 
     .global gUnknown_08F17385
 gUnknown_08F17385:
-    .incbin "baserom.gba", 0x00F17385, 0x1ECD
+    .incbin "data/unsorted/gUnknown_08F17385.bin"
 
     .global gUnknown_08F19252
 gUnknown_08F19252:
-    .incbin "baserom.gba", 0x00F19252, 0x28
+    .incbin "data/unsorted/gUnknown_08F19252.bin"
 
     .global gUnknown_08F1927A
 gUnknown_08F1927A:
-    .incbin "baserom.gba", 0x00F1927A, 0x1F96
+    .incbin "data/unsorted/gUnknown_08F1927A.bin"
 
     .global gItemData
 gItemData:
-    .incbin "baserom.gba", 0x00F1B210, 0x400
+    .incbin "data/unsorted/gItemData.bin"
 
     .global gUnknown_08F1B610
 gUnknown_08F1B610:
@@ -1959,219 +1959,219 @@ gUnknown_08F335A0:
 @Ninten overworld tiles
     .global gUnknown_08F339A0
 gUnknown_08F339A0:
-    .incbin "baserom.gba", 0x00F339A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F339A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F341A0
 gUnknown_08F341A0:
-    .incbin "baserom.gba", 0x00F341A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F341A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F349A0
 gUnknown_08F349A0:
-    .incbin "baserom.gba", 0x00F349A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F349A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F351A0
 gUnknown_08F351A0:
-    .incbin "baserom.gba", 0x00F351A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F351A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F359A0
 gUnknown_08F359A0:
-    .incbin "baserom.gba", 0x00F359A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F359A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F361A0
 gUnknown_08F361A0:
-    .incbin "baserom.gba", 0x00F361A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F361A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F369A0
 gUnknown_08F369A0:
-    .incbin "baserom.gba", 0x00F369A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F369A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F371A0
 gUnknown_08F371A0:
-    .incbin "baserom.gba", 0x00F371A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F371A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F379A0
 gUnknown_08F379A0:
-    .incbin "baserom.gba", 0x00F379A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F379A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F381A0
 gUnknown_08F381A0:
-    .incbin "baserom.gba", 0x00F381A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F381A0.bin"
 
 @ ? Tiles
     .global gUnknown_08F389A0
 gUnknown_08F389A0:
-    .incbin "baserom.gba", 0x00F389A0, 0x800
+    .incbin "data/unsorted/gUnknown_08F389A0.bin"
 
     .global gUnknown_08F391A0
 gUnknown_08F391A0:
-    .incbin "baserom.gba", 0x00F391A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F391A0.bin"
 
     .global gUnknown_08F3D1A0
 gUnknown_08F3D1A0:
-    .incbin "baserom.gba", 0x00F3D1A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F3D1A0.bin"
 
     .global gUnknown_08F411A0
 gUnknown_08F411A0:
-    .incbin "baserom.gba", 0x00F411A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F411A0.bin"
 
     .global gUnknown_08F451A0
 gUnknown_08F451A0:
-    .incbin "baserom.gba", 0x00F451A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F451A0.bin"
 
     .global gUnknown_08F491A0
 gUnknown_08F491A0:
-    .incbin "baserom.gba", 0x00F491A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F491A0.bin"
 
     .global gUnknown_08F4D1A0
 gUnknown_08F4D1A0:
-    .incbin "baserom.gba", 0x00F4D1A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F4D1A0.bin"
 
     .global gUnknown_08F511A0
 gUnknown_08F511A0:
-    .incbin "baserom.gba", 0x00F511A0, 0x1400
+    .incbin "data/unsorted/gUnknown_08F511A0.bin"
 
     .global gUnknown_08F525A0
 gUnknown_08F525A0:
-    .incbin "baserom.gba", 0x00F525A0, 0x2C00
+    .incbin "data/unsorted/gUnknown_08F525A0.bin"
 
     .global gUnknown_08F551A0
 gUnknown_08F551A0:
-    .incbin "baserom.gba", 0x00F551A0, 0x4000
+    .incbin "data/unsorted/gUnknown_08F551A0.bin"
 
     .global gUnknown_08F591A0
 gUnknown_08F591A0:
-    .incbin "baserom.gba", 0x00F591A0, 0x200
+    .incbin "data/unsorted/gUnknown_08F591A0.bin"
 
     .global gUnknown_08F593A0
 gUnknown_08F593A0:
-    .incbin "baserom.gba", 0x00F593A0, 0x200
+    .incbin "data/unsorted/gUnknown_08F593A0.bin"
 
     .global gUnknown_08F595A0
 gUnknown_08F595A0:
-    .incbin "baserom.gba", 0x00F595A0, 0x297C
+    .incbin "data/unsorted/gUnknown_08F595A0.bin"
 
     .global gTeleportLocations
 gTeleportLocations:
-    .incbin "baserom.gba", 0x00F5BF1C, 0x400
+    .incbin "data/unsorted/gTeleportLocations.bin"
 
     .global gUnknown_08F5C31C
 gUnknown_08F5C31C:
-    .incbin "baserom.gba", 0x00F5C31C, 0x200
+    .incbin "data/unsorted/gUnknown_08F5C31C.bin"
 
     .global gUnknown_08F5C51C
 gUnknown_08F5C51C:
-    .incbin "baserom.gba", 0x00F5C51C, 0x200
+    .incbin "data/unsorted/gUnknown_08F5C51C.bin"
 
     .global gUnknown_08F5C71C
 gUnknown_08F5C71C:
-    .incbin "baserom.gba", 0x00F5C71C, 0x400
+    .incbin "data/unsorted/gUnknown_08F5C71C.bin"
 
 @ World map tiles
     .global gMapTiles
 gMapTiles:
-    .incbin "baserom.gba", 0x00F5CB1C, 0xC00
+    .incbin "data/unsorted/gMapTiles.bin"
 
     .global gUnknown_08F5D71C
 gUnknown_08F5D71C:
-    .incbin "baserom.gba", 0x00F5D71C, 0x400
+    .incbin "data/unsorted/gUnknown_08F5D71C.bin"
 
 @ ? Tiles
     .global gUnknown_08F5DB1C
 gUnknown_08F5DB1C:
-    .incbin "baserom.gba", 0x00F5DB1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F5DB1C.bin"
 
     .global gUnknown_08F5DF1C
 gUnknown_08F5DF1C:
-    .incbin "baserom.gba", 0x00F5DF1C, 0x1000
+    .incbin "data/unsorted/gUnknown_08F5DF1C.bin"
 
 @ ? Tiles
     .global gUnknown_08F5EF1C
 gUnknown_08F5EF1C:
-    .incbin "baserom.gba", 0x00F5EF1C, 0x1000
+    .incbin "data/unsorted/gUnknown_08F5EF1C.bin"
 
 @ Ending Credits - Credit Titles tiles
     .global gUnknown_08F5FF1C
 gUnknown_08F5FF1C:
-    .incbin "baserom.gba", 0x00F5FF1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F5FF1C.bin"
 
 @ Ending Credits - Credit Titles tiles 2
     .global gUnknown_08F6031C
 gUnknown_08F6031C:
-    .incbin "baserom.gba", 0x00F6031C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6031C.bin"
 
 @ Ending Credits - Credit Titles tiles 3
     .global gUnknown_08F6071C
 gUnknown_08F6071C:
-    .incbin "baserom.gba", 0x00F6071C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6071C.bin"
 
 @Ending Credits - Uppercase Ascii tiles
     .global gUnknown_08F60B1C
 gUnknown_08F60B1C:
-    .incbin "baserom.gba", 0x00F60B1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F60B1C.bin"
 
 @Ending Credits - NPC Tiles 1
     .global gUnknown_08F60F1C
 gUnknown_08F60F1C:
-    .incbin "baserom.gba", 0x00F60F1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F60F1C.bin"
 
 @Ending Credits - NPC Tiles 2
     .global gUnknown_08F6131C
 gUnknown_08F6131C:
-    .incbin "baserom.gba", 0x00F6131C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6131C.bin"
 
 @Ending Credits - NPC Tiles 3
     .global gUnknown_08F6171C
 gUnknown_08F6171C:
-    .incbin "baserom.gba", 0x00F6171C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6171C.bin"
 
 @Ending Credits - NPC Tiles 4
     .global gUnknown_08F61B1C
 gUnknown_08F61B1C:
-    .incbin "baserom.gba", 0x00F61B1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F61B1C.bin"
 
 @Ending Credits - NPC Tiles 5
     .global gUnknown_08F61F1C
 gUnknown_08F61F1C:
-    .incbin "baserom.gba", 0x00F61F1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F61F1C.bin"
 
 @Ending Credits - NPC Tiles 6
     .global gUnknown_08F6231C
 gUnknown_08F6231C:
-    .incbin "baserom.gba", 0x00F6231C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6231C.bin"
 
 @Ending Credits - Father tiles 1
     .global gUnknown_08F6271C
 gUnknown_08F6271C:
-    .incbin "baserom.gba", 0x00F6271C, 0x400
+    .incbin "data/unsorted/gUnknown_08F6271C.bin"
 
 @Ending Credits - Father tiles 2
     .global gUnknown_08F62B1C
 gUnknown_08F62B1C:
-    .incbin "baserom.gba", 0x00F62B1C, 0x400
+    .incbin "data/unsorted/gUnknown_08F62B1C.bin"
 
 @Title Screen - Mother tiles 1
     .global gUnknown_08F62F1C
 gUnknown_08F62F1C:
-    .incbin "baserom.gba", 0x00F62F1C, 0x800
+    .incbin "data/unsorted/gUnknown_08F62F1C.bin"
 
 @Title Screen - Copyright tiles
     .global gUnknown_08F6371C
 gUnknown_08F6371C:
-    .incbin "baserom.gba", 0x00F6371C, 0x300
+    .incbin "data/unsorted/gUnknown_08F6371C.bin"
 
 @Title Screen - Planet animation tiles
     .global gUnknown_08F63A1C
 gUnknown_08F63A1C:
-    .incbin "baserom.gba", 0x00F63A1C, 0x800
+    .incbin "data/unsorted/gUnknown_08F63A1C.bin"
 
     .global gInitialGlobalPlayerInfo
 gInitialGlobalPlayerInfo:
@@ -2396,12 +2396,12 @@ gUnknown_08F6634E:
 
     .global gEnemyGroupsData
 gEnemyGroupsData:
-    .incbin "baserom.gba", 0x00F663CE, 0x672
+    .incbin "data/unsorted/gEnemyGroupsData.bin"
 
 @ Battle - Enemy Palette?
     .global gUnknown_08F66A40
 gUnknown_08F66A40:
-    .incbin "baserom.gba", 0x00F66A40, 0x200
+    .incbin "data/unsorted/gUnknown_08F66A40.bin"
 
 @ Battle - Enemy tile layouts
     .global gUnknown_08F66C40
@@ -2666,7 +2666,7 @@ gUnknown_08F6705C:
     .align 2
     .global gUnknown_08F67080
 gUnknown_08F67080:
-    .incbin "baserom.gba", 0x00F67080, 0x800
+    .incbin "data/unsorted/gUnknown_08F67080.bin"
 
 @ Battle - Monster Tiles 1
     .global gUnknown_08F67880
@@ -2866,11 +2866,11 @@ gUnknown_08F6F880:
 
     .global gEnemyData
 gEnemyData:
-    .incbin "baserom.gba", 0x00F6F900, 0xF40
+    .incbin "data/unsorted/gEnemyData.bin"
 
     .global gUnknown_08F70840
 gUnknown_08F70840:
-    .incbin "baserom.gba", 0x00F70840, 0x6D8
+    .incbin "data/unsorted/gUnknown_08F70840.bin"
 
 @ Sound Rodata starts
     .global MPlyJmpTbl
