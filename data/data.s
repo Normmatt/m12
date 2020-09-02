@@ -1794,222 +1794,222 @@ gUnknown_08F2A27C:
 
     .global gFont
 gFont:
-    .incbin "data/font.bin"
+    .incbin "data/font.2bpp"
 
 @ Tileset 1
     .global gUnknown_08F2B9A0
 gUnknown_08F2B9A0:
-    .incbin "data/tilesets/1.bin"
+    .incbin "data/tilesets/1.2bpp"
 
 @ Tileset 2
     .global gUnknown_08F2BDA0
 gUnknown_08F2BDA0:
-    .incbin "data/tilesets/2.bin"
+    .incbin "data/tilesets/2.2bpp"
 
 @ Tileset 3
     .global gUnknown_08F2C1A0
 gUnknown_08F2C1A0:
-    .incbin "data/tilesets/3.bin"
+    .incbin "data/tilesets/3.2bpp"
 
 @ Tileset 4
     .global gUnknown_08F2C5A0
 gUnknown_08F2C5A0:
-    .incbin "data/tilesets/4.bin"
+    .incbin "data/tilesets/4.2bpp"
 
 @ Tileset 5
     .global gUnknown_08F2C9A0
 gUnknown_08F2C9A0:
-    .incbin "data/tilesets/5.bin"
+    .incbin "data/tilesets/5.2bpp"
 
 @ Tileset 6
     .global gUnknown_08F2CDA0
 gUnknown_08F2CDA0:
-    .incbin "data/tilesets/6.bin"
+    .incbin "data/tilesets/6.2bpp"
 
 @ Tileset 7
     .global gUnknown_08F2D1A0
 gUnknown_08F2D1A0:
-    .incbin "data/tilesets/7.bin"
+    .incbin "data/tilesets/7.2bpp"
 
 @ Tileset 8
     .global gUnknown_08F2D5A0
 gUnknown_08F2D5A0:
-    .incbin "data/tilesets/8.bin"
+    .incbin "data/tilesets/8.2bpp"
 
 @ Tileset 9
     .global gUnknown_08F2D9A0
 gUnknown_08F2D9A0:
-    .incbin "data/tilesets/9.bin"
+    .incbin "data/tilesets/9.2bpp"
 
 @ Tileset 10
     .global gUnknown_08F2DDA0
 gUnknown_08F2DDA0:
-    .incbin "data/tilesets/10.bin"
+    .incbin "data/tilesets/10.2bpp"
 
 @ Tileset 11
     .global gUnknown_08F2E1A0
 gUnknown_08F2E1A0:
-    .incbin "data/tilesets/11.bin"
+    .incbin "data/tilesets/11.2bpp"
 
 @ Tileset 12
     .global gUnknown_08F2E5A0
 gUnknown_08F2E5A0:
-    .incbin "data/tilesets/12.bin"
+    .incbin "data/tilesets/12.2bpp"
 
 @ Tileset 13
     .global gUnknown_08F2E9A0
 gUnknown_08F2E9A0:
-    .incbin "data/tilesets/13.bin"
+    .incbin "data/tilesets/13.2bpp"
 
 @ Tileset 14
     .global gUnknown_08F2EDA0
 gUnknown_08F2EDA0:
-    .incbin "data/tilesets/14.bin"
+    .incbin "data/tilesets/14.2bpp"
 
 @ Tileset 15
     .global gUnknown_08F2F1A0
 gUnknown_08F2F1A0:
-    .incbin "data/tilesets/15.bin"
+    .incbin "data/tilesets/15.2bpp"
 
 @ Tileset 16
     .global gUnknown_08F2F5A0
 gUnknown_08F2F5A0:
-    .incbin "data/tilesets/16.bin"
+    .incbin "data/tilesets/16.2bpp"
 
 @ Tileset 17
     .global gUnknown_08F2F9A0
 gUnknown_08F2F9A0:
-    .incbin "data/tilesets/17.bin"
+    .incbin "data/tilesets/17.2bpp"
 
 @ Tileset 18
     .global gUnknown_08F2FDA0
 gUnknown_08F2FDA0:
-    .incbin "data/tilesets/18.bin"
+    .incbin "data/tilesets/18.2bpp"
 
 @ Tileset 19
     .global gUnknown_08F301A0
 gUnknown_08F301A0:
-    .incbin "data/tilesets/19.bin"
+    .incbin "data/tilesets/19.2bpp"
 
 @ Tileset 20
     .global gUnknown_08F305A0
 gUnknown_08F305A0:
-    .incbin "data/tilesets/20.bin"
+    .incbin "data/tilesets/20.2bpp"
 
 @ Tileset 21
     .global gUnknown_08F309A0
 gUnknown_08F309A0:
-    .incbin "data/tilesets/21.bin"
+    .incbin "data/tilesets/21.2bpp"
 
 @ Tileset 22
     .global gUnknown_08F30DA0
 gUnknown_08F30DA0:
-    .incbin "data/tilesets/22.bin"
+    .incbin "data/tilesets/22.2bpp"
 
 @ Tileset 23
     .global gUnknown_08F311A0
 gUnknown_08F311A0:
-    .incbin "data/tilesets/23.bin"
+    .incbin "data/tilesets/23.2bpp"
 
 @ Tileset 24
     .global gUnknown_08F315A0
 gUnknown_08F315A0:
-    .incbin "data/tilesets/24.bin"
+    .incbin "data/tilesets/24.2bpp"
 
 @ Tileset 25
     .global gUnknown_08F319A0
 gUnknown_08F319A0:
-    .incbin "data/tilesets/25.bin"
+    .incbin "data/tilesets/25.2bpp"
 
 @ Tileset 26
     .global gUnknown_08F31DA0
 gUnknown_08F31DA0:
-    .incbin "data/tilesets/26.bin"
+    .incbin "data/tilesets/26.2bpp"
 
 @ Tileset 27
     .global gUnknown_08F321A0
 gUnknown_08F321A0:
-    .incbin "data/tilesets/27.bin"
+    .incbin "data/tilesets/27.2bpp"
 
 @ Tileset 28
     .global gUnknown_08F325A0
 gUnknown_08F325A0:
-    .incbin "data/tilesets/28.bin"
+    .incbin "data/tilesets/28.2bpp"
 
 @ Tileset 29
     .global gUnknown_08F329A0
 gUnknown_08F329A0:
-    .incbin "data/tilesets/29.bin"
+    .incbin "data/tilesets/29.2bpp"
 
 @ Tileset 30
     .global gUnknown_08F32DA0
 gUnknown_08F32DA0:
-    .incbin "data/tilesets/30.bin"
+    .incbin "data/tilesets/30.2bpp"
 
 @ Tileset 31
     .global gUnknown_08F331A0
 gUnknown_08F331A0:
-    .incbin "data/tilesets/31.bin"
+    .incbin "data/tilesets/31.2bpp"
 
 @ Tileset 32
     .global gUnknown_08F335A0
 gUnknown_08F335A0:
-    .incbin "data/tilesets/32.bin"
+    .incbin "data/tilesets/32.2bpp"
 
 @Ninten overworld tiles
     .global gUnknown_08F339A0
 gUnknown_08F339A0:
-    .incbin "data/unsorted/gUnknown_08F339A0.bin"
+    .incbin "data/unsorted/gUnknown_08F339A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F341A0
 gUnknown_08F341A0:
-    .incbin "data/unsorted/gUnknown_08F341A0.bin"
+    .incbin "data/unsorted/gUnknown_08F341A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F349A0
 gUnknown_08F349A0:
-    .incbin "data/unsorted/gUnknown_08F349A0.bin"
+    .incbin "data/unsorted/gUnknown_08F349A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F351A0
 gUnknown_08F351A0:
-    .incbin "data/unsorted/gUnknown_08F351A0.bin"
+    .incbin "data/unsorted/gUnknown_08F351A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F359A0
 gUnknown_08F359A0:
-    .incbin "data/unsorted/gUnknown_08F359A0.bin"
+    .incbin "data/unsorted/gUnknown_08F359A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F361A0
 gUnknown_08F361A0:
-    .incbin "data/unsorted/gUnknown_08F361A0.bin"
+    .incbin "data/unsorted/gUnknown_08F361A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F369A0
 gUnknown_08F369A0:
-    .incbin "data/unsorted/gUnknown_08F369A0.bin"
+    .incbin "data/unsorted/gUnknown_08F369A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F371A0
 gUnknown_08F371A0:
-    .incbin "data/unsorted/gUnknown_08F371A0.bin"
+    .incbin "data/unsorted/gUnknown_08F371A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F379A0
 gUnknown_08F379A0:
-    .incbin "data/unsorted/gUnknown_08F379A0.bin"
+    .incbin "data/unsorted/gUnknown_08F379A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F381A0
 gUnknown_08F381A0:
-    .incbin "data/unsorted/gUnknown_08F381A0.bin"
+    .incbin "data/unsorted/gUnknown_08F381A0.2bpp"
 
 @ ? Tiles
     .global gUnknown_08F389A0
 gUnknown_08F389A0:
-    .incbin "data/unsorted/gUnknown_08F389A0.bin"
+    .incbin "data/unsorted/gUnknown_08F389A0.2bpp"
 
     .global gUnknown_08F391A0
 gUnknown_08F391A0:
@@ -2078,7 +2078,7 @@ gUnknown_08F5C71C:
 @ World map tiles
     .global gMapTiles
 gMapTiles:
-    .incbin "data/unsorted/gMapTiles.bin"
+    .incbin "data/unsorted/gMapTiles.2bpp"
 
     .global gUnknown_08F5D71C
 gUnknown_08F5D71C:
@@ -2087,7 +2087,7 @@ gUnknown_08F5D71C:
 @ ? Tiles
     .global gUnknown_08F5DB1C
 gUnknown_08F5DB1C:
-    .incbin "data/unsorted/gUnknown_08F5DB1C.bin"
+    .incbin "data/unsorted/gUnknown_08F5DB1C.2bpp"
 
     .global gUnknown_08F5DF1C
 gUnknown_08F5DF1C:
@@ -2096,82 +2096,82 @@ gUnknown_08F5DF1C:
 @ ? Tiles
     .global gUnknown_08F5EF1C
 gUnknown_08F5EF1C:
-    .incbin "data/unsorted/gUnknown_08F5EF1C.bin"
+    .incbin "data/unsorted/gUnknown_08F5EF1C.2bpp"
 
 @ Ending Credits - Credit Titles tiles
     .global gUnknown_08F5FF1C
 gUnknown_08F5FF1C:
-    .incbin "data/unsorted/gUnknown_08F5FF1C.bin"
+    .incbin "data/unsorted/gUnknown_08F5FF1C.2bpp"
 
 @ Ending Credits - Credit Titles tiles 2
     .global gUnknown_08F6031C
 gUnknown_08F6031C:
-    .incbin "data/unsorted/gUnknown_08F6031C.bin"
+    .incbin "data/unsorted/gUnknown_08F6031C.2bpp"
 
 @ Ending Credits - Credit Titles tiles 3
     .global gUnknown_08F6071C
 gUnknown_08F6071C:
-    .incbin "data/unsorted/gUnknown_08F6071C.bin"
+    .incbin "data/unsorted/gUnknown_08F6071C.2bpp"
 
 @Ending Credits - Uppercase Ascii tiles
     .global gUnknown_08F60B1C
 gUnknown_08F60B1C:
-    .incbin "data/unsorted/gUnknown_08F60B1C.bin"
+    .incbin "data/unsorted/gUnknown_08F60B1C.2bpp"
 
 @Ending Credits - NPC Tiles 1
     .global gUnknown_08F60F1C
 gUnknown_08F60F1C:
-    .incbin "data/unsorted/gUnknown_08F60F1C.bin"
+    .incbin "data/unsorted/gUnknown_08F60F1C.2bpp"
 
 @Ending Credits - NPC Tiles 2
     .global gUnknown_08F6131C
 gUnknown_08F6131C:
-    .incbin "data/unsorted/gUnknown_08F6131C.bin"
+    .incbin "data/unsorted/gUnknown_08F6131C.2bpp"
 
 @Ending Credits - NPC Tiles 3
     .global gUnknown_08F6171C
 gUnknown_08F6171C:
-    .incbin "data/unsorted/gUnknown_08F6171C.bin"
+    .incbin "data/unsorted/gUnknown_08F6171C.2bpp"
 
 @Ending Credits - NPC Tiles 4
     .global gUnknown_08F61B1C
 gUnknown_08F61B1C:
-    .incbin "data/unsorted/gUnknown_08F61B1C.bin"
+    .incbin "data/unsorted/gUnknown_08F61B1C.2bpp"
 
 @Ending Credits - NPC Tiles 5
     .global gUnknown_08F61F1C
 gUnknown_08F61F1C:
-    .incbin "data/unsorted/gUnknown_08F61F1C.bin"
+    .incbin "data/unsorted/gUnknown_08F61F1C.2bpp"
 
 @Ending Credits - NPC Tiles 6
     .global gUnknown_08F6231C
 gUnknown_08F6231C:
-    .incbin "data/unsorted/gUnknown_08F6231C.bin"
+    .incbin "data/unsorted/gUnknown_08F6231C.2bpp"
 
 @Ending Credits - Father tiles 1
     .global gUnknown_08F6271C
 gUnknown_08F6271C:
-    .incbin "data/unsorted/gUnknown_08F6271C.bin"
+    .incbin "data/unsorted/gUnknown_08F6271C.2bpp"
 
 @Ending Credits - Father tiles 2
     .global gUnknown_08F62B1C
 gUnknown_08F62B1C:
-    .incbin "data/unsorted/gUnknown_08F62B1C.bin"
+    .incbin "data/unsorted/gUnknown_08F62B1C.2bpp"
 
 @Title Screen - Mother tiles 1
     .global gUnknown_08F62F1C
 gUnknown_08F62F1C:
-    .incbin "data/unsorted/gUnknown_08F62F1C.bin"
+    .incbin "data/unsorted/gUnknown_08F62F1C.2bpp"
 
 @Title Screen - Copyright tiles
     .global gUnknown_08F6371C
 gUnknown_08F6371C:
-    .incbin "data/unsorted/gUnknown_08F6371C.bin"
+    .incbin "data/unsorted/gUnknown_08F6371C.2bpp"
 
 @Title Screen - Planet animation tiles
     .global gUnknown_08F63A1C
 gUnknown_08F63A1C:
-    .incbin "data/unsorted/gUnknown_08F63A1C.bin"
+    .incbin "data/unsorted/gUnknown_08F63A1C.2bpp"
 
     .global gInitialGlobalPlayerInfo
 gInitialGlobalPlayerInfo:
@@ -2666,167 +2666,167 @@ gUnknown_08F6705C:
     .align 2
     .global gUnknown_08F67080
 gUnknown_08F67080:
-    .incbin "data/unsorted/gUnknown_08F67080.bin"
+    .incbin "data/unsorted/gUnknown_08F67080.2bpp"
 
 @ Battle - Monster Tiles 1
     .global gUnknown_08F67880
 gUnknown_08F67880:
-    .incbin "data/battle/enemy/1.bin"
+    .incbin "data/battle/enemy/1.2bpp"
 
 @ Battle - Monster Tiles 2
     .global gUnknown_08F67C80
 gUnknown_08F67C80:
-    .incbin "data/battle/enemy/2.bin"
+    .incbin "data/battle/enemy/2.2bpp"
 
 @ Battle - Monster Tiles 3
     .global gUnknown_08F68080
 gUnknown_08F68080:
-    .incbin "data/battle/enemy/3.bin"
+    .incbin "data/battle/enemy/3.2bpp"
 
 @ Battle - Monster Tiles 4
     .global gUnknown_08F68480
 gUnknown_08F68480:
-    .incbin "data/battle/enemy/4.bin"
+    .incbin "data/battle/enemy/4.2bpp"
 
 @ Battle - Monster Tiles 5
     .global gUnknown_08F68880
 gUnknown_08F68880:
-    .incbin "data/battle/enemy/5.bin"
+    .incbin "data/battle/enemy/5.2bpp"
 
 @ Battle - Monster Tiles 6
     .global gUnknown_08F68C80
 gUnknown_08F68C80:
-    .incbin "data/battle/enemy/6.bin"
+    .incbin "data/battle/enemy/6.2bpp"
 
 @ Battle - Monster Tiles 7
     .global gUnknown_08F69080
 gUnknown_08F69080:
-    .incbin "data/battle/enemy/7.bin"
+    .incbin "data/battle/enemy/7.2bpp"
 
 @ Battle - Monster Tiles 8
     .global gUnknown_08F69480
 gUnknown_08F69480:
-    .incbin "data/battle/enemy/8.bin"
+    .incbin "data/battle/enemy/8.2bpp"
 
 @ Battle - Monster Tiles 9
     .global gUnknown_08F69880
 gUnknown_08F69880:
-    .incbin "data/battle/enemy/9.bin"
+    .incbin "data/battle/enemy/9.2bpp"
 
 @ Battle - Monster Tiles 10
     .global gUnknown_08F69C80
 gUnknown_08F69C80:
-    .incbin "data/battle/enemy/10.bin"
+    .incbin "data/battle/enemy/10.2bpp"
 
 @ Battle - Monster Tiles 11
     .global gUnknown_08F6A080
 gUnknown_08F6A080:
-    .incbin "data/battle/enemy/11.bin"
+    .incbin "data/battle/enemy/11.2bpp"
 
 @ Battle - Monster Tiles 12
     .global gUnknown_08F6A480
 gUnknown_08F6A480:
-    .incbin "data/battle/enemy/12.bin"
+    .incbin "data/battle/enemy/12.2bpp"
 
 @ Battle - Monster Tiles 13
     .global gUnknown_08F6A880
 gUnknown_08F6A880:
-    .incbin "data/battle/enemy/13.bin"
+    .incbin "data/battle/enemy/13.2bpp"
 
 @ Battle - Monster Tiles 14
     .global gUnknown_08F6AC80
 gUnknown_08F6AC80:
-    .incbin "data/battle/enemy/14.bin"
+    .incbin "data/battle/enemy/14.2bpp"
 
 @ Battle - Monster Tiles 15
     .global gUnknown_08F6B080
 gUnknown_08F6B080:
-    .incbin "data/battle/enemy/15.bin"
+    .incbin "data/battle/enemy/15.2bpp"
 
 @ Battle - Monster Tiles 16
     .global gUnknown_08F6B480
 gUnknown_08F6B480:
-    .incbin "data/battle/enemy/16.bin"
+    .incbin "data/battle/enemy/16.2bpp"
 
 @ Battle - Monster Tiles 17
     .global gUnknown_08F6B880
 gUnknown_08F6B880:
-    .incbin "data/battle/enemy/17.bin"
+    .incbin "data/battle/enemy/17.2bpp"
 
 @ Battle - Monster Tiles 18
     .global gUnknown_08F6BC80
 gUnknown_08F6BC80:
-    .incbin "data/battle/enemy/18.bin"
+    .incbin "data/battle/enemy/18.2bpp"
 
 @ Battle - Monster Tiles 19
     .global gUnknown_08F6C080
 gUnknown_08F6C080:
-    .incbin "data/battle/enemy/19.bin"
+    .incbin "data/battle/enemy/19.2bpp"
 
 @ Battle - Monster Tiles 20
     .global gUnknown_08F6C480
 gUnknown_08F6C480:
-    .incbin "data/battle/enemy/20.bin"
+    .incbin "data/battle/enemy/20.2bpp"
 
 @ Battle - Monster Tiles 21
     .global gUnknown_08F6C880
 gUnknown_08F6C880:
-    .incbin "data/battle/enemy/21.bin"
+    .incbin "data/battle/enemy/21.2bpp"
 
 @ Battle - Monster Tiles 22
     .global gUnknown_08F6CC80
 gUnknown_08F6CC80:
-    .incbin "data/battle/enemy/22.bin"
+    .incbin "data/battle/enemy/22.2bpp"
 
 @ Battle - Monster Tiles 23
     .global gUnknown_08F6D080
 gUnknown_08F6D080:
-    .incbin "data/battle/enemy/23.bin"
+    .incbin "data/battle/enemy/23.2bpp"
 
 @ Battle - Monster Tiles 24
     .global gUnknown_08F6D480
 gUnknown_08F6D480:
-    .incbin "data/battle/enemy/24.bin"
+    .incbin "data/battle/enemy/24.2bpp"
 
 @ Battle - Monster Tiles 25
     .global gUnknown_08F6D880
 gUnknown_08F6D880:
-    .incbin "data/battle/enemy/25.bin"
+    .incbin "data/battle/enemy/25.2bpp"
 
 @ Battle - Monster Tiles 26
     .global gUnknown_08F6DC80
 gUnknown_08F6DC80:
-    .incbin "data/battle/enemy/26.bin"
+    .incbin "data/battle/enemy/26.2bpp"
 
 @ Battle - Monster Tiles 27
     .global gUnknown_08F6E080
 gUnknown_08F6E080:
-    .incbin "data/battle/enemy/27.bin"
+    .incbin "data/battle/enemy/27.2bpp"
 
 @ Battle - Monster Tiles 28
     .global gUnknown_08F6E480
 gUnknown_08F6E480:
-    .incbin "data/battle/enemy/28.bin"
+    .incbin "data/battle/enemy/28.2bpp"
 
 @ Battle - Monster Tiles 29
     .global gUnknown_08F6E880
 gUnknown_08F6E880:
-    .incbin "data/battle/enemy/29.bin"
+    .incbin "data/battle/enemy/29.2bpp"
 
 @ Battle - Monster Tiles 30
     .global gUnknown_08F6EC80
 gUnknown_08F6EC80:
-    .incbin "data/battle/enemy/30.bin"
+    .incbin "data/battle/enemy/30.2bpp"
 
 @ Battle - Monster Tiles 31
     .global gUnknown_08F6F080
 gUnknown_08F6F080:
-    .incbin "data/battle/enemy/31.bin"
+    .incbin "data/battle/enemy/31.2bpp"
 
 @ Battle - Monster Tiles 32
     .global gUnknown_08F6F480
 gUnknown_08F6F480:
-    .incbin "data/battle/enemy/32.bin"
+    .incbin "data/battle/enemy/32.2bpp"
 
     .align 2
     .global gUnknown_08F6F880

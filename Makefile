@@ -15,6 +15,7 @@ LD       := $(DEVKITARM)/bin/arm-none-eabi-ld
 OBJCOPY  := $(DEVKITARM)/bin/arm-none-eabi-objcopy
 
 GFX := tools/gbagfx/gbagfx$(EXE)
+GFX2 := python tools/nes-chr-encode/nes_chr_encode.py
 AIF := tools/aif2pcm/aif2pcm$(EXE)
 MID := $(abspath tools/mid2agb/mid2agb)$(EXE)
 SCANINC := tools/scaninc/scaninc$(EXE)
@@ -133,7 +134,7 @@ compare: $(ROM)
 clean: mostlyclean
 
 mostlyclean: tidy
-	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' -o -iname '*.latfont' -o -iname '*.hwjpnfont' -o -iname '*.fwjpnfont' -o -iname '*.bcg' \) -exec rm {} +
+	find . \( -iname '*.1bpp' -o -iname '*.2bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' -o -iname '*.latfont' -o -iname '*.hwjpnfont' -o -iname '*.fwjpnfont' -o -iname '*.bcg' \) -exec rm {} +
 
 tidy:
 	$(RM) $(ROM) $(MAP) $(ELF) $(OBJS)
@@ -148,6 +149,7 @@ include graphics_file_rules.mk
 %.aif: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
+%.2bpp: %.png  ; $(GFX2) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
 %.8bpp: %.png  ; $(GFX) $< $@
 %.gbapal: %.pal ; $(GFX) $< $@
