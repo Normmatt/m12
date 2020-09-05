@@ -291,7 +291,7 @@ struct MusicPlayerTrack
 #define FADE_VOL_MAX    64
 #define FADE_VOL_SHIFT  2
 
-struct MusicPlayerInfo
+typedef struct MusicPlayerInfo
 {
     struct SongHeader *songHeader;
     u32 status;
@@ -314,22 +314,22 @@ struct MusicPlayerInfo
     u32 ident;
     u32 func;
     u32 intp;
-};
+} MusicPlayerInfo;
 
-struct MusicPlayer
+typedef struct MusicPlayer
 {
     struct MusicPlayerInfo *info;
     struct MusicPlayerTrack *track;
     u8 unk_8;
     u16 unk_A;
-};
+} MusicPlayer;
 
-struct Song
+typedef struct Song
 {
     struct SongHeader *header;
     u16 ms;
     u16 me;
-};
+} Song;
 
 extern const struct MusicPlayer gMPlayTable[];
 extern const struct Song gSongTable[];

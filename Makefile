@@ -196,7 +196,7 @@ $(OBJ_DIR)/sym_iwram.txt: sym_iwram.txt
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
 	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt > $(C_BUILDDIR)/$*.p.i
-	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt | $(CC1) $(CC1FLAGS) -o $(C_BUILDDIR)/$*.s
+	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt | $(CC1_OLD) $(CC1FLAGS) -o $(C_BUILDDIR)/$*.s
 	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
 

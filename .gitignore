@@ -65,3 +65,5 @@ sound_/
 *.gbapal
 *.bcg
 *.lz
+docs/
+*.2bpp

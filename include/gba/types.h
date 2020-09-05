@@ -118,7 +118,7 @@ struct PlttData
     u16 unused_15:1;
 } /*__attribute__((packed))*/;
 
-struct OamData
+typedef struct OamData
 {
     /*0x00*/ u32 y:8;
     /*0x01*/ u32 affineMode:2;  // 0x1, 0x2 = 0x3
@@ -146,7 +146,7 @@ struct OamData
              u16 priority:2;
              u16 paletteNum:4;
     /*0x06*/ u16 affineParam;
-};
+} OamData;
 
 #define ST_OAM_OBJ_NORMAL 0
 #define ST_OAM_OBJ_BLEND  1

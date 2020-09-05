@@ -30,6 +30,8 @@ SECTIONS
 	ALIGN(4)
 	{
         src/crt0.o(.text);
+		asm/AgbMain.o(.text);
+		src/change_sfx.o(.text);
 		asm/code.o(.text);
         asm/m1_translation_new_code.o(.text);
 		src/mks4agbLib.o(.text);
@@ -50,6 +52,8 @@ SECTIONS
 	ALIGN(4)
     {
         data/data.o(.data);
+        src/change_sfx.o(.rodata);
+        data/data2.o(.data);
         sound/sound.o(.data);
         src/agb_sram.o(.rodata);
         data/data_after_sound.o(.data);
