@@ -163,7 +163,7 @@ void PlaySfxById3(u8 id)
     }
 }
 
-//This has to be included in this file as otherwise the linker forably aligns it to 8F1BA5C
+//This has to be included in this file as otherwise the linker forcibly aligns it to 8F1BA5C
 //Does this mean that everything up to LoadMapObjects is in one file?
 //Used in LoadMapObjects
 const u8 gUnknown_08F1BA5B[109] = {
