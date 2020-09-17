@@ -102,7 +102,7 @@ extern struct_3003190 gGameInfo;
 extern u8 gUnknown_03003490;
 // extern void (*v_blank_fnc)(void);
 // extern char byte_3003498;
-// extern int dword_300349C;
+extern u32 gUnknown_0300349C;
 // extern u8 byte_30034A0;
 // extern __int16 word_30034A4;
 // extern char byte_30034A8;
