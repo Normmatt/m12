@@ -303,7 +303,7 @@ extern void sub_8F0AAA4(u8 a1);
 extern void sub_8F0AB60();
 extern void sub_8F0ABD8();
 extern void sub_8F0ACB8();
-extern void SoftReset();
+extern void M1_SoftReset();
 extern void sub_8F0AD0C();
 extern void sub_8F0AE34();
 extern void DrawPartyInfoWindow();
