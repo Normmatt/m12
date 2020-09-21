@@ -245,5 +245,17 @@ typedef struct sEnemyDataRam
   u8 field_1F;
 } sEnemyDataRam;
 
+typedef struct sTextState
+{
+  u8 byte0;
+  u8 byte1;
+  u8 byte2;
+  u8 byte3;
+  u8 byte4;
+  u8 byte5;
+  u8 byte6;
+  u8 byte7;
+} sTextState;
+
 
 #endif

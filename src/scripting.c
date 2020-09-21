@@ -322,3 +322,144 @@ void SCR_CMD_15()
     gGameInfo.field_260[*gScriptPtr] = 0;
 }
 
+void SCR_CMD_16()
+{
+    // jump if counter less than value
+
+    u8 val;
+    ++gScriptPtr;
+    val = *gScriptPtr++;
+    if ( gGameInfo.field_260[val] < *gScriptPtr )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_17()
+{
+    // change map variable (1B-1E)
+    u8 idx;
+
+    ++gScriptPtr;
+    idx = *gScriptPtr++;
+    gGameInfo.PlayerInfo.MapVariable[idx] = *gScriptPtr;
+}
+
+void SCR_CMD_18()
+{
+    // choose character, jump if B pressed
+    s32 v0;
+    sTextState v1;
+
+    SaveTextSystemState(&v1);
+    v0 = SelectCharacter();
+    LoadTextSystemState(&v1);
+    gTextDelayAfterWriteCharacterEnabled = 0;
+    if ( v0 <= 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gCurrentCharacterId = v0;
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_19_SetCurrentCharacterId()
+{
+    // select specific character
+    ++gScriptPtr;
+    gCurrentCharacterId = *gScriptPtr;
+}
+
+void SCR_CMD_1A()
+{
+    // jump unless character selected
+    ++gScriptPtr;
+    if ( *gScriptPtr != gCurrentCharacterId )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_1B()
+{
+    // jump if no money added to bank acct since last call
+    if ( gGameInfo.PlayerInfo.MoneyReadyToDepositLo | gGameInfo.PlayerInfo.MoneyReadyToDepositMid | gGameInfo.PlayerInfo.MoneyReadyToDepositHi )
+    {
+        ++gScriptPtr;
+    }
+    else
+    {
+        SCR_CMD_01_Jump();
+    }
+}
+
+void SCR_CMD_1C()
+{
+    // input a number, jump if B pressed
+    s32 v0;
+
+    SCR_CMD_1F_ShowMoney();
+    v0 = sub_8F0B350();
+    if ( v0 < 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gTempNumber = v0;
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_1D()
+{
+    // load a number
+    ++gScriptPtr;
+    gTempNumber = *gScriptPtr++;
+    gTempNumber = gTempNumber + (*gScriptPtr << 8);
+}
+
+void SCR_CMD_1E()
+{
+    // jump if number less than value
+    u32 number;
+
+    number = *++gScriptPtr;
+    number = number | (*++gScriptPtr << 8);
+    if ( gTempNumber < number)
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gScriptPtr++;
+    }
+}
+
+void SCR_CMD_1F_ShowMoney()
+{
+    // show money
+    sTextState v0;
+
+    SaveTextSystemState(&v0);
+    DrawMoneyWindow();
+    LoadTextSystemState(&v0);
+}
+
+
+
+
+
+
+
