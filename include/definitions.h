@@ -8,4 +8,6 @@
 #include "structs.h"
 #include "functions.h"
 
+#define ITEM_IS_SELLABLE 0x80
+
 #endif  // GUARD_AGB_SRAM_H

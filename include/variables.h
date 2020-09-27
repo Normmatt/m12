@@ -31,7 +31,7 @@ extern u16 gKeysDown;
 // extern char gUnknown_030007CC;
 // extern char gUnknown_030007D0;
 extern u8 gCurrentItemId;
-// extern __int16 gUnknown_030007D8;
+extern s16 gUnknown_030007D8;
 extern u8 *gScriptPtr;
 // extern char gUnknown_030007E0;
 // extern int gUnknown_030007E4;
@@ -91,7 +91,7 @@ extern char gSpriteBuffer[];
 // extern int gUnknown_03002964;
 extern u16 gBg2TilemapBuffer[];
 extern u8 gUnknown_03003170;
-// extern u8 gUnknown_03003174;
+extern u8 gUnknown_03003174;
 // extern char gUnknown_03003178;
 // extern char gUnknown_0300317C;
 // extern u8 gUnknown_03003180;
@@ -178,5 +178,9 @@ extern u8 gEnemyGroupSpecialEncounter;
 extern MusicPlayerInfo MusicPlayer0Info;
 extern u16 IntrCheck;
 // extern int gUnknown_03007FFC;
+
+
+//Data
+extern sItemData gItemData[];
 
 #endif

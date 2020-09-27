@@ -1,10 +1,17 @@
 #ifndef GUARD_GBA_TYPES_H
 #define GUARD_GBA_TYPES_H
 
+#include <stddef.h>
 #include <stdint.h>
 
+#define TRUE 1
+#define FALSE 0
+
+#define NAKED __attribute__((naked))
+#define UNUSED __attribute__((unused))
+#define PACKED __attribute__((packed))
+
 #define ALIGN(m)	__attribute__((aligned (m)))
-#define PACKED __attribute__ ((packed))
 
 typedef uint8_t   u8;
 typedef uint16_t u16;

@@ -7845,7 +7845,7 @@ _08F046B2:
 	ldr r4, _08F046C8 @ =gUnknown_03001504
 	movs r0, #0
 	strb r0, [r4]
-	bl sub_8F0B670
+	bl PickAnItemFromInventory
 	cmp r0, #0
 	bgt _08F046CC
 	ldrb r0, [r4]

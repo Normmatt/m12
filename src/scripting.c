@@ -1,5 +1,8 @@
 #include "gba/gba.h"
 #include "m4a.h"
+
+//Yes they really did just define this as a const in this file
+extern const u8 gCurrentItemId;
 #include "definitions.h"
 
 extern void_pointer gSCR_CMD_Handlers[];
@@ -456,6 +459,357 @@ void SCR_CMD_1F_ShowMoney()
     DrawMoneyWindow();
     LoadTextSystemState(&v0);
 }
+
+void SCR_CMD_20()
+{
+    // choose item from inventory, jump if B pressed
+    s32 itemId;
+    sTextState v1;
+
+    SaveTextSystemState(&v1);
+    itemId = PickAnItemFromInventory();
+    LoadTextSystemState(&v1);
+    gTextDelayAfterWriteCharacterEnabled = 0;
+    if ( itemId <= 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        SelectItem(itemId);
+        gCurrentCharacterId = gUnknown_03003174;
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_21()
+{
+    // choose item from closet, jump if B pressed
+    s32 itemId;
+    sTextState v1;
+
+    SaveTextSystemState(&v1);
+    itemId = PickAnItemFromCloset();
+    LoadTextSystemState(&v1);
+    gTextDelayAfterWriteCharacterEnabled = 0;
+    if ( itemId <= 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        SelectItem(itemId);
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_22()
+{
+    // choose item from list, jump if B pressed
+    s32 itemId;
+    sTextState v1;
+
+    ++gScriptPtr;
+    SaveTextSystemState(&v1);
+    itemId = PickAnItemFromList(gScriptPtr);
+    LoadTextSystemState(&v1);
+    gTextDelayAfterWriteCharacterEnabled = 0;
+    gScriptPtr += 3;
+    if ( itemId <= 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        SelectItem(itemId);
+        gUnknown_030007D8 = -1;
+        ++gScriptPtr;
+    }
+}
+
+#if NON_MATCHING // reg-alloc
+void SCR_CMD_23()
+{
+    u8 v0;
+    u8 *ptr;
+    u8 *itemIdPtr;
+    u8 itemId;
+    u32 charId;
+
+    // jump unless item in character's inventory
+    ++gScriptPtr;
+    SelectItem(*gScriptPtr);
+    gUnknown_030007D8 = -1;
+    v0 = 0;
+    itemIdPtr = &gCurrentItemId;
+    charId = gCurrentCharacterId - 1;
+    ptr = gGameInfo.PlayerInfo.CharacterInfo[charId].Inventory;
+    itemId = *itemIdPtr;
+    while(1)
+    {
+        if(itemId != ptr[v0])
+        {
+            if(++v0 < 8) continue;
+            SCR_CMD_01_Jump();
+            return;
+        }
+        else
+        {
+            gUnknown_030007D8 = v0;
+            ++gScriptPtr;
+            return;
+        }
+    }
+}
+#else
+NAKED
+void SCR_CMD_23()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_23.s\"");
+}
+#endif
+
+//gCurrentItemId defined as const matches?
+void SCR_CMD_24()
+{
+    u8 v0;
+
+    // jump unless item in closet
+    ++gScriptPtr;
+    SelectItem(*gScriptPtr);
+    gUnknown_030007D8 = -1;
+    v0 = 0;
+    while ( 1 )
+    {
+        if(gCurrentItemId != gGameInfo.Closet[v0])
+        {
+            ++v0;
+            if ( v0 > 0x4F )
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        break;
+    }
+    gUnknown_030007D8 = v0;
+    ++gScriptPtr;
+}
+
+void SCR_CMD_25()
+{
+    // select specific item
+    SelectItem(*++gScriptPtr);
+    if ( gCurrentItemId != *gScriptPtr )
+    {
+        gUnknown_030007D8 = -1;
+    }
+}
+
+void SCR_CMD_26()
+{
+    // jump unless item selected
+    ++gScriptPtr;
+    if ( gCurrentItemId != *gScriptPtr )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+#if NON_MATCHING // reg-alloc
+void SCR_CMD_27()
+{
+    TODO: make a non matching for this
+}
+#else
+NAKED
+void SCR_CMD_27()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_27.s\"");
+}
+#endif
+
+void SCR_CMD_28_IncrementMoney()
+{
+    // give money, jump if can't hold any more
+    if ( (gGameInfo.PlayerInfo.Money + gTempNumber) >= 0x10000 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gGameInfo.PlayerInfo.Money = (gGameInfo.PlayerInfo.Money + gTempNumber);
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_29_DecrementMoney()
+{
+    // take money, jump if not enough
+    if ( (gGameInfo.PlayerInfo.Money - gTempNumber) < 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gGameInfo.PlayerInfo.Money = (gGameInfo.PlayerInfo.Money - gTempNumber);
+        ++gScriptPtr;
+    }
+}
+
+#define BANKED_MONEY (((gGameInfo.PlayerInfo.BankedMoneyMid << 8) | gGameInfo.PlayerInfo.BankedMoneyLo) + (gGameInfo.PlayerInfo.BankedMoneyHi << 16))
+#define SET_BANKED_MONEY(val) \
+    gGameInfo.PlayerInfo.BankedMoneyLo = val; \
+    gGameInfo.PlayerInfo.BankedMoneyMid = val>>8; \
+    gGameInfo.PlayerInfo.BankedMoneyHi = val>>16;
+
+void SCR_CMD_2A_IncrementBankedMoney()
+{
+    // give money, jump if can't hold any more
+    s32 val = gGameInfo.PlayerInfo.BankedMoneyLo;
+    val |= gGameInfo.PlayerInfo.BankedMoneyMid << 8;
+    val += gGameInfo.PlayerInfo.BankedMoneyHi << 16;
+    val += gTempNumber;
+    if ( val >= 0x1000000 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        SET_BANKED_MONEY(val);
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_2B_DecrementBankedMoney()
+{
+    // take money, jump if not enough
+    s32 val;
+    val = gGameInfo.PlayerInfo.BankedMoneyLo;
+    val |= gGameInfo.PlayerInfo.BankedMoneyMid << 8;
+    val += gGameInfo.PlayerInfo.BankedMoneyHi << 16;
+
+    if ( (val-gTempNumber) < 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        val -= gTempNumber;
+        SET_BANKED_MONEY(val);
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_2C()
+{
+    sItemData *item = &gItemData[gCurrentItemId];
+    // jump if item unsellable otherwise remove from inventory
+    if ( (!(item->Flags & ITEM_IS_SELLABLE)) && (RemoveItemFromInventory(gCurrentCharacterId) >= 0) )
+    {
+        ++gScriptPtr;
+    }
+    else
+    {
+        SCR_CMD_01_Jump();
+    }
+}
+
+#if NON_MATCHING // reg-alloc
+void SCR_CMD_2D()
+{
+    u32 charId;
+    int v0; // r3
+    u8 *v1;
+
+    // add item to inventory, jump if full
+    charId = gCurrentCharacterId;
+    if ( charId < 6u )
+    {
+        v0 = 0;
+        charId = gCurrentCharacterId - 1;
+        v1 = gGameInfo.PlayerInfo.CharacterInfo[charId].Inventory;
+        while(1)
+        {
+            if(*v1)
+            {
+                ++v1;
+                if ( ++v0 > 7 )
+                {                    
+                    SCR_CMD_01_Jump();
+                    return;
+                }
+                continue;
+            }
+            break;
+        }
+    }
+    else
+    {
+        SCR_CMD_01_Jump();
+        return;
+    }
+    *v1 = gCurrentItemId;
+    ++gScriptPtr;
+}
+#else
+NAKED
+void SCR_CMD_2D()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_2D.s\"");
+}
+#endif
+
+void SCR_CMD_2E()
+{
+    // remove item from inventory, jump if not present
+    if ( RemoveItemFromInventory(gCurrentCharacterId) < 0 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_2F()
+{
+    u8 v0;
+    u8 *ptr;
+
+    // add item to closet, jump if full
+    v0 = 0;
+    while ( 1 )
+    {
+        ptr = &gGameInfo.Closet[v0];
+        if(*ptr)
+        {
+            ++v0;
+            if ( v0 > 0x4F )
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        break;
+    }
+
+    *ptr = gCurrentItemId;
+    ++gScriptPtr;
+}
+
+
+
+
+
+
 
 
 

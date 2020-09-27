@@ -8781,8 +8781,8 @@ _08F0B65C:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F0B670
-sub_8F0B670: @ 0x08F0B670
+	thumb_func_start PickAnItemFromInventory
+PickAnItemFromInventory: @ 0x08F0B670
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -8961,8 +8961,8 @@ _08F0B7D2:
 	pop {r1}
 	bx r1
 
-	thumb_func_start sub_8F0B7E0
-sub_8F0B7E0: @ 0x08F0B7E0
+	thumb_func_start PickAnItemFromCloset
+PickAnItemFromCloset: @ 0x08F0B7E0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -9291,8 +9291,8 @@ _08F0BA68:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F0BA70
-sub_8F0BA70: @ 0x08F0BA70
+	thumb_func_start PickAnItemFromList
+PickAnItemFromList: @ 0x08F0BA70
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
