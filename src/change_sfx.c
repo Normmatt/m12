@@ -163,8 +163,156 @@ void PlaySfxById3(u8 id)
     }
 }
 
+void UpdateInput()
+{
+    u16 v1;
+
+    v1 = 0x3FF & ~REG_KEYINPUT;
+    gKeysDown = v1 & ~gKeysRepeat;
+    gKeysRepeat = v1;
+    
+    v1 = gKeysRepeat & (DPAD_DOWN|DPAD_UP|DPAD_LEFT|DPAD_RIGHT);
+    if ( v1 )
+    {
+        ++gUnknown_03000794;
+        if ( gUnknown_03000794 >= 30u )
+        {
+            gUnknown_03000794 -= 6;
+            gKeysDown |= v1;
+        }
+    }
+    else
+    {
+        gUnknown_03000794 = 0;
+    }
+
+    v1 = gKeysRepeat & (L_BUTTON|B_BUTTON|A_BUTTON);
+    if ( v1 )
+    {
+        ++gUnknown_03003490;
+        if ( gUnknown_03003490 >= 30u )
+        {
+            gUnknown_03003490 -= 12;
+            gKeysDown |= v1;
+        }
+    }
+    else
+    {
+        gUnknown_03003490 = 0;
+    }
+}
+
+void VblankIntr()
+{
+    m4aSoundVSync();
+    IntrCheck = 1;
+    if ( v_blank_fnc )
+    {
+        v_blank_fnc();
+    }
+}
+
+void IntrDummy()
+{
+    //Empty
+}
+
+void FadeOut()
+{
+    s32 i;
+
+    REG_BLDY = 0;
+    REG_BLDCNT = 255;
+    for(i = 0; i <= 16; i += 2)
+    {
+        REG_BLDY = i;
+        sub_8F040E0();
+    }
+}
+
+void FadeIn()
+{
+    s32 i;
+
+    REG_BLDY = 16;
+    REG_BLDCNT = 255;
+    for(i = 16; i >= 0; i -= 2)
+    {
+        REG_BLDY = i;
+        sub_8F040E0();
+    }
+    REG_BLDCNT = 0;
+}
+
+void sub_8F00ADC()
+{
+    s32 v0;
+    //u16 *colorP;
+
+    switch ( gUnknown_030007E8 )
+    {
+        case 1:
+            PlaySfxById0(8u);
+            FadeOut();
+            break;
+        case 2:
+            ChangeBgMusic(0xFFu);
+            PlaySfxById1(0x10u);
+            {
+                u16 color = *(&gNESPalette[0x34]);
+                for(v0 = 31; v0 >= 0; v0--)
+                {
+                    DarkenPalette((u16 *)0x5000000, color, 0x40u, 1u);
+                    DarkenPalette((u16 *)0x5000200, color, 0x40u, 1u);
+                    DelayByAmount(2u);
+                }
+            }
+            break;
+        case 3:
+            sub_8F099D8();
+            break;
+        case 4:
+            sub_8F09B98();
+            break;
+        case 5:
+            sub_8F09DAC();
+            break;
+        case 6:
+            FadeOut();
+            DelayByAmount(0x1Eu);
+            break;
+        case 7:
+            FadeOut();
+            ChangeBgMusic(0xFFu);
+            DelayByAmount(0x5Au);
+            sub_8F06FF0();
+            break;
+        case 9:
+            {
+                u16 color = *(gNESPalette+0x22);
+                for(v0 = 15; v0 >= 0; v0--)
+                {
+                    DarkenPalette((u16 *)0x5000000, color, 0x40u, 2u);
+                    DarkenPalette((u16 *)0x5000200, color, 0x40u, 2u);
+                    DelayByAmount(1u);
+                }
+            }
+            break;
+        default:
+            FadeOut();
+            break;
+    }
+    REG_DISPCNT = 0;
+    gUnknown_03000788 = (gPlayerX & 0xFFC0) + gUnknown_03000840;
+    gUnknown_03001508 = (gPlayerY & 0xFFC0) + gUnknown_030034A8;
+    gUnknown_03003178 = gPlayerX & 0x3F;
+    gUnknown_030007A4 = gPlayerY & 7;
+    gUnknown_030007A0 = 32;
+    gUnknown_030007E0 = 1;
+}
+
 //This has to be included in this file as otherwise the linker forcibly aligns it to 8F1BA5C
-//Does this mean that everything up to LoadMapObjects is in one file?
+//Does this mean that everything up to and including LoadMapObjects is in one file?
 //Used in LoadMapObjects
 const u8 gUnknown_08F1BA5B[109] = {
     0x05, 0x0F, 0x18, 0x1C, 0x06, 0x00, 0x00, 0x46, 0x08, 0x01, 0x58, 0x40, 0x08, 0x02, 0x40, 0x00,
