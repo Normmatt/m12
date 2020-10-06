@@ -247,7 +247,6 @@ void FadeIn()
 void sub_8F00ADC()
 {
     s32 v0;
-    //u16 *colorP;
 
     switch ( gUnknown_030007E8 )
     {
@@ -309,6 +308,134 @@ void sub_8F00ADC()
     gUnknown_030007A4 = gPlayerY & 7;
     gUnknown_030007A0 = 32;
     gUnknown_030007E0 = 1;
+}
+
+void sub_8F00C64()
+{
+    s32 i;
+
+    if ( gUnknown_03003178 )
+    {
+        ChangeBgMusic(gUnknown_03003178);
+    }
+    REG_DISPCNT = 0x1500;
+    switch(gUnknown_030007E8)
+    {
+        case 2:
+        {
+            u16 *ptr = gUnknown_03001480;
+            for(i=31; i >= 0; i--)
+            {
+                sub_8F01020((u16 *)0x5000000, ptr, 64, 1);
+                sub_8F01020((u16 *)0x5000200, ptr+4, 64, 1);
+                DelayByAmount(2u);
+            }
+            break;
+        }
+        case 3:
+            sub_8F09AA8();
+            break;
+        case 9:
+        {
+            u16 *ptr = gUnknown_03001480;
+            for(i=3; i >= 0; i--)
+            {
+                sub_8F01020((u16 *)0x5000000, ptr, 64, 8);
+                sub_8F01020((u16 *)0x5000200, ptr+4, 64, 8);
+                DelayByAmount(1u);
+            }
+            break;
+        }
+        default:
+            FadeIn();
+            break;
+    }
+    gUnknown_030007E8 = 0;
+}
+
+void sub_8F00D24()
+{
+    if ( gUnknown_03000824 )
+    {
+        sub_8F03128();
+        REG_DISPCNT = 0x1500;
+        FadeIn();
+        gUnknown_03000824 = 0;
+    }
+}
+
+void ShakeWhenMovingIfFlag()
+{
+    // Defeating lamp at start of game sets this flag.
+    // Encountering the doll clears this flag.
+    if ( gGameInfo.Flags[31] & 0x80 )
+    {
+        if ( !(Random() >> 26) )
+        {
+            REG_BLDY = 4;
+            REG_BLDCNT = 255;
+            PlaySfxById0(7u);
+            SCR_CMD_69_Quake();
+            PlaySfxById0(7u);
+            SCR_CMD_69_Quake();
+            PlaySfxById0(7u);
+            SCR_CMD_69_Quake();
+            PlaySfxById0(7u);
+            SCR_CMD_69_Quake();
+            REG_BLDY = 0;
+            REG_BLDCNT = 0;
+        }
+    }
+}
+
+void BitUnpack(void *src, void *dst, s32 numTiles)
+{
+    s32 i, j;
+    u32 sofs;
+    u32 dofs;
+    u32 plane1;
+    u32 plane2;
+    u8 *sptr;
+    u32 *dptr;
+    u32 val;
+
+    i = 0;
+    while(i < numTiles)
+    {
+        if ( !((i + 1) & 0x3F) )
+        {
+            sub_8F040E0();
+        }
+        j = 0;
+        sofs = 16 * i;
+        dofs = 32 * i;
+        sptr = (u8*)(sofs+(u32)src);
+        dptr = (u32*)(dofs+(u32)dst);
+        while(j < 8)
+        {
+            plane1 = (u8)sptr[j];
+            plane2 = (u8)sptr[j + 8];
+            val = (plane1 >> 7);
+            val += (((s32)plane2 >> 6) & 2);
+            val += (((s32)plane1 >> 2) & 0x10);
+            val += (((s32)plane2 >> 1) & 0x20);
+            val += ((plane1 <<  3) & 0x100);
+            val += ((plane2 <<  4) & 0x200);
+            val += ((plane1 <<  8) & 0x1000);
+            val += ((plane2 <<  9) & 0x2000);
+            val += ((plane1 << 13) & 0x10000);
+            val += ((plane2 << 14) & 0x20000);
+            val += ((plane1 << 18) & 0x100000);
+            val += ((plane2 << 19) & 0x200000);
+            val += ((plane1 << 23) & 0x1000000);
+            val += ((plane2 << 24) & 0x2000000);
+            val += ((plane1 << 28) & 0x10000000);
+            val += ((plane2 << 29) & 0x20000000);
+            *dptr++ = val;
+            ++j;
+        }
+        ++i;
+    }
 }
 
 //This has to be included in this file as otherwise the linker forcibly aligns it to 8F1BA5C
