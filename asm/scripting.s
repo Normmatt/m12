@@ -9,36 +9,6 @@
 .syntax unified
 .section .text
 
-	thumb_func_start SCR_CMD_32
-SCR_CMD_32: @ 0x08F0593C
-	push {r4, lr}
-	ldr r1, _08F05960 @ =gScriptPtr
-	ldr r2, [r1]
-	adds r0, r2, #1
-	str r0, [r1]
-	ldr r4, _08F05964 @ =gTempNumber
-	ldrh r1, [r4]
-	ldrb r2, [r2, #1]
-	adds r0, r1, #0
-	muls r0, r2, r0
-	movs r1, #0x64
-	bl __divsi3
-	ldr r1, _08F05968 @ =0x0000FFFF
-	cmp r0, r1
-	ble _08F0596C
-	strh r1, [r4]
-	b _08F0596E
-	.align 2, 0
-_08F05960: .4byte gScriptPtr
-_08F05964: .4byte gTempNumber
-_08F05968: .4byte 0x0000FFFF
-_08F0596C:
-	strh r0, [r4]
-_08F0596E:
-	pop {r4}
-	pop {r0}
-	bx r0
-
 	thumb_func_start SCR_CMD_33
 SCR_CMD_33: @ 0x08F05974
 	push {r4, lr}

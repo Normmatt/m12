@@ -849,7 +849,24 @@ void SCR_CMD_31()
     }
 }
 
+void SCR_CMD_32()
+{
+    s32 v0;
+    s32 nn;
 
+    nn = *++gScriptPtr;
+
+    // multiply number by nn/100
+    v0 = gTempNumber * nn / 100;
+    if ( v0 > 0xFFFF )
+    {
+        gTempNumber = -1;
+    }
+    else
+    {
+        gTempNumber = v0;
+    }
+}
 
 
 
