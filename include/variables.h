@@ -43,7 +43,7 @@ extern u16 gKeysRepeat;
 // extern int gUnknown_030007FC;
 // extern __int16 gUnknown_03000800;
 // extern u8 gUnknown_03000804;
-// extern __int16 gUnknown_03000808;
+extern u16 gUnknown_03000808;
 // extern __int16 gUnknown_0300080C;
 // extern char gUnknown_03000810;
 extern u16 gPlayerY;

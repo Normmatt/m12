@@ -788,7 +788,7 @@ void SCR_CMD_2F()
     while ( 1 )
     {
         ptr = &gGameInfo.Closet[v0];
-        if(*ptr)
+        if( *ptr )
         {
             ++v0;
             if ( v0 > 0x4F )
@@ -804,6 +804,52 @@ void SCR_CMD_2F()
     *ptr = gCurrentItemId;
     ++gScriptPtr;
 }
+
+void SCR_CMD_30()
+{
+    s32 idx;
+    u8 *v2;
+
+    // remove item from closet, jump if not present
+    idx = GetPositionOfCurrentItemFromInventoryOrCloset(0);
+    if ( idx >= 0 )
+    {
+        for( ; idx < ((s32)sizeof(gGameInfo.Closet)-1); idx++ )
+        {
+            gGameInfo.Closet[idx] = gGameInfo.Closet[idx+1];
+            ++v2;
+        }
+        gGameInfo.Closet[idx] = 0;
+        gUnknown_030007D8 = -1;
+        ++gScriptPtr;
+    }
+    else
+    {
+        SCR_CMD_01_Jump();
+    }
+}
+
+void SCR_CMD_31()
+{
+    s32 idx; // r5
+    u32 item;
+
+    // select character's nn'th item (first is 0), jump if empty slot
+    idx = *++gScriptPtr;
+    item = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[idx];
+    if ( !item )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        SelectItem(item);
+        gUnknown_030007D8 = idx;
+        ++gScriptPtr;
+    }
+}
+
+
 
 
 

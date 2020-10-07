@@ -11,59 +11,59 @@ void ChangeBgMusic(u8 id)
         0x2F, 0x30, 0x31, 0x11, 0x2D
     };
 
-    if (id >= sizeof(sfx_ids))
+    if ( id >= sizeof(sfx_ids) )
     {
         id = 0;
     }
     else
     {
         u8 v2 = (id - 51) & 0xFF;
-        if (v2 <= 1)
+        if ( v2 <= 1 )
         {
             v2 = ((u32)gGameInfo.Flags[1] << 5) & 0x80;
-            if (v2)
+            if ( v2 )
             {
                 id = 18;
             }
         }
         else
         {
-            if (id == 6 && gGameInfo.PlayerInfo.CharactersInParty[1])
+            if ( id == 6 && gGameInfo.PlayerInfo.CharactersInParty[1] )
             {
                 id = 7;
             }
-            else if (id == 7 && !gGameInfo.PlayerInfo.CharactersInParty[1])
+            else if ( id == 7 && !gGameInfo.PlayerInfo.CharactersInParty[1] )
             {
                 id = 6;
             }
         }
     }
 
-    if (!id)
+    if ( !id )
     {
         m4aMPlayAllStop();
     }
 
-    if (gCurrentBgMusic != id)
+    if ( gCurrentBgMusic != id )
     {
         gCurrentBgMusic = id;
 
-        if (id)
+        if ( id )
         {
             m4aSongNumStart(sfx_ids[id]);
         }
 
-        if (id == 1)
+        if ( id == 1 )
         {
             m4aMPlayImmInit(&MusicPlayer0Info);
-            if (gGameInfo.Flags[30]) // MelodiesUnlocked
+            if ( gGameInfo.Flags[30] ) // MelodiesUnlocked
             {
                 do
                 {
                     u8 v4 = ((s32)gGameInfo.Flags[30] >> MusicPlayer0Info.clock / 0xC0) & 0xFF; // MelodiesUnlocked
-                    if (!v4) break;
+                    if ( !v4 ) break;
 
-                    if (v4 & 1)
+                    if ( v4 & 1 )
                     {
                         MPlayVolumeControl(&MusicPlayer0Info, 1, 256);
                         MPlayVolumeControl(&MusicPlayer0Info, 2, 0);
@@ -75,13 +75,13 @@ void ChangeBgMusic(u8 id)
                     }
                     UpdateBg0Tilemap();
 
-                } while (MusicPlayer0Info.status & 0xFFFF);
+                } while ( MusicPlayer0Info.status & 0xFFFF );
             }
             else
             {
                 MPlayVolumeControl(&MusicPlayer0Info, 1, 0);
                 MPlayVolumeControl(&MusicPlayer0Info, 2, 256);
-                while (MusicPlayer0Info.clock <= 0xBF)
+                while ( MusicPlayer0Info.clock <= 0xBF )
                 {
                     UpdateBg0Tilemap();
                 }
@@ -98,7 +98,7 @@ void sub_8F0088C(u8 new_bg)
     do
     {
         UpdateBg0Tilemap();
-    } while (!(gKeysDown & (SELECT_BUTTON | B_BUTTON)) && (MusicPlayer0Info.status & 0xFFFF));
+    } while ( !(gKeysDown & (SELECT_BUTTON | B_BUTTON)) && (MusicPlayer0Info.status & 0xFFFF) );
     ChangeBgMusic(old_bg);
 }
 
@@ -108,11 +108,11 @@ void PlaySfxById0(u8 id)
         0x00, 0x3C, 0x3D, 0x3E, 0x3F, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x62, 0x63, 0x64, 0x65
     };
 
-    if (id > 10)
+    if ( id > 10 )
         id = 0;
-    if (id == 7)
+    if ( id == 7 )
         id = ((u32)Random() >> 30) + 11;
-    if (id)
+    if ( id )
         m4aSongNumStart(sfx_ids[id]);
 }
 
@@ -123,9 +123,9 @@ void PlaySfxById1(u8 id)
         0x55, 0x56, 0x57
     };
 
-    if (id > 18)
+    if ( id > 18 )
         id = 0;
-    if (id)
+    if ( id )
         m4aSongNumStart(sfx_ids[id]);
 }
 
@@ -135,9 +135,9 @@ void PlaySfxById2(u8 id)
         0x00, 0x58, 0x59, 0x5A, 0x5B
     };
 
-    if (id > 4)
+    if ( id > 4 )
         id = 0;
-    if (id)
+    if ( id )
         m4aSongNumStart(sfx_ids[id]);
 }
 
@@ -147,17 +147,17 @@ void PlaySfxById3(u8 id)
         0x00, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x61
     };
 
-    if (id > 3)
+    if ( id > 3 )
     {
         id = 0;
     }
 
-    if (id == 3)
+    if ( id == 3 )
     {
         id = ((u32)Random() >> 30) + 3;
     }
 
-    if (id)
+    if ( id )
     {
         m4aSongNumStart(sfx_ids[id]);
     }
@@ -223,7 +223,7 @@ void FadeOut()
 
     REG_BLDY = 0;
     REG_BLDCNT = 255;
-    for(i = 0; i <= 16; i += 2)
+    for( i = 0; i <= 16; i += 2 )
     {
         REG_BLDY = i;
         sub_8F040E0();
@@ -236,7 +236,7 @@ void FadeIn()
 
     REG_BLDY = 16;
     REG_BLDCNT = 255;
-    for(i = 16; i >= 0; i -= 2)
+    for( i = 16; i >= 0; i -= 2 )
     {
         REG_BLDY = i;
         sub_8F040E0();
@@ -319,7 +319,7 @@ void sub_8F00C64()
         ChangeBgMusic(gUnknown_03003178);
     }
     REG_DISPCNT = 0x1500;
-    switch(gUnknown_030007E8)
+    switch( gUnknown_030007E8 )
     {
         case 2:
         {
@@ -400,7 +400,7 @@ void BitUnpack(void *src, void *dst, s32 numTiles)
     u32 val;
 
     i = 0;
-    while(i < numTiles)
+    while( i < numTiles )
     {
         if ( !((i + 1) & 0x3F) )
         {
@@ -411,7 +411,7 @@ void BitUnpack(void *src, void *dst, s32 numTiles)
         dofs = 32 * i;
         sptr = (u8*)(sofs+(u32)src);
         dptr = (u32*)(dofs+(u32)dst);
-        while(j < 8)
+        while( j < 8 )
         {
             plane1 = (u8)sptr[j];
             plane2 = (u8)sptr[j + 8];
@@ -435,6 +435,33 @@ void BitUnpack(void *src, void *dst, s32 numTiles)
             ++j;
         }
         ++i;
+    }
+}
+
+void LoadPalette(u8 *src, u16 *dst)
+{
+    s32 i, j;
+    for( i = 0; i < 4; i++ )
+    {
+        for( j = 0; j < 4; j++ )
+        {
+            u16 *ptr = (dst + (16 * i) + j);
+            *ptr = gNESPalette[*src++];
+        }
+    }
+}
+
+void sub_8F00EE0(u8 *src, u16 *dst)
+{
+    s32 i;
+    u32 val;
+
+    for( i = 0; i < 960; i++ )
+    {
+        val = src[i];
+        val += gUnknown_03000808;
+        val += ((((s32)src[((i >> 2) & 7) + 960 + ((i >> 4) & 0x38)] >> ((i & 2) + ((i >> 4) & 4))) & 3) << 12);
+        dst[i] = val;
     }
 }
 
