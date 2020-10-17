@@ -868,7 +868,509 @@ void SCR_CMD_32()
     }
 }
 
+#if NON_MATCHING // close
+void SCR_CMD_33()
+{
+    u8 v0; // r2
+    u8 *party;
+    u32 charId;
 
+    // jump if character not present
+    ++gScriptPtr;
+    charId = gCurrentCharacterId = *gScriptPtr;
+    v0 = 0;
+    while ( 1 )
+    {
+        party = &gGameInfo.PlayerInfo.CharactersInParty[v0];
+        if(charId != *party)
+        {
+            ++v0;
+            if(v0 > 3)
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        ++gScriptPtr;
+        break;
+    }
+}
+#else
+NAKED
+void SCR_CMD_33()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_33.s\"");
+}
+#endif
+
+void SCR_CMD_34()
+{
+    if ( *gScriptPtr != gUnknown_03001D30 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_35()
+{
+    // jump unless touching object
+    if ( *gScriptPtr != gUnknown_03001D30 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_36()
+{
+    if ( (*(u8 *)(gUnknown_03000784->ScriptPtr + 2) & 7) != gUnknown_030007A4 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_37()
+{
+    u16 textId;
+    u32 v2;
+
+    // show 2-option menu, jump to p1 if second option selected or jump to p2 if B selected
+    textId = *++gScriptPtr;
+    textId |= *++gScriptPtr << 8;
+    gTextDelayAfterWriteCharacterEnabled |= 0x80u;
+    DrawTextWithId(textId);
+    v2 = sub_8F0B2C8(1u);
+    if ( v2 == 1 )
+    {
+        gScriptPtr += 2;
+    }
+    else
+    {
+        if (v2 != 2 )
+        {
+            ++gScriptPtr;
+        }
+        SCR_CMD_01_Jump();
+    }
+}
+
+void SCR_CMD_38()
+{
+    u8 v0;
+    u8 charId;
+    u8 *charIdPtr;
+
+    // jump if no items in inventory
+    v0 = 0;
+    while ( 1)
+    {
+        charIdPtr = (u8*)&gGameInfo;
+        charIdPtr += 8; //wtf is this shit?
+        //cardIdPtr = gGameInfo.PlayerInfo.CharactersInParty; //Why doesn't this match?
+        charId = charIdPtr[v0];
+        if(!charId || !gGameInfo.PlayerInfo.CharacterInfo[charId - 1].Inventory[0])
+        {
+            v0++;
+            if ( v0 > 3 )
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        break;
+    }
+    ++gScriptPtr;
+}
+
+void SCR_CMD_39()
+{
+    // jump if no items in closet
+    if ( !gGameInfo.Closet[0] )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_3A()
+{
+    // select nn'th character in party (first is 0), jump if not present
+    ++gScriptPtr;
+    if ( !gGameInfo.PlayerInfo.CharactersInParty[*gScriptPtr] )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        gCurrentCharacterId = gGameInfo.PlayerInfo.CharactersInParty[*gScriptPtr++];
+    }
+}
+
+void SCR_CMD_3B()
+{
+    // change object type (tt=type) e.g. 26=run away
+    u8 tt = *++gScriptPtr;
+    gUnknown_03000784->Type = tt;
+    gUnknown_03000784->field_2 = gUnknown_08F645B4[tt];
+    gUnknown_03000784->field_14 = gUnknown_08F645B4[tt] >> 8;
+}
+
+void SCR_CMD_3C()
+{
+    ++gScriptPtr;
+    gUnknown_030007E8 = *gScriptPtr;
+}
+
+#if NON_MATCHING // close
+void SCR_CMD_3D()
+{
+    union
+    {
+        u8 b[4];
+        u16 w[2];
+        u32 val;
+    } temp;
+
+    // teleport player
+    gUnknown_030007A0 = -1;
+
+    // start
+    ++gScriptPtr;
+    *(temp.b+0) = *gScriptPtr;
+    ++gScriptPtr;
+    *(temp.b+1) = *gScriptPtr;
+    ++gScriptPtr;
+    *(temp.b+2) = *gScriptPtr;
+    ++gScriptPtr;
+    *(temp.b+3) = *gScriptPtr;
+
+    gPlayerX = (temp.val & ~63);
+    gPlayerX += -(7 << 6);
+    //gPlayerX += ((temp.val << 26) >> 26);
+    gPlayerX = ((temp.val << 26) >> 26) - (7<<6) + (temp.val & ~63);
+
+    gPlayerY = ((temp.val >> 22) << 6);
+    gPlayerY += -(5 << 6);
+    //gPlayerY += ((temp.val << 10) >> 22);
+    gPlayerY = (((temp.val << 10) >> 22) -(5<<6)) + ((temp.val >> 22) << 6);
+    // end
+
+    gUnknown_03000840 = gUnknown_030034A8 = 0;
+}
+#else
+NAKED
+void SCR_CMD_3D()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_3D.s\"");
+}
+#endif
+
+#if NON_MATCHING
+void SCR_CMD_3E()
+{
+    //TODO: Not attempted
+}
+#else
+NAKED
+void SCR_CMD_3E()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_3E.s\"");
+}
+#endif
+
+void SCR_CMD_3F_JumpToObjectScript()
+{
+    // signal another object (oo=object number)
+    ++gScriptPtr;
+    gUnknown_030007EC = &gUnknown_03001D40[*gScriptPtr];
+    gUnknown_03001510 = 0;
+    gUnknown_03001514 = 64;
+}
+
+void SCR_CMD_40()
+{
+    // jump unless signaled
+    if ( *gScriptPtr != gUnknown_03001D30 )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_41()
+{
+    // teleport to saved game location
+    gUnknown_030007A0 = -1;
+    gPlayerX = gGameInfo.PlayerInfo.field_C + 0x40;
+    gPlayerY = gGameInfo.PlayerInfo.field_E + 0x80;
+    gUnknown_03000840 = gGameInfo.field_2AE;
+    gUnknown_030034A8 = gGameInfo.field_2AF;
+    sub_8F09420();
+}
+
+void SCR_CMD_42()
+{
+    u8 i;
+    u8 *ptr;
+
+    // add character to party, jump if party full
+    ++gScriptPtr;
+    gCurrentCharacterId = *gScriptPtr;
+    i = 0;
+    while ( 1 )
+    {
+        ptr = gGameInfo.PlayerInfo.CharactersInParty;
+        if(ptr[i])
+        {
+            ++i;
+            if ( i > 3 )
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        ptr[i] = gCurrentCharacterId;
+        break;
+    }
+    UpdateCharactersInParty();
+    ++gScriptPtr;
+}
+
+#if NON_MATCHING
+void SCR_CMD_43()
+{
+    u8 v0;
+    u8 *v1;
+    u8 *ptr;
+    u32 id;
+    GlobalPlayerInfo * gpi;
+    u8 temp;
+
+    // remove character from party, jump if absent
+    ++gScriptPtr;
+    id = gCurrentCharacterId = *gScriptPtr;
+    v0 = 0;
+    gpi = &gGameInfo.PlayerInfo;
+    while ( 1 )
+    {
+        ptr = gpi->CharactersInParty;
+        temp = id;
+        if(temp != ptr[v0]) //REG DIFF
+        {
+            ++v0;
+            if ( v0 > 3 )
+            {
+                SCR_CMD_01_Jump();
+                return;
+            }
+            continue;
+        }
+        else if ( v0 <= 2 )
+        {
+            do
+            {
+                gGameInfo.PlayerInfo.CharactersInParty[v0] = gGameInfo.PlayerInfo.CharactersInParty[v0+1];
+                ++v0;
+            }
+            while ( v0 <= 2u );
+        }
+        break;
+    }
+    gGameInfo.PlayerInfo.CharactersInParty[v0] = 0;
+    UpdateCharactersInParty();
+    ++gScriptPtr;
+}
+#else
+NAKED
+void SCR_CMD_43()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_43.s\"");
+}
+#endif
+
+void SCR_CMD_44()
+{
+    s32 res;
+
+    // start battle (gg=enemy group)
+    if ( gUnknown_03003170 )
+    {
+        WaitForActionButtonPress();
+    }
+    ++gScriptPtr;
+    res = InitiateBattle(*gScriptPtr, 1u);
+    if ( !res )
+    {
+        gUnknown_03001D30 = 0;
+    }
+    if ( gUnknown_03003170 )
+    {
+        gUnknown_030007A8 = 1;
+    }
+}
+
+void SCR_CMD_45()
+{
+    s32 v0;
+    u8 v1;
+    u8 v2;
+    u8 v3;
+
+    // multiply by number of characters
+    v0 = 0;
+    v1 = 0;
+    do
+    {
+        v3 = gGameInfo.PlayerInfo.CharactersInParty[v1];
+        v2 = v3 - 1;
+        if ( v2 <= 4u && !(gGameInfo.PlayerInfo.CharacterInfo[v3-1].Condition & CONDITION_UNCONSCIOUS) )
+        {
+            v0 += gTempNumber;
+        }
+        ++v1;
+    }
+    while ( v1 <= 3 );
+    if ( v0 <= 0xFFFF )
+    {
+        gTempNumber = v0;
+    }
+    else
+    {
+        gTempNumber = 0xFFFF;
+    }
+}
+
+void SCR_CMD_46()
+{
+    // rocket (dd=direction)
+    sub_8F0302C(0);
+    ++gScriptPtr;
+    gUnknown_0300317C = 45;
+    gUnknown_030007C0 = 1;
+    gUnknown_03000800 = 0;
+}
+
+void SCR_CMD_47()
+{
+    // airplane
+    sub_8F0302C(0);
+    ++gScriptPtr;
+    gUnknown_0300317C = 9;
+    gUnknown_030007C0 = 4;
+    gUnknown_03000800 = 0x8AFCu;
+    gUnknown_030007A4 = *gScriptPtr;
+    gUnknown_030034A4 = 4;
+}
+
+void SCR_CMD_48()
+{
+    // tank
+    sub_8F0302C(0);
+    ++gScriptPtr;
+    gUnknown_0300317C = 10;
+    gUnknown_030007C0 = 2;
+    gUnknown_03000800 = 0x8B1Cu;
+    gUnknown_030007A4 = *gScriptPtr;
+    gUnknown_03000788 = gUnknown_03000784->X - 0x1C0;
+    gUnknown_03001508 = gUnknown_03000784->Y - 0x140;
+    gUnknown_030007A0 = 8;
+}
+
+void SCR_CMD_49()
+{
+    // boat
+    if ( gUnknown_03003170 )
+    {
+        WaitForActionButtonPress();
+    }
+    sub_8F0302C(0);
+    ++gScriptPtr;
+    gUnknown_0300317C = 11;
+    gUnknown_030007C0 = 2;
+    gUnknown_03000800 = 0x8B3Cu;
+    gUnknown_030007A4 = *gScriptPtr;
+    gUnknown_03000788 = gUnknown_03000784->X - 448;
+    gUnknown_03001508 = gUnknown_03000784->Y - 320;
+    gUnknown_030007A0 = 8;
+    if ( gUnknown_03003170 )
+    {
+        gUnknown_030007A8 = 1;
+    }
+}
+
+void SCR_CMD_4A()
+{
+    // train
+    DelayByAmount(0x1Eu);
+    sub_8F07374();
+    gUnknown_030007A8 = 1;
+}
+
+void SCR_CMD_4B()
+{
+    // elevator
+    sub_8F0302C(1u);
+    ++gScriptPtr;
+    gUnknown_0300317C = 15;
+    gUnknown_030007C0 = 1;
+    gUnknown_030007A4 = *gScriptPtr;
+}
+
+void SCR_CMD_4C()
+{
+    // no vehicle
+    if ( gUnknown_0300317C == 9 )
+    {
+        gUnknown_03000784->X += 24;
+        gUnknown_03000784->Y -= 4;
+    }
+    if ( gUnknown_0300317C == 11 )
+    {
+        gUnknown_03000788 = gUnknown_03000784->X - 0x1C0;
+        gUnknown_03001508 = gUnknown_03000784->Y - 0x140;
+    }
+    if ( gUnknown_0300317C == 10 )
+    {
+        gUnknown_03000788 = gUnknown_03000784->X - 0x1C0;
+        gUnknown_03001508 = gUnknown_03000784->Y - 0x140;
+    }
+    ++gScriptPtr;
+    gUnknown_0300317C = 0;
+    gUnknown_030007A4 = *gScriptPtr;
+    sub_8F029E0();
+    gUnknown_030007A0 = 8;
+}
+
+void SCR_CMD_4D()
+{
+    gUnknown_030034A4 = -gUnknown_030034A4;
+    gUnknown_030007C0 = 2;
+}
+
+void SCR_CMD_4E()
+{
+    sub_8F09420();
+}
 
 
 
