@@ -34,7 +34,7 @@ extern u8 gCurrentItemId;
 extern s16 gUnknown_030007D8;
 extern u8 *gScriptPtr;
 extern u8 gUnknown_030007E0;
-// extern int gUnknown_030007E4;
+extern u32 gUnknown_030007E4;
 extern u8 gUnknown_030007E8;
 extern void *gUnknown_030007EC;
 extern u8 gConsumableType;
@@ -183,5 +183,6 @@ extern u16 IntrCheck;
 extern sItemData gItemData[];
 extern u16 gNESPalette[64];
 extern u16 gUnknown_08F645B4[];
+extern u8 gUnknown_08F5C31C[512];
 
 #endif

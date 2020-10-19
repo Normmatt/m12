@@ -1372,12 +1372,306 @@ void SCR_CMD_4E()
     sub_8F09420();
 }
 
+void SCR_CMD_4F()
+{
+    u8 *v0;
+    u16 v1;
+    u16 v2;
 
+    v0 = (u8*)gUnknown_03000784->ScriptPtr;
+    v1 = (((v0[1] << 8) | v0[0]));
+    v2 = (((v0[3] << 8) | v0[2]));
+    if ( ((v1 ^ gUnknown_03000784->X) & 0xFFC0)
+      || ((v2 ^ gUnknown_03000784->Y) & 0xFFC0) )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
 
+void SCR_CMD_50()
+{
+    // jump if at less than max HP
+    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP < gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
 
+void SCR_CMD_51()
+{
+    s32 curHP;
+    u16 maxHP;
 
+    // heal HP
+    ++gScriptPtr;
+    curHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP + *gScriptPtr;
+    maxHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
+    if ( curHP > maxHP )
+    {
+        curHP = maxHP;
+    }
+    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = curHP;
+    if ( gUnknown_03003170 )
+    {
+        gUnknown_03003170 |= 0x80u;
+        sub_8F0B004();
+    }
+}
 
+void SCR_CMD_52()
+{
+    // jump if character has status
+    ++gScriptPtr;
+    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & *gScriptPtr )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
 
+void SCR_CMD_53()
+{
+    u32 cond;
+    u32 ss;
+    u32 maxHP;
+
+    // remove statuses not in ss
+    ++gScriptPtr;
+    cond = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition;
+    ss = *gScriptPtr;
+    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition = cond & ss;
+    if ( !(*gScriptPtr & CONDITION_UNCONSCIOUS) )
+    {
+        //If character was unconscious then revive them
+        if ( cond & CONDITION_UNCONSCIOUS )
+        {
+            sub_8F091D0(gCurrentCharacterId);
+        }
+        else
+        {
+            maxHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
+            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = maxHP;
+        }
+    }
+    if ( gUnknown_03003170 )
+    {
+        gUnknown_03003170 |= 0x80u;
+        sub_8F0B004();
+    }
+}
+
+void SCR_CMD_54()
+{
+    // jump if character below level
+    ++gScriptPtr;
+    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Level < *gScriptPtr )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_55()
+{
+    // sleep
+    WaitForActionButtonPress();
+    FadeOut();
+    sub_8F0B040();
+    sub_8F06FF0();
+    FadeIn();
+}
+
+void SCR_CMD_56_SaveGame()
+{
+    // save game
+    gGameInfo.PlayerInfo.field_4 = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.field_6 = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.field_4 |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.field_6 |= (gUnknown_030007A4 & 7);
+    gGameInfo.field_2AC = (gUnknown_03000788 - 0x40) & 0x3F;
+    gGameInfo.field_2AD = (gUnknown_03001508 + 0x80) & 0x3F;
+    gGameInfo.field_288 = 8;
+    M1_CalculateChecksumAndWriteSave(&gGameInfo, gUnknown_030007E4);
+}
+
+void SCR_CMD_57_LoadExpForNextLevel()
+{
+    u32 level;
+    u32 v1;
+    u32 v2;
+    u32 v3;
+    u16 *ptr;
+
+    // load character's exp needed for next level
+    level = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Level;
+    if ( level >= 99 )
+    {
+        ptr = &gTempNumber;
+        v3 = 0;
+    }
+    else
+    {
+        v1 = (level + 2) * (level + 1) * (level + 1);
+        v2 = gUnknown_08F5C31C[8 * (gCurrentCharacterId + 56)];
+        v1 = (v2*v1) >> 8;
+        v2 = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpLo << 0;
+        v2 |= gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpMid << 8;
+        v2 += gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpHi << 16;
+        ptr = &gTempNumber;
+        v3 = v1 - v2;
+    }
+    *ptr = v3;
+    gGameInfo.PlayerInfo.MoneyReadyToDepositHi = 0;
+    gGameInfo.PlayerInfo.MoneyReadyToDepositMid = 0;
+    gGameInfo.PlayerInfo.MoneyReadyToDepositLo = 0;
+    gGameInfo.PlayerInfo.field_C = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.field_E = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.field_C |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.field_E |= (gUnknown_030007A4 & 7);
+    gGameInfo.field_2AE = (gUnknown_03000788 - 0x40) & 0x3F;
+    gGameInfo.field_2AF = (gUnknown_03001508 - 0x80) & 0x3F;
+}
+
+void SCR_CMD_58_LoadMoneyToTemp()
+{
+    // load money
+    gTempNumber = gGameInfo.PlayerInfo.Money;
+}
+
+void SCR_CMD_59_InflictCondition()
+{
+    // inflict status on character
+    ++gScriptPtr;
+    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition |= *gScriptPtr;
+}
+
+void SCR_CMD_5A_ChangeBgMusic()
+{
+    // change background music
+    ++gScriptPtr;
+    ChangeBgMusic(*gScriptPtr);
+}
+
+void SCR_CMD_5B_PlaySfxById0()
+{
+    // play sound (1)
+    ++gScriptPtr;
+    PlaySfxById0(*gScriptPtr);
+}
+
+void SCR_CMD_5C_PlaySfxById1()
+{
+    // play sound (2)
+    ++gScriptPtr;
+    PlaySfxById1(*gScriptPtr);
+}
+
+void SCR_CMD_5D_PlaySfxById2()
+{
+    // play sound (3)
+    ++gScriptPtr;
+    PlaySfxById2(*gScriptPtr);
+}
+
+//Stubbed - Not in retail rom
+/*
+void SCR_CMD_5E()
+{
+    //TODO: Check is this exists in the NES version
+}
+*/
+
+void SCR_CMD_5F()
+{
+    // teach characters 1 and 2 to Teleport
+    gGameInfo.PlayerInfo.CharacterInfo[0].PsiLearned[0] |= 0x20u;
+    gGameInfo.PlayerInfo.CharacterInfo[1].PsiLearned[0] |= 0x20u;
+}
+
+void SCR_CMD_60()
+{
+    // jump if at less than max PP
+    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP < gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxPP )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+    }
+}
+
+void SCR_CMD_61()
+{
+    s32 curPP;
+    u16 maxPP;
+
+    // heal PP
+    ++gScriptPtr;
+    curPP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP + *gScriptPtr;
+    maxPP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxPP;
+    if ( curPP > maxPP )
+    {
+        curPP = maxPP;
+    }
+    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP = curPP;
+    if ( gUnknown_03003170 )
+    {
+        gUnknown_03003170 |= 0x80u;
+        sub_8F0B004();
+    }
+}
+
+void SCR_CMD_62()
+{
+    u8 weapon;
+    u32 idx;
+    sCharacterStatusInfo *info;
+
+    // take weapon, jump if none
+    idx = gGameInfo.PlayerInfo.CharactersInParty[0] - 1;
+    weapon = gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0];
+    if ( !gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0] ) //This duplication is required
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+        gGameInfo.Weapon = weapon;
+        gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0] = 0;
+    }
+}
+
+void SCR_CMD_63()
+{
+    // select confiscated weapon, jump if none
+    u8 weapon = gGameInfo.Weapon;
+    if ( !weapon )
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+        SelectItem(weapon);
+        gUnknown_030007D8 = -1;
+    }
+}
 
 
 
