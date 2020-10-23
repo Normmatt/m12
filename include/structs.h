@@ -141,7 +141,7 @@ typedef struct struct_off_3000784
   u8 field_3;
   u16 X;
   u16 Y;
-  u32 ScriptPtr;
+  u8 *ScriptPtr;
   u8 field_C[8];
   u8 field_14;
   u8 Direction;

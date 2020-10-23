@@ -34,7 +34,6 @@ SECTIONS
 		src/change_sfx.o(.text);
 		asm/code.o(.text);
 		src/scripting.o(.text);
-		asm/scripting.o(.text);
 		asm/code2.o(.text);
         asm/m1_translation_new_code.o(.text);
 		src/mks4agbLib.o(.text);

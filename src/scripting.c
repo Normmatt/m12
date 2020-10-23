@@ -17,7 +17,7 @@ void ExecuteScript(u8 numInstructionsToExecute)
     if ( numInstructionsToExecute != 64 )
     {
         gUnknown_03001D30 = numInstructionsToExecute;
-        gScriptLR = gUnknown_03000784->ScriptPtr;
+        gScriptLR = (u32)gUnknown_03000784->ScriptPtr;
         gScriptPtr = (u8 *)(gScriptLR + (gUnknown_03000784->field_14 & 0xF));
     }
     else
@@ -43,7 +43,7 @@ skip_execution:
         gUnknown_03000784 = (struct_off_3000784 *)gUnknown_030007EC;
         gUnknown_03001D30 = gUnknown_03001514;
         gUnknown_030007EC = 0;
-        gScriptLR = gUnknown_03000784->ScriptPtr;
+        gScriptLR = (u32)gUnknown_03000784->ScriptPtr;
         if ( gUnknown_03001510 )
         {
             gScriptPtr = (u8 *)(gUnknown_03001510 + gScriptLR);
@@ -1673,6 +1673,245 @@ void SCR_CMD_63()
     }
 }
 
+void SCR_CMD_64()
+{
+    struct_off_3000784 *v0;
+    u8 *v1;
+    u16 v3;
+    u8 v4;
 
+    // live show
+    v0 = gUnknown_03000784;
+    v0->X = v0->ScriptPtr[0];
+    v0->X += (v0->ScriptPtr[1] << 8);
+    v0->Y = v0->ScriptPtr[2];
+    v0->Y += (v0->ScriptPtr[3] << 8);
+    v4 = gUnknown_03000818;
+    gUnknown_03000818 = 16;
+    ChangeBgMusic(0xFFu);
+    DelayByAmount(60);
+    ChangeBgMusic(0x23u);
+    gUnknown_030007B0 = gUnknown_0300081C;
+    gUnknown_030007BC = gUnknown_0300081C - 16;
+    if ( gUnknown_030007BC < 0 )
+    {
+        gUnknown_030007BC = gUnknown_0300081C + 52;
+    }
+    gUnknown_03000838 = gUnknown_0300081C - 32;
+    if ( gUnknown_03000838 < 0 )
+    {
+        gUnknown_03000838 = gUnknown_0300081C + 36;
+    }
+    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007B0][1] |= 2u;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007BC][1] |= 2u;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_03000838][1] |= 2u;
+    sub_8F07144(0, 0);
+    sub_8F07144(0, 0);
+    sub_8F07058(1u);
+    sub_8F07058(1u);
+    sub_8F07058(2u);
+    sub_8F07058(2u);
+    sub_8F07058(3u);
+    sub_8F07058(6u);
+    sub_8F07058(2u);
+    sub_8F07058(2u);
+    sub_8F07058(3u);
+    sub_8F07058(6u);
+    sub_8F07058(1u);
+    sub_8F07058(4u);
+    sub_8F07058(4u);
+    sub_8F07058(5u);
+    sub_8F07058(5u);
+    sub_8F07058(4u);
+    sub_8F07058(4u);
+    sub_8F07058(5u);
+    sub_8F07058(5u);
+    sub_8F07144(0, 0);
+    sub_8F07144(0, 0);
+    sub_8F07058(2u);
+    sub_8F07058(2u);
+    sub_8F07058(3u);
+    sub_8F07058(6u);
+    sub_8F07058(1u);
+    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
+    sub_8F07144(0, 0);
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007B0][1] |= 2u;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_030007BC][1] |= 2u;
+    sub_8F07144(0, 0);
+    gUnknown_03002850[gUnknown_03000838][1] |= 2u;
+    sub_8F07144(0, 0);
+    sub_8F07144(0, 0);
+    DelayByAmount(45);
+    gUnknown_03000818 = v4;
+    gUnknown_03002850[gUnknown_030007B0][0] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_030007B0][1] |= 1u;
+    gUnknown_03002850[gUnknown_030007BC][0] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_030007BC][1] |= 1u;
+    gUnknown_03002850[gUnknown_03000838][0] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
+    gUnknown_03002850[gUnknown_03000838][1] |= 1u;
+}
 
+void SCR_CMD_65()
+{
+    // jump unless all 8 melodies learned
+    if ( gGameInfo.Flags[30] != 0xFF )           // MelodiesUnlocked
+    {
+        SCR_CMD_01_Jump();
+    }
+    else
+    {
+        ++gScriptPtr;
+        gGameInfo.PlayerInfo.field_C = 0xD2;
+        gGameInfo.PlayerInfo.field_E = 0x4780;
+        gGameInfo.field_2AE = 0;
+        gGameInfo.field_2AF = 0;
+    }
+}
 
+void SCR_CMD_66()
+{
+    sTextState state;
+
+    // register your name
+    SaveTextSystemState(&state);
+    sub_8F0BC04(&gGameInfo.PlayerInfo.field_20, 28u);
+    LoadTextSystemState(&state);
+    gTextDelayAfterWriteCharacterEnabled |= 0x80u;
+}
+
+void SCR_CMD_67()
+{
+    s32 i;
+
+    // darken palette (Magicant end)
+    for(i = 0; i < 8; i++)
+    {
+        DarkenPalette((u16 *)0x05000000, gNESPalette[15], 0x40u, 1u);
+        DelayByAmount(8u);
+    }
+}
+
+void SCR_CMD_68()
+{
+    u8 i;
+    u32 v1;
+    u32 v2;
+
+    // land mine
+    sub_8F099D8();
+    for(i = 0; i < 4; i++)
+    {
+        v1 = gGameInfo.PlayerInfo.CharactersInParty[i];
+        v1--;
+        if ( (u8)v1 < 5u
+          && !(gGameInfo.PlayerInfo.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
+        {
+            gGameInfo.PlayerInfo.CharacterInfo[v1].Condition |= CONDITION_PARALYZED;
+        }
+    }
+    sub_8F03128();
+    sub_8F09AA8();
+    for(i = 0; i < 4; i++)
+    {
+        v1 = gGameInfo.PlayerInfo.CharactersInParty[i];
+        v1--;
+        if ( (u8)v1 < 5u
+          && !(gGameInfo.PlayerInfo.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
+        {
+            gGameInfo.PlayerInfo.CharacterInfo[v1].Condition &= ~CONDITION_PARALYZED;
+        }
+    }
+}
+
+#if NON_MATCHING
+void SCR_CMD_69_Quake() //reg diff
+{
+    s32 i; // r4
+    u32 temp;
+
+    // horiz. shake (EVE?)
+    for(i = 3; i >= 0; i--)
+    {
+        REG_BG2HOFS = ((gUnknown_03000788 / 4u) % 16u) ^ ((i * 2u) & 4u);
+        sub_8F040E0();
+    }
+}
+#else
+NAKED
+void SCR_CMD_69_Quake()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_69_Quake.s\"");
+}
+#endif
+
+#if NON_MATCHING
+void SCR_CMD_6A() //Not attempted
+{
+    TODO: attempt this
+}
+#else
+NAKED
+void SCR_CMD_6A()
+{
+    asm(".include \"asm/non_matching/SCR_CMD_6A.s\"");
+}
+#endif
+
+void SCR_CMD_6B_Dummy()
+{
+}
+
+void SCR_CMD_6C()
+{
+    gUnknown_03003170 &= 0x7Fu;
+}
+
+void SCR_CMD_6D_SaveCurrentBgMusicId()
+{
+    gOldBgMusic = gCurrentBgMusic;
+}
+
+void SCR_CMD_6E_PlayOldBgMusicId()
+{
+    ChangeBgMusic(gOldBgMusic);
+}
+
+void SCR_CMD_6F()
+{
+    gUnknown_03003170 &= 0x7Fu;
+    gTextPlaySfx = 0;
+    DrawPartyInfoWindow();
+}
+
+void SCR_CMD_70()
+{
+    u8 v0;
+    u8 v1;
+
+    for(v0 = 0; v0 < 3; v0++)
+    {
+        for(v1 = 21; v1 < 32; v1++)
+        {
+            gBg0TilemapBuffer[v1 + 32 * v0] = 0;
+        }
+    }
+    UpdateBg0Tilemap();
+}
