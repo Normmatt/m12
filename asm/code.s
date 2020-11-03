@@ -446,8 +446,8 @@ sub_8F01220: @ 0x08F01220
 	.align 2, 0
 _08F01250: .4byte gUnknown_08F6451C
 
-	thumb_func_start sub_8F01254
-sub_8F01254: @ 0x08F01254
+	thumb_func_start ResetVariablesUponEnteringTown
+ResetVariablesUponEnteringTown: @ 0x08F01254
 	push {r4, lr}
 	ldr r0, _08F012E0 @ =gUnknown_03000788
 	ldrh r0, [r0]

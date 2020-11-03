@@ -299,14 +299,14 @@ gItemEffectHandlers:
     .word FigureOutLengthsOfManyThings+1
     .word HandleMap+1
     .word PlayOcarinaOfHope+1
-    .word sub_8F08C44+1
+    .word ItemNothingHappened+1
     .word sub_8F08C5C+1
     .word sub_8F08D70+1
     .word sub_8F08DC0+1
     .word sub_8F08DCC+1
     .word sub_8F08DD8+1
     .word sub_8F08DE8+1
-    .word sub_8F08C44+1
+    .word ItemNothingHappened+1
     .word sub_8F08DFC+1
     .word sub_8F08E10+1
     .word sub_8F08AE8+1

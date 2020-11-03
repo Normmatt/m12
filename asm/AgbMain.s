@@ -264,7 +264,7 @@ _08F003C8:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08F003D4
-	bl sub_8F01254
+	bl ResetVariablesUponEnteringTown
 _08F003D4:
 	bl sub_8F01388
 	bl sub_8F016EC

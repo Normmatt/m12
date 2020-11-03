@@ -1124,7 +1124,7 @@ void SCR_CMD_41()
     gPlayerY = gGameInfo.PlayerInfo.field_E + 0x80;
     gUnknown_03000840 = gGameInfo.field_2AE;
     gUnknown_030034A8 = gGameInfo.field_2AF;
-    sub_8F09420();
+    UpdatePartyLocationsAfterTeleport();
 }
 
 void SCR_CMD_42()
@@ -1369,7 +1369,7 @@ void SCR_CMD_4D()
 
 void SCR_CMD_4E()
 {
-    sub_8F09420();
+    UpdatePartyLocationsAfterTeleport();
 }
 
 void SCR_CMD_4F()

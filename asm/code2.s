@@ -716,7 +716,7 @@ _08F0746A:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08F07476
-	bl sub_8F01254
+	bl ResetVariablesUponEnteringTown
 _08F07476:
 	bl sub_8F01388
 	bl sub_8F016EC
@@ -952,7 +952,7 @@ _08F0766C:
 	rsbs r6, r6, #0
 	adds r0, r6, #0
 	strb r0, [r1]
-	bl sub_8F09420
+	bl UpdatePartyLocationsAfterTeleport
 	add sp, #0x54
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -1525,7 +1525,7 @@ _08F07B1E:
 	bl PlaySfxById2
 	movs r0, #0xa
 	bl DelayByAmount
-	bl sub_8F01254
+	bl ResetVariablesUponEnteringTown
 	bl sub_8F01388
 	bl DrawBg2Tilemap
 #ifdef NDS_VERSION
@@ -2864,7 +2864,7 @@ _08F085D0: .4byte 0x000006CA
 	thumb_func_start sub_8F085D4
 sub_8F085D4: @ 0x08F085D4
 	push {r4, lr}
-	bl sub_8F09354
+	bl CanTeleport
 	cmp r0, #0
 	beq _08F08638
 	ldr r1, _08F085FC @ =gGameInfo
@@ -2907,7 +2907,7 @@ _08F08600:
 	ldr r0, _08F08660 @ =gUnknown_030034A8
 	strb r4, [r0]
 	strb r4, [r1]
-	bl sub_8F09420
+	bl UpdatePartyLocationsAfterTeleport
 _08F08638:
 	pop {r4}
 	pop {r0}
@@ -3527,7 +3527,7 @@ _08F08B70: .4byte gUnknown_03003174
 	thumb_func_start sub_8F08B74
 sub_8F08B74: @ 0x08F08B74
 	push {r4, lr}
-	bl sub_8F09354
+	bl CanTeleport
 	cmp r0, #0
 	beq _08F08C26
 	ldr r0, _08F08BA0 @ =0x0000038E
@@ -3600,7 +3600,7 @@ _08F08C14:
 	movs r0, #0
 	strb r0, [r1]
 	strb r0, [r2]
-	bl sub_8F09420
+	bl UpdatePartyLocationsAfterTeleport
 _08F08C26:
 	pop {r4}
 	pop {r0}
@@ -3613,8 +3613,8 @@ _08F08C38: .4byte 0x0000C884
 _08F08C3C: .4byte gUnknown_03000840
 _08F08C40: .4byte gUnknown_030034A8
 
-	thumb_func_start sub_8F08C44
-sub_8F08C44: @ 0x08F08C44
+	thumb_func_start ItemNothingHappened
+ItemNothingHappened: @ 0x08F08C44
 	push {lr}
 	ldr r0, _08F08C58 @ =0x000006C7
 	bl DrawTextWithId
@@ -3753,7 +3753,7 @@ _08F08D58:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08F08D64
-	bl sub_8F08C44
+	bl ItemNothingHappened
 _08F08D64:
 	pop {r4, r5, r6, r7}
 	pop {r0}
@@ -3764,7 +3764,7 @@ _08F08D6C: .4byte gUnknown_03003170
 	thumb_func_start sub_8F08D70
 sub_8F08D70: @ 0x08F08D70
 	push {r4, lr}
-	bl sub_8F09354
+	bl CanTeleport
 	cmp r0, #0
 	beq _08F08DB0
 	bl SelectTeleportDestination
@@ -3829,7 +3829,7 @@ sub_8F08DE8: @ 0x08F08DE8
 	push {lr}
 	ldr r1, _08F08DF8 @ =0x000006CB
 	movs r0, #0x40
-	bl sub_8F090F0
+	bl CureConditionByItem
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -3840,7 +3840,7 @@ sub_8F08DFC: @ 0x08F08DFC
 	push {lr}
 	ldr r1, _08F08E0C @ =0x000006C3
 	movs r0, #2
-	bl sub_8F090F0
+	bl CureConditionByItem
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -3851,7 +3851,7 @@ sub_8F08E10: @ 0x08F08E10
 	push {lr}
 	ldr r1, _08F08E20 @ =0x000006C9
 	movs r0, #0x80
-	bl sub_8F090F0
+	bl CureConditionByItem
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -4021,7 +4021,7 @@ _08F08F68:
 	ands r0, r1
 	cmp r0, #0
 	beq _08F08F90
-	bl sub_8F08C44
+	bl ItemNothingHappened
 	b _08F08FEA
 	.align 2, 0
 _08F08F8C: .4byte gGameInfo
@@ -4183,8 +4183,8 @@ _08F090E0:
 	.align 2, 0
 _08F090EC: .4byte gUnknown_030007D8
 
-	thumb_func_start sub_8F090F0
-sub_8F090F0: @ 0x08F090F0
+	thumb_func_start CureConditionByItem
+CureConditionByItem: @ 0x08F090F0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -4246,7 +4246,7 @@ _08F0916C: .4byte 0x000006C7
 _08F09170: .4byte gUnknown_03003174
 _08F09174: .4byte gUnknown_03003170
 _08F09178:
-	bl sub_8F08C44
+	bl ItemNothingHappened
 	b _08F091C4
 _08F0917E:
 	adds r0, r6, #0
@@ -4276,7 +4276,7 @@ _08F091B4: .4byte 0x000006C7
 _08F091B8: .4byte gUnknown_03003174
 _08F091BC: .4byte gUnknown_03003170
 _08F091C0:
-	bl sub_8F08C44
+	bl ItemNothingHappened
 _08F091C4:
 	pop {r3, r4}
 	mov r8, r3
@@ -4470,8 +4470,8 @@ _08F09348: .4byte gUnknown_03003174
 _08F0934C: .4byte gUnknown_03003188
 _08F09350: .4byte gTeleportLocations
 
-	thumb_func_start sub_8F09354
-sub_8F09354: @ 0x08F09354
+	thumb_func_start CanTeleport
+CanTeleport: @ 0x08F09354
 	push {lr}
 	ldr r1, _08F09374 @ =gGameInfo
 	ldr r0, _08F09378 @ =0x0000021F
@@ -4574,8 +4574,8 @@ _08F09414: .4byte gUnknown_03000788
 _08F09418: .4byte gCurrentBgMusic
 _08F0941C: .4byte gUnknown_030007A4
 
-	thumb_func_start sub_8F09420
-sub_8F09420: @ 0x08F09420
+	thumb_func_start UpdatePartyLocationsAfterTeleport
+UpdatePartyLocationsAfterTeleport: @ 0x08F09420
 	push {r4, r5, lr}
 	movs r3, #0
 	ldr r4, _08F09470 @ =gGameInfo
@@ -14517,7 +14517,7 @@ InitiateBattle: @ 0x08F0E2F4
 	sub sp, #8
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	ldr r2, _08F0E4FC @ =gUnknown_03003628
+	ldr r2, _08F0E4FC @ =gBattleEnemyGroupId
 	strb r0, [r2]
 	ldr r2, _08F0E500 @ =gUnknown_030034F8
 	strb r1, [r2]
@@ -14713,7 +14713,7 @@ _08F0E476:
 	beq _08F0E562
 	ldrb r3, [r0, #1]
 	movs r2, #0
-	ldr r7, _08F0E4FC @ =gUnknown_03003628
+	ldr r7, _08F0E4FC @ =gBattleEnemyGroupId
 	mov sl, r7
 	ldr r0, _08F0E52C @ =gUnknown_03003500
 	mov r8, r0
@@ -14772,7 +14772,7 @@ _08F0E49A:
 	strb r1, [r0, #0x1d]
 	b _08F0E562
 	.align 2, 0
-_08F0E4FC: .4byte gUnknown_03003628
+_08F0E4FC: .4byte gBattleEnemyGroupId
 _08F0E500: .4byte gUnknown_030034F8
 _08F0E504: .4byte gEnemyMusic
 _08F0E508: .4byte gMiscContainer
@@ -14891,7 +14891,7 @@ _08F0E5D0:
 	ldr r0, _08F0E658 @ =gUnknown_03003600
 	movs r1, #0
 	strb r1, [r0]
-	ldr r0, _08F0E65C @ =gUnknown_03003664
+	ldr r0, _08F0E65C @ =gLastItemDropped
 	strb r1, [r0]
 	ldr r2, _08F0E640 @ =gEnemyGroupSpecialEncounter
 	ldrb r2, [r2]
@@ -14924,7 +14924,7 @@ _08F0E64C: .4byte gUnknown_03003500
 _08F0E650: .4byte gUnknown_03003502
 _08F0E654: .4byte 0x000003FF
 _08F0E658: .4byte gUnknown_03003600
-_08F0E65C: .4byte gUnknown_03003664
+_08F0E65C: .4byte gLastItemDropped
 _08F0E660: .4byte 0x0000FFFF
 _08F0E664: .4byte gUnknown_0300362C
 _08F0E668:
@@ -15012,7 +15012,7 @@ _08F0E70C:
 	movs r1, #0
 	strh r1, [r0]
 	bl sub_8F124F0
-	ldr r0, _08F0E764 @ =gUnknown_03003628
+	ldr r0, _08F0E764 @ =gBattleEnemyGroupId
 	ldrb r0, [r0]
 	cmp r0, #0xa2
 	bne _08F0E73E
@@ -15038,7 +15038,7 @@ _08F0E73E:
 	bx r1
 	.align 2, 0
 _08F0E760: .4byte gKeysDown
-_08F0E764: .4byte gUnknown_03003628
+_08F0E764: .4byte gBattleEnemyGroupId
 _08F0E768: .4byte gUnknown_030034FC
 _08F0E76C: .4byte gOverworldMusic
 
@@ -15335,7 +15335,7 @@ SetupEnemyGroups: @ 0x08F0E988
 	mov r0, sp
 	bl memcpy
 	ldr r2, _08F0E9C0 @ =gMiscContainer
-	ldr r1, _08F0E9C4 @ =gUnknown_03003628
+	ldr r1, _08F0E9C4 @ =gBattleEnemyGroupId
 	ldrb r3, [r1]
 	lsls r0, r3, #2
 	adds r0, r0, r3
@@ -15351,7 +15351,7 @@ _08F0E9B4: .4byte 0xFFFFF98C
 _08F0E9B8: .4byte gEnemyGroupsData
 _08F0E9BC: .4byte 0x00000672
 _08F0E9C0: .4byte gMiscContainer
-_08F0E9C4: .4byte gUnknown_03003628
+_08F0E9C4: .4byte gBattleEnemyGroupId
 _08F0E9C8: .4byte 0x00000674
 
 	thumb_func_start sub_8F0E9CC
@@ -15950,7 +15950,7 @@ sub_8F0EE8C: @ 0x08F0EE8C
 	sub sp, #0x14
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
-	ldr r0, _08F0EEB0 @ =gUnknown_03003628
+	ldr r0, _08F0EEB0 @ =gBattleEnemyGroupId
 	ldrb r0, [r0]
 	cmp r0, #0xa2
 	bne _08F0EEB4
@@ -15960,7 +15960,7 @@ sub_8F0EE8C: @ 0x08F0EE8C
 	str r2, [sp, #4]
 	b _08F0EEBC
 	.align 2, 0
-_08F0EEB0: .4byte gUnknown_03003628
+_08F0EEB0: .4byte gBattleEnemyGroupId
 _08F0EEB4:
 	movs r4, #2
 	str r4, [sp]
@@ -16053,7 +16053,7 @@ sub_8F0EF4C: @ 0x08F0EF4C
 	sub sp, #0x14
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
-	ldr r0, _08F0EF70 @ =gUnknown_03003628
+	ldr r0, _08F0EF70 @ =gBattleEnemyGroupId
 	ldrb r0, [r0]
 	cmp r0, #0xa2
 	bne _08F0EF74
@@ -16063,7 +16063,7 @@ sub_8F0EF4C: @ 0x08F0EF4C
 	str r2, [sp, #4]
 	b _08F0EF7C
 	.align 2, 0
-_08F0EF70: .4byte gUnknown_03003628
+_08F0EF70: .4byte gBattleEnemyGroupId
 _08F0EF74:
 	movs r4, #2
 	str r4, [sp]
@@ -16161,7 +16161,7 @@ sub_8F0F014: @ 0x08F0F014
 	lsrs r2, r0, #0x18
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
-	ldr r0, _08F0F03C @ =gUnknown_03003628
+	ldr r0, _08F0F03C @ =gBattleEnemyGroupId
 	ldrb r0, [r0]
 	cmp r0, #0xa2
 	bne _08F0F040
@@ -16171,7 +16171,7 @@ sub_8F0F014: @ 0x08F0F014
 	str r3, [sp, #4]
 	b _08F0F048
 	.align 2, 0
-_08F0F03C: .4byte gUnknown_03003628
+_08F0F03C: .4byte gBattleEnemyGroupId
 _08F0F040:
 	movs r6, #2
 	str r6, [sp]
@@ -16361,8 +16361,8 @@ _08F0F19C: .4byte gUnknown_030034C0
 _08F0F1A0: .4byte gUnknown_03003670
 _08F0F1A4: .4byte 0x06003180
 
-	thumb_func_start sub_8F0F1A8
-sub_8F0F1A8: @ 0x08F0F1A8
+	thumb_func_start DrawBattleStatusTextById
+DrawBattleStatusTextById: @ 0x08F0F1A8
 	push {r4, r5, lr}
 	sub sp, #0x160
 	lsls r0, r0, #0x18
@@ -16445,11 +16445,11 @@ sub_8F0F244: @ 0x08F0F244
 	ldr r0, _08F0F260 @ =gUnknown_03003700
 	ldrb r0, [r0]
 	ldr r1, _08F0F264 @ =gUnknown_03003640
-	bl sub_8F0F270
+	bl CopyName
 	ldr r0, _08F0F268 @ =gUnknown_030036EC
 	ldrb r0, [r0]
 	ldr r1, _08F0F26C @ =gUnknown_03003610
-	bl sub_8F0F270
+	bl CopyName
 	pop {r0}
 	bx r0
 	.align 2, 0
@@ -16458,8 +16458,8 @@ _08F0F264: .4byte gUnknown_03003640
 _08F0F268: .4byte gUnknown_030036EC
 _08F0F26C: .4byte gUnknown_03003610
 
-	thumb_func_start sub_8F0F270
-sub_8F0F270: @ 0x08F0F270
+	thumb_func_start CopyName
+CopyName: @ 0x08F0F270
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	lsls r0, r0, #0x18
@@ -16612,7 +16612,7 @@ _08F0F346:
 	movs r0, #0x64
 	bl sub_8F0E838
 	movs r0, #0x92
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F2F6
 	.align 2, 0
 _08F0F394: .4byte gUnknown_03003500
@@ -16657,7 +16657,7 @@ _08F0F3D8:
 	cmp r0, #0
 	beq _08F0F3F0
 	movs r0, #0x47
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 	.align 2, 0
 _08F0F3E8: .4byte gUnknown_03003500
@@ -16668,7 +16668,7 @@ _08F0F3F0:
 	cmp r0, #0
 	beq _08F0F400
 	movs r0, #0x46
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F400:
 	movs r0, #0x10
@@ -16680,7 +16680,7 @@ _08F0F400:
 	cmp r0, #0
 	beq _08F0F41A
 	movs r0, #0x3c
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F41A:
 	ldrb r4, [r6]
@@ -16695,7 +16695,7 @@ _08F0F41A:
 	strb r0, [r1]
 	bl sub_8F0EA98
 	movs r0, #0x8e
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 	.align 2, 0
 _08F0F43C: .4byte gUnknown_030036EC
@@ -16705,7 +16705,7 @@ _08F0F440:
 	cmp r0, #0
 	beq _08F0F450
 	movs r0, #0x68
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F450:
 	movs r0, #2
@@ -16717,7 +16717,7 @@ _08F0F450:
 	cmp r3, #0x76
 	beq _08F0F468
 	movs r0, #0x56
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F468:
 	mov r5, r8
@@ -16737,7 +16737,7 @@ _08F0F468:
 	cmp r0, #0
 	beq _08F0F492
 	movs r0, #0x1c
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F492:
 	ldrb r4, [r4]
@@ -16748,7 +16748,7 @@ _08F0F492:
 	ands r0, r3
 	strb r0, [r1, #0x1e]
 	movs r0, #0x8b
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F4FA
 _08F0F4A8:
 	movs r0, #8
@@ -16757,7 +16757,7 @@ _08F0F4A8:
 	cmp r0, #0
 	beq _08F0F4B8
 	movs r0, #0x3a
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0F4B8:
 	ldr r3, _08F0F504 @ =gUnknown_03003690
 	ldr r2, _08F0F508 @ =gUnknown_08F70840
@@ -16943,21 +16943,21 @@ _08F0F630:
 	b _08F0F720
 _08F0F63E:
 	movs r0, #0x2d
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	bl sub_8F10130
 	cmp r0, #0
 	bne _08F0F720
 	movs r0, #0x40
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F720
 _08F0F654:
 	movs r0, #0x2e
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	bl sub_8F10130
 	cmp r0, #0
 	bne _08F0F720
 	movs r0, #0x41
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F720
 _08F0F66A:
 	ldr r1, _08F0F674 @ =gUnknown_03003600
@@ -17080,7 +17080,7 @@ sub_8F0F734: @ 0x08F0F734
 	ldr r1, [r1]
 	ldr r2, _08F0F7AC @ =gUnknown_030036A0
 	ldrb r0, [r1]
-	ldr r4, _08F0F7B0 @ =gUnknown_03003680
+	ldr r4, _08F0F7B0 @ =gActionPpRequired
 	cmp r0, #0
 	beq _08F0F772
 _08F0F766:
@@ -17097,15 +17097,15 @@ _08F0F772:
 	ldrb r0, [r0, #7]
 	strh r0, [r4]
 	movs r0, #0x64
-	bl sub_8F0F1A8
-	bl sub_8F101A8
+	bl DrawBattleStatusTextById
+	bl CanUsePsi
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _08F0F7B8
 	ldr r0, _08F0F7B4 @ =gUnknown_03003604
 	strb r1, [r0]
 	movs r0, #0x51
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F810
 	.align 2, 0
 _08F0F798: .4byte gUnknown_08F70840
@@ -17114,17 +17114,17 @@ _08F0F7A0: .4byte gUnknown_03003688
 _08F0F7A4: .4byte gUnknown_08F5C51C
 _08F0F7A8: .4byte gUnknown_030034E8
 _08F0F7AC: .4byte gUnknown_030036A0
-_08F0F7B0: .4byte gUnknown_03003680
+_08F0F7B0: .4byte gActionPpRequired
 _08F0F7B4: .4byte gUnknown_03003604
 _08F0F7B8:
-	bl sub_8F101CC
+	bl AttackerHasEnoughPP
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _08F0F7D4
 	ldr r0, _08F0F7D0 @ =gUnknown_03003604
 	strb r1, [r0]
 	movs r0, #0x54
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F810
 	.align 2, 0
 _08F0F7D0: .4byte gUnknown_03003604
@@ -17194,7 +17194,7 @@ sub_8F0F820: @ 0x08F0F820
 	bl sub_8F10398
 _08F0F856:
 	movs r0, #0x63
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldr r4, _08F0F88C @ =gUnknown_03003668
 	ldrb r0, [r4]
 	bl sub_8F0E770
@@ -17263,7 +17263,7 @@ _08F0F8E6:
 	bne _08F0F92A
 	bl sub_8F10398
 	movs r0, #0x75
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F92A
 _08F0F8FC:
 	bl Random
@@ -17272,7 +17272,7 @@ _08F0F8FC:
 	bne _08F0F92A
 	bl sub_8F10398
 	movs r0, #0x78
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0F92A
 _08F0F912:
 	ldr r1, _08F0F938 @ =gGameInfo
@@ -17284,7 +17284,7 @@ _08F0F912:
 	bne _08F0F92A
 	bl sub_8F10398
 	movs r0, #0x91
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0F92A:
 	ldr r1, _08F0F93C @ =gUnknown_03003690
 	ldrh r0, [r1]
@@ -17544,14 +17544,14 @@ _08F0FB3C:
 	bne _08F0FB42
 	movs r1, #1
 _08F0FB42:
-	ldr r0, _08F0FB4C @ =gUnknown_03003680
+	ldr r0, _08F0FB4C @ =gActionPpRequired
 	strh r1, [r0]
 	b _08F0FD12
 	.align 2, 0
 _08F0FB48: .4byte gEnemyGroupSpecialEncounter
-_08F0FB4C: .4byte gUnknown_03003680
+_08F0FB4C: .4byte gActionPpRequired
 _08F0FB50:
-	ldr r4, _08F0FB78 @ =gUnknown_03003680
+	ldr r4, _08F0FB78 @ =gActionPpRequired
 	ldr r1, _08F0FB7C @ =gUnknown_03003500
 	ldr r0, _08F0FB80 @ =gUnknown_03003700
 	ldrb r0, [r0]
@@ -17571,12 +17571,12 @@ _08F0FB6A:
 	strh r0, [r4]
 	b _08F0FD12
 	.align 2, 0
-_08F0FB78: .4byte gUnknown_03003680
+_08F0FB78: .4byte gActionPpRequired
 _08F0FB7C: .4byte gUnknown_03003500
 _08F0FB80: .4byte gUnknown_03003700
 _08F0FB84: .4byte gEnemyGroupSpecialEncounter
 _08F0FB88:
-	ldr r2, _08F0FBB8 @ =gUnknown_03003680
+	ldr r2, _08F0FBB8 @ =gActionPpRequired
 	strh r3, [r2]
 	ldr r0, _08F0FBBC @ =gEnemyGroupSpecialEncounter
 	ldrb r0, [r0]
@@ -17604,7 +17604,7 @@ _08F0FBB2:
 	strh r0, [r2]
 	b _08F0FD12
 	.align 2, 0
-_08F0FBB8: .4byte gUnknown_03003680
+_08F0FBB8: .4byte gActionPpRequired
 _08F0FBBC: .4byte gEnemyGroupSpecialEncounter
 _08F0FBC0: .4byte gUnknown_03003700
 _08F0FBC4: .4byte gUnknown_030034F0
@@ -17617,7 +17617,7 @@ _08F0FBC8:
 _08F0FBD2:
 	ldr r4, _08F0FBF8 @ =gUnknown_030036FC
 	ldrb r0, [r4]
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldrb r0, [r4]
 	adds r0, #1
 	strb r0, [r4]
@@ -17644,13 +17644,13 @@ _08F0FBFC:
 _08F0FC08: .4byte gUnknown_03003654
 _08F0FC0C:
 	movs r0, #0x6a
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldr r0, _08F0FC24 @ =gEnemyGroupSpecialEncounter
 	ldrb r0, [r0]
 	cmp r0, #2
 	bne _08F0FC28
 	movs r0, #0x95
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 	.align 2, 0
 _08F0FC24: .4byte gEnemyGroupSpecialEncounter
@@ -17658,13 +17658,13 @@ _08F0FC28:
 	cmp r0, #3
 	bne _08F0FC34
 	movs r0, #0x94
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 _08F0FC34:
 	cmp r0, #4
 	bne _08F0FC40
 	movs r0, #0x93
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 _08F0FC40:
 	cmp r0, #5
@@ -17673,7 +17673,7 @@ _08F0FC40:
 	bne _08F0FC50
 _08F0FC48:
 	movs r0, #1
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 _08F0FC50:
 	ldr r6, _08F0FC60 @ =gUnknown_030036EC
@@ -17681,7 +17681,7 @@ _08F0FC50:
 	cmp r4, #3
 	bhi _08F0FC64
 	movs r0, #0x90
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 	.align 2, 0
 _08F0FC60: .4byte gUnknown_030036EC
@@ -17694,14 +17694,14 @@ _08F0FC64:
 	ldrh r0, [r0, #6]
 	str r0, [r5]
 	movs r0, #0x24
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldrb r1, [r6]
 	lsls r0, r1, #5
 	adds r0, r0, r4
 	ldrh r0, [r0, #8]
 	str r0, [r5]
 	movs r0, #0x25
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldrb r6, [r6]
 	lsls r0, r6, #5
 	adds r0, r0, r4
@@ -17711,21 +17711,21 @@ _08F0FC64:
 	cmp r0, #0
 	beq _08F0FC9E
 	movs r0, #0x6b
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0FC9E:
 	movs r0, #0x20
 	ands r0, r4
 	cmp r0, #0
 	beq _08F0FCAC
 	movs r0, #0x6c
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0FCAC:
 	movs r0, #0x10
 	ands r0, r4
 	cmp r0, #0
 	beq _08F0FCBA
 	movs r0, #0x6d
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0FCBA:
 	movs r0, #0x80
 	ands r0, r4
@@ -17736,10 +17736,10 @@ _08F0FCBA:
 	cmp r4, #0
 	beq _08F0FCD0
 	movs r0, #0x6f
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F0FCD0:
 	movs r0, #0xff
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 	.align 2, 0
 _08F0FCD8: .4byte gUnknown_03003708
@@ -17765,7 +17765,7 @@ _08F0FCF8:
 _08F0FD00: .4byte gUnknown_03003668
 _08F0FD04:
 	adds r0, r3, #0
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F0FD12
 _08F0FD0C:
 	adds r0, r3, #0
@@ -18118,7 +18118,7 @@ _08F0FFC6:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0x11
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F10058
 	.align 2, 0
 _08F0FFD4: .4byte gUnknown_03003500
@@ -18358,7 +18358,7 @@ _08F10164:
 	ldrb r0, [r0]
 	strb r0, [r1]
 	movs r0, #0x42
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #1
 _08F1019E:
 	pop {r4, r5, r6}
@@ -18367,8 +18367,8 @@ _08F1019E:
 	.align 2, 0
 _08F101A4: .4byte gUnknown_030036EC
 
-	thumb_func_start sub_8F101A8
-sub_8F101A8: @ 0x08F101A8
+	thumb_func_start CanUsePsi
+CanUsePsi: @ 0x08F101A8
 	ldr r2, _08F101C0 @ =gUnknown_03003500
 	ldr r0, _08F101C4 @ =gUnknown_03003700
 	ldrb r0, [r0]
@@ -18389,14 +18389,14 @@ _08F101C8:
 _08F101CA:
 	bx lr
 
-	thumb_func_start sub_8F101CC
-sub_8F101CC: @ 0x08F101CC
+	thumb_func_start AttackerHasEnoughPP
+AttackerHasEnoughPP: @ 0x08F101CC
 	ldr r1, _08F101E4 @ =gUnknown_03003500
 	ldr r0, _08F101E8 @ =gUnknown_03003700
 	ldrb r0, [r0]
 	lsls r0, r0, #5
 	adds r0, r0, r1
-	ldr r1, _08F101EC @ =gUnknown_03003680
+	ldr r1, _08F101EC @ =gActionPpRequired
 	ldrh r0, [r0, #4]
 	ldrh r1, [r1]
 	cmp r0, r1
@@ -18406,7 +18406,7 @@ sub_8F101CC: @ 0x08F101CC
 	.align 2, 0
 _08F101E4: .4byte gUnknown_03003500
 _08F101E8: .4byte gUnknown_03003700
-_08F101EC: .4byte gUnknown_03003680
+_08F101EC: .4byte gActionPpRequired
 _08F101F0:
 	movs r0, #0
 _08F101F2:
@@ -18511,7 +18511,7 @@ _08F10296:
 	cmp r0, #5
 	beq _08F102F0
 	movs r0, #0x10
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F102F0
 	.align 2, 0
 _08F102B8: .4byte gUnknown_030036EC
@@ -18535,7 +18535,7 @@ _08F102D0:
 	ldrb r0, [r0]
 	lsrs r0, r0, #2
 	adds r0, #0x79
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F102F0:
 	ldr r0, _08F10310 @ =gUnknown_030036EC
 	mov r1, sl
@@ -18594,7 +18594,7 @@ Maybe_WinBattle: @ 0x08F10314
 	ldrb r1, [r0, #0x1e]
 	cmp r1, #0
 	beq _08F10364
-	ldr r0, _08F10384 @ =gUnknown_03003664
+	ldr r0, _08F10384 @ =gLastItemDropped
 	strb r1, [r0]
 _08F10364:
 	movs r0, #6
@@ -18607,7 +18607,7 @@ _08F10374: .4byte gUnknown_03003500
 _08F10378: .4byte gExperiencePointsGained
 _08F1037C: .4byte gEnemyData
 _08F10380: .4byte gMoneyGained
-_08F10384: .4byte gUnknown_03003664
+_08F10384: .4byte gLastItemDropped
 _08F10388:
 	movs r0, #0x15
 	bl sub_8F0E770
@@ -18982,7 +18982,7 @@ _08F10650:
 	movs r0, #4
 	bl sub_8F0E770
 	movs r0, #0x8f
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F10720
 	.align 2, 0
 _08F1067C: .4byte gUnknown_03003500
@@ -18992,7 +18992,7 @@ _08F10684:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0xe
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F10720
 	.align 2, 0
 _08F10694: .4byte gUnknown_03003700
@@ -19019,7 +19019,7 @@ _08F10698:
 	cmp r0, #0
 	beq _08F106C8
 	movs r0, #0x31
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F106C8:
 	ldr r0, _08F106F8 @ =gEnemyGroupSpecialEncounter
 	ldrb r0, [r0]
@@ -19046,7 +19046,7 @@ _08F10700:
 	movs r0, #5
 	bl ChangeBgMusic
 	movs r0, #0xd
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F10720
 _08F1070E:
 	ldr r0, _08F10724 @ =gEnemyGroupSpecialEncounter
@@ -19364,7 +19364,7 @@ _08F10960:
 	bl sub_8F1225C
 	cmp r0, #0
 	bne _08F108A0
-	ldr r3, _08F109A4 @ =gUnknown_03003624
+	ldr r3, _08F109A4 @ =gBattleItemId
 	ldrb r0, [r3]
 	cmp r0, #0x43
 	beq _08F108A0
@@ -19374,7 +19374,7 @@ _08F10960:
 	ldrb r1, [r4]
 	lsls r0, r1, #5
 	adds r0, r0, r2
-	ldr r1, _08F109AC @ =gUnknown_03003658
+	ldr r1, _08F109AC @ =gBattleItemInventoryIdx
 	ldrb r1, [r1]
 	strb r1, [r0, #0x19]
 	ldrb r1, [r4]
@@ -19391,9 +19391,9 @@ _08F10960:
 	b _08F10AF6
 	.align 2, 0
 _08F109A0: .4byte gUnknown_03003700
-_08F109A4: .4byte gUnknown_03003624
+_08F109A4: .4byte gBattleItemId
 _08F109A8: .4byte gUnknown_03003500
-_08F109AC: .4byte gUnknown_03003658
+_08F109AC: .4byte gBattleItemInventoryIdx
 _08F109B0: .4byte gUnknown_03003694
 _08F109B4:
 	ldrb r5, [r3, #1]
@@ -19612,14 +19612,14 @@ sub_8F10B1C: @ 0x08F10B1C
 	adds r0, r0, r2
 	ldrb r1, [r1, #5]
 	strb r1, [r0, #0x1d]
-	ldr r1, _08F10B88 @ =gUnknown_03003680
+	ldr r1, _08F10B88 @ =gActionPpRequired
 	ldr r0, [r3]
 	ldrb r0, [r0, #7]
 	strh r0, [r1]
-	bl sub_8F101CC
+	bl AttackerHasEnoughPP
 	cmp r0, #0
 	beq _08F10B8C
-	bl sub_8F101A8
+	bl CanUsePsi
 	cmp r0, #0
 	beq _08F10B8C
 	movs r0, #0
@@ -19630,7 +19630,7 @@ _08F10B78: .4byte gUnknown_03003688
 _08F10B7C: .4byte gUnknown_08F5C51C
 _08F10B80: .4byte gUnknown_03003500
 _08F10B84: .4byte gUnknown_03003700
-_08F10B88: .4byte gUnknown_03003680
+_08F10B88: .4byte gActionPpRequired
 _08F10B8C:
 	movs r0, #1
 _08F10B8E:
@@ -20547,7 +20547,7 @@ sub_8F1129C: @ 0x08F1129C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
-	ldr r0, _08F112C8 @ =gUnknown_03003680
+	ldr r0, _08F112C8 @ =gActionPpRequired
 	ldrh r0, [r0]
 	mov r8, r0
 	ldr r1, _08F112CC @ =gUnknown_08F70840
@@ -20566,7 +20566,7 @@ _08F112BC:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_08F112C8: .4byte gUnknown_03003680
+_08F112C8: .4byte gActionPpRequired
 _08F112CC: .4byte gUnknown_08F70840
 _08F112D0: .4byte gUnknown_03003690
 _08F112D4: .4byte _08F112D8
@@ -20635,7 +20635,7 @@ _08F113A4:
 	bl sub_8F11E08
 	movs r0, #9
 	movs r1, #0x23
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	bl _08F11C06
 	.align 2, 0
 _08F113C0: .4byte gUnknown_030036EC
@@ -20646,7 +20646,7 @@ _08F113C4:
 	bl sub_8F12000
 	movs r0, #9
 	movs r1, #0x20
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	bl _08F11C06
 	.align 2, 0
 _08F113DC: .4byte gUnknown_030036EC
@@ -20657,12 +20657,12 @@ _08F113E0:
 	bl sub_8F12000
 	movs r0, #9
 	movs r1, #0x22
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	bl _08F11C06
 	.align 2, 0
 _08F113F8: .4byte gUnknown_030036EC
 _08F113FC:
-	ldr r1, _08F1141C @ =gUnknown_03003680
+	ldr r1, _08F1141C @ =gActionPpRequired
 	ldr r2, _08F11420 @ =0x0000FFFF
 	adds r0, r2, #0
 	strh r0, [r1]
@@ -20673,10 +20673,10 @@ _08F11404:
 	bl sub_8F11F10
 	movs r0, #0xa
 	movs r1, #0x3e
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	bl _08F11C06
 	.align 2, 0
-_08F1141C: .4byte gUnknown_03003680
+_08F1141C: .4byte gActionPpRequired
 _08F11420: .4byte 0x0000FFFF
 _08F11424: .4byte gUnknown_030036EC
 _08F11428:
@@ -20704,7 +20704,7 @@ _08F1143E:
 	bne _08F11456
 	movs r5, #0x1a
 _08F11456:
-	ldr r4, _08F1150C @ =gUnknown_03003680
+	ldr r4, _08F1150C @ =gActionPpRequired
 	bl Random
 	lsrs r0, r5
 	strh r0, [r4]
@@ -20722,7 +20722,7 @@ _08F11460:
 	cmp r0, #0
 	beq _08F11486
 	movs r0, #0x53
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldr r0, _08F11504 @ =gUnknown_03003700
 	ldrb r0, [r0]
 	strb r0, [r5]
@@ -20735,7 +20735,7 @@ _08F11486:
 	ands r0, r1
 	cmp r0, #0
 	beq _08F1149E
-	ldr r1, _08F1150C @ =gUnknown_03003680
+	ldr r1, _08F1150C @ =gActionPpRequired
 	ldrh r4, [r1]
 	lsrs r0, r4, #1
 	strh r0, [r1]
@@ -20745,14 +20745,14 @@ _08F1149E:
 	ands r0, r2
 	cmp r0, #0
 	beq _08F114B0
-	ldr r1, _08F1150C @ =gUnknown_03003680
+	ldr r1, _08F1150C @ =gActionPpRequired
 	ldrh r2, [r1]
 	lsrs r0, r2, #1
 	strh r0, [r1]
 _08F114B0:
 	adds r0, r3, #0
 	bl sub_8F121F0
-	ldr r4, _08F1150C @ =gUnknown_03003680
+	ldr r4, _08F1150C @ =gActionPpRequired
 	ldrh r0, [r4]
 	cmp r0, #0
 	bne _08F114C2
@@ -20763,7 +20763,7 @@ _08F114C2:
 	ldrh r1, [r4]
 	str r1, [r0]
 	movs r0, #0xc
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldr r0, _08F11500 @ =gEnemyGroupSpecialEncounter
 	ldrb r0, [r0]
 	cmp r0, #3
@@ -20790,7 +20790,7 @@ _08F114DE:
 _08F11500: .4byte gEnemyGroupSpecialEncounter
 _08F11504: .4byte gUnknown_03003700
 _08F11508: .4byte gUnknown_03003500
-_08F1150C: .4byte gUnknown_03003680
+_08F1150C: .4byte gActionPpRequired
 _08F11510: .4byte gUnknown_030036EC
 _08F11514: .4byte gUnknown_03003708
 _08F11518:
@@ -20818,7 +20818,7 @@ _08F1151A:
 	ands r0, r2
 	strb r0, [r1, #1]
 	movs r0, #0x8d
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F1154C:
 	ldr r5, _08F11588 @ =gUnknown_03003500
 	ldr r4, _08F1158C @ =gUnknown_030036EC
@@ -20842,7 +20842,7 @@ _08F1154C:
 	ands r0, r4
 	strb r0, [r1, #1]
 	movs r0, #0x61
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F1157E:
 	bl sub_8F0EA98
 _08F11582:
@@ -20870,7 +20870,7 @@ _08F115AC:
 	movs r1, #0xb
 	bl sub_8F11F90
 	movs r0, #0x26
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F115C4: .4byte gUnknown_030036EC
@@ -20918,7 +20918,7 @@ _08F1161A:
 	strh r4, [r0, #2]
 	movs r0, #0
 	movs r1, #0x38
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	b _08F11C06
 	.align 2, 0
 _08F11628: .4byte gUnknown_03003500
@@ -20929,7 +20929,7 @@ _08F11630:
 	movs r1, #6
 	bl sub_8F12038
 	movs r0, #0x21
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F11644: .4byte gUnknown_030036EC
@@ -20940,7 +20940,7 @@ _08F11648:
 	bl sub_8F12038
 _08F11652:
 	movs r0, #0x27
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F1165C: .4byte gUnknown_030036EC
@@ -20964,7 +20964,7 @@ _08F11660:
 	ldrb r2, [r1, #2]
 	lsls r0, r2, #0x10
 	adds r4, r4, r0
-	ldr r0, _08F116B8 @ =gUnknown_03003680
+	ldr r0, _08F116B8 @ =gActionPpRequired
 	ldrh r0, [r0]
 	adds r4, r0, r4
 	ldr r0, _08F116BC @ =0x00FFFFFF
@@ -20980,13 +20980,13 @@ _08F11696:
 _08F116A0:
 	movs r0, #0xa
 	movs r1, #0x2f
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	b _08F11C06
 	.align 2, 0
 _08F116AC: .4byte gUnknown_030036EC
 _08F116B0: .4byte gUnknown_03003500
 _08F116B4: .4byte gUnknown_030031E1
-_08F116B8: .4byte gUnknown_03003680
+_08F116B8: .4byte gActionPpRequired
 _08F116BC: .4byte 0x00FFFFFF
 _08F116C0:
 	ldr r0, _08F116CC @ =gUnknown_03003700
@@ -21008,7 +21008,7 @@ _08F116DA:
 	ldrb r2, [r0]
 	lsls r0, r2, #5
 	adds r1, r0, r1
-	ldr r0, _08F11708 @ =gUnknown_03003680
+	ldr r0, _08F11708 @ =gActionPpRequired
 	ldrh r3, [r1, #2]
 	ldrh r0, [r0]
 	subs r4, r3, r0
@@ -21021,7 +21021,7 @@ _08F116DA:
 _08F116FC: .4byte gUnknown_0300317C
 _08F11700: .4byte gUnknown_03003500
 _08F11704: .4byte gUnknown_03003700
-_08F11708: .4byte gUnknown_03003680
+_08F11708: .4byte gActionPpRequired
 _08F1170C:
 	strh r4, [r1, #2]
 	bl sub_8F0EA98
@@ -21033,7 +21033,7 @@ _08F11714:
 	movs r1, #6
 	bl sub_8F11E80
 	movs r0, #0x5c
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F1172C: .4byte gUnknown_03003700
@@ -21044,7 +21044,7 @@ _08F11730:
 	movs r1, #6
 	bl sub_8F11E80
 	movs r0, #0x20
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F11748: .4byte gUnknown_030036EC
@@ -21062,7 +21062,7 @@ _08F11760:
 	movs r0, #0x80
 	movs r1, #0
 	movs r2, #0x1b
-	bl sub_8F11CF4
+	bl InflictStatus2DuringBattle
 	b _08F11C06
 _08F1176C:
 	bl sub_8F122DC
@@ -21078,7 +21078,7 @@ _08F11780:
 	movs r0, #2
 	movs r1, #0
 	movs r2, #0x4b
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	b _08F11C06
 _08F1178C:
 	bl sub_8F122DC
@@ -21099,7 +21099,7 @@ _08F117AA:
 	movs r0, #8
 	movs r1, #0
 	movs r2, #0x39
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	b _08F11C06
 _08F117B6:
 	bl sub_8F122DC
@@ -21120,7 +21120,7 @@ _08F117D4:
 	movs r0, #0x10
 	movs r1, #0
 	movs r2, #0x3b
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	b _08F11C06
 _08F117E0:
 	bl sub_8F122DC
@@ -21141,7 +21141,7 @@ _08F117FE:
 	movs r0, #0x20
 	movs r1, #0
 	movs r2, #0x49
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	b _08F11C06
 _08F1180A:
 	bl sub_8F122DC
@@ -21185,7 +21185,7 @@ _08F11854:
 	movs r0, #0x40
 	movs r1, #0
 	movs r2, #0x4d
-	bl sub_8F11CF4
+	bl InflictStatus2DuringBattle
 	b _08F11C06
 	.align 2, 0
 _08F11860: .4byte gEnemyData
@@ -21208,7 +21208,7 @@ _08F11884:
 	movs r0, #0x10
 	movs r1, #0xa
 	movs r2, #0x4f
-	bl sub_8F11CF4
+	bl InflictStatus2DuringBattle
 	b _08F11C06
 _08F11890:
 	bl sub_8F122FC
@@ -21219,7 +21219,7 @@ _08F1189A:
 	movs r0, #4
 	movs r1, #0xa
 	movs r2, #0x17
-	bl sub_8F11CF4
+	bl InflictStatus2DuringBattle
 	b _08F11C06
 _08F118A6:
 	bl sub_8F122DC
@@ -21235,7 +21235,7 @@ _08F118BA:
 	movs r0, #0x20
 	movs r1, #0
 	movs r2, #0x4e
-	bl sub_8F11CF4
+	bl InflictStatus2DuringBattle
 	b _08F11C06
 _08F118C6:
 	bl sub_8F122DC
@@ -21251,7 +21251,7 @@ _08F118DA:
 	movs r0, #0x40
 	movs r1, #0
 	movs r2, #0x19
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	cmp r0, #0
 	beq _08F118EA
 	b _08F11C06
@@ -21289,7 +21289,7 @@ _08F11920:
 	orrs r0, r2
 	strb r0, [r1, #0x1e]
 	movs r0, #0x74
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F11930: .4byte gUnknown_030036EC
@@ -21303,43 +21303,43 @@ _08F11942:
 	movs r0, #4
 	movs r1, #0
 	movs r2, #0x67
-	bl sub_8F11CA0
+	bl InflictStatusDuringBattle
 	b _08F11C06
 _08F1194E:
 	movs r0, #2
 	movs r1, #0xa
 	movs r2, #0x5d
-	bl sub_8F11D48
+	bl RemoveStatusDuringBattle
 	b _08F11C06
 _08F1195A:
 	movs r0, #0x10
 	movs r1, #0xa
 	movs r2, #0x61
-	bl sub_8F11D48
+	bl RemoveStatusDuringBattle
 	b _08F11C06
 _08F11966:
 	movs r0, #0x20
 	movs r1, #0xa
 	movs r2, #0x60
-	bl sub_8F11D48
+	bl RemoveStatusDuringBattle
 	b _08F11C06
 _08F11972:
 	movs r0, #2
 	movs r1, #0xa
 	movs r2, #0x70
-	bl sub_8F11D9C
+	bl RemoveStatus2DuringBattle
 	b _08F11C06
 _08F1197E:
 	movs r0, #0xc
 	movs r1, #0xa
 	movs r2, #0x5e
-	bl sub_8F11D48
+	bl RemoveStatusDuringBattle
 	b _08F11C06
 _08F1198A:
 	movs r0, #0x10
 	movs r1, #2
 	movs r2, #0x69
-	bl sub_8F11D9C
+	bl RemoveStatus2DuringBattle
 	b _08F11C06
 _08F11996:
 	ldr r1, _08F119C8 @ =gUnknown_03003500
@@ -21354,7 +21354,7 @@ _08F11996:
 	beq _08F11A40
 	movs r0, #0
 	strb r0, [r1, #1]
-	ldr r1, _08F119D0 @ =gUnknown_03003680
+	ldr r1, _08F119D0 @ =gActionPpRequired
 	ldr r4, _08F119D4 @ =0x0000FFFF
 	adds r0, r4, #0
 	strh r0, [r1]
@@ -21363,18 +21363,18 @@ _08F11996:
 	bl sub_8F11F10
 	movs r0, #0xa
 	movs r1, #0x62
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	b _08F11C06
 	.align 2, 0
 _08F119C8: .4byte gUnknown_03003500
 _08F119CC: .4byte gUnknown_030036EC
-_08F119D0: .4byte gUnknown_03003680
+_08F119D0: .4byte gActionPpRequired
 _08F119D4: .4byte 0x0000FFFF
 _08F119D8:
 	movs r0, #0x40
 	movs r1, #0xa
 	movs r2, #0x71
-	bl sub_8F11D48
+	bl RemoveStatusDuringBattle
 	b _08F11C06
 _08F119E4:
 	ldr r1, _08F11A2C @ =gUnknown_03003500
@@ -21397,8 +21397,8 @@ _08F119FC:
 	lsrs r0, r0, #0x10
 	str r0, [r1]
 	movs r0, #0x48
-	bl sub_8F0F1A8
-	ldr r0, _08F11A38 @ =gUnknown_03003680
+	bl DrawBattleStatusTextById
+	ldr r0, _08F11A38 @ =gActionPpRequired
 	strh r4, [r0]
 	ldr r4, _08F11A3C @ =gUnknown_03003700
 	ldrb r0, [r4]
@@ -21409,17 +21409,17 @@ _08F119FC:
 _08F11A20:
 	movs r0, #0xa
 	movs r1, #0x3d
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	b _08F11C06
 	.align 2, 0
 _08F11A2C: .4byte gUnknown_03003500
 _08F11A30: .4byte gUnknown_030036EC
 _08F11A34: .4byte gUnknown_03003708
-_08F11A38: .4byte gUnknown_03003680
+_08F11A38: .4byte gActionPpRequired
 _08F11A3C: .4byte gUnknown_03003700
 _08F11A40:
 	movs r0, #0x55
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 _08F11A48:
 	ldr r4, _08F11A84 @ =gUnknown_030036EC
@@ -21438,25 +21438,25 @@ _08F11A48:
 	lsls r0, r0, #6
 	ldr r1, _08F11A8C @ =gUnknown_030031F0
 	adds r0, r0, r1
-	ldr r1, _08F11A90 @ =gUnknown_03003658
+	ldr r1, _08F11A90 @ =gBattleItemInventoryIdx
 	ldrb r1, [r1]
-	ldr r4, _08F11A94 @ =gUnknown_03003624
+	ldr r4, _08F11A94 @ =gBattleItemId
 	ldrb r2, [r4]
 	bl sub_8F103C4
 	ldrb r0, [r4]
 	bl sub_8F11098
 	movs r0, #0x81
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F11A84: .4byte gUnknown_030036EC
 _08F11A88: .4byte gUnknown_03003500
 _08F11A8C: .4byte gUnknown_030031F0
-_08F11A90: .4byte gUnknown_03003658
-_08F11A94: .4byte gUnknown_03003624
+_08F11A90: .4byte gBattleItemInventoryIdx
+_08F11A94: .4byte gBattleItemId
 _08F11A98:
 	movs r0, #0x59
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 _08F11AA0:
 	ldr r0, _08F11AE0 @ =gUnknown_030034F0
@@ -21502,7 +21502,7 @@ _08F11AF0:
 	movs r0, #0xf
 	bl sub_8F10548
 	ldrb r0, [r4]
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #0x1e
 	bl sub_8F0E838
 	movs r0, #0x2c
@@ -21550,7 +21550,7 @@ _08F11B5C:
 	adds r4, r1, #0
 _08F11B78:
 	ldrb r0, [r4]
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	ldrb r0, [r4]
 	adds r0, #1
 	strb r0, [r4]
@@ -21579,7 +21579,7 @@ _08F11B9C:
 	orrs r0, r1
 	strb r0, [r2, #1]
 	movs r0, #0x39
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	b _08F11C06
 	.align 2, 0
 _08F11BC0: .4byte gUnknown_03003500
@@ -21600,7 +21600,7 @@ _08F11BC8:
 	bhi _08F11C06
 	movs r0, #0
 	strb r0, [r1, #1]
-	ldr r1, _08F11C28 @ =gUnknown_03003680
+	ldr r1, _08F11C28 @ =gActionPpRequired
 	ldr r2, _08F11C2C @ =0x0000FFFF
 	adds r0, r2, #0
 	strh r0, [r1]
@@ -21612,9 +21612,9 @@ _08F11BC8:
 	bl sub_8F11F10
 	movs r0, #0xa
 	movs r1, #0xac
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 _08F11C06:
-	ldr r0, _08F11C28 @ =gUnknown_03003680
+	ldr r0, _08F11C28 @ =gActionPpRequired
 	mov r3, r8
 	strh r3, [r0]
 	ldr r1, _08F11C30 @ =gUnknown_03003690
@@ -21629,7 +21629,7 @@ _08F11C06:
 	.align 2, 0
 _08F11C20: .4byte gUnknown_03003500
 _08F11C24: .4byte gUnknown_030036EC
-_08F11C28: .4byte gUnknown_03003680
+_08F11C28: .4byte gActionPpRequired
 _08F11C2C: .4byte 0x0000FFFF
 _08F11C30: .4byte gUnknown_03003690
 
@@ -21646,7 +21646,7 @@ sub_8F11C34: @ 0x08F11C34
 	beq _08F11C68
 	movs r0, #0
 	strb r0, [r1, #1]
-	ldr r1, _08F11C74 @ =gUnknown_03003680
+	ldr r1, _08F11C74 @ =gActionPpRequired
 	ldr r3, _08F11C78 @ =0x0000FFFF
 	adds r0, r3, #0
 	strh r0, [r1]
@@ -21655,7 +21655,7 @@ sub_8F11C34: @ 0x08F11C34
 	bl sub_8F11F10
 	movs r0, #0xa
 	movs r1, #0
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	movs r0, #0x14
 	bl sub_8F0E838
 _08F11C68:
@@ -21664,11 +21664,11 @@ _08F11C68:
 	.align 2, 0
 _08F11C6C: .4byte gUnknown_03003500
 _08F11C70: .4byte gUnknown_030036EC
-_08F11C74: .4byte gUnknown_03003680
+_08F11C74: .4byte gActionPpRequired
 _08F11C78: .4byte 0x0000FFFF
 
-	thumb_func_start sub_8F11C7C
-sub_8F11C7C: @ 0x08F11C7C
+	thumb_func_start DrawBattleStatusTextByIdWithSfx
+DrawBattleStatusTextByIdWithSfx: @ 0x08F11C7C
 	push {r4, lr}
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
@@ -21680,14 +21680,14 @@ sub_8F11C7C: @ 0x08F11C7C
 _08F11C8E:
 	bl sub_8F0EA98
 	adds r0, r4, #0
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	pop {r4}
 	pop {r0}
 	bx r0
 	.align 2, 0
 
-	thumb_func_start sub_8F11CA0
-sub_8F11CA0: @ 0x08F11CA0
+	thumb_func_start InflictStatusDuringBattle
+InflictStatusDuringBattle: @ 0x08F11CA0
 	push {r4, r5, lr}
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
@@ -21712,7 +21712,7 @@ sub_8F11CA0: @ 0x08F11CA0
 	strb r0, [r3, #1]
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	movs r0, #0
 	b _08F11CEC
 	.align 2, 0
@@ -21721,7 +21721,7 @@ _08F11CDC: .4byte gUnknown_03003500
 _08F11CE0: .4byte gUnknown_030036EC
 _08F11CE4:
 	movs r0, #0x55
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #1
 _08F11CEC:
 	pop {r4, r5}
@@ -21729,8 +21729,8 @@ _08F11CEC:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F11CF4
-sub_8F11CF4: @ 0x08F11CF4
+	thumb_func_start InflictStatus2DuringBattle
+InflictStatus2DuringBattle: @ 0x08F11CF4
 	push {r4, r5, lr}
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
@@ -21755,7 +21755,7 @@ sub_8F11CF4: @ 0x08F11CF4
 	strb r0, [r3, #0x1e]
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	movs r0, #0
 	b _08F11D40
 	.align 2, 0
@@ -21764,7 +21764,7 @@ _08F11D30: .4byte gUnknown_03003500
 _08F11D34: .4byte gUnknown_030036EC
 _08F11D38:
 	movs r0, #0x55
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #1
 _08F11D40:
 	pop {r4, r5}
@@ -21772,8 +21772,8 @@ _08F11D40:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F11D48
-sub_8F11D48: @ 0x08F11D48
+	thumb_func_start RemoveStatusDuringBattle
+RemoveStatusDuringBattle: @ 0x08F11D48
 	push {r4, r5, lr}
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
@@ -21798,7 +21798,7 @@ sub_8F11D48: @ 0x08F11D48
 	strb r0, [r3, #1]
 	adds r0, r5, #0
 	adds r1, r2, #0
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	movs r0, #0
 	b _08F11D94
 	.align 2, 0
@@ -21807,7 +21807,7 @@ _08F11D84: .4byte gUnknown_03003500
 _08F11D88: .4byte gUnknown_030036EC
 _08F11D8C:
 	movs r0, #0x55
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #1
 _08F11D94:
 	pop {r4, r5}
@@ -21815,8 +21815,8 @@ _08F11D94:
 	bx r1
 	.align 2, 0
 
-	thumb_func_start sub_8F11D9C
-sub_8F11D9C: @ 0x08F11D9C
+	thumb_func_start RemoveStatus2DuringBattle
+RemoveStatus2DuringBattle: @ 0x08F11D9C
 	push {r4, r5, lr}
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
@@ -21841,7 +21841,7 @@ sub_8F11D9C: @ 0x08F11D9C
 	strb r0, [r3, #0x1e]
 	adds r0, r5, #0
 	adds r1, r2, #0
-	bl sub_8F11C7C
+	bl DrawBattleStatusTextByIdWithSfx
 	movs r0, #0
 	b _08F11DE8
 	.align 2, 0
@@ -21850,7 +21850,7 @@ _08F11DD8: .4byte gUnknown_03003500
 _08F11DDC: .4byte gUnknown_030036EC
 _08F11DE0:
 	movs r0, #0x55
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	movs r0, #1
 _08F11DE8:
 	pop {r4, r5}
@@ -21861,7 +21861,7 @@ _08F11DE8:
 	thumb_func_start sub_8F11DF0
 sub_8F11DF0: @ 0x08F11DF0
 	push {r4, lr}
-	ldr r4, _08F11E04 @ =gUnknown_03003680
+	ldr r4, _08F11E04 @ =gActionPpRequired
 	ldrh r0, [r4]
 	bl sub_8F0E8DC
 	strh r0, [r4]
@@ -21869,7 +21869,7 @@ sub_8F11DF0: @ 0x08F11DF0
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08F11E04: .4byte gUnknown_03003680
+_08F11E04: .4byte gActionPpRequired
 
 	thumb_func_start sub_8F11E08
 sub_8F11E08: @ 0x08F11E08
@@ -21903,7 +21903,7 @@ _08F11E34:
 	ldrb r0, [r0]
 	lsls r1, r0, #1
 _08F11E44:
-	ldr r0, _08F11E74 @ =gUnknown_03003680
+	ldr r0, _08F11E74 @ =gActionPpRequired
 	ldrh r0, [r0]
 	adds r2, r0, r6
 	cmp r2, #0xff
@@ -21929,7 +21929,7 @@ _08F11E56:
 	bx r0
 	.align 2, 0
 _08F11E70: .4byte gEnemyData
-_08F11E74: .4byte gUnknown_03003680
+_08F11E74: .4byte gActionPpRequired
 _08F11E78: .4byte gUnknown_03003500
 _08F11E7C: .4byte gUnknown_03003708
 
@@ -21969,7 +21969,7 @@ _08F11EB0:
 	ands r0, r1
 	lsls r1, r0, #1
 _08F11EC4:
-	ldr r0, _08F11F00 @ =gUnknown_03003680
+	ldr r0, _08F11F00 @ =gActionPpRequired
 	ldrh r0, [r0]
 	adds r2, r0, r6
 	ldr r0, _08F11F04 @ =0x0000FFFF
@@ -21999,7 +21999,7 @@ _08F11ED8:
 	.align 2, 0
 _08F11EF8: .4byte gEnemyData
 _08F11EFC: .4byte 0x000003FF
-_08F11F00: .4byte gUnknown_03003680
+_08F11F00: .4byte gActionPpRequired
 _08F11F04: .4byte 0x0000FFFF
 _08F11F08: .4byte gUnknown_03003500
 _08F11F0C: .4byte gUnknown_03003708
@@ -22039,7 +22039,7 @@ _08F11F40:
 	ldrh r0, [r0]
 	ands r2, r0
 _08F11F52:
-	ldr r0, _08F11F84 @ =gUnknown_03003680
+	ldr r0, _08F11F84 @ =gActionPpRequired
 	ldrh r0, [r0]
 	adds r3, r0, r6
 	cmp r3, r2
@@ -22064,7 +22064,7 @@ _08F11F5E:
 	.align 2, 0
 _08F11F7C: .4byte gEnemyData
 _08F11F80: .4byte 0x000003FF
-_08F11F84: .4byte gUnknown_03003680
+_08F11F84: .4byte gActionPpRequired
 _08F11F88: .4byte gUnknown_03003500
 _08F11F8C: .4byte gUnknown_03003708
 
@@ -22079,7 +22079,7 @@ sub_8F11F90: @ 0x08F11F90
 	adds r1, r0, r1
 	ldrb r0, [r1]
 	adds r2, r0, #0
-	ldr r0, _08F11FC0 @ =gUnknown_03003680
+	ldr r0, _08F11FC0 @ =gActionPpRequired
 	ldrh r0, [r0]
 	subs r0, r2, r0
 	cmp r0, #0
@@ -22095,7 +22095,7 @@ _08F11FAE:
 	bx lr
 	.align 2, 0
 _08F11FBC: .4byte gUnknown_03003500
-_08F11FC0: .4byte gUnknown_03003680
+_08F11FC0: .4byte gActionPpRequired
 _08F11FC4: .4byte gUnknown_03003708
 
 	thumb_func_start sub_8F11FC8
@@ -22109,7 +22109,7 @@ sub_8F11FC8: @ 0x08F11FC8
 	adds r1, r0, r1
 	ldrh r0, [r1]
 	adds r2, r0, #0
-	ldr r0, _08F11FF8 @ =gUnknown_03003680
+	ldr r0, _08F11FF8 @ =gActionPpRequired
 	ldrh r0, [r0]
 	subs r0, r2, r0
 	cmp r0, #0
@@ -22125,7 +22125,7 @@ _08F11FE6:
 	bx lr
 	.align 2, 0
 _08F11FF4: .4byte gUnknown_03003500
-_08F11FF8: .4byte gUnknown_03003680
+_08F11FF8: .4byte gActionPpRequired
 _08F11FFC: .4byte gUnknown_03003708
 
 	thumb_func_start sub_8F12000
@@ -22144,7 +22144,7 @@ sub_8F12000: @ 0x08F12000
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	bl sub_8F0E8DC
-	ldr r1, _08F12034 @ =gUnknown_03003680
+	ldr r1, _08F12034 @ =gActionPpRequired
 	strh r0, [r1]
 	adds r0, r4, #0
 	adds r1, r5, #0
@@ -22154,7 +22154,7 @@ sub_8F12000: @ 0x08F12000
 	bx r0
 	.align 2, 0
 _08F12030: .4byte gUnknown_03003500
-_08F12034: .4byte gUnknown_03003680
+_08F12034: .4byte gActionPpRequired
 
 	thumb_func_start sub_8F12038
 sub_8F12038: @ 0x08F12038
@@ -22173,7 +22173,7 @@ sub_8F12038: @ 0x08F12038
 	ldrh r0, [r0]
 	lsrs r0, r0, #1
 	bl sub_8F0E8DC
-	ldr r1, _08F12070 @ =gUnknown_03003680
+	ldr r1, _08F12070 @ =gActionPpRequired
 	strh r0, [r1]
 	adds r0, r4, #0
 	adds r1, r5, #0
@@ -22183,7 +22183,7 @@ sub_8F12038: @ 0x08F12038
 	bx r0
 	.align 2, 0
 _08F1206C: .4byte gUnknown_03003500
-_08F12070: .4byte gUnknown_03003680
+_08F12070: .4byte gActionPpRequired
 
 	thumb_func_start sub_8F12074
 sub_8F12074: @ 0x08F12074
@@ -22378,7 +22378,7 @@ sub_8F121F0: @ 0x08F121F0
 	ands r0, r2
 	cmp r0, #0
 	beq _08F12214
-	ldr r2, _08F12224 @ =gUnknown_03003680
+	ldr r2, _08F12224 @ =gActionPpRequired
 	ldrh r3, [r2]
 	lsrs r0, r3, #1
 	strh r0, [r2]
@@ -22393,7 +22393,7 @@ _08F12214:
 	.align 2, 0
 _08F1221C: .4byte gUnknown_03003500
 _08F12220: .4byte gUnknown_03003654
-_08F12224: .4byte gUnknown_03003680
+_08F12224: .4byte gActionPpRequired
 
 	thumb_func_start sub_8F12228
 sub_8F12228: @ 0x08F12228
@@ -22436,10 +22436,10 @@ sub_8F1225C: @ 0x08F1225C
 	lsls r1, r0, #6
 	ldr r0, _08F122AC @ =gUnknown_030031F0
 	adds r4, r1, r0
-	ldr r1, _08F122B0 @ =gUnknown_03003658
+	ldr r1, _08F122B0 @ =gBattleItemInventoryIdx
 	movs r0, #0
 	strb r0, [r1]
-	ldr r3, _08F122B4 @ =gUnknown_03003624
+	ldr r3, _08F122B4 @ =gBattleItemId
 	adds r7, r3, #0
 	adds r2, r1, #0
 	ldr r6, _08F122B8 @ =gUnknown_030036F0
@@ -22469,8 +22469,8 @@ _08F1227E:
 	.align 2, 0
 _08F122A8: .4byte gUnknown_03003500
 _08F122AC: .4byte gUnknown_030031F0
-_08F122B0: .4byte gUnknown_03003658
-_08F122B4: .4byte gUnknown_03003624
+_08F122B0: .4byte gBattleItemInventoryIdx
+_08F122B4: .4byte gBattleItemId
 _08F122B8: .4byte gUnknown_030036F0
 _08F122BC: .4byte gUnknown_03003694
 _08F122C0: .4byte gItemData
@@ -22602,7 +22602,7 @@ _08F12398: .4byte gUnknown_030007B8
 sub_8F1239C: @ 0x08F1239C
 	push {r4, r5, lr}
 	sub sp, #4
-	ldr r0, _08F123FC @ =gUnknown_03003628
+	ldr r0, _08F123FC @ =gBattleEnemyGroupId
 	ldrb r0, [r0]
 	cmp r0, #0xa2
 	bne _08F12410
@@ -22648,7 +22648,7 @@ _08F123BE:
 	strh r4, [r0]
 	b _08F12446
 	.align 2, 0
-_08F123FC: .4byte gUnknown_03003628
+_08F123FC: .4byte gBattleEnemyGroupId
 _08F12400: .4byte 0x0400000C
 _08F12404: .4byte 0x0400004C
 _08F12408: .4byte 0x0000FFBF
@@ -22995,7 +22995,7 @@ _08F126A0:
 	movs r0, #0x1f
 	bl ChangeBgMusic
 	movs r0, #0x82
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 	adds r0, r5, #0
 	adds r0, #0xb
 	ldrb r1, [r7, #3]
@@ -23186,7 +23186,7 @@ _08F12812:
 	movs r0, #9
 	bl PlaySfxById1
 	movs r0, #0x83
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F1285E:
 	adds r0, r4, #1
 	lsls r0, r0, #0x18
@@ -23217,7 +23217,7 @@ _08F1287A:
 	ldrh r1, [r5]
 	adds r0, r4, #0
 	bl GainMoney
-	ldr r2, _08F128DC @ =gUnknown_03003664
+	ldr r2, _08F128DC @ =gLastItemDropped
 	ldrb r1, [r2]
 	cmp r1, #0
 	beq _08F1296C
@@ -23242,7 +23242,7 @@ _08F128CC: .4byte gUnknown_08F5C51C
 _08F128D0: .4byte gUnknown_03003700
 _08F128D4: .4byte gUnknown_030031A2
 _08F128D8: .4byte gMoneyGained
-_08F128DC: .4byte gUnknown_03003664
+_08F128DC: .4byte gLastItemDropped
 _08F128E0:
 	ldrb r2, [r2]
 	lsls r0, r2, #3
@@ -23303,7 +23303,7 @@ _08F12948: .4byte 0x00001FFF
 _08F1294C: .4byte gUnknown_03003198
 _08F12950: .4byte gUnknown_030031F0
 _08F12954:
-	ldr r2, _08F12974 @ =gUnknown_03003664
+	ldr r2, _08F12974 @ =gLastItemDropped
 	ldrb r0, [r2]
 	strb r0, [r1]
 	ldr r1, _08F12978 @ =gCurrentItemId
@@ -23312,12 +23312,12 @@ _08F12954:
 	movs r0, #6
 	bl PlaySfxById1
 	movs r0, #0x8c
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F1296C:
 	bl FadeOut
 	b _08F129B2
 	.align 2, 0
-_08F12974: .4byte gUnknown_03003664
+_08F12974: .4byte gLastItemDropped
 _08F12978: .4byte gCurrentItemId
 _08F1297C:
 	bl sub_8F094CC
@@ -23412,7 +23412,7 @@ _08F12A2E:
 	beq _08F12A44
 	strb r2, [r6]
 	adds r0, r7, #0
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F12A44:
 	pop {r4, r5, r6, r7}
 	pop {r0}
@@ -23444,7 +23444,7 @@ _08F12A68:
 	beq _08F12A7E
 	strh r3, [r4]
 	adds r0, r2, #0
-	bl sub_8F0F1A8
+	bl DrawBattleStatusTextById
 _08F12A7E:
 	pop {r4}
 	pop {r0}
@@ -23672,7 +23672,7 @@ _08F12C18: .4byte gGameInfo
 	thumb_func_start sub_8F12C1C
 sub_8F12C1C: @ 0x08F12C1C
 	push {r4, r5, r6, r7, lr}
-	ldr r1, _08F12C64 @ =gUnknown_03003628
+	ldr r1, _08F12C64 @ =gBattleEnemyGroupId
 	strb r0, [r1]
 	bl SetupEnemyGroups
 	movs r3, #0
@@ -23708,7 +23708,7 @@ _08F12C50:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_08F12C64: .4byte gUnknown_03003628
+_08F12C64: .4byte gBattleEnemyGroupId
 _08F12C68: .4byte gMiscContainer
 _08F12C6C: .4byte gEnemyData
 _08F12C70: .4byte 0x000003FF

@@ -257,5 +257,16 @@ typedef struct sTextState
   u8 byte7;
 } sTextState;
 
+typedef struct sPsiData
+{
+  u8 NameLow;
+  u8 NameHigh;
+  u8 NintenLevelLearned;
+  u8 AnaLevelLearned;
+  u8 ActionNonBattle;
+  u8 ActionInBattle;
+  u8 Unused;
+  u8 PPRequired;
+} sPsiData;
 
 #endif
