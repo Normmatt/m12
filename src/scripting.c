@@ -1841,8 +1841,7 @@ void SCR_CMD_68()
     }
 }
 
-#if NON_MATCHING
-void SCR_CMD_69_Quake() //reg diff
+void SCR_CMD_69_Quake()
 {
     s32 i; // r4
     u32 temp;
@@ -1854,13 +1853,6 @@ void SCR_CMD_69_Quake() //reg diff
         sub_8F040E0();
     }
 }
-#else
-NAKED
-void SCR_CMD_69_Quake()
-{
-    asm(".include \"asm/non_matching/SCR_CMD_69_Quake.s\"");
-}
-#endif
 
 #if NON_MATCHING
 void SCR_CMD_6A() //Not attempted
