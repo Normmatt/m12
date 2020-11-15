@@ -33,9 +33,18 @@ SECTIONS
 		asm/AgbMain.o(.text);
 		src/change_sfx.o(.text);
 		asm/code.o(.text);
+		asm/menu.o(.text);
 		src/scripting.o(.text);
 		asm/code2.o(.text);
+		asm/item_effects.o(.text);
+		asm/misc.o(.text);
+		asm/menu_and_text_system.o(.text);
+		asm/save.o(.text);
+		asm/newgame.o(.text);
+		asm/battle.o(.text);
+		asm/sub_8F12338.o(.text);
         asm/m1_translation_new_code.o(.text);
+        src/vwf.o(.text);
 		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);
         src/agb_sram.o(.text);

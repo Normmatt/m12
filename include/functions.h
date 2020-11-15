@@ -348,7 +348,7 @@ extern s32 sub_8F0D044(u8 x, u8 y, CURSOR_POSITION *a3, s32 *a4, s32 *a5);
 extern s32 LoadSaveGame(struct_3003190 *a1);
 extern void M1_CalculateChecksumAndWriteSave(void *src, s32 len);
 extern s32 M1_ValidateChecksum(void *src);
-extern void M1_ReadSave(s32 chunks, void *dst);
+extern void ReadSave(s32 chunks, void *dst);
 extern s32 sub_8F0D510();
 extern void WriteSave(u8 *src, s32 a2);
 extern void sub_8F0D574(u16 a1);

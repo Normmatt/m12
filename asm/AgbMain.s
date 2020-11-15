@@ -146,7 +146,7 @@ _08F0022E:
 	strh r0, [r1]
 	ldr r4, _08F00530 @ =gGameInfo
 	adds r0, r4, #0
-	bl M1_LoadSaveGame
+	bl LoadSaveGame
 	adds r1, r0, #0
 	ldr r2, _08F00534 @ =gUnknown_030007E4
 	str r1, [r2]
