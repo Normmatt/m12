@@ -44,7 +44,6 @@ SECTIONS
 		asm/battle.o(.text);
 		asm/sub_8F12338.o(.text);
         asm/m1_translation_new_code.o(.text);
-        src/vwf.o(.text);
 		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);
         src/agb_sram.o(.text);
