@@ -34,6 +34,10 @@ typedef enum PlayerCondition2
   CONDITION2_BLIND          = 0x80,
 } PlayerCondition2;
 
-
+#ifdef NDS_VERSION
+#define OAM_VRAM_OFFSET 0x00400000
+#else
+#define OAM_VRAM_OFFSET 0x00010000
+#endif
 
 #endif  // GUARD_AGB_SRAM_H

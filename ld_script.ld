@@ -33,6 +33,7 @@ SECTIONS
 		asm/AgbMain.o(.text);
 		src/change_sfx.o(.text);
 		asm/code.o(.text);
+		src/menu.o(.text);
 		asm/menu.o(.text);
 		src/scripting.o(.text);
 		asm/code2.o(.text);

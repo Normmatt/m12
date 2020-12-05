@@ -565,7 +565,7 @@ void SCR_CMD_23()
 NAKED
 void SCR_CMD_23()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_23.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_23.s\"");
 }
 #endif
 
@@ -630,7 +630,7 @@ void SCR_CMD_27()
 NAKED
 void SCR_CMD_27()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_27.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_27.s\"");
 }
 #endif
 
@@ -761,7 +761,7 @@ void SCR_CMD_2D()
 NAKED
 void SCR_CMD_2D()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_2D.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_2D.s\"");
 }
 #endif
 
@@ -900,7 +900,7 @@ void SCR_CMD_33()
 NAKED
 void SCR_CMD_33()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_33.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_33.s\"");
 }
 #endif
 
@@ -1077,7 +1077,7 @@ void SCR_CMD_3D()
 NAKED
 void SCR_CMD_3D()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_3D.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_3D.s\"");
 }
 #endif
 
@@ -1090,7 +1090,7 @@ void SCR_CMD_3E()
 NAKED
 void SCR_CMD_3E()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_3E.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_3E.s\"");
 }
 #endif
 
@@ -1204,7 +1204,7 @@ void SCR_CMD_43()
 NAKED
 void SCR_CMD_43()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_43.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_43.s\"");
 }
 #endif
 
@@ -1863,7 +1863,7 @@ void SCR_CMD_6A() //Not attempted
 NAKED
 void SCR_CMD_6A()
 {
-    asm(".include \"asm/non_matching/SCR_CMD_6A.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_6A.s\"");
 }
 #endif
 
