@@ -180,7 +180,10 @@ extern u16 IntrCheck;
 
 
 //Data
+extern sTeleportData gTeleportLocations[];
 extern sItemData gItemData[];
+extern u8 gCanEquipItemMask[8];
+extern void_pointer gItemEffectHandlers[];
 extern const u16 gNESPalette[64];
 extern void_pointer gItemEffectHandlers[48];
 extern s8 gUnknown_08F1B670[4];

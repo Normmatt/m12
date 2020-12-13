@@ -165,6 +165,16 @@ typedef struct sItemData
   u16 Price;
 } sItemData;
 
+typedef struct sTeleportData
+{
+  u16 NamePtr;
+  u8 MusicUponArrival;
+  u8 X;
+  u8 DirectionMiniTile;
+  u8 Y;
+  u16 Price;
+} sTeleportData;
+
 typedef struct sEnemyGroup
 {
   u8 FirstEnemyType;

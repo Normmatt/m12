@@ -7,7 +7,7 @@ void sub_8F03F3C(u8 a1)
     if ( gUnknown_030007D0 != a1 )
     {
         gUnknown_030007D0 = a1;
-        BitUnpack(gUnknown_08F6453C[(a1 - 98) / 2], (void *)0x06001000+OAM_VRAM_OFFSET, 128);
+        BitUnpack(gUnknown_08F6453C[(a1 - 98) / 2], (void *)VRAM+0x1000+OAM_VRAM_OFFSET, 128);
     }
 }
 
@@ -125,7 +125,7 @@ void DelayByAmount(u32 delay)
 void UpdateBg0Tilemap()
 {
     sub_8F040E0();
-    DmaCopy32(3, gBg0TilemapBuffer, 0x6000000, 0x800);
+    DmaCopy32(3, gBg0TilemapBuffer, VRAM, 0x800);
     UpdateInput();
 }
 
@@ -267,8 +267,6 @@ LOOP:
     }
 }
 
-#if NON_MATCHING
-//reg alloc
 void CheckAction()
 {
     s8 i;
@@ -281,10 +279,10 @@ void CheckAction()
 LOOP:
     {
         gUnknown_03003170 = 0;
-        i = 0;
-        gUnknown_03000784 = &gUnknown_03001D40[i];
-        while( 1 )
+        for(i=0; i<40; i++)
         {
+            gUnknown_03000784 = &gUnknown_03001D40[i];
+
             if ( !gUnknown_03000784->Type )
             {
                 break;
@@ -311,13 +309,6 @@ LOOP:
                     }
                 }
             }
-            i++;
-            if ( i > 39 )
-            {
-                break;
-            }
-
-            gUnknown_03000784 = &gUnknown_03001D40[i];
         }
         if ( !(hasRunOnce || gUnknown_03003170 || gUnknown_030007A4 || !sub_8F01CBC(v1, v2)) )
         {
@@ -329,10 +320,10 @@ LOOP:
 
     if ( !gUnknown_03003170 )
     {
-        i = 0;
-        gUnknown_03000784 = &gUnknown_03001D40[i];
-        while( 1 )
+        for(i=0; i<40; i++)
         {
+            gUnknown_03000784 = &gUnknown_03001D40[i];
+
             if ( !gUnknown_03000784->Type )
             {
                 break;
@@ -342,18 +333,19 @@ LOOP:
             {
                 u16 x1 = gUnknown_03000784->X - gUnknown_03000788 + 64;
                 u16 y1 = gUnknown_03000784->Y - gUnknown_03001508 + 64; //reg alloc
-                if(x1 <= 0x400 && y1 <= 0x2C0) //reg alloc
+                if(x1 <= 0x400) //reg alloc
                 {
-                    ExecuteScript(0x34u);
+                    #if !NON_MATCHING
+                    //force y1 to be stored in r4
+                    asm("":::"r2");
+                    asm("":::"r3");
+                    #endif
+                    if(y1 <= 0x2C0)
+                    {
+                        ExecuteScript(0x34u);
+                    }
                 }
             }
-            i++;
-            if ( i > 39 )
-            {
-                break;
-            }
-
-            gUnknown_03000784 = &gUnknown_03001D40[i];
         }
         if ( !gUnknown_03003170 )
         {
@@ -374,13 +366,6 @@ LOOP:
 
     WaitForActionButtonPress();
 }
-#else
-NAKED
-void CheckAction()
-{
-    asm(".include \"asm/non_matching/menu/CheckAction.s\"");
-}
-#endif\
 
 void PSIMenu()
 {
@@ -508,31 +493,296 @@ void sub_8F047B4()
     }
 }
 
-/*void Goods_Use()
+void Goods_Use()
 {
+    s32 v1;
+    u32 v3;
+    u32 v4;
+    sItemData v0;
+    sItemData *ptr;
+
+    if ( (gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS)
+      && (gCurrentItemId != 3) )
+    {
+        // "@{0x03}{0x1A} is unconscious.{BREAK}"
+        DrawTextWithId(0x6D7u);
+        WaitForActionButtonPress();
+        return;
+    }
+    ptr = &gItemData[gCurrentItemId];
+    v0 = *ptr;
+    if ( v0.Equipment )
+    {
+        if ( v0.Flags & gCanEquipItemMask[gUnknown_03003174] )
+        {
+            v1 = GetPositionOfCurrentItemFromInventoryOrCloset(gUnknown_03003174);
+            if ( v1 >= 0 )
+            {
+                v4 = v0.Equipment >> 6;
+                v3 = gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4];
+                gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4] = gCurrentItemId;
+                if ( v3 )
+                {
+                    gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Inventory[v1] = v3;
+                }
+                else
+                {
+                    RemoveItemFromInventory(gUnknown_03003174);
+                }
+                PlaySfxById2(4u);
+                // "@{0x03}{0x1A} equipped the{BREAK}{0x03}{0x1C}.{BREAK}"
+                DrawTextWithId(0x391u);
+            }
+        }
+        else
+        {
+            // "@{0x03}{0x1A} can't equip the{BREAK}{0x03}{0x1C}.{BREAK}"
+            DrawTextWithId(0x392u);
+        }
+    }
+    else
+    {
+        // Is this equipable to anyone?
+        if ( v0.Flags & 0x3F )
+        {
+            if ( v0.Flags & gCanEquipItemMask[gUnknown_03003174] )
+            {
+                gConsumableType = 0;
+                gItemEffectHandlers[v0.ItemActionOverworld]();
+                if ( gUnknown_03001504 )
+                {
+                    return;
+                }
+            }
+            else
+            {
+                // "@{0x03}{0x1A} can't use the{BREAK}{0x03}{0x1C}.{BREAK}"
+                DrawTextWithId(0x38Fu);
+            }
+        }
+        else
+        {
+            // "@{0x03}{0x1A} used the{BREAK}{0x03}{0x1C}.{BREAK}"
+            DrawTextWithId(0x38Eu);
+            NothingHappened();
+        }
+    }
+    WaitForActionButtonPress();
 }
 
 void Goods_Eat()
 {
+    sItemData *ptr;
+    sItemData v0;
+
+    if ( gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS )
+    {
+        // "@{0x03}{0x1A} is unconscious.{BREAK}"
+        DrawTextWithId(0x6D7u);
+        WaitForActionButtonPress();
+        return;
+    }
+    ptr = &gItemData[gCurrentItemId];
+    v0 = *ptr;
+    if ( v0.Flags & 0x40 )
+    {
+        if ( v0.Flags & gCanEquipItemMask[gUnknown_03003174] )
+        {
+            gConsumableType = 1;
+            gItemEffectHandlers[v0.ItemActionOverworld]();
+            if ( gUnknown_03001504 )
+            {
+                return;
+            }
+        }
+        else
+        {
+            // "@{0x03}{0x1A} can't use the{BREAK}{0x03}{0x1C}.{BREAK}"
+            DrawTextWithId(0x38Fu);
+        }
+    }
+    else
+    {
+        // "@Please don't do that.{BREAK}"
+        DrawTextWithId(0x390u);
+    }
+    WaitForActionButtonPress();
 }
 
 void Goods_Give()
 {
+    u32 v0;
+    s32 v1;
+    if ( gCurrentItemId == 3 )
+    {
+        // "@The {0x03}{0x1C} can't be{BREAK}given away.{BREAK}"
+        DrawTextWithId(0x396u);
+    }
+    else
+    {
+        v0 = SelectCharacter();
+        #if !NON_MATCHING
+        //force v0 to be stored in r4
+        asm("":::"r2");
+        asm("":::"r3");
+        #endif
+        if ( (v0 - 1) > 4 )
+        {
+            ++gUnknown_03001504;
+            return;
+        }
+        gCurrentCharacterId = v0;
+        for(v1 = 0; v1 < 8; v1++)
+        {
+            if(!gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1])
+            {
+                break;
+            }
+        }
+        if ( gUnknown_03003174 == gCurrentCharacterId )
+        {
+            if ( RemoveItemFromInventory(gUnknown_03003174) >= 0 )
+            {
+                gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1 - 1] = gCurrentItemId;
+                if ( (gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
+                {
+                    // "@{0x03}{0x3E} took the {0x03}{0x1C}{BREAK}out of {0x03}{0x1A}'s bag{BREAK}{WAIT}and put it in {0x03}{0x1B}'s bag.{BREAK}"
+                    DrawTextWithId(0x6AAu);
+                }
+                else
+                {
+                    // "@{0x03}{0x1A} took out the{BREAK}{0x03}{0x1C} and then put it{BREAK}away again.{BREAK}"
+                    DrawTextWithId(0x6D6u);
+                }
+            }
+        }
+        else if ( v1 < 8 )
+        {
+            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1] = gCurrentItemId;
+            RemoveItemFromInventory(gUnknown_03003174);
+            if ( (gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
+            {
+                if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+                {
+                    // "@{0x03}{0x3E} took the {0x03}{0x1C}{BREAK}out of {0x03}{0x1A}'s bag{BREAK}{WAIT}and put it in {0x03}{0x1B}'s bag.{BREAK}"
+                    DrawTextWithId(0x6AAu);
+                }
+                else
+                {
+                    // "@{0x03}{0x1B} took the {0x03}{0x1C}{BREAK}from {0x03}{0x1A}'s bag.{BREAK}"
+                    DrawTextWithId(0x6A8u);
+                }
+            }
+            else
+            {
+                if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+                {
+                    // "@{0x03}{0x1A} put the {0x03}{0x1C}{BREAK}in {0x03}{0x1B}'s bag.{BREAK}"
+                    DrawTextWithId(0x6A7u);
+                }
+                else
+                {
+                    // "@{0x03}{0x1A} gave the{BREAK}{0x03}{0x1C} to {0x03}{0x1B}.{BREAK}"
+                    DrawTextWithId(0x395u);
+                }
+            }
+        }
+        else
+        {
+            // "@{0x03}{0x1B} can't hold any{BREAK}more stuff.{BREAK}"
+            DrawTextWithId(0x397u);
+        }
+    }
+    WaitForActionButtonPress();
 }
 
 void Goods_Drop()
 {
+    if ( gCurrentItemId[gItemData].Flags & 0x80 )
+    {
+        DrawTextWithId(0x394u);                 // "@You shouldn't throw away{BREAK}the {0x03}{0x1C}.{BREAK}"
+    }
+    else
+    {
+        RemoveItemFromInventory(gUnknown_03003174);
+        if ( gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+        {
+            DrawTextWithId(0x6A9u);             // "@{0x03}{0x3E} threw out the{BREAK}{0x03}{0x1C} that was in{BREAK}{0x03}{0x1A}'s bag.{BREAK}"
+        }
+        else
+        {
+            DrawTextWithId(0x393u);             // "@{0x03}{0x1A} threw away the{BREAK}{0x03}{0x1C}.{BREAK}"
+        }
+    }
+    WaitForActionButtonPress();
 }
 
 s32 RemoveItemFromInventory(u8 character)
 {
+    s32 idx = GetPositionOfCurrentItemFromInventoryOrCloset(character);
+    if(idx >= 0)
+    {
+        while( idx < 7 )
+        {
+            gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx] = gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx+1];
+            idx++;
+        }
+        gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx] = 0;
+        gUnknown_030007D8 = -1;
+    }
+    return idx;
 }
 
 void SelectItem(u8 a1)
 {
+    gCurrentItemId = a1;
+    if ( (s8)a1 >= 0 )
+    {
+        gTempNumber = a1[gItemData].Price;
+    }
+    else
+    {
+        gTempNumber = a1[gTeleportLocations].Price;
+    }
 }
 
-s32 GetPositionOfCurrentItemFromInventoryOrCloset(u8 checkInventory)
+s32 GetPositionOfCurrentItemFromInventoryOrCloset(u8 characterId)
 {
-}*/
+    s32 v1;
+    s32 i;
 
+    if ( characterId )
+    {
+        v1 = characterId;
+        if ( gCurrentItemId == gGameInfo.PlayerInfo.CharacterInfo[v1 - 1].Inventory[gUnknown_030007D8] )
+        {
+            return gUnknown_030007D8;
+        }
+
+        gUnknown_030007D8 = -1;
+
+        for(i = 0; i < 8; i++)
+        {
+            if(gCurrentItemId == gGameInfo.PlayerInfo.CharacterInfo[v1 - 1].Inventory[i])
+            {
+                return i;
+            }
+        }
+    }
+    else
+    {
+        if ( gCurrentItemId == gGameInfo.Closet[gUnknown_030007D8] )
+        {
+            return gUnknown_030007D8;
+        }
+        gUnknown_030007D8 = -1;
+        for(i = 0; i < 80; i++)
+        {
+            if(gCurrentItemId == gGameInfo.Closet[i])
+            {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
