@@ -27,7 +27,7 @@ extern s8 gUnknown_030007B0;
 extern s8 gUnknown_030007BC;
 extern u8 gUnknown_030007C0;
 extern u16 gUnknown_030007C4;
-// extern char gUnknown_030007C8;
+extern u8 gUnknown_030007C8;
 extern u8 gUnknown_030007CC;
 extern u8 gUnknown_030007D0;
 extern u8 gCurrentItemId;

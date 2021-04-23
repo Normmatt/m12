@@ -868,41 +868,36 @@ void SCR_CMD_32()
     }
 }
 
-#if NON_MATCHING // close
 void SCR_CMD_33()
 {
-    u8 v0; // r2
-    u8 *party;
-    u32 charId;
+  struct GlobalPlayerInfo *playerInfo;
+  u8 idx;
+  u8 *party;
+  u32 charId;
 
-    // jump if character not present
-    ++gScriptPtr;
-    charId = gCurrentCharacterId = *gScriptPtr;
-    v0 = 0;
-    while ( 1 )
+  ++gScriptPtr;
+  charId = gCurrentCharacterId = *gScriptPtr;
+
+  idx = 0;
+  while (1)
+  {
+    party = &gGameInfo.PlayerInfo.CharactersInParty[idx];
+    if ((u8)charId != (*party))
     {
-        party = &gGameInfo.PlayerInfo.CharactersInParty[v0];
-        if(charId != *party)
-        {
-            ++v0;
-            if(v0 > 3)
-            {
-                SCR_CMD_01_Jump();
-                return;
-            }
-            continue;
-        }
-        ++gScriptPtr;
-        break;
+      if (++idx > 3)
+      {
+        SCR_CMD_01_Jump();
+        return;
+      }
     }
+    else
+    {
+      break;
+    }
+  }
+
+  ++gScriptPtr;
 }
-#else
-NAKED
-void SCR_CMD_33()
-{
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_33.s\"");
-}
-#endif
 
 void SCR_CMD_34()
 {
@@ -1037,7 +1032,6 @@ void SCR_CMD_3C()
     gUnknown_030007E8 = *gScriptPtr;
 }
 
-#if NON_MATCHING // close
 void SCR_CMD_3D()
 {
     union
@@ -1067,19 +1061,12 @@ void SCR_CMD_3D()
 
     gPlayerY = ((temp.val >> 22) << 6);
     gPlayerY += -(5 << 6);
-    //gPlayerY += ((temp.val << 10) >> 22);
-    gPlayerY = (((temp.val << 10) >> 22) -(5<<6)) + ((temp.val >> 22) << 6);
+    //gPlayerY += ((temp.val << 10) >> 26);
+    gPlayerY = (((temp.val << 10) >> 26) -(5<<6)) + ((temp.val >> 22) << 6);
     // end
 
     gUnknown_03000840 = gUnknown_030034A8 = 0;
 }
-#else
-NAKED
-void SCR_CMD_3D()
-{
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_3D.s\"");
-}
-#endif
 
 #if NON_MATCHING
 void SCR_CMD_3E()
@@ -1156,23 +1143,22 @@ void SCR_CMD_42()
     ++gScriptPtr;
 }
 
-#if NON_MATCHING
 void SCR_CMD_43()
 {
     u8 v0;
     u8 *v1;
     u8 *ptr;
     u32 id;
-    GlobalPlayerInfo * gpi;
+    struct GlobalPlayerInfo * gpi;
     u8 temp;
 
     // remove character from party, jump if absent
     ++gScriptPtr;
     id = gCurrentCharacterId = *gScriptPtr;
     v0 = 0;
-    gpi = &gGameInfo.PlayerInfo;
     while ( 1 )
     {
+        gpi = &gGameInfo.PlayerInfo;
         ptr = gpi->CharactersInParty;
         temp = id;
         if(temp != ptr[v0]) //REG DIFF
@@ -1200,13 +1186,6 @@ void SCR_CMD_43()
     UpdateCharactersInParty();
     ++gScriptPtr;
 }
-#else
-NAKED
-void SCR_CMD_43()
-{
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_43.s\"");
-}
-#endif
 
 void SCR_CMD_44()
 {

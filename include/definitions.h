@@ -8,6 +8,13 @@
 #include "structs.h"
 #include "functions.h"
 
+#define FIXED_POINT_SHIFT (5)
+#define FIXED_PT_UP(val) 	(val << FIXED_POINT_SHIFT)
+#define FIXED_PT_DN(val) 	(val >> FIXED_POINT_SHIFT)
+
+#define FIXED_PT_MASK(val,shift, shift2) 	((val << shift) >> shift2)
+#define FIXED_PT_MASK2(val,shift, shift2) 	((val >> shift) << shift2)
+
 #define ITEM_IS_SELLABLE 0x80
 
 typedef enum PlayerCondition
