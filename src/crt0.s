@@ -1,5 +1,5 @@
 #ifdef NDS_VERSION
-#include "macros.inc"
+.include "asm/macros.inc"
 #define OAM_VRAM_OFFSET 0x00400000
 #else
 .include "asm/macros.inc"
@@ -12,11 +12,7 @@
 	arm_func_start start
 start: @ 0x08F00000
 	b crt0
-#ifdef NDS_VERSION
-	#include "rom_header.inc"
-#else
 	.include "asm/rom_header.inc"
-#endif
 
 	arm_func_start crt0
 crt0:
@@ -92,5 +88,9 @@ _08F001AC:
 	bx r0
 	.align 2, 0
 _08F001C0: .4byte gUnknown_03007FFC
+#ifdef NDS_VERSION
+_08F001C4: .4byte NdsMain
+#else
 _08F001C4: .4byte AgbMain
+#endif
 _08F001C8: .4byte IntrTable

@@ -96,3 +96,21 @@ u32 WriteSramEx(const u8 *src, u8 *dst, u32 size)
 	}
 	return result;
 }
+
+#ifdef NDS_VERSION
+void ReadSram_DS(u8 *src, u8 *dst, u32 size)
+{
+	u32 adr = (u32)(src - 0xE000000);
+	//cardReadEeprom(adr, dst, size, save_type);
+	//iprintf(" ReadSram(0x%X,0x%X,0x%X)\n", adr, dst, size);
+}
+
+u32 WriteSramEx_DS(u8 *src, u8 *dst, u32 size)
+{
+	u32 adr = (u32)(dst - 0xE000000);
+	//cardWriteEeprom(adr, dst, size, save_type);
+	//iprintf(" WriteSram(0x%X,0x%X,0x%X)\n", adr, src, size);
+
+	return 0;
+}
+#endif

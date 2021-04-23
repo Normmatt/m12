@@ -1,6 +1,6 @@
 
 #ifdef NDS_VERSION
-#include "macros.inc"
+.include "asm/macros.inc"
 #define OAM_VRAM_OFFSET 0x00400000
 #else
 .include "asm/macros.inc"

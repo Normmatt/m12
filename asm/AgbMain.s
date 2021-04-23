@@ -1,5 +1,5 @@
 #ifdef NDS_VERSION
-#include "macros.inc"
+.include "asm/macros.inc"
 #define OAM_VRAM_OFFSET 0x00400000
 #else
 .include "asm/macros.inc"
@@ -37,7 +37,11 @@ AgbMain: @ 0x08F001CC
 	ldr r1, _08F004B0 @ =0x04000208
 	movs r0, #1
 	strh r0, [r1]
+#ifdef NDS_VERSION
+    adds r1, #8
+#else
 	subs r1, #8
+#endif
 	ldr r2, _08F004B4 @ =0x00002001
 	adds r0, r2, #0
 	strh r0, [r1]

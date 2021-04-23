@@ -1,5 +1,5 @@
 #ifdef NDS_VERSION
-#include "macros.inc"
+.include "asm/macros.inc"
 
 .syntax unified
 .section .text
