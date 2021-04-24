@@ -612,12 +612,8 @@ void Goods_Give()
     }
     else
     {
-        v0 = SelectCharacter();
-        #if !NON_MATCHING
-        //force v0 to be stored in r4
-        asm("":::"r2");
-        asm("":::"r3");
-        #endif
+        v1 = SelectCharacter();
+        v0 = v1;
         if ( (v0 - 1) > 4 )
         {
             ++gUnknown_03001504;
