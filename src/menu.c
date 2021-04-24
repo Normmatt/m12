@@ -271,8 +271,8 @@ void CheckAction()
 {
     s8 i;
 
-    u16 v1 = (gUnknown_03000788 + 4 * (gUnknown_08F1B670[gUnknown_030007A4 / 2] + 0x78));
-    u16 v2 = (gUnknown_03001508 + 4 * (gUnknown_08F1B674[gUnknown_030007A4 / 2] + 0x58));
+    u16 worldX = (gUnknown_03000788 + 4 * (gUnknown_08F1B670[gUnknown_030007A4 / 2] + 0x78));
+    u16 worldY = (gUnknown_03001508 + 4 * (gUnknown_08F1B674[gUnknown_030007A4 / 2] + 0x58));
 
     s8 hasRunOnce = 0;
 
@@ -291,8 +291,8 @@ LOOP:
             if ( !(gUnknown_03000784->Type & 0x80)
              && ((gUnknown_03000784->Type == 0x20) || (gUnknown_03000784->field_14 & 0x40)))
             {
-                u16 x1 = v1 - gUnknown_03000784->X;
-                u16 y1 = v2 - gUnknown_03000784->Y;
+                u16 x1 = worldX - gUnknown_03000784->X;
+                u16 y1 = worldY - gUnknown_03000784->Y;
                 if(x1 < 64 && y1 < 64)
                 {
                     if ( gUnknown_03000784->Type != 0x20 )
@@ -310,9 +310,9 @@ LOOP:
                 }
             }
         }
-        if ( !(hasRunOnce || gUnknown_03003170 || gUnknown_030007A4 || !sub_8F01CBC(v1, v2)) )
+        if ( !(hasRunOnce || gUnknown_03003170 || gUnknown_030007A4 || !sub_8F01CBC(worldX, worldY)) )
         {
-            v2 -= 32;
+            worldY -= 32;
             hasRunOnce = 1;
             goto LOOP;
         }
@@ -331,19 +331,11 @@ LOOP:
             
             if ( !(gUnknown_03000784->Type & 0x80) && (gUnknown_03000784->field_14 & 0x40))
             {
-                u16 x1 = gUnknown_03000784->X - gUnknown_03000788 + 64;
-                u16 y1 = gUnknown_03000784->Y - gUnknown_03001508 + 64; //reg alloc
-                if(x1 <= 0x400) //reg alloc
+                worldX = gUnknown_03000784->X - gUnknown_03000788 + 64;
+                worldY = gUnknown_03000784->Y - gUnknown_03001508 + 64; //reg alloc
+                if(worldX <= 0x400 && worldY <= 0x2C0)
                 {
-                    #if !NON_MATCHING
-                    //force y1 to be stored in r4
-                    asm("":::"r2");
-                    asm("":::"r3");
-                    #endif
-                    if(y1 <= 0x2C0)
-                    {
-                        ExecuteScript(0x34u);
-                    }
+                    ExecuteScript(0x34u);
                 }
             }
         }

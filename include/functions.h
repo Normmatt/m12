@@ -39,7 +39,7 @@ extern u32 sub_8F01700(u16 a1, u8 a2, u16 a3, u16 a4);
 extern void sub_8F0191C();
 extern void sub_8F019B8();
 extern s32 sub_8F019E4(u8 run);
-extern s32 sub_8F01CBC(int a1, int a2);
+extern s32 sub_8F01CBC(u16 a1, u16 a2);
 extern u32 sub_8F02020(u16 a1, u16 a2);
 extern u32 Random();
 extern u16 sub_8F021C4(u16 a1);
