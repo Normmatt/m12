@@ -177,7 +177,7 @@ _08F0AB16:
 	bls _08F0AAB4
 	bl sub_8F0191C
 	ldr r1, _08F0AB4C @ =0x040000D4
-	ldr r0, _08F0AB50 @ =gUnknown_03002450
+	ldr r0, _08F0AB50 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -198,7 +198,7 @@ _08F0AB16:
 	bx r0
 	.align 2, 0
 _08F0AB4C: .4byte 0x040000D4
-_08F0AB50: .4byte gUnknown_03002450
+_08F0AB50: .4byte gSpriteBuffer
 _08F0AB54: .4byte 0x84000100
 _08F0AB58: .4byte gBg0TilemapBuffer
 _08F0AB5C: .4byte 0x84000200

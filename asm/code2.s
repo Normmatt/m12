@@ -126,7 +126,7 @@ _08F06F36:
 	strh r0, [r6, #6]
 	bl sub_8F0191C
 	bl sub_8F040E0
-	ldr r0, _08F06FE8 @ =gUnknown_03002450
+	ldr r0, _08F06FE8 @ =gSpriteBuffer
 	mov r1, sb
 	str r0, [r1]
 	movs r0, #0xe0
@@ -158,7 +158,7 @@ _08F06FD8: .4byte gUnknown_030007B8
 _08F06FDC: .4byte 0x040000D4
 _08F06FE0: .4byte 0xFFFFFC00
 _08F06FE4: .4byte 0x000099F8
-_08F06FE8: .4byte gUnknown_03002450
+_08F06FE8: .4byte gSpriteBuffer
 _08F06FEC: .4byte 0x84000100
 
 	thumb_func_start sub_8F06FF0
@@ -555,7 +555,7 @@ _08F072F0:
 	bl sub_8F0191C
 	bl sub_8F040E0
 	ldr r1, _08F07368 @ =0x040000D4
-	ldr r0, _08F0736C @ =gUnknown_03002450
+	ldr r0, _08F0736C @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -592,7 +592,7 @@ _08F0735C: .4byte gUnknown_03000788
 _08F07360: .4byte 0xFFFFFE80
 _08F07364: .4byte gUnknown_03001508
 _08F07368: .4byte 0x040000D4
-_08F0736C: .4byte gUnknown_03002450
+_08F0736C: .4byte gSpriteBuffer
 _08F07370: .4byte 0x84000100
 
 	thumb_func_start sub_8F07374
@@ -908,7 +908,7 @@ _08F0759C:
 	ldr r0, _08F076A0 @ =0x84000200
 	str r0, [r1, #8]
 	ldr r0, [r1, #8]
-	ldr r0, _08F076A4 @ =gUnknown_03002450
+	ldr r0, _08F076A4 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -967,7 +967,7 @@ _08F07694: .4byte 0x040000D4
 _08F07698: .4byte gBg2TilemapBuffer
 _08F0769C: .4byte 0x06001000
 _08F076A0: .4byte 0x84000200
-_08F076A4: .4byte gUnknown_03002450
+_08F076A4: .4byte gSpriteBuffer
 _08F076A8: .4byte 0x84000100
 _08F076AC: .4byte gUnknown_03001508
 _08F076B0: .4byte gUnknown_0300317C

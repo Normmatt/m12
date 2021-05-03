@@ -1309,7 +1309,7 @@ sub_8F0191C: @ 0x08F0191C
 	ldr r1, _08F019A8 @ =gUnknown_03002240
 	mov sl, r1
 	mov ip, r0
-	ldr r4, _08F019AC @ =gUnknown_03002450
+	ldr r4, _08F019AC @ =gSpriteBuffer
 	mov sb, r4
 	ldr r0, _08F019B0 @ =gSprites
 	mov r8, r0
@@ -1347,7 +1347,7 @@ _08F01972:
 	ldrsb r0, [r1, r0]
 	cmp r0, #0
 	blt _08F01994
-	ldr r3, _08F019AC @ =gUnknown_03002450
+	ldr r3, _08F019AC @ =gSpriteBuffer
 #ifdef NDS_VERSION
 	movs r2, #0xc0
 #else
@@ -1375,7 +1375,7 @@ _08F01994:
 	.align 2, 0
 _08F019A4: .4byte gUnknown_03003180
 _08F019A8: .4byte gUnknown_03002240
-_08F019AC: .4byte gUnknown_03002450
+_08F019AC: .4byte gSpriteBuffer
 _08F019B0: .4byte gSprites
 _08F019B4: .4byte gUnknown_03001D34
 
@@ -1385,7 +1385,7 @@ sub_8F019B8: @ 0x08F019B8
 	bl sub_8F016EC
 	bl sub_8F0191C
 	ldr r1, _08F019D8 @ =0x040000D4
-	ldr r0, _08F019DC @ =gUnknown_03002450
+	ldr r0, _08F019DC @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -1397,7 +1397,7 @@ sub_8F019B8: @ 0x08F019B8
 	bx r0
 	.align 2, 0
 _08F019D8: .4byte 0x040000D4
-_08F019DC: .4byte gUnknown_03002450
+_08F019DC: .4byte gSpriteBuffer
 _08F019E0: .4byte 0x84000100
 
 	thumb_func_start sub_8F019E4
@@ -4409,7 +4409,7 @@ sub_8F03128: @ 0x08F03128
 	bl sub_8F0191C
 	bl sub_8F040E0
 	ldr r1, _08F03164 @ =0x040000D4
-	ldr r0, _08F03168 @ =gUnknown_03002450
+	ldr r0, _08F03168 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -4424,7 +4424,7 @@ sub_8F03128: @ 0x08F03128
 	.align 2, 0
 _08F03160: .4byte gUnknown_03000784
 _08F03164: .4byte 0x040000D4
-_08F03168: .4byte gUnknown_03002450
+_08F03168: .4byte gSpriteBuffer
 _08F0316C: .4byte 0x84000100
 
 	thumb_func_start sub_8F03170

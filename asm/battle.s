@@ -627,7 +627,7 @@ sub_8F0E7F0: @ 0x08F0E7F0
 	ldr r0, _08F0E82C @ =0x84000200
 	str r0, [r1, #8]
 	ldr r0, [r1, #8]
-	ldr r0, _08F0E830 @ =gUnknown_03002450
+	ldr r0, _08F0E830 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -642,7 +642,7 @@ sub_8F0E7F0: @ 0x08F0E7F0
 _08F0E824: .4byte 0x040000D4
 _08F0E828: .4byte gBg0TilemapBuffer
 _08F0E82C: .4byte 0x84000200
-_08F0E830: .4byte gUnknown_03002450
+_08F0E830: .4byte gSpriteBuffer
 _08F0E834: .4byte 0x84000100
 
 	thumb_func_start sub_8F0E838

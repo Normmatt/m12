@@ -30,8 +30,7 @@ SECTIONS
 	ALIGN(4)
 	{
         src/crt0.o(.text);
-		asm/AgbMain.o(.text);
-		src/change_sfx.o(.text);
+		src/main.o(.text);
 		asm/code.o(.text);
 		src/code1.o(.text);
 		asm/code1.o(.text);

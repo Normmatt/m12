@@ -6,6 +6,7 @@
 #include "m4a.h"
 
 //Functions
+extern void intr_main();
 extern void AgbMain();
 extern void ChangeBgMusic(u8 a1);
 extern void sub_8F0088C(u8);
@@ -50,7 +51,7 @@ extern s32 sub_8F026DC(u16 a1, u16 a2);
 extern void LoadMapObjects();
 extern void sub_8F029E0();
 extern void sub_8F02AFC(u8 a1);
-extern void sub_8F02BBC();
+extern void sub_8F02BBC(u8 a1);
 extern void sub_8F0302C(u8 a1);
 extern void sub_8F03128();
 extern s32 sub_8F03170();

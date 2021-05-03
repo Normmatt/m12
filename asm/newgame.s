@@ -525,7 +525,7 @@ _08F0D9B4:
 	bl sub_8F01700
 	bl sub_8F0191C
 	bl sub_8F040E0
-	ldr r0, _08F0DA00 @ =gUnknown_03002450
+	ldr r0, _08F0DA00 @ =gSpriteBuffer
 	str r0, [r5]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -541,7 +541,7 @@ _08F0D9B4:
 	.align 2, 0
 _08F0D9F8: .4byte 0x040000D4
 _08F0D9FC: .4byte 0x96B00000
-_08F0DA00: .4byte gUnknown_03002450
+_08F0DA00: .4byte gSpriteBuffer
 _08F0DA04: .4byte 0x84000100
 _08F0DA08:
 	ldr r1, _08F0DA18 @ =gKeysDown
@@ -731,7 +731,7 @@ _08F0DAD2:
 	bl sub_8F01700
 	bl sub_8F0191C
 	ldr r1, _08F0DC04 @ =0x040000D4
-	ldr r0, _08F0DC08 @ =gUnknown_03002450
+	ldr r0, _08F0DC08 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -770,7 +770,7 @@ _08F0DBF8: .4byte 0x00008030
 _08F0DBFC: .4byte 0x00008050
 _08F0DC00: .4byte 0x00008070
 _08F0DC04: .4byte 0x040000D4
-_08F0DC08: .4byte gUnknown_03002450
+_08F0DC08: .4byte gSpriteBuffer
 _08F0DC0C: .4byte 0x84000100
 _08F0DC10: .4byte gUnknown_08F2741D
 _08F0DC14:
@@ -1022,7 +1022,7 @@ _08F0DDA0:
 _08F0DDEA:
 	bl sub_8F0191C
 	ldr r1, _08F0DE54 @ =0x040000D4
-	ldr r0, _08F0DE58 @ =gUnknown_03002450
+	ldr r0, _08F0DE58 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -1068,7 +1068,7 @@ _08F0DE48: .4byte gUnknown_08F2A27C
 _08F0DE4C: .4byte gUnknown_08F27237
 _08F0DE50: .4byte gUnknown_030007B8
 _08F0DE54: .4byte 0x040000D4
-_08F0DE58: .4byte gUnknown_03002450
+_08F0DE58: .4byte gSpriteBuffer
 _08F0DE5C: .4byte 0x84000100
 _08F0DE60: .4byte gUnknown_030034D0
 _08F0DE64: .4byte 0x00008050

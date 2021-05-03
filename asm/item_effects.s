@@ -1063,7 +1063,7 @@ _08F088EA:
 	adds r0, #2
 	strh r6, [r0]
 	bl sub_8F019B8
-	ldr r4, _08F08A60 @ =gUnknown_03002450
+	ldr r4, _08F08A60 @ =gSpriteBuffer
 	ldr r0, _08F08A64 @ =gUnknown_03000788
 	ldrh r0, [r0]
 	lsrs r1, r0, #8
@@ -1245,7 +1245,7 @@ _08F08A44:
 	.align 2, 0
 _08F08A58: .4byte 0x0000A5FF
 _08F08A5C: .4byte 0x0400001C
-_08F08A60: .4byte gUnknown_03002450
+_08F08A60: .4byte gSpriteBuffer
 _08F08A64: .4byte gUnknown_03000788
 _08F08A68: .4byte 0x000001FF
 _08F08A6C: .4byte 0xFFFFFE00
@@ -3529,7 +3529,7 @@ _08F09D24:
 	bl sub_8F0191C
 	bl sub_8F040E0
 	ldr r1, _08F09D8C @ =0x040000D4
-	ldr r0, _08F09D90 @ =gUnknown_03002450
+	ldr r0, _08F09D90 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -3570,7 +3570,7 @@ _08F09D60:
 	bx r0
 	.align 2, 0
 _08F09D8C: .4byte 0x040000D4
-_08F09D90: .4byte gUnknown_03002450
+_08F09D90: .4byte gSpriteBuffer
 _08F09D94: .4byte 0x84000100
 _08F09D98: .4byte 0x0400001A
 _08F09D9C: .4byte 0x000001FF
@@ -3749,7 +3749,7 @@ _08F09EF8:
 	bls _08F09E86
 	bl sub_8F0191C
 	bl sub_8F040E0
-	ldr r0, _08F09F74 @ =gUnknown_03002450
+	ldr r0, _08F09F74 @ =gSpriteBuffer
 	mov r1, r8
 	str r0, [r1]
 	movs r0, #0xe0
@@ -3790,7 +3790,7 @@ _08F09F64: .4byte 0x0000FFBF
 _08F09F68: .4byte 0x0000FFE0
 _08F09F6C: .4byte 0x040000D4
 _08F09F70: .4byte gGameInfo
-_08F09F74: .4byte gUnknown_03002450
+_08F09F74: .4byte gSpriteBuffer
 _08F09F78: .4byte 0x84000100
 _08F09F7C: .4byte gUnknown_08F64564
 _08F09F80: .4byte gUnknown_03001488
@@ -4067,7 +4067,7 @@ _08F0A1AE:
 	strh r1, [r0]
 	bl sub_8F0191C
 	ldr r1, _08F0A290 @ =0x040000D4
-	ldr r0, _08F0A294 @ =gUnknown_03002450
+	ldr r0, _08F0A294 @ =gSpriteBuffer
 	str r0, [r1]
 	movs r0, #0xe0
 	lsls r0, r0, #0x13
@@ -4142,7 +4142,7 @@ _08F0A284: .4byte gUnknown_030007B8
 _08F0A288: .4byte 0xFFFFFC00
 _08F0A28C: .4byte gGameInfo
 _08F0A290: .4byte 0x040000D4
-_08F0A294: .4byte gUnknown_03002450
+_08F0A294: .4byte gSpriteBuffer
 _08F0A298: .4byte 0x84000100
 _08F0A29C: .4byte gUnknown_03001480
 _08F0A2A0: .4byte gUnknown_08F64564

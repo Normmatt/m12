@@ -2,6 +2,190 @@
 #include "m4a.h"
 #include "definitions.h"
 
+void AgbMain(void) {
+	s32 i;
+	
+	REG_DISPCNT = 0;
+	v_blank_fnc = NULL;
+	DmaCopy32(3, (u32)intr_main, gUnknown_03000C70, 0x800);
+	gUnknown_03007FFC /* INTR_VECTOR */ = (u32)gUnknown_03000C70;
+	m4aSoundInit();
+	gCurrentBgMusic = 0xFF;
+	REG_IME = 1;
+	REG_IE = 0x2001;
+	REG_DISPSTAT = 8;
+	gKeysDown = gKeysRepeat = 0;
+	gUnknown_03000794 = gUnknown_03003490 = 0;
+	gUnknown_030007A8 = 0;
+	for (i = 0; i < 128; ++i) {
+		// _08F0022E
+		gSpriteBuffer[i] = gSprites[i] = gUnknown_08F1B610;
+	}
+	
+	DmaCopy32(3, gSpriteBuffer, OAM, OAM_SIZE);
+	gUnknown_030007B8 = 0x800;
+	sub_8F0D59C();
+	REG_BG0CNT = 8;
+	REG_BG1CNT = 0x609;
+	REG_BG2CNT = 0x20B;
+	REG_BG3CNT = 0x40B;
+	
+	DmaFill32(3, 0, BG_SCREEN_ADDR(0), 0x800);
+	
+	REG_BG0HOFS = 0;
+	REG_BG0VOFS = 0;
+	gUnknown_03000844 = gUnknown_0300318C = 0;
+	BitUnpack(&gUnknown_08F339A0, (u8*)OBJ_VRAM0, 0x80);
+	BitUnpack(&gUnknown_08F67080, (u8*)OBJ_VRAM0 + 0x2000, 0x80);
+	BitUnpack(&gUnknown_08F379A0, (u8*)OBJ_VRAM0 + 0x4000, 0x80);
+	BitUnpack(&gUnknown_08F381A0, (u8*)OBJ_VRAM0 + 0x5000, 0x80);
+	
+	LoadPalette((u8*)gUnknown_08F64564, (u16*)OBJ_PLTT);
+	LoadPalette((u8*)gUnknown_08F64564, &gUnknown_03001480[4]);
+	sub_8F0AD0C();
+	REG_DISPCNT = 0x1100;
+	
+	gUnknown_030007E4 = LoadSaveGame(&gGameInfo);
+	if (gUnknown_030007E4 & ~0xF) {
+		gUnknown_030007E4 &= 0xF;
+		
+		for (i = 0; i < 0x200; ++i) {
+			// 30A
+			((u8*)&gGameInfo)[i] = gInitialGlobalPlayerInfo[i];
+		}
+		for (; i < 0x300; ++i) {
+			// 322
+			((u8*)&gGameInfo)[i] = 0;
+		}
+		// 32C
+		BeginNewGame();
+		M1_CalculateChecksumAndWriteSave(&gGameInfo, gUnknown_030007E4);
+	}
+	// 33A
+	gUnknown_03000788 = (gGameInfo.PlayerInfo.field_4 & 0xFFC0) + gGameInfo.field_2AC + 0x40;
+	gUnknown_03001508 = (gGameInfo.PlayerInfo.field_6 & 0xFFC0) + gGameInfo.field_2AD + 0x80;
+	gUnknown_03003178 = gGameInfo.PlayerInfo.field_4 & 0x3F;
+	gUnknown_030007A4 = gGameInfo.PlayerInfo.field_6 & 7;
+	gUnknown_03000C64 = 0x84;
+	gUnknown_030007A0 = 0;
+	gUnknown_030007E8 = gGameInfo.field_288;
+	gUnknown_0300317C = 0;
+	gUnknown_03000818 = 0;
+	gUnknown_03003188 = gCurrentItemId = gUnknown_03003174 = gCurrentCharacterId = 0;
+	gUnknown_03000824 = 0;
+	gUnknown_030007E0 = 1;
+	gUnknown_030007CC = 0;
+	gUnknown_030007C4 = 0;
+	gUnknown_03002964 = 0;
+	gUnknown_03003498 = 0;
+	// 3C4 / 3C8
+	while(1) {
+		if (gUnknown_030007E0 != 0) {
+			ResetVariablesUponEnteringTown();
+		}
+		// 3D4
+		sub_8F01388();
+		sub_8F016EC();
+		sub_8F02BBC(0);
+		sub_8F02AFC(0);
+		sub_8F0191C();
+		DrawBg2Tilemap();
+#ifdef NDS_VERSION
+		DrawBg2Tilemap2();
+#endif
+		sub_8F040E0();
+		DmaCopy32(3, gBg0TilemapBuffer, BG_SCREEN_ADDR(0), 0x800);
+		DmaCopy32(3, gBg2TilemapBuffer, BG_SCREEN_ADDR(2), 0x800);
+#ifdef NDS_VERSION
+		// gBg2TilemapBuffer is redirected to 0x8000 on the DS, so we hack around that
+		DmaCopy32(3, IWRAM_START + 0x2970, BG_SCREEN_ADDR(2), 0x800);
+#endif
+		DmaCopy32(3, gSpriteBuffer, OAM, OAM_SIZE);
+		REG_BG2HOFS = (gUnknown_03000788 >> 2) & 0xF;
+		REG_BG2VOFS = (gUnknown_03001508 >> 2) & 0xF;
+		if (gUnknown_030007EC != 0) {
+			sub_8F047B4();
+		}
+		// 446
+		if (gUnknown_030007A0 < 0) {
+			// 726
+			sub_8F00ADC();
+			continue;
+		}
+		// 452
+		if (!(REG_DISPCNT & 0x400)) {
+			sub_8F00C64();
+		}
+		// 468
+		ShakeWhenMovingIfFlag();
+		UpdateInput();
+		
+		if (gUnknown_030007A0 > 8) {
+			// 47C
+			if (gKeysRepeat & 0x3FF) {
+				// 48C
+				--gUnknown_030007A0;
+				continue;
+			}
+			// 5AC
+			gUnknown_030007A0 = 8;
+		}
+		// 5B0
+		if (!gUnknown_03000818) {
+            // 5BA
+            if (!gUnknown_0300317C && !gUnknown_03001500) {
+                if (!gUnknown_03003498 && gUnknown_03002964 >= 2 * 60 * 60 * 60 && (gGameInfo.Flags[8] & 0x80)) {
+                    AskToContinueOrEndAdventure();
+                } else /* 610 */ if (gKeysDown & 1) {
+                    PlaySfxById1(5);
+                    OpenCommandMenu();
+                } else /* 62C */ if (gKeysDown & 0x200) {
+                    PlaySfxById1(5);
+                    HandleLButtonPress();
+                } else /* 644 */ if (gKeysDown & 8) {
+                    PlaySfxById1(5);
+                    HandleMap();
+                } else /* 658 */ if (gKeysDown & 6) {
+                    PlaySfxById1(5);
+                    HandleStatusMenu();
+                    sub_8F0B040();
+                }
+                // 66E
+                if (gUnknown_030007A0 < 0) {
+                    // 726 again
+                    sub_8F00ADC();
+                    continue;
+                }
+            }
+        }
+		// 67A
+		if (!gUnknown_03000818) {
+            // 684
+            if (gUnknown_03001500 != 0) {
+                gUnknown_03000C64 = gUnknown_030007A4;
+                --gUnknown_03001500;
+            } else /* 6A8 */ if (gUnknown_08F1B618[(gKeysRepeat & 0xF0) >> 4] >= 0) {
+                gUnknown_03000C64 = gUnknown_08F1B618[(gKeysRepeat & 0xF0) >> 4];
+            } else /* 6D0 */ {
+                gUnknown_03000C64 |= 0x80;
+            }
+            // 6D8
+            if ((s8)gUnknown_03000C64 < 0) {
+                continue;
+            }
+            // 6E4
+            gUnknown_030007A4 = gUnknown_08F1B628[gUnknown_03000C64];
+            if (!sub_8F019E4(0) && !gUnknown_0300317C && (gKeysRepeat & 0x100)) {
+                sub_8F019E4(1);
+            }
+            // 718
+            if (gUnknown_030007A0 < 0) {
+                sub_8F00ADC();
+            }
+        }
+	}
+}
+
 void ChangeBgMusic(u8 id)
 {
     u8 sfx_ids[] = {

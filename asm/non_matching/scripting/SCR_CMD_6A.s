@@ -126,7 +126,7 @@ _08F06CFA:
 	bl sub_8F0191C
 	bl sub_8F040E0
 	ldr r5, _08F06DFC @ =0x040000D4
-	ldr r0, _08F06E00 @ =gUnknown_03002450
+	ldr r0, _08F06E00 @ =gSpriteBuffer
 	str r0, [r5]
 	movs r1, #0xe0
 	lsls r1, r1, #0x13
@@ -162,7 +162,7 @@ _08F06CFA:
 	strh r6, [r4]
 	bl sub_8F0191C
 	bl sub_8F040E0
-	ldr r2, _08F06E00 @ =gUnknown_03002450
+	ldr r2, _08F06E00 @ =gSpriteBuffer
 	str r2, [r5]
 	mov r3, sl
 	str r3, [r5, #4]
@@ -190,7 +190,7 @@ _08F06DF0: .4byte gUnknown_030007B8
 _08F06DF4: .4byte 0xFFFFFC00
 _08F06DF8: .4byte 0x000099F8
 _08F06DFC: .4byte 0x040000D4
-_08F06E00: .4byte gUnknown_03002450
+_08F06E00: .4byte gSpriteBuffer
 _08F06E04: .4byte 0x84000100
 _08F06E08: .4byte 0x000099FC
 
