@@ -63,7 +63,7 @@ SECTIONS
 	ALIGN(4)
     {
         data/data.o(.data);
-        src/change_sfx.o(.rodata);
+        src/main.o(.rodata);
         data/data2.o(.data);
         sound/sound.o(.data);
         src/agb_sram.o(.rodata);

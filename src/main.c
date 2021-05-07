@@ -649,6 +649,31 @@ void sub_8F00EE0(u8 *src, u16 *dst)
     }
 }
 
+void sub_8F00F48(u8 *src, s16 a2, s16 *dst)
+{
+    u8 i;
+
+    if ( (u16)a2 >= 960 )
+    {
+        for(i = 0; i < 32; i++)
+        {
+            dst[i] = 0;
+        }
+    }
+    else
+    {
+        u16 t0 = ((a2 / 240) * 1024) + (32 * ((a2 % 240) / 8));
+        s16 t1 = (t0 & 0xFC00);
+        u16 t2 = t0 / 16;
+        s16 t3 = (u16)(((s16)t2) & 0x38)+(960)+t1;
+        u16 t4 = (u16)t3;
+        for( i = 0; i < 32; i++ )
+        {
+            dst[i] = gUnknown_03000808 + src[t0+i] + (((src[((i / 4) & 7)+t4] >> ((i & 2) + ((t2) & 4))) & 3) << 12);
+        }
+    }
+}
+
 //This has to be included in this file as otherwise the linker forcibly aligns it to 8F1BA5C
 //Does this mean that everything up to and including LoadMapObjects is in one file?
 //Used in LoadMapObjects

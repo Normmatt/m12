@@ -26,7 +26,7 @@ extern void ShakeWhenMovingIfFlag();
 extern void BitUnpack(void *src, void *dst, int numTiles);
 extern void LoadPalette(u8 *src, u16 *dst);
 extern void sub_8F00EE0(u8 *src, u16 *dst);
-extern void sub_8F00F48(void *a1, int a2, int a3);
+extern void sub_8F00F48(u8 *src, s16 a2, s16 *dst);
 extern void sub_8F01020(u16 *a1, u16 *a2, u16 a3, u8 a4);
 extern void DarkenPalette(u16 *a1, u16 a2, u16 a3, u8 a4);
 extern void sub_8F011E4(u32 a1);
