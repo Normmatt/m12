@@ -12,7 +12,11 @@ void AgbMain(void) {
 	m4aSoundInit();
 	gCurrentBgMusic = 0xFF;
 	REG_IME = 1;
+#ifdef NDS_VERSION
+    *(vu32*)0x04000210 = 0x2001;
+#else
 	REG_IE = 0x2001;
+#endif
 	REG_DISPSTAT = 8;
 	gKeysDown = gKeysRepeat = 0;
 	gUnknown_03000794 = gUnknown_03003490 = 0;
@@ -35,10 +39,10 @@ void AgbMain(void) {
 	REG_BG0HOFS = 0;
 	REG_BG0VOFS = 0;
 	gUnknown_03000844 = gUnknown_0300318C = 0;
-	BitUnpack(&gUnknown_08F339A0, (u8*)OBJ_VRAM0, 0x80);
-	BitUnpack(&gUnknown_08F67080, (u8*)OBJ_VRAM0 + 0x2000, 0x80);
-	BitUnpack(&gUnknown_08F379A0, (u8*)OBJ_VRAM0 + 0x4000, 0x80);
-	BitUnpack(&gUnknown_08F381A0, (u8*)OBJ_VRAM0 + 0x5000, 0x80);
+	BitUnpack(&gUnknown_08F339A0, (u8*)VRAM + OAM_VRAM_OFFSET, 0x80);
+	BitUnpack(&gUnknown_08F67080, (u8*)VRAM + OAM_VRAM_OFFSET + 0x2000, 0x80);
+	BitUnpack(&gUnknown_08F379A0, (u8*)VRAM + OAM_VRAM_OFFSET + 0x4000, 0x80);
+	BitUnpack(&gUnknown_08F381A0, (u8*)VRAM + OAM_VRAM_OFFSET + 0x5000, 0x80);
 	
 	LoadPalette((u8*)gUnknown_08F64564, (u16*)OBJ_PLTT);
 	LoadPalette((u8*)gUnknown_08F64564, &gUnknown_03001480[4]);
@@ -97,8 +101,7 @@ void AgbMain(void) {
 		DmaCopy32(3, gBg0TilemapBuffer, BG_SCREEN_ADDR(0), 0x800);
 		DmaCopy32(3, gBg2TilemapBuffer, BG_SCREEN_ADDR(2), 0x800);
 #ifdef NDS_VERSION
-		// gBg2TilemapBuffer is redirected to 0x8000 on the DS, so we hack around that
-		DmaCopy32(3, IWRAM_START + 0x2970, BG_SCREEN_ADDR(2), 0x800);
+		DmaCopy32(3, gBg2TilemapBuffer, BG_SCREEN_ADDR(3), 0x800);
 #endif
 		DmaCopy32(3, gSpriteBuffer, OAM, OAM_SIZE);
 		REG_BG2HOFS = (gUnknown_03000788 >> 2) & 0xF;

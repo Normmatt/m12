@@ -8,7 +8,7 @@ EXE :=
 endif
 
 CC1      := tools/agbcc/bin/agbcc$(EXE)
-CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
+CC1_OLD  := tools/agbcc/bin/old_agbcc
 CPP      := $(DEVKITARM)/bin/arm-none-eabi-cpp
 AS       := $(DEVKITARM)/bin/arm-none-eabi-as
 LD       := $(DEVKITARM)/bin/arm-none-eabi-ld
@@ -23,13 +23,13 @@ SCANINC := tools/scaninc/scaninc$(EXE)
 PREPROC := tools/preproc/preproc$(EXE)
 GBAFIX := tools/gbafix/gbafix$(EXE)
 
-CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm -g
+CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -g
 CPPFLAGS := -I tools/agbcc/include -iquote include -nostdinc -undef -D NDS_VERSION -D VERSION_$(GAME_VERSION) -D REVISION=$(GAME_REVISION) -D $(GAME_LANGUAGE) -D DEBUG=$(DEBUG)
 ASFLAGS  := -mcpu=arm9tdmi -mthumb-interwork -I asminclude -I include --defsym NDS_VERSION=1 --defsym VERSION_$(GAME_VERSION)=1 --defsym REVISION=$(GAME_REVISION) --defsym $(GAME_LANGUAGE)=1 --defsym DEBUG=$(DEBUG)
 
 #### Files ####
 OBJ_DIR  := build/$(BUILD_NAME)_arm9
-ROM 	 := $(BUILD_NAME).arm9
+ROM 	 := $(BUILD_NAME)_ds.arm9
 MAP      := $(ROM:%.arm9=%.map)
 ELF      := $(ROM:%.arm9=%.elf)
 LDSCRIPT := ld_script_nds.ld
@@ -235,10 +235,6 @@ $(WAVE_ASM_BUILDDIR)/%.o: $(WAVE_ASM_SUBDIR)/%.s
 
 $(ELF): $(OBJ_DIR)/ld_script_nds.ld $(OBJS)
 	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T $(LDSCRIPT) $(OBJS_REL) ../../tools/agbcc/lib/libgcc.a ../../tools/agbcc/lib/libc.a -o ../../$@
-
-#GAME_TITLE     := My Wonderful Homebrew
-#GAME_SUBTITLE1 := built with devkitARM
-#GAME_SUBTITLE2 := http://devitpro.org
 
 $(ROM): %.arm9: %.elf
 	$(OBJCOPY) -O binary $< $@

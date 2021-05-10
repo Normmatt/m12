@@ -2,7 +2,9 @@
 #include "m4a.h"
 
 //Yes they really did just define this as a const in this file
+#ifndef NDS_VERSION
 extern const u8 gCurrentItemId;
+#endif
 #include "definitions.h"
 
 extern void_pointer gSCR_CMD_Handlers[];

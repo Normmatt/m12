@@ -2,6 +2,15 @@ OUTPUT_ARCH(arm)
 
 gNumMusicPlayers = 4;
 
+__itcm_start = 0x00000000;
+__dtcm_top	=	0x0B000000 + 0x4000;
+__irq_vector	=	__dtcm_top - 0x04;
+__irq_flags	=	__dtcm_top - 0x08;
+
+__sp_svc	=	__dtcm_top - 0x100;
+__sp_irq	=	__sp_svc - 0x100;
+__sp_usr	=	__sp_irq - 0x100;
+
 SECTIONS
 {
    
@@ -11,8 +20,10 @@ SECTIONS
 	{        
         src/crt0.o(.text);
 		asm/nds.o(.text);
-		asm/AgbMain.o(.text);
-		src/change_sfx.o(.text);
+		asm/nds_interrupts.o(.text);
+		asm/nds_intrwait.o(.text);
+		asm/nds_mpu_setup.o(.text);
+		src/main.o(.text);
 		asm/code.o(.text);
 		src/code1.o(.text);
 		asm/code1.o(.text);
@@ -39,6 +50,7 @@ SECTIONS
         tools/agbcc/lib/libgcc.a:_umodsi3.o(.text);
         tools/agbcc/lib/libc.a:memcpy.o(.text);
         tools/agbcc/lib/libc.a:memset.o(.text);
+        tools/agbcc/lib/libc.a:memmove.o(.text);
 		asm/code_trunks.o(.text);
 	} = 0
 
@@ -46,7 +58,7 @@ SECTIONS
 	ALIGN(4)
     {
         data/data.o(.data);
-        src/change_sfx.o(.rodata);
+        src/main.o(.rodata);
         data/data2.o(.data);
         sound/sound.o(.data);
         src/vwf.o(.data);
@@ -60,6 +72,13 @@ SECTIONS
     {
         INCLUDE "sym_iwram.txt"
         INCLUDE "sym_iwram_nds.txt"
+    }
+
+    . = 0x0B000000;
+    DTCM (NOLOAD) :
+    ALIGN(4)
+    {
+        __dtcm_start = ABSOLUTE(.);
     }
     
     /* DWARF debug sections.

@@ -319,9 +319,11 @@ _08F0AC14:
 	strh r0, [r4]
 	movs r6, #1
 	strh r6, [r5]
+#ifndef NDS_VERSION
 	bl SoundBiasReset
 	svc #3
 	bl SoundBiasSet
+#endif
 	mov r2, sb
 	strh r2, [r5]
 	mov r0, sp

@@ -2224,7 +2224,9 @@ _08F13D04: .4byte 0x05000040
 
 	thumb_func_start MusicPlayerJumpTableCopy
 MusicPlayerJumpTableCopy: @ 0x08F13D08
+#ifndef NDS_VERSION
 	svc #0x2a
+#endif
 	bx lr
 
 	thumb_func_start ClearChain_rev
@@ -2283,6 +2285,7 @@ _08F13D5E:
 	strh r1, [r0]
 	ldr r1, _08F13DFC @ =0x04000084
 	movs r0, #0x8f
+#ifndef NDS_VERSION
 	strh r0, [r1]
 	subs r1, #2
 	ldr r2, _08F13E00 @ =0x0000A90E
@@ -2295,6 +2298,7 @@ _08F13D5E:
 	movs r1, #0x40
 	orrs r0, r1
 	strb r0, [r2]
+#endif
 	ldr r1, _08F13E08 @ =0x040000BC
 	movs r2, #0xd4
 	lsls r2, r2, #2
@@ -2488,12 +2492,14 @@ _08F13F20:
 	lsls r0, r0, #0xe
 	ands r0, r4
 	lsrs r4, r0, #0xe
+#ifndef NDS_VERSION
 	ldr r2, _08F13F64 @ =0x04000089
 	ldrb r1, [r2]
 	movs r0, #0x3f
 	ands r0, r1
 	orrs r0, r4
 	strb r0, [r2]
+#endif
 _08F13F3E:
 	movs r4, #0xf0
 	lsls r4, r4, #0xc
@@ -3741,8 +3747,12 @@ _08F1481A:
 	ands r0, r2
 	cmp r0, #0
 	beq _08F1485A
+#ifdef NDS_VERSION
+    movs r0, #0
+#else
 	ldr r0, _08F14844 @ =0x04000089
 	ldrb r0, [r0]
+#endif
 	cmp r0, #0x3f
 	bgt _08F1484C
 	ldr r0, [r4, #0x20]

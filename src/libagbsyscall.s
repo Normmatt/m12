@@ -26,12 +26,14 @@ SoundBiasSet: @ 0x08F14E34
 	bx lr
 	.align 2, 0
 
+#ifndef NDS_VERSION
 	thumb_func_start VBlankIntrWait
 VBlankIntrWait: @ 0x08F14E3C
 	movs r2, #0
 	svc #5
 	bx lr
 	.align 2, 0
+#endif
 
 	thumb_func_start SoftResetRom
 SoftResetRom: @ 0x08F14E44

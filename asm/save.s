@@ -484,6 +484,9 @@ _08F0D438:
 
 	thumb_func_start M1_CalculateChecksumAndWriteSave
 M1_CalculateChecksumAndWriteSave: @ 0x08F0D458
+#ifdef NDS_VERSION
+	bx lr
+#endif
 	push {r4, r5, r6, r7, lr}
 	adds r3, r0, #0
 	adds r7, r1, #0
@@ -549,6 +552,9 @@ _08F0D4C6:
 
 	thumb_func_start ReadSave
 ReadSave: @ 0x08F0D4CC
+#ifdef NDS_VERSION
+	bx lr
+#endif
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r6, r1, #0

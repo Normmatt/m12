@@ -2257,19 +2257,19 @@ gUnknown_08F66FD6:
     .align 2
     .global gUnknown_08F66FD8
 gUnknown_08F66FD8:
-    .word sub_8F0F560+1
-    .word sub_8F0F570+1
-    .word sub_8F0F734+1
-    .word sub_8F0F820+1
-    .word sub_8F1129C+1
-    .word sub_8F0F940+1
-    .word sub_8F0FA90+1
-    .word sub_8F0FD24+1
-    .word sub_8F0FD44+1
-    .word sub_8F100A0+1
-    .word sub_8F100BC+1
-    .word sub_8F100F4+1
-    .word sub_8F0F890+1
+    .word sub_8F0F560
+    .word sub_8F0F570
+    .word sub_8F0F734
+    .word sub_8F0F820
+    .word sub_8F1129C
+    .word sub_8F0F940
+    .word sub_8F0FA90
+    .word sub_8F0FD24
+    .word sub_8F0FD44
+    .word sub_8F100A0
+    .word sub_8F100BC
+    .word sub_8F100F4
+    .word sub_8F0F890
 
     .global gUnknown_08F6700C
 gUnknown_08F6700C:
@@ -2521,42 +2521,42 @@ gUnknown_08F70840:
 @ Sound Rodata starts
     .global MPlyJmpTbl
 MPlyJmpTbl:
-    .word ply_fine+1
-    .word ply_goto+1
-    .word ply_patt+1
-    .word ply_pend+1
-    .word ply_rept+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_prio+1
-    .word ply_tempo+1
-    .word ply_keysh+1
-    .word ply_voice+1
-    .word ply_vol+1
-    .word ply_pan+1
-    .word ply_bend+1
-    .word ply_bendr+1
-    .word ply_lfos_rev01+1
-    .word ply_lfodl+1
-    .word ply_mod_rev01+1
-    .word ply_modt+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_tune+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_fine+1
-    .word ply_port+1
-    .word ply_fine+1
-    .word ply_endtie_rev01+1
-    .word SampFreqSet_rev01+1
-    .word TrackStop_rev01+1
-    .word FadeOutBody_rev01+1
-    .word TrkVolPitSet_rev01+1
-    .word ClearChain+1
-    .word SoundMainBTM+1
+    .word ply_fine
+    .word ply_goto
+    .word ply_patt
+    .word ply_pend
+    .word ply_rept
+    .word ply_fine
+    .word ply_fine
+    .word ply_fine
+    .word ply_fine
+    .word ply_prio
+    .word ply_tempo
+    .word ply_keysh
+    .word ply_voice
+    .word ply_vol
+    .word ply_pan
+    .word ply_bend
+    .word ply_bendr
+    .word ply_lfos_rev01
+    .word ply_lfodl
+    .word ply_mod_rev01
+    .word ply_modt
+    .word ply_fine
+    .word ply_fine
+    .word ply_tune
+    .word ply_fine
+    .word ply_fine
+    .word ply_fine
+    .word ply_port
+    .word ply_fine
+    .word ply_endtie_rev01
+    .word SampFreqSet_rev01
+    .word TrackStop_rev01
+    .word FadeOutBody_rev01
+    .word TrkVolPitSet_rev01
+    .word ClearChain
+    .word SoundMainBTM
 
     .global ScaleTable
 ScaleTable:
@@ -2653,16 +2653,16 @@ clock_tbl_rev01:
 
     .global xcmd_tbl
 xcmd_tbl:
-    .word ply_xxx+1
-    .word ply_xwave+1
-    .word ply_xtype+1
-    .word ply_xxx+1
-    .word ply_xatta+1
-    .word ply_xdeca+1
-    .word ply_xsust+1
-    .word ply_xrele+1
-    .word ply_xiecv+1
-    .word ply_xiecl+1
-    .word ply_xleng+1
-    .word ply_xswee+1
+    .word ply_xxx
+    .word ply_xwave
+    .word ply_xtype
+    .word ply_xxx
+    .word ply_xatta
+    .word ply_xdeca
+    .word ply_xsust
+    .word ply_xrele
+    .word ply_xiecv
+    .word ply_xiecl
+    .word ply_xleng
+    .word ply_xswee
 
