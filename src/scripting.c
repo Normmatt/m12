@@ -722,50 +722,31 @@ void SCR_CMD_2C()
     }
 }
 
-#if NON_MATCHING // reg-alloc
 void SCR_CMD_2D()
 {
-    u32 charId;
-    int v0; // r3
-    u8 *v1;
+  int v0;
 
-    // add item to inventory, jump if full
-    charId = gCurrentCharacterId;
-    if ( charId < 6u )
+  if (gCurrentCharacterId < 6u)
+  {
+    for(v0 = 0; v0 < 8; v0++)
     {
-        v0 = 0;
-        charId = gCurrentCharacterId - 1;
-        v1 = gGameInfo.PlayerInfo.CharacterInfo[charId].Inventory;
-        while(1)
+        if(!gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0])
         {
-            if(*v1)
-            {
-                ++v1;
-                if ( ++v0 > 7 )
-                {                    
-                    SCR_CMD_01_Jump();
-                    return;
-                }
-                continue;
-            }
-            break;
+            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0] = gCurrentItemId;
+            ++gScriptPtr;
+            return;
         }
     }
-    else
-    {
-        SCR_CMD_01_Jump();
-        return;
-    }
-    *v1 = gCurrentItemId;
-    ++gScriptPtr;
+dummy_label_911266:
+    SCR_CMD_01_Jump();
+  }
+  else
+  {
+    v0 = 0;
+    goto dummy_label_911266;
+  }
 }
-#else
-NAKED
-void SCR_CMD_2D()
-{
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_2D.s\"");
-}
-#endif
+
 
 void SCR_CMD_2E()
 {
