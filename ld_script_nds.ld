@@ -30,6 +30,7 @@ SECTIONS
 		src/menu.o(.text);
 		src/scripting.o(.text);
 		asm/code2.o(.text);
+		src/item_effects.o(.text);
 		asm/item_effects.o(.text);
 		asm/misc.o(.text);
 		asm/menu_and_text_system.o(.text);

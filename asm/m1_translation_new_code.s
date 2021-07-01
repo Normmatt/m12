@@ -241,29 +241,6 @@ m1_window_yes_no_small:
 m1_window_data:
    .incbin "data/english/m1_window_data.bin"
 
-//----------------------------------------------------------------------------------------
-
-// In Japanese, the word for drink is the same for swallow, which makes it weird when
-// you try to use an HP capsule or something and it says you drank it. This little hack
-// will make it say "swallow" if it's appropriate.
-
-	thumb_func_start swallow_item
-swallow_item:
-   ldr  r1,=gCurrentItemId  // this has the current item # (hopefully all the time)
-   ldrb r1,[r1,#0]             // load item #
-   cmp  r1,#0x4E               // see if the item is between 4E and 52, which are capsules
-   blt  .drink                 // if not, then load the normal "drink" line
-   cmp  r1,#0x52               // if it is, then load the "swallow" line
-   bgt  .drink
-   ldr  r1,=0x6AE
-   b    swallow_item_end
-
-   .drink:
-   ldr r1,=0x6B0
-
-swallow_item_end:
-   bx lr
-
   .pool
 //----------------------------------------------------------------------------------------
 

@@ -78,7 +78,10 @@ typedef struct GlobalPlayerInfo
 
 typedef struct struct_3003190
 {
-    GlobalPlayerInfo PlayerInfo;
+    union {  
+		  GlobalPlayerInfo Struct;
+		  u8 Raw[8][0x40];
+    } PlayerInfo;
     u8 Flags[32];
     u8 field_220[64];
     u8 field_260[32];
@@ -172,7 +175,8 @@ typedef struct sTeleportData
   u8 X;
   u8 DirectionMiniTile;
   u8 Y;
-  u16 Price;
+  u8 Price;
+  u8 PP;
 } sTeleportData;
 
 typedef struct sEnemyGroup

@@ -66,10 +66,10 @@ void AgbMain(void) {
 		M1_CalculateChecksumAndWriteSave(&gGameInfo, gUnknown_030007E4);
 	}
 	// 33A
-	gUnknown_03000788 = (gGameInfo.PlayerInfo.field_4 & 0xFFC0) + gGameInfo.field_2AC + 0x40;
-	gUnknown_03001508 = (gGameInfo.PlayerInfo.field_6 & 0xFFC0) + gGameInfo.field_2AD + 0x80;
-	gUnknown_03003178 = gGameInfo.PlayerInfo.field_4 & 0x3F;
-	gUnknown_030007A4 = gGameInfo.PlayerInfo.field_6 & 7;
+	gUnknown_03000788 = (gGameInfo.PlayerInfo.Struct.field_4 & 0xFFC0) + gGameInfo.field_2AC + 0x40;
+	gUnknown_03001508 = (gGameInfo.PlayerInfo.Struct.field_6 & 0xFFC0) + gGameInfo.field_2AD + 0x80;
+	gUnknown_03003178 = gGameInfo.PlayerInfo.Struct.field_4 & 0x3F;
+	gUnknown_030007A4 = gGameInfo.PlayerInfo.Struct.field_6 & 7;
 	gUnknown_03000C64 = 0x84;
 	gUnknown_030007A0 = 0;
 	gUnknown_030007E8 = gGameInfo.field_288;
@@ -215,11 +215,11 @@ void ChangeBgMusic(u8 id)
         }
         else
         {
-            if ( id == 6 && gGameInfo.PlayerInfo.CharactersInParty[1] )
+            if ( id == 6 && gGameInfo.PlayerInfo.Struct.CharactersInParty[1] )
             {
                 id = 7;
             }
-            else if ( id == 7 && !gGameInfo.PlayerInfo.CharactersInParty[1] )
+            else if ( id == 7 && !gGameInfo.PlayerInfo.Struct.CharactersInParty[1] )
             {
                 id = 6;
             }

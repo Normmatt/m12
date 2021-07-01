@@ -168,10 +168,10 @@ void SCR_CMD_08()
     {
         for(i = 0; i < 4; i++)
         {
-            u32 idx = gGameInfo.PlayerInfo.CharactersInParty[i] - 1;
+            u32 idx = gGameInfo.PlayerInfo.Struct.CharactersInParty[i] - 1;
             if ( (u8)(idx) < 5u )
             {
-                v5 = &gGameInfo.PlayerInfo.CharacterInfo[idx-1];
+                v5 = &gGameInfo.PlayerInfo.Struct.CharacterInfo[idx-1];
                 v5[1].CurrentHP = v5[1].MaxHP;
                 v5[1].CurrentPP = v5[1].MaxPP;
                 v5[1].Condition = 0;
@@ -351,7 +351,7 @@ void SCR_CMD_17()
 
     ++gScriptPtr;
     idx = *gScriptPtr++;
-    gGameInfo.PlayerInfo.MapVariable[idx] = *gScriptPtr;
+    gGameInfo.PlayerInfo.Struct.MapVariable[idx] = *gScriptPtr;
 }
 
 void SCR_CMD_18()
@@ -399,7 +399,7 @@ void SCR_CMD_1A()
 void SCR_CMD_1B()
 {
     // jump if no money added to bank acct since last call
-    if ( gGameInfo.PlayerInfo.MoneyReadyToDepositLo | gGameInfo.PlayerInfo.MoneyReadyToDepositMid | gGameInfo.PlayerInfo.MoneyReadyToDepositHi )
+    if ( gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositLo | gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositMid | gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositHi )
     {
         ++gScriptPtr;
     }
@@ -545,7 +545,7 @@ void SCR_CMD_23()
     v0 = 0;
     itemIdPtr = &gCurrentItemId;
     charId = gCurrentCharacterId - 1;
-    ptr = gGameInfo.PlayerInfo.CharacterInfo[charId].Inventory;
+    ptr = gGameInfo.PlayerInfo.Struct.CharacterInfo[charId].Inventory;
     itemId = *itemIdPtr;
     while(1)
     {
@@ -639,13 +639,13 @@ void SCR_CMD_27()
 void SCR_CMD_28_IncrementMoney()
 {
     // give money, jump if can't hold any more
-    if ( (gGameInfo.PlayerInfo.Money + gTempNumber) >= 0x10000 )
+    if ( (gGameInfo.PlayerInfo.Struct.Money + gTempNumber) >= 0x10000 )
     {
         SCR_CMD_01_Jump();
     }
     else
     {
-        gGameInfo.PlayerInfo.Money = (gGameInfo.PlayerInfo.Money + gTempNumber);
+        gGameInfo.PlayerInfo.Struct.Money = (gGameInfo.PlayerInfo.Struct.Money + gTempNumber);
         ++gScriptPtr;
     }
 }
@@ -653,29 +653,29 @@ void SCR_CMD_28_IncrementMoney()
 void SCR_CMD_29_DecrementMoney()
 {
     // take money, jump if not enough
-    if ( (gGameInfo.PlayerInfo.Money - gTempNumber) < 0 )
+    if ( (gGameInfo.PlayerInfo.Struct.Money - gTempNumber) < 0 )
     {
         SCR_CMD_01_Jump();
     }
     else
     {
-        gGameInfo.PlayerInfo.Money = (gGameInfo.PlayerInfo.Money - gTempNumber);
+        gGameInfo.PlayerInfo.Struct.Money = (gGameInfo.PlayerInfo.Struct.Money - gTempNumber);
         ++gScriptPtr;
     }
 }
 
-#define BANKED_MONEY (((gGameInfo.PlayerInfo.BankedMoneyMid << 8) | gGameInfo.PlayerInfo.BankedMoneyLo) + (gGameInfo.PlayerInfo.BankedMoneyHi << 16))
+#define BANKED_MONEY (((gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8) | gGameInfo.PlayerInfo.Struct.BankedMoneyLo) + (gGameInfo.PlayerInfo.Struct.BankedMoneyHi << 16))
 #define SET_BANKED_MONEY(val) \
-    gGameInfo.PlayerInfo.BankedMoneyLo = val; \
-    gGameInfo.PlayerInfo.BankedMoneyMid = val>>8; \
-    gGameInfo.PlayerInfo.BankedMoneyHi = val>>16;
+    gGameInfo.PlayerInfo.Struct.BankedMoneyLo = val; \
+    gGameInfo.PlayerInfo.Struct.BankedMoneyMid = val>>8; \
+    gGameInfo.PlayerInfo.Struct.BankedMoneyHi = val>>16;
 
 void SCR_CMD_2A_IncrementBankedMoney()
 {
     // give money, jump if can't hold any more
-    s32 val = gGameInfo.PlayerInfo.BankedMoneyLo;
-    val |= gGameInfo.PlayerInfo.BankedMoneyMid << 8;
-    val += gGameInfo.PlayerInfo.BankedMoneyHi << 16;
+    s32 val = gGameInfo.PlayerInfo.Struct.BankedMoneyLo;
+    val |= gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8;
+    val += gGameInfo.PlayerInfo.Struct.BankedMoneyHi << 16;
     val += gTempNumber;
     if ( val >= 0x1000000 )
     {
@@ -692,9 +692,9 @@ void SCR_CMD_2B_DecrementBankedMoney()
 {
     // take money, jump if not enough
     s32 val;
-    val = gGameInfo.PlayerInfo.BankedMoneyLo;
-    val |= gGameInfo.PlayerInfo.BankedMoneyMid << 8;
-    val += gGameInfo.PlayerInfo.BankedMoneyHi << 16;
+    val = gGameInfo.PlayerInfo.Struct.BankedMoneyLo;
+    val |= gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8;
+    val += gGameInfo.PlayerInfo.Struct.BankedMoneyHi << 16;
 
     if ( (val-gTempNumber) < 0 )
     {
@@ -730,9 +730,9 @@ void SCR_CMD_2D()
   {
     for(v0 = 0; v0 < 8; v0++)
     {
-        if(!gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0])
+        if(!gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0])
         {
-            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0] = gCurrentItemId;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[v0] = gCurrentItemId;
             ++gScriptPtr;
             return;
         }
@@ -819,7 +819,7 @@ void SCR_CMD_31()
 
     // select character's nn'th item (first is 0), jump if empty slot
     idx = *++gScriptPtr;
-    item = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[idx];
+    item = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[idx];
     if ( !item )
     {
         SCR_CMD_01_Jump();
@@ -864,7 +864,7 @@ void SCR_CMD_33()
   idx = 0;
   while (1)
   {
-    party = &gGameInfo.PlayerInfo.CharactersInParty[idx];
+    party = &gGameInfo.PlayerInfo.Struct.CharactersInParty[idx];
     if ((u8)charId != (*party))
     {
       if (++idx > 3)
@@ -956,9 +956,9 @@ void SCR_CMD_38()
     {
         charIdPtr = (u8*)&gGameInfo;
         charIdPtr += 8; //wtf is this shit?
-        //cardIdPtr = gGameInfo.PlayerInfo.CharactersInParty; //Why doesn't this match?
+        //cardIdPtr = gGameInfo.PlayerInfo.Struct.CharactersInParty; //Why doesn't this match?
         charId = charIdPtr[v0];
-        if(!charId || !gGameInfo.PlayerInfo.CharacterInfo[charId - 1].Inventory[0])
+        if(!charId || !gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].Inventory[0])
         {
             v0++;
             if ( v0 > 3 )
@@ -990,13 +990,13 @@ void SCR_CMD_3A()
 {
     // select nn'th character in party (first is 0), jump if not present
     ++gScriptPtr;
-    if ( !gGameInfo.PlayerInfo.CharactersInParty[*gScriptPtr] )
+    if ( !gGameInfo.PlayerInfo.Struct.CharactersInParty[*gScriptPtr] )
     {
         SCR_CMD_01_Jump();
     }
     else
     {
-        gCurrentCharacterId = gGameInfo.PlayerInfo.CharactersInParty[*gScriptPtr++];
+        gCurrentCharacterId = gGameInfo.PlayerInfo.Struct.CharactersInParty[*gScriptPtr++];
     }
 }
 
@@ -1090,8 +1090,8 @@ void SCR_CMD_41()
 {
     // teleport to saved game location
     gUnknown_030007A0 = -1;
-    gPlayerX = gGameInfo.PlayerInfo.field_C + 0x40;
-    gPlayerY = gGameInfo.PlayerInfo.field_E + 0x80;
+    gPlayerX = gGameInfo.PlayerInfo.Struct.field_C + 0x40;
+    gPlayerY = gGameInfo.PlayerInfo.Struct.field_E + 0x80;
     gUnknown_03000840 = gGameInfo.field_2AE;
     gUnknown_030034A8 = gGameInfo.field_2AF;
     UpdatePartyLocationsAfterTeleport();
@@ -1108,7 +1108,7 @@ void SCR_CMD_42()
     i = 0;
     while ( 1 )
     {
-        ptr = gGameInfo.PlayerInfo.CharactersInParty;
+        ptr = gGameInfo.PlayerInfo.Struct.CharactersInParty;
         if(ptr[i])
         {
             ++i;
@@ -1158,14 +1158,14 @@ void SCR_CMD_43()
         {
             do
             {
-                gGameInfo.PlayerInfo.CharactersInParty[v0] = gGameInfo.PlayerInfo.CharactersInParty[v0+1];
+                gGameInfo.PlayerInfo.Struct.CharactersInParty[v0] = gGameInfo.PlayerInfo.Struct.CharactersInParty[v0+1];
                 ++v0;
             }
             while ( v0 <= 2u );
         }
         break;
     }
-    gGameInfo.PlayerInfo.CharactersInParty[v0] = 0;
+    gGameInfo.PlayerInfo.Struct.CharactersInParty[v0] = 0;
     UpdateCharactersInParty();
     ++gScriptPtr;
 }
@@ -1203,9 +1203,9 @@ void SCR_CMD_45()
     v1 = 0;
     do
     {
-        v3 = gGameInfo.PlayerInfo.CharactersInParty[v1];
+        v3 = gGameInfo.PlayerInfo.Struct.CharactersInParty[v1];
         v2 = v3 - 1;
-        if ( v2 <= 4u && !(gGameInfo.PlayerInfo.CharacterInfo[v3-1].Condition & CONDITION_UNCONSCIOUS) )
+        if ( v2 <= 4u && !(gGameInfo.PlayerInfo.Struct.CharacterInfo[v3-1].Condition & CONDITION_UNCONSCIOUS) )
         {
             v0 += gTempNumber;
         }
@@ -1357,7 +1357,7 @@ void SCR_CMD_4F()
 void SCR_CMD_50()
 {
     // jump if at less than max HP
-    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP < gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP )
+    if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP < gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxHP )
     {
         SCR_CMD_01_Jump();
     }
@@ -1374,13 +1374,13 @@ void SCR_CMD_51()
 
     // heal HP
     ++gScriptPtr;
-    curHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP + *gScriptPtr;
-    maxHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
+    curHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP + *gScriptPtr;
+    maxHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
     if ( curHP > maxHP )
     {
         curHP = maxHP;
     }
-    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = curHP;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = curHP;
     if ( gUnknown_03003170 )
     {
         gUnknown_03003170 |= 0x80u;
@@ -1392,7 +1392,7 @@ void SCR_CMD_52()
 {
     // jump if character has status
     ++gScriptPtr;
-    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & *gScriptPtr )
+    if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition & *gScriptPtr )
     {
         SCR_CMD_01_Jump();
     }
@@ -1410,9 +1410,9 @@ void SCR_CMD_53()
 
     // remove statuses not in ss
     ++gScriptPtr;
-    cond = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition;
+    cond = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition;
     ss = *gScriptPtr;
-    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition = cond & ss;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition = cond & ss;
     if ( !(*gScriptPtr & CONDITION_UNCONSCIOUS) )
     {
         //If character was unconscious then revive them
@@ -1422,8 +1422,8 @@ void SCR_CMD_53()
         }
         else
         {
-            maxHP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
-            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = maxHP;
+            maxHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP = maxHP;
         }
     }
     if ( gUnknown_03003170 )
@@ -1437,7 +1437,7 @@ void SCR_CMD_54()
 {
     // jump if character below level
     ++gScriptPtr;
-    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Level < *gScriptPtr )
+    if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Level < *gScriptPtr )
     {
         SCR_CMD_01_Jump();
     }
@@ -1460,10 +1460,10 @@ void SCR_CMD_55()
 void SCR_CMD_56_SaveGame()
 {
     // save game
-    gGameInfo.PlayerInfo.field_4 = ((gUnknown_03000788 - 0x40) & 0xFFC0);
-    gGameInfo.PlayerInfo.field_6 = ((gUnknown_03001508 - 0x80) & 0xFFC0);
-    gGameInfo.PlayerInfo.field_4 |= (gCurrentBgMusic & 0x3F);
-    gGameInfo.PlayerInfo.field_6 |= (gUnknown_030007A4 & 7);
+    gGameInfo.PlayerInfo.Struct.field_4 = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.field_6 = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.field_4 |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.Struct.field_6 |= (gUnknown_030007A4 & 7);
     gGameInfo.field_2AC = (gUnknown_03000788 - 0x40) & 0x3F;
     gGameInfo.field_2AD = (gUnknown_03001508 + 0x80) & 0x3F;
     gGameInfo.field_288 = 8;
@@ -1479,7 +1479,7 @@ void SCR_CMD_57_LoadExpForNextLevel()
     u16 *ptr;
 
     // load character's exp needed for next level
-    level = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Level;
+    level = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Level;
     if ( level >= 99 )
     {
         ptr = &gTempNumber;
@@ -1490,20 +1490,20 @@ void SCR_CMD_57_LoadExpForNextLevel()
         v1 = (level + 2) * (level + 1) * (level + 1);
         v2 = gUnknown_08F5C31C[8 * (gCurrentCharacterId + 56)];
         v1 = (v2*v1) >> 8;
-        v2 = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpLo << 0;
-        v2 |= gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpMid << 8;
-        v2 += gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].ExpHi << 16;
+        v2 = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].ExpLo << 0;
+        v2 |= gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].ExpMid << 8;
+        v2 += gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].ExpHi << 16;
         ptr = &gTempNumber;
         v3 = v1 - v2;
     }
     *ptr = v3;
-    gGameInfo.PlayerInfo.MoneyReadyToDepositHi = 0;
-    gGameInfo.PlayerInfo.MoneyReadyToDepositMid = 0;
-    gGameInfo.PlayerInfo.MoneyReadyToDepositLo = 0;
-    gGameInfo.PlayerInfo.field_C = ((gUnknown_03000788 - 0x40) & 0xFFC0);
-    gGameInfo.PlayerInfo.field_E = ((gUnknown_03001508 - 0x80) & 0xFFC0);
-    gGameInfo.PlayerInfo.field_C |= (gCurrentBgMusic & 0x3F);
-    gGameInfo.PlayerInfo.field_E |= (gUnknown_030007A4 & 7);
+    gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositHi = 0;
+    gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositMid = 0;
+    gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositLo = 0;
+    gGameInfo.PlayerInfo.Struct.field_C = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.field_E = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.field_C |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.Struct.field_E |= (gUnknown_030007A4 & 7);
     gGameInfo.field_2AE = (gUnknown_03000788 - 0x40) & 0x3F;
     gGameInfo.field_2AF = (gUnknown_03001508 - 0x80) & 0x3F;
 }
@@ -1511,14 +1511,14 @@ void SCR_CMD_57_LoadExpForNextLevel()
 void SCR_CMD_58_LoadMoneyToTemp()
 {
     // load money
-    gTempNumber = gGameInfo.PlayerInfo.Money;
+    gTempNumber = gGameInfo.PlayerInfo.Struct.Money;
 }
 
 void SCR_CMD_59_InflictCondition()
 {
     // inflict status on character
     ++gScriptPtr;
-    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition |= *gScriptPtr;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition |= *gScriptPtr;
 }
 
 void SCR_CMD_5A_ChangeBgMusic()
@@ -1560,14 +1560,14 @@ void SCR_CMD_5E()
 void SCR_CMD_5F()
 {
     // teach characters 1 and 2 to Teleport
-    gGameInfo.PlayerInfo.CharacterInfo[0].PsiLearned[0] |= 0x20u;
-    gGameInfo.PlayerInfo.CharacterInfo[1].PsiLearned[0] |= 0x20u;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[0].PsiLearned[0] |= 0x20u;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[1].PsiLearned[0] |= 0x20u;
 }
 
 void SCR_CMD_60()
 {
     // jump if at less than max PP
-    if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP < gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxPP )
+    if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentPP < gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxPP )
     {
         SCR_CMD_01_Jump();
     }
@@ -1584,13 +1584,13 @@ void SCR_CMD_61()
 
     // heal PP
     ++gScriptPtr;
-    curPP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP + *gScriptPtr;
-    maxPP = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].MaxPP;
+    curPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentPP + *gScriptPtr;
+    maxPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxPP;
     if ( curPP > maxPP )
     {
         curPP = maxPP;
     }
-    gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].CurrentPP = curPP;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentPP = curPP;
     if ( gUnknown_03003170 )
     {
         gUnknown_03003170 |= 0x80u;
@@ -1605,9 +1605,9 @@ void SCR_CMD_62()
     sCharacterStatusInfo *info;
 
     // take weapon, jump if none
-    idx = gGameInfo.PlayerInfo.CharactersInParty[0] - 1;
-    weapon = gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0];
-    if ( !gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0] ) //This duplication is required
+    idx = gGameInfo.PlayerInfo.Struct.CharactersInParty[0] - 1;
+    weapon = gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0];
+    if ( !gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0] ) //This duplication is required
     {
         SCR_CMD_01_Jump();
     }
@@ -1615,7 +1615,7 @@ void SCR_CMD_62()
     {
         ++gScriptPtr;
         gGameInfo.Weapon = weapon;
-        gGameInfo.PlayerInfo.CharacterInfo[idx].EquipedItems[0] = 0;
+        gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0] = 0;
     }
 }
 
@@ -1741,8 +1741,8 @@ void SCR_CMD_65()
     else
     {
         ++gScriptPtr;
-        gGameInfo.PlayerInfo.field_C = 0xD2;
-        gGameInfo.PlayerInfo.field_E = 0x4780;
+        gGameInfo.PlayerInfo.Struct.field_C = 0xD2;
+        gGameInfo.PlayerInfo.Struct.field_E = 0x4780;
         gGameInfo.field_2AE = 0;
         gGameInfo.field_2AF = 0;
     }
@@ -1754,7 +1754,7 @@ void SCR_CMD_66()
 
     // register your name
     SaveTextSystemState(&state);
-    sub_8F0BC04(&gGameInfo.PlayerInfo.field_20, 28u);
+    sub_8F0BC04(&gGameInfo.PlayerInfo.Struct.field_20, 28u);
     LoadTextSystemState(&state);
     gTextDelayAfterWriteCharacterEnabled |= 0x80u;
 }
@@ -1781,24 +1781,24 @@ void SCR_CMD_68()
     sub_8F099D8();
     for(i = 0; i < 4; i++)
     {
-        v1 = gGameInfo.PlayerInfo.CharactersInParty[i];
+        v1 = gGameInfo.PlayerInfo.Struct.CharactersInParty[i];
         v1--;
         if ( (u8)v1 < 5u
-          && !(gGameInfo.PlayerInfo.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
+          && !(gGameInfo.PlayerInfo.Struct.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
         {
-            gGameInfo.PlayerInfo.CharacterInfo[v1].Condition |= CONDITION_PARALYZED;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[v1].Condition |= CONDITION_PARALYZED;
         }
     }
     sub_8F03128();
     sub_8F09AA8();
     for(i = 0; i < 4; i++)
     {
-        v1 = gGameInfo.PlayerInfo.CharactersInParty[i];
+        v1 = gGameInfo.PlayerInfo.Struct.CharactersInParty[i];
         v1--;
         if ( (u8)v1 < 5u
-          && !(gGameInfo.PlayerInfo.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
+          && !(gGameInfo.PlayerInfo.Struct.CharacterInfo[v1].Condition & CONDITION_UNCONSCIOUS) )
         {
-            gGameInfo.PlayerInfo.CharacterInfo[v1].Condition &= ~CONDITION_PARALYZED;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[v1].Condition &= ~CONDITION_PARALYZED;
         }
     }
 }

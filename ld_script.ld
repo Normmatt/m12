@@ -37,6 +37,7 @@ SECTIONS
 		src/menu.o(.text);
 		src/scripting.o(.text);
 		asm/code2.o(.text);
+		src/item_effects.o(.text);
 		asm/item_effects.o(.text);
 		asm/misc.o(.text);
 		asm/menu_and_text_system.o(.text);
@@ -65,6 +66,8 @@ SECTIONS
         data/data.o(.data);
         src/main.o(.rodata);
         data/data2.o(.data);
+        src/item_effects.o(.rodata);
+        data/data3.o(.data);
         sound/sound.o(.data);
         src/agb_sram.o(.rodata);
         data/data_after_sound.o(.data);

@@ -52,10 +52,10 @@ void sub_8F03F74()
             DrawTextWithId(0x39Au);             // "@Found {0x03}{0x1D}.{BREAK}"
             for(v4 = 0; v4 < 4; ++v4)
             {
-                v5 = gGameInfo.PlayerInfo.CharactersInParty[v4];
+                v5 = gGameInfo.PlayerInfo.Struct.CharactersInParty[v4];
                 if ( (u8)(v5-1) < 5 )
                 {
-                    ptr = gGameInfo.PlayerInfo.CharacterInfo[(v5-1)].Inventory;
+                    ptr = gGameInfo.PlayerInfo.Struct.CharacterInfo[(v5-1)].Inventory;
                     for(v6 = 0; v6 < 8; ++v6)
                     {
                         if(!ptr[v6])
@@ -376,7 +376,7 @@ LOOP:
         }
         else
         {
-            if ( gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS )
+            if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS )
             {
                 DrawTextWithId(0x6D7u);             // "@{0x03}{0x1A} is unconscious.{BREAK}"
                 WaitForActionButtonPress();
@@ -386,7 +386,7 @@ LOOP:
                 gCurrentItemId = v0 - 64;
 
                 psi_data = &gUnknown_08F5C51C[v0];
-                curPP = gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].CurrentPP;
+                curPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].CurrentPP;
                 v1 = *psi_data;
                 if ( psi_data->PPRequired <= curPP)
                 {
@@ -493,7 +493,7 @@ void Goods_Use()
     sItemData v0;
     sItemData *ptr;
 
-    if ( (gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS)
+    if ( (gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS)
       && (gCurrentItemId != 3) )
     {
         // "@{0x03}{0x1A} is unconscious.{BREAK}"
@@ -511,11 +511,11 @@ void Goods_Use()
             if ( v1 >= 0 )
             {
                 v4 = v0.Equipment >> 6;
-                v3 = gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4];
-                gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4] = gCurrentItemId;
+                v3 = gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4];
+                gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].EquipedItems[v4] = gCurrentItemId;
                 if ( v3 )
                 {
-                    gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Inventory[v1] = v3;
+                    gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Inventory[v1] = v3;
                 }
                 else
                 {
@@ -567,7 +567,7 @@ void Goods_Eat()
     sItemData *ptr;
     sItemData v0;
 
-    if ( gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS )
+    if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS )
     {
         // "@{0x03}{0x1A} is unconscious.{BREAK}"
         DrawTextWithId(0x6D7u);
@@ -622,7 +622,7 @@ void Goods_Give()
         gCurrentCharacterId = v0;
         for(v1 = 0; v1 < 8; v1++)
         {
-            if(!gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1])
+            if(!gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1])
             {
                 break;
             }
@@ -631,8 +631,8 @@ void Goods_Give()
         {
             if ( RemoveItemFromInventory(gUnknown_03003174) >= 0 )
             {
-                gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1 - 1] = gCurrentItemId;
-                if ( (gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
+                gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1 - 1] = gCurrentItemId;
+                if ( (gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
                 {
                     // "@{0x03}{0x3E} took the {0x03}{0x1C}{BREAK}out of {0x03}{0x1A}'s bag{BREAK}{WAIT}and put it in {0x03}{0x1B}'s bag.{BREAK}"
                     DrawTextWithId(0x6AAu);
@@ -646,11 +646,11 @@ void Goods_Give()
         }
         else if ( v1 < 8 )
         {
-            gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1] = gCurrentItemId;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[v1] = gCurrentItemId;
             RemoveItemFromInventory(gUnknown_03003174);
-            if ( (gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
+            if ( (gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE)) )
             {
-                if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+                if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
                 {
                     // "@{0x03}{0x3E} took the {0x03}{0x1C}{BREAK}out of {0x03}{0x1A}'s bag{BREAK}{WAIT}and put it in {0x03}{0x1B}'s bag.{BREAK}"
                     DrawTextWithId(0x6AAu);
@@ -663,7 +663,7 @@ void Goods_Give()
             }
             else
             {
-                if ( gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+                if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
                 {
                     // "@{0x03}{0x1A} put the {0x03}{0x1C}{BREAK}in {0x03}{0x1B}'s bag.{BREAK}"
                     DrawTextWithId(0x6A7u);
@@ -693,7 +693,7 @@ void Goods_Drop()
     else
     {
         RemoveItemFromInventory(gUnknown_03003174);
-        if ( gGameInfo.PlayerInfo.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
+        if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & (CONDITION_UNCONSCIOUS|CONDITION_STONE) )
         {
             DrawTextWithId(0x6A9u);             // "@{0x03}{0x3E} threw out the{BREAK}{0x03}{0x1C} that was in{BREAK}{0x03}{0x1A}'s bag.{BREAK}"
         }
@@ -712,10 +712,10 @@ s32 RemoveItemFromInventory(u8 character)
     {
         while( idx < 7 )
         {
-            gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx] = gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx+1];
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[character - 1].Inventory[idx] = gGameInfo.PlayerInfo.Struct.CharacterInfo[character - 1].Inventory[idx+1];
             idx++;
         }
-        gGameInfo.PlayerInfo.CharacterInfo[character - 1].Inventory[idx] = 0;
+        gGameInfo.PlayerInfo.Struct.CharacterInfo[character - 1].Inventory[idx] = 0;
         gUnknown_030007D8 = -1;
     }
     return idx;
@@ -730,7 +730,7 @@ void SelectItem(u8 a1)
     }
     else
     {
-        gTempNumber = a1[gTeleportLocations].Price;
+        gTempNumber = a1[(struct sItemData*)gTeleportLocations].Price;
     }
 }
 
@@ -742,7 +742,7 @@ s32 GetPositionOfCurrentItemFromInventoryOrCloset(u8 characterId)
     if ( characterId )
     {
         v1 = characterId;
-        if ( gCurrentItemId == gGameInfo.PlayerInfo.CharacterInfo[v1 - 1].Inventory[gUnknown_030007D8] )
+        if ( gCurrentItemId == gGameInfo.PlayerInfo.Struct.CharacterInfo[v1 - 1].Inventory[gUnknown_030007D8] )
         {
             return gUnknown_030007D8;
         }
@@ -751,7 +751,7 @@ s32 GetPositionOfCurrentItemFromInventoryOrCloset(u8 characterId)
 
         for(i = 0; i < 8; i++)
         {
-            if(gCurrentItemId == gGameInfo.PlayerInfo.CharacterInfo[v1 - 1].Inventory[i])
+            if(gCurrentItemId == gGameInfo.PlayerInfo.Struct.CharacterInfo[v1 - 1].Inventory[i])
             {
                 return i;
             }

@@ -301,7 +301,7 @@ gItemEffectHandlers:
     .word PlayOcarinaOfHope
     .word ItemNothingHappened
     .word sub_8F08C5C
-    .word sub_8F08D70
+    .word Teleport
     .word sub_8F08DC0
     .word sub_8F08DCC
     .word sub_8F08DD8

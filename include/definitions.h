@@ -19,6 +19,7 @@
 
 typedef enum PlayerCondition
 {
+  CONDITION_NONE            = 0x00,
   CONDITION_COLD            = 0x01,
   CONDITION_POISONED        = 0x02,
   CONDITION_CONFUSED        = 0x04,
