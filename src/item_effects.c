@@ -956,6 +956,94 @@ s32 CanTeleport()
     return 0;
 }
 
+void sub_8F09384()
+{
+    u8 i;
+    s32 charId;
+    
+    for(i = 0; i < 4; i++)
+    {
+        charId = gGameInfo.PlayerInfo.Struct.CharactersInParty[i];
+        if ( charId )
+        {
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].X = (gUnknown_03000788 & 0xFFC0) + (gCurrentBgMusic & 0x3F);
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].Y = (gUnknown_03001508 & 0xFFC0) + (gUnknown_030007A4 & 7);
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].field_1A = gUnknown_03000788 & 0x3F;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].field_1B = gUnknown_03001508 & 0x3F;
+        }
+    }
+}
+
+void UpdatePartyLocationsAfterTeleport()
+{
+    u8 i;
+    s32 charId;
+
+    for(i = 0; i < 4; i++)
+    {
+        charId = gGameInfo.PlayerInfo.Struct.CharactersInParty[i];
+        if ( charId )
+        {
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].X = gPlayerX;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].Y = gPlayerY;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].field_1A = gUnknown_03000840;
+            gGameInfo.PlayerInfo.Struct.CharacterInfo[charId - 1].field_1B = gUnknown_030034A8;
+        }
+    }
+}
+
+void sub_8F09484(u8 characterId)
+{
+    u8 i;
+
+    for( i = 0; i < 4; ++i)
+    {
+        if(characterId == gGameInfo.PlayerInfo.Struct.CharactersInParty[i])
+        {
+            while(i < 3)
+            {
+                gGameInfo.PlayerInfo.Struct.CharactersInParty[i] = gGameInfo.PlayerInfo.Struct.CharactersInParty[i+1];
+                i++;
+            }
+            gGameInfo.PlayerInfo.Struct.CharactersInParty[i] = 0;
+            break;
+        }
+    }
+}
+
+void sub_8F094CC()
+{
+    sub_8F09484(7u);
+    sub_8F09484(6u);
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[0].Condition = 0;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[0].CurrentPP = 0;
+    gGameInfo.PlayerInfo.Struct.CharacterInfo[0].CurrentHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[0].MaxHP;
+    gGameInfo.PlayerInfo.Struct.Money = (gGameInfo.PlayerInfo.Struct.Money >> 1) + (gGameInfo.PlayerInfo.Struct.Money & 1);
+    if ( gUnknown_03003600 < 3u )
+    {
+        gPlayerX = 0xDF9Cu;
+        gPlayerY = 0x2480;
+        gUnknown_030007E8 = 8;
+    }
+    else
+    {
+        gPlayerX = 0xDFCBu;
+        gPlayerY = 0xDBC0u;
+    }
+    gUnknown_03000840 = gUnknown_030034A8 = 0;
+    gUnknown_030007A0 = -1;
+    gUnknown_03000818 = -8;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

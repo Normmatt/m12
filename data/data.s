@@ -6,17 +6,13 @@
 m1_data_object_table_1:
     .incbin "data/events/m1_data_object_table_1.bin"
 
-    .global gUnknown_08F17385
-gUnknown_08F17385:
-    .incbin "data/events/gUnknown_08F17385.bin"
+    .global m1_data_object_table_2
+m1_data_object_table_2:
+    .incbin "data/events/m1_data_object_table_2.bin"
 
-    .global gUnknown_08F19252
-gUnknown_08F19252:
-    .incbin "data/events/gUnknown_08F19252.bin"
-
-    .global gUnknown_08F1927A
-gUnknown_08F1927A:
-    .incbin "data/unsorted/gUnknown_08F1927A.bin"
+    .global m1_data_object_table_3
+m1_data_object_table_3:
+    .incbin "data/events/m1_data_object_table_3.bin"
 
     .global gItemData
 gItemData:

@@ -640,7 +640,7 @@ sub_8F07374: @ 0x08F07374
 	movs r0, #4
 	ldr r3, _08F07544 @ =gUnknown_030007C0
 	strb r0, [r3]
-	ldr r7, _08F07548 @ =gUnknown_08F1927A
+	ldr r7, _08F07548 @ =m1_data_object_table_3+0x28
 	ldrb r1, [r7, #1]
 	lsls r0, r1, #8
 	adds r3, r7, #0
@@ -815,7 +815,7 @@ _08F07538: .4byte gUnknown_08F1BAF8
 _08F0753C: .4byte gUnknown_08F1BB08
 _08F07540: .4byte gUnknown_0300317C
 _08F07544: .4byte gUnknown_030007C0
-_08F07548: .4byte gUnknown_08F1927A
+_08F07548: .4byte m1_data_object_table_3+0x28
 _08F0754C: .4byte 0xFFFF8000
 _08F07550: .4byte gCurrentItemId
 _08F07554: .4byte 0xFFFFFEE2

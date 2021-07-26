@@ -3095,17 +3095,17 @@ _08F027B8:
 	cmp r0, #0x2a
 	bhi _08F027D0
 	ldr r2, _08F027C8 @ =gUnknown_0300349C
-	ldr r1, _08F027CC @ =gUnknown_08F17385
+	ldr r1, _08F027CC @ =m1_data_object_table_2
 	str r1, [r2]
 	ldrb r0, [r3]
 	subs r0, #0x1a
 	b _08F027DA
 	.align 2, 0
 _08F027C8: .4byte gUnknown_0300349C
-_08F027CC: .4byte gUnknown_08F17385
+_08F027CC: .4byte m1_data_object_table_2
 _08F027D0:
 	ldr r2, _08F02804 @ =gUnknown_0300349C
-	ldr r1, _08F02808 @ =gUnknown_08F19252
+	ldr r1, _08F02808 @ =m1_data_object_table_3
 	str r1, [r2]
 	ldrb r0, [r3]
 	subs r0, #0x2b
@@ -3134,7 +3134,7 @@ _08F027DC:
 	b _08F02830
 	.align 2, 0
 _08F02804: .4byte gUnknown_0300349C
-_08F02808: .4byte gUnknown_08F19252
+_08F02808: .4byte m1_data_object_table_3
 _08F0280C: .4byte 0xFFFF8000
 _08F02810: .4byte gUnknown_03000784
 _08F02814: .4byte gUnknown_03000830

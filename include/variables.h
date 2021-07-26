@@ -132,7 +132,7 @@ extern char gTextNonEnglishCapitalLetter;
 // extern char gUnknown_030035A0;
 // extern char gUnknown_030035C0;
 // extern char gUnknown_030035E0;
-// extern char gUnknown_03003600;
+extern u8 gUnknown_03003600;
 // extern char gUnknown_03003604;
 // extern int gExperiencePointsGained;
 // extern _UNKNOWN unk_3003610;
