@@ -1,0 +1,25 @@
+# Wrapper pyproject.toml to make it easy to get the right version of the dependency
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nes-chr-encode"
+version = "0.0.1"
+dependencies = [
+    "pypng @ https://gitlab.com/drj11/pypng/-/archive/pypng-0.20231004.0/pypng-pypng-0.20231004.0.tar.gz"
+]
+authors = [
+    { name = "qalle", email = "qalle@noreply.codeberg.org" }
+]
+description = "Old version of the NES CHR encoder from qalle's nes-util project. Please do not ask them for support."
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+
+[project.scripts]
+nes-chr-encode = "nes_chr_encode:main"
+
+[project.urls]
+"This Version" = "https://github.com/Normmatt/m12/tree/master/tools/nes-chr-encode"
+"Latest Version" = "https://codeberg.org/qalle/nes-util"

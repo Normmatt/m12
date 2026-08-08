@@ -1,18 +1,36 @@
 #### Tools ####
 include config.mk
 
-ifeq ($(OS),Windows_NT)
-EXE := .exe
-else
+# Toolchain selection
+TOOLCHAIN := $(DEVKITARM)
+# don't use dkP's base_tools anymore
+# because the redefinition of $(CC) conflicts
+# with when we want to use $(CC) to preprocess files
+# thus, manually create the variables for the bin
+# files, or use arm-none-eabi binaries on the system
+# if dkP is not installed on this system
+ifneq (,$(TOOLCHAIN))
+  ifneq ($(wildcard $(TOOLCHAIN)/bin),)
+    export PATH := $(TOOLCHAIN)/bin:$(PATH)
+  endif
+endif
+PREFIX := arm-none-eabi-
+OBJCOPY := $(PREFIX)objcopy
+OBJDUMP := $(PREFIX)objdump
+AS := $(PREFIX)as
+LD := $(PREFIX)ld
+# pret seems to use arm-none-eabi-cpp sometimes, because of it
+# warning in the case of invalid backslash-u escapes...
+# Why would those ever pop up, though??
+CPP := $(CC) -E
+
 EXE :=
+ifeq ($(OS),Windows_NT)
+  EXE := .exe
 endif
 
 CC1      := tools/agbcc/bin/agbcc$(EXE)
 CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
-CPP      := $(DEVKITARM)/bin/arm-none-eabi-cpp
-AS       := $(DEVKITARM)/bin/arm-none-eabi-as
-LD       := $(DEVKITARM)/bin/arm-none-eabi-ld
-OBJCOPY  := $(DEVKITARM)/bin/arm-none-eabi-objcopy
 
 GFX := tools/gbagfx/gbagfx$(EXE)
 GFX2 := python tools/nes-chr-encode/nes_chr_encode.py
@@ -76,6 +94,10 @@ SRC_ASM_OBJS := $(patsubst $(C_SUBDIR)/%.s,$(SRC_ASM_BUILDDIR)/%.o,$(SRC_ASM_SRC
 
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s $(ASM_SUBDIR)/*/*.s $(ASM_SUBDIR)/*/*/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o,$(ASM_SRCS))
+
+# get all the data/*.s files EXCEPT the ones with specific rules
+REGULAR_DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
+# REGULAR_DATA_ASM_SRCS := $(filter-out $(DATA_ASM_SUBDIR)/maps.s $(DATA_ASM_SUBDIR)/map_events.s, $(REGULAR_DATA_ASM_SRCS))
 
 DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
 DATA_ASM_OBJS := $(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o,$(DATA_ASM_SRCS))
@@ -161,26 +183,40 @@ include graphics_file_rules.mk
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=
 else
-$(C_BUILDDIR)/%.o: c_dep = $(shell $(SCANINC) -I include $(C_SUBDIR)/$*.c)
+$(C_BUILDDIR)/%.o: c_dep = $(shell $(SCANINC) -I include -I tools/agbcc/include $(C_SUBDIR)/$*.c)
+endif
+
+# The dep rules have to be explicit or else missing files won't be reported.
+# As a side effect, they're evaluated immediately instead of when the rule is invoked.
+# It doesn't look like $(shell) can be deferred so there might not be a better way.
+
+ifeq ($(NODEP),1)
+$(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s
+	$(CPP) $(CPPFLAGS) -x c $< | $(AS) $(ASFLAGS) -o $@ -
+else
+define ASM_DEP
+$1: $2 $$(shell $(SCANINC) -I include -I "" $2)
+	$$(CPP) $$(CPPFLAGS) -x c $$< | $$(AS) $$(ASFLAGS) -o $$@ -
+endef
+$(foreach src, $(ASM_SRCS), $(eval $(call ASM_DEP,$(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o, $(src)),$(src))))
 endif
 
 ifeq ($(NODEP),1)
-$(ASM_BUILDDIR)/%.o: asm_dep :=
+$(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s
+	$(CPP) $(CPPFLAGS) -x c $< | $(PREPROC) $< -i charmap.txt | $(AS) $(ASFLAGS) -o $@
 else
-$(ASM_BUILDDIR)/%.o: asm_dep = $(shell $(SCANINC) -I "" $(ASM_SUBDIR)/$*.s)
+define DATA_ASM_DEP
+$1: $2 $$(shell $(SCANINC) -I include -I "" $2)
+	$$(CPP) $$(CPPFLAGS) -x c $$< | $$(PREPROC) $$< -i charmap.txt | $$(AS) $$(ASFLAGS) -o $$@
+endef
+$(foreach src, $(REGULAR_DATA_ASM_SRCS), $(eval $(call DATA_ASM_DEP,$(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o, $(src)),$(src))))
 endif
 
-ifeq ($(NODEP),1)
-$(DATA_ASM_BUILDDIR)/%.o: data_dep :=
-else
-$(DATA_ASM_BUILDDIR)/%.o: data_dep = $(shell $(SCANINC) -I include -I "" $(DATA_ASM_SUBDIR)/$*.s)
-endif
-
-ifeq ($(NODEP),1)
-$(RODATA_ASM_BUILDDIR)/%.o: rodata_dep :=
-else
-$(RODATA_ASM_BUILDDIR)/%.o: rodata_dep = $(shell $(SCANINC) -I include -I "" $(RODATA_ASM_SUBDIR)/$*.s)
-endif
+# ifeq ($(NODEP),1)
+# $(RODATA_ASM_BUILDDIR)/%.o: rodata_dep :=
+# else
+# $(RODATA_ASM_BUILDDIR)/%.o: rodata_dep = $(shell $(SCANINC) -I include -I "" $(RODATA_ASM_SUBDIR)/$*.s)
+# endif
 
 #### Recipes ####
    
@@ -188,28 +224,28 @@ $(OBJ_DIR)/ld_script.ld: $(LDSCRIPT) $(OBJ_DIR)/sym_ewram.txt $(OBJ_DIR)/sym_iwr
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LDSCRIPT) > $(LDSCRIPT)
     
 $(OBJ_DIR)/sym_ewram.txt: sym_ewram.txt
-	$(CPP) -P $(CPPFLAGS) $< | sed -e "s#tools/#../../tools/#g" > $@
+	cp $< $@
     
 $(OBJ_DIR)/sym_iwram.txt: sym_iwram.txt
-	$(CPP) -P $(CPPFLAGS) $< | sed -e "s#tools/#../../tools/#g" > $@
+	cp $< $@
 
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
 	$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
 	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt > $(C_BUILDDIR)/$*.p.i
 	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt | $(CC1_OLD) $(CC1FLAGS) -o $(C_BUILDDIR)/$*.s
-	@echo -e ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
+	@printf ".text\n\t.align\t2, 0\n" >> $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
 
 $(SRC_ASM_BUILDDIR)/%.o: $(C_SUBDIR)/%.s
-	$(CPP) $(CPPFLAGS) $< -o $(SRC_ASM_BUILDDIR)/$*.i
+	$(CPP) $(CPPFLAGS) -x c $< -o $(SRC_ASM_BUILDDIR)/$*.i
 	$(PREPROC) $(SRC_ASM_BUILDDIR)/$*.i charmap.txt | $(AS) $(ASFLAGS) -o $@
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
-	$(CPP) $(CPPFLAGS) $< -o $(ASM_BUILDDIR)/$*.i
+	$(CPP) $(CPPFLAGS) -x c $< -o $(ASM_BUILDDIR)/$*.i
 	$(PREPROC) $(ASM_BUILDDIR)/$*.i charmap.txt | $(AS) $(ASFLAGS) -o $@
     
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
-	$(CPP) $(CPPFLAGS) $< -o $(DATA_ASM_BUILDDIR)/$*.i.s
+	$(CPP) $(CPPFLAGS) -x c $< -o $(DATA_ASM_BUILDDIR)/$*.i.s
 	$(PREPROC) $(DATA_ASM_BUILDDIR)/$*.i.s charmap.txt > $(DATA_ASM_BUILDDIR)/$*.p.i
 	$(PREPROC) $(DATA_ASM_BUILDDIR)/$*.i.s charmap.txt | $(AS) $(ASFLAGS) -o $@
 
@@ -233,5 +269,5 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS)
 	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T $(LDSCRIPT) $(OBJS_REL) ../../tools/agbcc/lib/libgcc.a ../../tools/agbcc/lib/libc.a -o ../../$@
 
 $(ROM): %.gba: %.elf
-	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to 0x8800000 $< $@
+	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to 0x9000000 $< $@
 	$(GBAFIX) $@ -p -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(GAME_REVISION) --silent

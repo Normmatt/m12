@@ -1,3 +1,5 @@
+	.section .data
+
 #ifdef JAPANESE
     #define JAPANESE_TEXT(a) .string a
 #else

@@ -1,10 +1,10 @@
-#ifdef NDS_VERSION
+.ifdef NDS_VERSION
 .include "asm/macros.inc"
-#define OAM_VRAM_OFFSET 0x00400000
-#else
+.equ OAM_VRAM_OFFSET, 0x00400000
+.else
 .include "asm/macros.inc"
-#define OAM_VRAM_OFFSET 0x00010000
-#endif
+.equ OAM_VRAM_OFFSET, 0x00010000
+.endif
 
 .syntax unified
 .section .text

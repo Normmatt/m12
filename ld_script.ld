@@ -68,6 +68,8 @@ SECTIONS
         data/data2.o(.data);
         src/item_effects.o(.rodata);
         data/data3.o(.data);
+        data/main_strings.o(.data);
+        data/data_after_main_strings.o(.data);
         sound/sound.o(.data);
         src/agb_sram.o(.rodata);
         data/data_after_sound.o(.data);
