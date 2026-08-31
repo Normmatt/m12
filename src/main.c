@@ -2,9 +2,10 @@
 #include "m4a.h"
 #include "definitions.h"
 
+
 void AgbMain(void) {
 	s32 i;
-	
+
 	REG_DISPCNT = 0;
 	v_blank_fnc = NULL;
 	DmaCopy32(3, (u32)intr_main, gUnknown_03000C70, 0x800);
@@ -25,7 +26,7 @@ void AgbMain(void) {
 		// _08F0022E
 		gSpriteBuffer[i] = gSprites[i] = gUnknown_08F1B610;
 	}
-	
+
 	DmaCopy32(3, gSpriteBuffer, OAM, OAM_SIZE);
 	gUnknown_030007B8 = 0x800;
 	sub_8F0D59C();
@@ -33,29 +34,29 @@ void AgbMain(void) {
 	REG_BG1CNT = 0x609;
 	REG_BG2CNT = 0x20B;
 	REG_BG3CNT = 0x40B;
-	
+
 	DmaFill32(3, 0, BG_SCREEN_ADDR(0), 0x800);
-	
+
 	REG_BG0HOFS = 0;
 	REG_BG0VOFS = 0;
 	gUnknown_03000844 = gUnknown_0300318C = 0;
-	BitUnpack(&gUnknown_08F339A0, (u8*)VRAM + OAM_VRAM_OFFSET, 0x80);
-	BitUnpack(&gUnknown_08F67080, (u8*)VRAM + OAM_VRAM_OFFSET + 0x2000, 0x80);
-	BitUnpack(&gUnknown_08F379A0, (u8*)VRAM + OAM_VRAM_OFFSET + 0x4000, 0x80);
-	BitUnpack(&gUnknown_08F381A0, (u8*)VRAM + OAM_VRAM_OFFSET + 0x5000, 0x80);
-	
+	BitUnpack(characters1_gfx, (u8*)VRAM + OAM_VRAM_OFFSET, 0x80);
+	BitUnpack(battle_extra_gfx, (u8*)VRAM + OAM_VRAM_OFFSET + 0x2000, 0x80);
+	BitUnpack(characters9_gfx, (u8*)VRAM + OAM_VRAM_OFFSET + 0x4000, 0x80);
+	BitUnpack(characters10_gfx, (u8*)VRAM + OAM_VRAM_OFFSET + 0x5000, 0x80);
+
 	LoadPalette((u8*)gUnknown_08F64564, (u16*)OBJ_PLTT);
 	LoadPalette((u8*)gUnknown_08F64564, &gUnknown_03001480[4]);
 	sub_8F0AD0C();
 	REG_DISPCNT = 0x1100;
-	
+
 	gUnknown_030007E4 = LoadSaveGame(&gGameInfo);
 	if (gUnknown_030007E4 & ~0xF) {
 		gUnknown_030007E4 &= 0xF;
-		
+
 		for (i = 0; i < 0x200; ++i) {
 			// 30A
-			((u8*)&gGameInfo)[i] = gInitialGlobalPlayerInfo[i];
+			((u8*)&gGameInfo)[i] = ((u8*)&gInitialGlobalPlayerInfo)[i];
 		}
 		for (; i < 0x300; ++i) {
 			// 322
@@ -66,13 +67,13 @@ void AgbMain(void) {
 		M1_CalculateChecksumAndWriteSave(&gGameInfo, gUnknown_030007E4);
 	}
 	// 33A
-	gUnknown_03000788 = (gGameInfo.PlayerInfo.Struct.field_4 & 0xFFC0) + gGameInfo.field_2AC + 0x40;
-	gUnknown_03001508 = (gGameInfo.PlayerInfo.Struct.field_6 & 0xFFC0) + gGameInfo.field_2AD + 0x80;
-	gUnknown_03003178 = gGameInfo.PlayerInfo.Struct.field_4 & 0x3F;
-	gUnknown_030007A4 = gGameInfo.PlayerInfo.Struct.field_6 & 7;
+	gUnknown_03000788 = (gGameInfo.PlayerInfo.Struct.xpos_music & 0xFFC0) + gGameInfo.field_2AC + 0x40;
+	gUnknown_03001508 = (gGameInfo.PlayerInfo.Struct.ypos_direction & 0xFFC0) + gGameInfo.field_2AD + 0x80;
+	gUnknown_03003178 = gGameInfo.PlayerInfo.Struct.xpos_music & 0x3F;
+	gUnknown_030007A4 = gGameInfo.PlayerInfo.Struct.ypos_direction & 7;
 	gUnknown_03000C64 = 0x84;
 	gUnknown_030007A0 = 0;
-	gUnknown_030007E8 = gGameInfo.field_288;
+	gFade_Type = gGameInfo.field_288;
 	gUnknown_0300317C = 0;
 	gUnknown_03000818 = 0;
 	gUnknown_03003188 = gCurrentItemId = gUnknown_03003174 = gCurrentCharacterId = 0;
@@ -122,7 +123,7 @@ void AgbMain(void) {
 		// 468
 		ShakeWhenMovingIfFlag();
 		UpdateInput();
-		
+
 		if (gUnknown_030007A0 > 8) {
 			// 47C
 			if (gKeysRepeat & 0x3FF) {
@@ -140,16 +141,16 @@ void AgbMain(void) {
                 if (!gUnknown_03003498 && gUnknown_03002964 >= 2 * 60 * 60 * 60 && (gGameInfo.Flags[8] & 0x80)) {
                     AskToContinueOrEndAdventure();
                 } else /* 610 */ if (gKeysDown & 1) {
-                    PlaySfxById1(5);
+                    PlayPulse1Sfx(5);
                     OpenCommandMenu();
                 } else /* 62C */ if (gKeysDown & 0x200) {
-                    PlaySfxById1(5);
+                    PlayPulse1Sfx(5);
                     HandleLButtonPress();
                 } else /* 644 */ if (gKeysDown & 8) {
-                    PlaySfxById1(5);
-                    HandleMap();
+                    PlayPulse1Sfx(5);
+                    UseMap();
                 } else /* 658 */ if (gKeysDown & 6) {
-                    PlaySfxById1(5);
+                    PlayPulse1Sfx(5);
                     HandleStatusMenu();
                     sub_8F0B040();
                 }
@@ -289,7 +290,7 @@ void sub_8F0088C(u8 new_bg)
     ChangeBgMusic(old_bg);
 }
 
-void PlaySfxById0(u8 id)
+void PlayNoiseSfx(u8 id)
 {
     u8 sfx_ids[] = {
         0x00, 0x3C, 0x3D, 0x3E, 0x3F, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x62, 0x63, 0x64, 0x65
@@ -303,7 +304,7 @@ void PlaySfxById0(u8 id)
         m4aSongNumStart(sfx_ids[id]);
 }
 
-void PlaySfxById1(u8 id)
+void PlayPulse1Sfx(u8 id)
 {
     u8 sfx_ids[] = {
         0x00, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54,
@@ -316,7 +317,7 @@ void PlaySfxById1(u8 id)
         m4aSongNumStart(sfx_ids[id]);
 }
 
-void PlaySfxById2(u8 id)
+void PlayTriangleSfx(u8 id)
 {
     u8 sfx_ids[] = {
         0x00, 0x58, 0x59, 0x5A, 0x5B
@@ -328,7 +329,7 @@ void PlaySfxById2(u8 id)
         m4aSongNumStart(sfx_ids[id]);
 }
 
-void PlaySfxById3(u8 id)
+void PlayPulse2Sfx(u8 id)
 {
     u8 sfx_ids[] = {
         0x00, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x61
@@ -357,7 +358,7 @@ void UpdateInput()
     v1 = 0x3FF & ~REG_KEYINPUT;
     gKeysDown = v1 & ~gKeysRepeat;
     gKeysRepeat = v1;
-    
+
     v1 = gKeysRepeat & (DPAD_DOWN|DPAD_UP|DPAD_LEFT|DPAD_RIGHT);
     if ( v1 )
     {
@@ -435,38 +436,45 @@ void sub_8F00ADC()
 {
     s32 v0;
 
-    switch ( gUnknown_030007E8 )
+    switch ( gFade_Type )
     {
+        //stairs
         case 1:
-            PlaySfxById0(8u);
+            PlayNoiseSfx(8u);
             FadeOut();
             break;
+        //onyx hook
         case 2:
             ChangeBgMusic(0xFFu);
-            PlaySfxById1(0x10u);
+            PlayPulse1Sfx(0x10u);
             {
                 u16 color = *(&gNESPalette[0x34]);
                 for(v0 = 31; v0 >= 0; v0--)
                 {
-                    DarkenPalette((u16 *)0x5000000, color, 0x40u, 1u);
-                    DarkenPalette((u16 *)0x5000200, color, 0x40u, 1u);
-                    DelayByAmount(2u);
+                    DarkenPalette((u16 *)BG_PLTT, color, 0x40, 1);
+                    DarkenPalette((u16 *)OBJ_PLTT, color, 0x40, 1);
+                    DelayByAmount(2);
                 }
             }
             break;
+        //lab explosion
         case 3:
             sub_8F099D8();
             break;
+        //whirl pool
         case 4:
             sub_8F09B98();
             break;
+        //flood
         case 5:
             sub_8F09DAC();
             break;
+        //explosion 2
         case 6:
             FadeOut();
             DelayByAmount(0x1Eu);
             break;
+        //explosion 3
         case 7:
             FadeOut();
             ChangeBgMusic(0xFFu);
@@ -475,15 +483,16 @@ void sub_8F00ADC()
             break;
         case 9:
             {
-                u16 color = *(gNESPalette+0x22);
+                u16 color = *(&gNESPalette[0x22]);
                 for(v0 = 15; v0 >= 0; v0--)
                 {
-                    DarkenPalette((u16 *)0x5000000, color, 0x40u, 2u);
-                    DarkenPalette((u16 *)0x5000200, color, 0x40u, 2u);
-                    DelayByAmount(1u);
+                    DarkenPalette((u16 *)BG_PLTT, color, 0x40, 2);
+                    DarkenPalette((u16 *)OBJ_PLTT, color, 0x40, 2);
+                    DelayByAmount(1);
                 }
             }
             break;
+        //default
         default:
             FadeOut();
             break;
@@ -506,7 +515,7 @@ void sub_8F00C64()
         ChangeBgMusic(gUnknown_03003178);
     }
     REG_DISPCNT = 0x1500;
-    switch( gUnknown_030007E8 )
+    switch( gFade_Type )
     {
         case 2:
         {
@@ -537,7 +546,7 @@ void sub_8F00C64()
             FadeIn();
             break;
     }
-    gUnknown_030007E8 = 0;
+    gFade_Type = 0;
 }
 
 void sub_8F00D24()
@@ -561,13 +570,13 @@ void ShakeWhenMovingIfFlag()
         {
             REG_BLDY = 4;
             REG_BLDCNT = 255;
-            PlaySfxById0(7u);
+            PlayNoiseSfx(7u);
             SCR_CMD_69_Quake();
-            PlaySfxById0(7u);
+            PlayNoiseSfx(7u);
             SCR_CMD_69_Quake();
-            PlaySfxById0(7u);
+            PlayNoiseSfx(7u);
             SCR_CMD_69_Quake();
-            PlaySfxById0(7u);
+            PlayNoiseSfx(7u);
             SCR_CMD_69_Quake();
             REG_BLDY = 0;
             REG_BLDCNT = 0;
@@ -575,7 +584,7 @@ void ShakeWhenMovingIfFlag()
     }
 }
 
-void BitUnpack(void *src, void *dst, s32 numTiles)
+void BitUnpack(u8 const *src, void *dst, s32 numTiles)
 {
     s32 i, j;
     u32 sofs;

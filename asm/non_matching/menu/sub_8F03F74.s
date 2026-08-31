@@ -49,7 +49,7 @@ _08F03FCC:
 	orrs r1, r0
 	strb r1, [r3]
 	movs r0, #0xa
-	bl PlaySfxById1
+	bl PlayPulse1Sfx
 	ldr r4, _08F04074 @ =gUnknown_0300150C
 	mov r2, sb
 	ldr r0, [r2]
@@ -145,7 +145,7 @@ _08F0408C:
 	ldr r0, _08F040B8 @ =0x0000039B
 	bl DrawTextWithId
 	movs r0, #6
-	bl PlaySfxById1
+	bl PlayPulse1Sfx
 	b _08F040C2
 	.align 2, 0
 _08F040B0: .4byte gCurrentCharacterId

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+git clone https://github.com/pret/agbcc
+cd agbcc
+./build.sh
+./install.sh ../../m12
+
+cd ./tools/aif2pcm
+make clean && make
+cd ../bin2c
+make clean && make
+cd ../gbafix
+make clean && make
+cd ../gbagfx
+make clean && make
+cd ../mid2agb
+make clean && make
+cd ../preproc
+make clean && make
+cd ../scaninc
+make clean && make

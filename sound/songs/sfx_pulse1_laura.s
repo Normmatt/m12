@@ -1,0 +1,78 @@
+	.align 2
+	@********************** Track  1 **********************@
+
+	.global sfx_pulse1_laura_1
+sfx_pulse1_laura_1:	@ 0x08F7D558
+	.byte	0xBC
+	.byte	0x00
+	.byte	0xBB
+	.byte	0x4B
+	.byte	0xBE
+	.byte	0x7F
+	.byte	0xBF
+	.byte	0x40
+	.byte	0xBD
+	.byte	0x12
+gUnknown_08F7D562:
+	.byte	0xDE
+	.byte	0x6C
+	.byte	0x7F
+	.byte	0x8F
+	.byte	0xDE
+	.byte	0x5B
+	.byte	0x7F
+	.byte	0x8F
+	.byte	0xB5
+	.byte	0x04
+	.word	gUnknown_08F7D562
+gUnknown_08F7D570:
+	.byte	0xD2
+	.byte	0x60
+	.byte	0x7F
+	.byte	0x84
+	.byte	0xB5
+	.byte	0x0C
+	.word	gUnknown_08F7D570
+	.byte	0xBB
+	.byte	0x3C
+	.byte	0xBD
+	.byte	0x1B
+	.byte	0xC4
+	.byte	0x05
+	.byte	0x98
+	.byte	0xE7
+	.byte	0x56
+	.byte	0x7F
+	.byte	0x98
+	.byte	0xE7
+	.byte	0x55
+	.byte	0x7F
+	.byte	0x98
+	.byte	0xE7
+	.byte	0x53
+	.byte	0x7F
+	.byte	0x98
+	.byte	0xE7
+	.byte	0x4E
+	.byte	0x7F
+	.byte	0x98
+	.byte	0xFF
+	.byte	0x51
+	.byte	0x7F
+	.byte	0xB0
+	.byte	0xB1
+	.byte	0x00
+	.byte	0x00
+
+	.align 2
+	.global sfx_pulse1_laura
+sfx_pulse1_laura:	@ 0x08F7D598
+	.byte	1		@ trackCount
+	.byte	0		@ blockCount
+	.byte	100		@ priority
+	.byte	0		@ reverb
+
+	.word	gUnknown_08F717F0		@ voicegroup/tone
+
+	.word	sfx_pulse1_laura_1		@ track
+

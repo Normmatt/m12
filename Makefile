@@ -33,7 +33,7 @@ CC1      := tools/agbcc/bin/agbcc$(EXE)
 CC1_OLD  := tools/agbcc/bin/old_agbcc$(EXE)
 
 GFX := tools/gbagfx/gbagfx$(EXE)
-GFX2 := python tools/nes-chr-encode/nes_chr_encode.py
+GFX2 := python3 tools/nes-chr-encode/nes_chr_encode.py
 AIF := tools/aif2pcm/aif2pcm$(EXE)
 MID := $(abspath tools/mid2agb/mid2agb)$(EXE)
 SCANINC := tools/scaninc/scaninc$(EXE)
@@ -41,7 +41,7 @@ PREPROC := tools/preproc/preproc$(EXE)
 GBAFIX := tools/gbafix/gbafix$(EXE)
 
 CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm -g
-CPPFLAGS := -I tools/agbcc/include -iquote include -nostdinc -undef -D VERSION_$(GAME_VERSION) -D REVISION=$(GAME_REVISION) -D $(GAME_LANGUAGE) -D DEBUG=$(DEBUG)
+CPPFLAGS := -I tools/agbcc/include -iquote include -nostdinc -undef -D VERSION_$(GAME_VERSION) -D REVISION=$(GAME_REVISION) -D $(GAME_LANGUAGE)
 ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -I asminclude -I include --defsym VERSION_$(GAME_VERSION)=1 --defsym REVISION=$(GAME_REVISION) --defsym $(GAME_LANGUAGE)=1 --defsym DEBUG=$(DEBUG)
 
 #### Files ####
@@ -117,7 +117,7 @@ SEQ_ASM_OBJS := $(patsubst $(SEQ_ASM_SUBDIR)/%.s,$(SEQ_ASM_BUILDDIR)/%.o,$(SEQ_A
 WAVE_ASM_SRCS := $(wildcard $(WAVE_ASM_SUBDIR)/*.s)
 WAVE_ASM_OBJS := $(patsubst $(WAVE_ASM_SUBDIR)/%.s,$(WAVE_ASM_BUILDDIR)/%.o,$(WAVE_ASM_SRCS))
 
-OBJS := $(C_OBJS) $(C_DATA_OBJS) $(SRC_ASM_OBJS) $(ASM_OBJS) $(SOUND_ASM_OBJS) $(BANK_ASM_OBJS) $(SEQ_ASM_OBJS) $(WAVE_ASM_OBJS) $(DATA_ASM_OBJS) $(RODATA_ASM_OBJS) 
+OBJS := $(C_OBJS) $(C_DATA_OBJS) $(SRC_ASM_OBJS) $(ASM_OBJS) $(SOUND_ASM_OBJS) $(BANK_ASM_OBJS) $(SEQ_ASM_OBJS) $(WAVE_ASM_OBJS) $(DATA_ASM_OBJS) $(RODATA_ASM_OBJS)
 OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(OBJS))
 
 SUBDIRS  := $(sort $(dir $(OBJS)))
@@ -161,9 +161,6 @@ mostlyclean: tidy
 tidy:
 	$(RM) $(ROM) $(MAP) $(ELF) $(OBJS)
 	rm -r build
-    
-
-include graphics_file_rules.mk
 
 %.s: ;
 %.png: ;
@@ -219,13 +216,13 @@ endif
 # endif
 
 #### Recipes ####
-   
+
 $(OBJ_DIR)/ld_script.ld: $(LDSCRIPT) $(OBJ_DIR)/sym_ewram.txt $(OBJ_DIR)/sym_iwram.txt
 	cd $(OBJ_DIR) && sed "s#tools/#../../tools/#g" ../../$(LDSCRIPT) > $(LDSCRIPT)
-    
+
 $(OBJ_DIR)/sym_ewram.txt: sym_ewram.txt
 	cp $< $@
-    
+
 $(OBJ_DIR)/sym_iwram.txt: sym_iwram.txt
 	cp $< $@
 
@@ -243,7 +240,7 @@ $(SRC_ASM_BUILDDIR)/%.o: $(C_SUBDIR)/%.s
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
 	$(CPP) $(CPPFLAGS) -x c $< -o $(ASM_BUILDDIR)/$*.i
 	$(PREPROC) $(ASM_BUILDDIR)/$*.i charmap.txt | $(AS) $(ASFLAGS) -o $@
-    
+
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 	$(CPP) $(CPPFLAGS) -x c $< -o $(DATA_ASM_BUILDDIR)/$*.i.s
 	$(PREPROC) $(DATA_ASM_BUILDDIR)/$*.i.s charmap.txt > $(DATA_ASM_BUILDDIR)/$*.p.i
@@ -251,19 +248,19 @@ $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 
 $(RODATA_ASM_BUILDDIR)/%.o: $(RODATA_ASM_SUBDIR)/%.s $$(rodata_dep)
 	$(PREPROC) $< charmap.txt | $(AS) $(ASFLAGS) -o $@
-    
+
 $(SOUND_ASM_BUILDDIR)/%.o: $(SOUND_ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BANK_ASM_BUILDDIR)/%.o: $(BANK_ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
-    
+
 $(SEQ_ASM_BUILDDIR)/%.o: $(SEQ_ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
-    
+
 $(WAVE_ASM_BUILDDIR)/%.o: $(WAVE_ASM_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -o $@ $<
-    
+
 
 $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS)
 	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T $(LDSCRIPT) $(OBJS_REL) ../../tools/agbcc/lib/libgcc.a ../../tools/agbcc/lib/libc.a -o ../../$@

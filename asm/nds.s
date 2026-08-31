@@ -14,7 +14,7 @@
 NdsMain:
 	mov	r0, #0x04000000		@ IME = 0;
 	str	r0, [r0, #0x208]
-	
+
 	@ set sensible stacks to allow bios call
 
 	mov	r0, #0x13		@ Switch to SVC Mode
@@ -56,10 +56,10 @@ NdsMain:
 	ldr	r0, =IntrMainDs
 	ldr	r1, =__irq_vector
 	str r0, [r1]
-    
+
     ldr r0, =AgbMain
     bx r0
-    
+
     .pool
 
 	thumb_func_start DrawBg2Tilemap2
@@ -130,10 +130,10 @@ _08F014E2:
 	ldr r0, _08F01524 @ =gUnknown_03000848
 	movs r1, #1
 	strb r1, [r0]
-	ldr r0, _08F01530 @ =gUnknown_030007B4
+	ldr r0, _08F01530 @ =gNullTileset
 	ldrb r0, [r0]
 	mov sl, r0
-	ldr r2, _08F01534 @ =gUnknown_03000820
+	ldr r2, _08F01534 @ =gNullChunk
 	b _08F01560
 	.align 2, 0
 _08F0151C: .4byte gUnknown_03000788
@@ -141,15 +141,15 @@ _08F01520: .4byte gUnknown_03001508
 _08F01524: .4byte gUnknown_03000848
 _08F01528: .4byte gBg2TilemapBuffer2
 _08F0152C: .4byte gUnknown_030007F8
-_08F01530: .4byte gUnknown_030007B4
-_08F01534: .4byte gUnknown_03000820
+_08F01530: .4byte gNullTileset
+_08F01534: .4byte gNullChunk
 _08F01538:
 	ldr r0, _08F01578 @ =gUnknown_03000C68
 	ldrb r0, [r0]
 	mov sl, r0
 	lsrs r0, r6, #0xd
 	lsls r0, r0, #2
-	ldr r2, _08F0157C @ =gUnknown_08F6451C
+	ldr r2, _08F0157C @ =gMapDataList
 	adds r0, r0, r2
 	movs r3, #0xf8
 	lsls r3, r3, #5
@@ -179,7 +179,7 @@ _08F01560:
 	b _08F01588
 	.align 2, 0
 _08F01578: .4byte gUnknown_03000C68
-_08F0157C: .4byte gUnknown_08F6451C
+_08F0157C: .4byte gMapDataList
 _08F01580: .4byte gGameInfo
 _08F01584:
 	ldrb r2, [r2]
@@ -200,7 +200,7 @@ _08F0159A:
 _08F0159E:
 	asrs r1, r2, #2
 	lsls r1, r1, #2
-	ldr r4, _08F015FC @ =gUnknown_08F6451C
+	ldr r4, _08F015FC @ =gMapDataList
 	adds r1, r1, r4
 	movs r0, #3
 	ands r0, r2
@@ -234,7 +234,7 @@ _08F0159E:
 	movs r0, #0x80
 	ldrb r1, [r4]
 	ands r0, r1
-	ldr r1, _08F015FC @ =gUnknown_08F6451C
+	ldr r1, _08F015FC @ =gMapDataList
 	cmp r0, #0
 	beq _08F01604
 	movs r0, #0x40
@@ -245,7 +245,7 @@ _08F0159E:
 	b _08F01604
 	.align 2, 0
 _08F015F8: .4byte gUnknown_03000810
-_08F015FC: .4byte gUnknown_08F6451C
+_08F015FC: .4byte gMapDataList
 _08F01600:
 	ldr r0, _08F016D0 @ =gUnknown_03000810
 	ldrb r2, [r0]
@@ -326,7 +326,7 @@ _08F0168C:
 	cmp r0, #0
 	beq _08F016C0
 	ldr r2, _08F016D8 @ =gUnknown_03000C68
-	ldr r0, _08F016DC @ =gUnknown_030007B4
+	ldr r0, _08F016DC @ =gNullTileset
 	ldrb r1, [r0]
 	ldrb r0, [r2]
 	cmp r0, r1
@@ -338,7 +338,7 @@ _08F0168C:
 	cmp r0, #8
 	beq _08F016C0
 	strb r1, [r2]
-	ldr r1, _08F016E4 @ =gUnknown_08F6449C
+	ldr r1, _08F016E4 @ =tileset_gfxs
 	ldrb r2, [r2]
 	lsls r0, r2, #2
 	adds r0, r0, r1
@@ -359,9 +359,9 @@ _08F016C0:
 _08F016D0: .4byte gUnknown_03000810
 _08F016D4: .4byte gUnknown_03000848
 _08F016D8: .4byte gUnknown_03000C68
-_08F016DC: .4byte gUnknown_030007B4
+_08F016DC: .4byte gNullTileset
 _08F016E0: .4byte gUnknown_030007F8
-_08F016E4: .4byte gUnknown_08F6449C
+_08F016E4: .4byte tileset_gfxs
 _08F016E8: .4byte 0x0600C800
 
 #endif

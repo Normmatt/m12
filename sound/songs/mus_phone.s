@@ -1,0 +1,64 @@
+	.align 2
+	@********************** Track  1 **********************@
+
+	.global mus_phone_1
+mus_phone_1:	@ 0x08F7C3E8
+	.byte	0xBC
+	.byte	0x00
+gUnknown_08F7C3EA:
+	.byte	0xBB
+	.byte	0x43
+	.byte	0xBD
+	.byte	0x48
+	.byte	0xC3
+	.byte	0x0F
+	.byte	0xBE
+	.byte	0x4D
+	.byte	0xC5
+	.byte	0x00
+	.byte	0xC2
+	.byte	0x46
+	.byte	0xBF
+	.byte	0x40
+	.byte	0xC4
+	.byte	0x01
+	.byte	0xC0
+	.byte	0x40
+	.byte	0xD0
+	.byte	0x53
+	.byte	0x7F
+	.byte	0x82
+	.byte	0xD0
+	.byte	0x82
+	.byte	0xD0
+	.byte	0x82
+	.byte	0xD1
+	.byte	0x83
+	.byte	0xD1
+	.byte	0x83
+	.byte	0xD0
+	.byte	0x82
+	.byte	0xD0
+	.byte	0x83
+	.byte	0xD0
+	.byte	0xAA
+	.byte	0x81
+	.byte	0xB2
+	.word	gUnknown_08F7C3EA
+	.byte	0xB1
+	.byte	0x00
+	.byte	0x00
+	.byte	0x00
+
+	.align 2
+	.global mus_phone
+mus_phone:	@ 0x08F7C418
+	.byte	1		@ trackCount
+	.byte	0		@ blockCount
+	.byte	10		@ priority
+	.byte	128		@ reverb
+
+	.word	gUnknown_08F711F0		@ voicegroup/tone
+
+	.word	mus_phone_1		@ track
+

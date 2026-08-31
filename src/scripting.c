@@ -8,7 +8,7 @@ extern const u8 gCurrentItemId;
 #include "definitions.h"
 
 extern void_pointer gSCR_CMD_Handlers[];
-extern u8 gUnknown_08F278E8[];
+extern u8 gMsg_Menu_Yes_No[];
 
 #ifndef JAPANESE
 u8 *choose_yes_no_size();
@@ -20,7 +20,7 @@ void ExecuteScript(u8 numInstructionsToExecute)
     {
         gUnknown_03001D30 = numInstructionsToExecute;
         gScriptLR = (u32)gUnknown_03000784->ScriptPtr;
-        gScriptPtr = (u8 *)(gScriptLR + (gUnknown_03000784->field_14 & 0xF));
+        gScriptPtr = (u8 *)(gScriptLR + (gUnknown_03000784->bitfield1 & OBJECT_M_BF1_SCRIPT));
     }
     else
     {
@@ -42,7 +42,7 @@ skip_execution:
         {
             return;
         }
-        gUnknown_03000784 = (struct_off_3000784 *)gUnknown_030007EC;
+        gUnknown_03000784 = (sObjectMemory *)gUnknown_030007EC;
         gUnknown_03001D30 = gUnknown_03001514;
         gUnknown_030007EC = 0;
         gScriptLR = (u32)gUnknown_03000784->ScriptPtr;
@@ -52,25 +52,25 @@ skip_execution:
         }
         else
         {
-            gScriptPtr = (u8 *)(gScriptLR + (gUnknown_03000784->field_14 & 0xF));
+            gScriptPtr = (u8 *)(gScriptLR + (gUnknown_03000784->bitfield1 & OBJECT_M_BF1_SCRIPT));
         }
     }
 }
 
+// end script
 void SCR_CMD_00_End()
 {
-    // end script
     gUnknown_03001D30 = 0;
 }
 
+// unconditional jump (pp=position)
 void SCR_CMD_01_Jump()
 {
-    // unconditional jump (pp=position)
-    u8* ptr = gScriptPtr;
     gScriptPtr++;
-    gScriptPtr = (u8 *)(ptr[1] + gScriptLR - 1);
+    gScriptPtr = (u8 *)(*gScriptPtr + gScriptLR - 1);
 }
 
+// call subroutine (oo=object pointer)
 void SCR_CMD_02_CallSubroutine()
 {
     u32 old_lr;
@@ -79,7 +79,6 @@ void SCR_CMD_02_CallSubroutine()
     u32 oo_ptr;
     u8 old_3001D30;
 
-    // call subroutine (oo=object pointer)
     old_lr = gScriptLR;
     ++gScriptPtr;
     oo_low = *gScriptPtr++;
@@ -103,18 +102,16 @@ void SCR_CMD_02_CallSubroutine()
     }
 }
 
+// return from subroutine
 void SCR_CMD_03_Return()
 {
-    // return from subroutine
     gUnknown_03001D30 = 3;
 }
 
-void SCR_CMD_04()
+// delay (tt=time)
+void SCR_CMD_04_Delay()
 {
-    // delay (tt=time)
-    u8 delay;
-    ++gScriptPtr;
-    delay = *gScriptPtr;
+    u8 delay = *++gScriptPtr;
     if ( gCurrentBgMusic != 1 )
     {
         if ( ((u8)(gCurrentBgMusic - 36)) < 8 )
@@ -128,19 +125,19 @@ void SCR_CMD_04()
     }
 }
 
-void SCR_CMD_05()
+// object disappears when flag set
+void SCR_CMD_05_SpawnIfFlagClear()
 {
-    // object disappears when flag set
     ++gScriptPtr;
 }
 
-void SCR_CMD_06()
+// object appears when flag set
+void SCR_CMD_06_SpawnIfFlagSet()
 {
-    // object appears when flag set
     ++gScriptPtr;
 }
 
-void SCR_CMD_08()
+void SCR_CMD_08_Dialogue()
 {
     u8 *v0;
     u32 v1;
@@ -177,7 +174,7 @@ void SCR_CMD_08()
                 v5[1].Condition = 0;
             }
         }
-        PlaySfxById1(7u);
+        PlayPulse1Sfx(7u);
         sub_8F0B004();
         gUnknown_03003170 |= 0x80u;
         UpdateCharactersInParty();
@@ -189,13 +186,13 @@ void SCR_CMD_08()
     }
 }
 
-void SCR_CMD_09()
+// ask yes/no, jump if "no" selected or B pressed
+void SCR_CMD_09_PromptYesNo()
 {
-    // ask yes/no, jump if "no" selected or B pressed
     gTextDelayAfterWriteCharacterEnabled |= 0x80u;
 
 #ifdef JAPANESE
-    DrawTextWithIdWaitForButton((u8 *)gUnknown_08F278E8);
+    DrawTextWithIdWaitForButton((u8 *)gMsg_Menu_Yes_No);
 #else
     DrawTextWithIdWaitForButton(choose_yes_no_size());
 #endif
@@ -217,9 +214,9 @@ label:
     goto label;
 }
 
-void SCR_CMD_0A()
+// jump unless TALKing
+void SCR_CMD_0A_JMP_NotTalking()
 {
-    // jump unless TALKing
     if ( *gScriptPtr != gUnknown_03001D30 )
     {
         SCR_CMD_01_Jump();
@@ -230,9 +227,9 @@ void SCR_CMD_0A()
     }
 }
 
-void SCR_CMD_0B()
+// jump unless CHECKing
+void SCR_CMD_0B_JMP_NotChecking()
 {
-    // jump unless CHECKing
     if ( *gScriptPtr != gUnknown_03001D30 )
     {
         SCR_CMD_01_Jump();
@@ -243,9 +240,9 @@ void SCR_CMD_0B()
     }
 }
 
-void SCR_CMD_0C()
+// jump unless using PSI (01=telepathy)
+void SCR_CMD_0C_JMP_NotPSI()
 {
-    // jump unless using PSI (01=telepathy)
     if (!( *gScriptPtr++ == gUnknown_03001D30 && *gScriptPtr + 0xC0 == gUnknown_03003188 ))
     {
         SCR_CMD_01_Jump();
@@ -256,9 +253,9 @@ void SCR_CMD_0C()
     }
 }
 
-void SCR_CMD_0D()
+// jump unless using item
+void SCR_CMD_0D_JMP_NotItem()
 {
-    // jump unless using item
     if (!( *gScriptPtr++ == gUnknown_03001D30 && *gScriptPtr == gUnknown_03003188 ))
     {
         SCR_CMD_01_Jump();
@@ -292,9 +289,9 @@ void SCR_CMD_11_ClearFlag()
     gGameInfo.Flags[*gScriptPtr >> 3] &= ~(0x80 >> (*gScriptPtr & 7));
 }
 
-void SCR_CMD_12()
+// jump unless flag set
+void SCR_CMD_12_JMP_FlagClear()
 {
-    // jump unless flag set
     ++gScriptPtr;
     if ( (gGameInfo.Flags[*gScriptPtr >> 3] << (*gScriptPtr & 7)) & 0x80 )
     {
@@ -306,35 +303,34 @@ void SCR_CMD_12()
     }
 }
 
-void SCR_CMD_13()
+// decrease counter
+void SCR_CMD_13_DecCounter()
 {
-    // decrease counter
     gScriptPtr++;
-    --gGameInfo.field_260[*gScriptPtr];
+    --gGameInfo.counters[*gScriptPtr];
 }
 
-void SCR_CMD_14()
+// increase counter
+void SCR_CMD_14_IncCounter()
 {
-    // increase counter
     gScriptPtr++;
-    ++gGameInfo.field_260[*gScriptPtr];
+    ++gGameInfo.counters[*gScriptPtr];
 }
 
-void SCR_CMD_15()
+// set counter to 0
+void SCR_CMD_15_ClrCounter()
 {
-    // set counter to 0
     gScriptPtr++;
-    gGameInfo.field_260[*gScriptPtr] = 0;
+    gGameInfo.counters[*gScriptPtr] = 0;
 }
 
-void SCR_CMD_16()
+// jump if counter less than value
+void SCR_CMD_16_JMP_LessThan()
 {
-    // jump if counter less than value
-
     u8 val;
     ++gScriptPtr;
     val = *gScriptPtr++;
-    if ( gGameInfo.field_260[val] < *gScriptPtr )
+    if ( gGameInfo.counters[val] < *gScriptPtr )
     {
         SCR_CMD_01_Jump();
     }
@@ -344,19 +340,18 @@ void SCR_CMD_16()
     }
 }
 
-void SCR_CMD_17()
+// change save meta value
+void SCR_CMD_17_WriteSaveMeta()
 {
-    // change map variable (1B-1E)
     u8 idx;
-
     ++gScriptPtr;
     idx = *gScriptPtr++;
-    gGameInfo.PlayerInfo.Struct.MapVariable[idx] = *gScriptPtr;
+    gGameInfo.PlayerInfo.Raw[0][idx] = *gScriptPtr;
 }
 
-void SCR_CMD_18()
+// choose character, jump if B pressed
+void SCR_CMD_18_ChooseChara()
 {
-    // choose character, jump if B pressed
     s32 v0;
     sTextState v1;
 
@@ -375,16 +370,16 @@ void SCR_CMD_18()
     }
 }
 
+// select specific character
 void SCR_CMD_19_SetCurrentCharacterId()
 {
-    // select specific character
     ++gScriptPtr;
     gCurrentCharacterId = *gScriptPtr;
 }
 
-void SCR_CMD_1A()
+// jump unless character selected
+void SCR_CMD_1A_JMP_NotChar()
 {
-    // jump unless character selected
     ++gScriptPtr;
     if ( *gScriptPtr != gCurrentCharacterId )
     {
@@ -396,9 +391,9 @@ void SCR_CMD_1A()
     }
 }
 
-void SCR_CMD_1B()
+// jump if no money added to bank acct since last call
+void SCR_CMD_1B_JMP_DadMoneyClr()
 {
-    // jump if no money added to bank acct since last call
     if ( gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositLo | gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositMid | gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositHi )
     {
         ++gScriptPtr;
@@ -409,9 +404,9 @@ void SCR_CMD_1B()
     }
 }
 
-void SCR_CMD_1C()
+// input a number, jump if B pressed
+void SCR_CMD_1C_PromptInputNum()
 {
-    // input a number, jump if B pressed
     s32 v0;
 
     SCR_CMD_1F_ShowMoney();
@@ -427,17 +422,17 @@ void SCR_CMD_1C()
     }
 }
 
-void SCR_CMD_1D()
+// load a number
+void SCR_CMD_1D_LoadNum()
 {
-    // load a number
     ++gScriptPtr;
     gTempNumber = *gScriptPtr++;
     gTempNumber = gTempNumber + (*gScriptPtr << 8);
 }
 
-void SCR_CMD_1E()
+// jump if number less than value
+void SCR_CMD_1E_JMP_Compare2Inputs()
 {
-    // jump if number less than value
     u32 number;
 
     number = *++gScriptPtr;
@@ -452,9 +447,9 @@ void SCR_CMD_1E()
     }
 }
 
+// show money
 void SCR_CMD_1F_ShowMoney()
 {
-    // show money
     sTextState v0;
 
     SaveTextSystemState(&v0);
@@ -462,9 +457,9 @@ void SCR_CMD_1F_ShowMoney()
     LoadTextSystemState(&v0);
 }
 
-void SCR_CMD_20()
+// choose item from inventory, jump if B pressed
+void SCR_CMD_20_ChooseItem()
 {
-    // choose item from inventory, jump if B pressed
     s32 itemId;
     sTextState v1;
 
@@ -484,9 +479,9 @@ void SCR_CMD_20()
     }
 }
 
-void SCR_CMD_21()
+// choose item from closet, jump if B pressed
+void SCR_CMD_21_ChooseItemCloset()
 {
-    // choose item from closet, jump if B pressed
     s32 itemId;
     sTextState v1;
 
@@ -505,9 +500,9 @@ void SCR_CMD_21()
     }
 }
 
-void SCR_CMD_22()
+// choose item from list, jump if B pressed
+void SCR_CMD_22_ShowShop()
 {
-    // choose item from list, jump if B pressed
     s32 itemId;
     sTextState v1;
 
@@ -529,8 +524,9 @@ void SCR_CMD_22()
     }
 }
 
-#if NON_MATCHING // reg-alloc
-void SCR_CMD_23()
+// jump unless item in character's inventory
+#ifdef NON_MATCHING // reg-alloc
+void SCR_CMD_23_JMP_ItemNotInCurrentCharaInv()
 {
     u8 v0;
     u8 *ptr;
@@ -538,7 +534,6 @@ void SCR_CMD_23()
     u8 itemId;
     u32 charId;
 
-    // jump unless item in character's inventory
     ++gScriptPtr;
     SelectItem(*gScriptPtr);
     gUnknown_030007D8 = -1;
@@ -565,18 +560,18 @@ void SCR_CMD_23()
 }
 #else
 NAKED
-void SCR_CMD_23()
+void SCR_CMD_23_JMP_ItemNotInCurrentCharaInv()
 {
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_23.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_23_JMP_ItemNotInCurrentCharaInv.s\"");
 }
 #endif
 
 //gCurrentItemId defined as const matches?
-void SCR_CMD_24()
+// jump unless item in closet
+void SCR_CMD_24_JMP_ItemNotInStorage()
 {
     u8 v0;
 
-    // jump unless item in closet
     ++gScriptPtr;
     SelectItem(*gScriptPtr);
     gUnknown_030007D8 = -1;
@@ -599,9 +594,9 @@ void SCR_CMD_24()
     ++gScriptPtr;
 }
 
-void SCR_CMD_25()
+// select specific item
+void SCR_CMD_25_LoadItem()
 {
-    // select specific item
     SelectItem(*++gScriptPtr);
     if ( gCurrentItemId != *gScriptPtr )
     {
@@ -609,9 +604,9 @@ void SCR_CMD_25()
     }
 }
 
-void SCR_CMD_26()
+// jump unless item selected
+void SCR_CMD_26_JMP_NotItemSelected()
 {
-    // jump unless item selected
     ++gScriptPtr;
     if ( gCurrentItemId != *gScriptPtr )
     {
@@ -623,22 +618,15 @@ void SCR_CMD_26()
     }
 }
 
-#if NON_MATCHING // reg-alloc
-void SCR_CMD_27()
-{
-    TODO: make a non matching for this
-}
-#else
 NAKED
-void SCR_CMD_27()
+void SCR_CMD_27_JMP_ItemNotInInv()
 {
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_27.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_27_JMP_ItemNotInInv.s\"");
 }
-#endif
 
+// give money, jump if can't hold any more
 void SCR_CMD_28_IncrementMoney()
 {
-    // give money, jump if can't hold any more
     if ( (gGameInfo.PlayerInfo.Struct.Money + gTempNumber) >= 0x10000 )
     {
         SCR_CMD_01_Jump();
@@ -650,9 +638,9 @@ void SCR_CMD_28_IncrementMoney()
     }
 }
 
+// take money, jump if not enough
 void SCR_CMD_29_DecrementMoney()
 {
-    // take money, jump if not enough
     if ( (gGameInfo.PlayerInfo.Struct.Money - gTempNumber) < 0 )
     {
         SCR_CMD_01_Jump();
@@ -664,15 +652,14 @@ void SCR_CMD_29_DecrementMoney()
     }
 }
 
+// give money, jump if can't hold any more
 #define BANKED_MONEY (((gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8) | gGameInfo.PlayerInfo.Struct.BankedMoneyLo) + (gGameInfo.PlayerInfo.Struct.BankedMoneyHi << 16))
 #define SET_BANKED_MONEY(val) \
     gGameInfo.PlayerInfo.Struct.BankedMoneyLo = val; \
     gGameInfo.PlayerInfo.Struct.BankedMoneyMid = val>>8; \
     gGameInfo.PlayerInfo.Struct.BankedMoneyHi = val>>16;
-
 void SCR_CMD_2A_IncrementBankedMoney()
 {
-    // give money, jump if can't hold any more
     s32 val = gGameInfo.PlayerInfo.Struct.BankedMoneyLo;
     val |= gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8;
     val += gGameInfo.PlayerInfo.Struct.BankedMoneyHi << 16;
@@ -688,9 +675,9 @@ void SCR_CMD_2A_IncrementBankedMoney()
     }
 }
 
+// take money, jump if not enough
 void SCR_CMD_2B_DecrementBankedMoney()
 {
-    // take money, jump if not enough
     s32 val;
     val = gGameInfo.PlayerInfo.Struct.BankedMoneyLo;
     val |= gGameInfo.PlayerInfo.Struct.BankedMoneyMid << 8;
@@ -708,10 +695,10 @@ void SCR_CMD_2B_DecrementBankedMoney()
     }
 }
 
-void SCR_CMD_2C()
+// jump if item unsellable otherwise remove from inventory
+void SCR_CMD_2C_JMP_CurrItemKey()
 {
-    sItemData *item = &gItemData[gCurrentItemId];
-    // jump if item unsellable otherwise remove from inventory
+    const sItemData *item = &gItemData[gCurrentItemId];
     if ( (!(item->Flags & ITEM_IS_SELLABLE)) && (RemoveItemFromInventory(gCurrentCharacterId) >= 0) )
     {
         ++gScriptPtr;
@@ -722,7 +709,7 @@ void SCR_CMD_2C()
     }
 }
 
-void SCR_CMD_2D()
+void SCR_CMD_2D_TryGiveItem()
 {
   int v0;
 
@@ -748,9 +735,9 @@ dummy_label_911266:
 }
 
 
-void SCR_CMD_2E()
+// remove item from inventory, jump if not present
+void SCR_CMD_2E_TryRemoveItem()
 {
-    // remove item from inventory, jump if not present
     if ( RemoveItemFromInventory(gCurrentCharacterId) < 0 )
     {
         SCR_CMD_01_Jump();
@@ -761,12 +748,12 @@ void SCR_CMD_2E()
     }
 }
 
-void SCR_CMD_2F()
+// add item to closet, jump if full
+void SCR_CMD_2F_TryDepositItem()
 {
     u8 v0;
     u8 *ptr;
 
-    // add item to closet, jump if full
     v0 = 0;
     while ( 1 )
     {
@@ -788,12 +775,12 @@ void SCR_CMD_2F()
     ++gScriptPtr;
 }
 
-void SCR_CMD_30()
+// remove item from closet, jump if not present
+void SCR_CMD_30_TryWithdrawItem()
 {
     s32 idx;
     u8 *v2;
 
-    // remove item from closet, jump if not present
     idx = GetPositionOfCurrentItemFromInventoryOrCloset(0);
     if ( idx >= 0 )
     {
@@ -812,12 +799,12 @@ void SCR_CMD_30()
     }
 }
 
-void SCR_CMD_31()
+// select character's nn'th item (first is 0), jump if empty slot
+void SCR_CMD_31_TrySelectCharaInvSlot()
 {
     s32 idx; // r5
     u32 item;
 
-    // select character's nn'th item (first is 0), jump if empty slot
     idx = *++gScriptPtr;
     item = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Inventory[idx];
     if ( !item )
@@ -832,14 +819,14 @@ void SCR_CMD_31()
     }
 }
 
-void SCR_CMD_32()
+// multiply number by nn/100
+void SCR_CMD_32_MultiplyNumBy100()
 {
     s32 v0;
     s32 nn;
 
     nn = *++gScriptPtr;
 
-    // multiply number by nn/100
     v0 = gTempNumber * nn / 100;
     if ( v0 > 0xFFFF )
     {
@@ -851,7 +838,7 @@ void SCR_CMD_32()
     }
 }
 
-void SCR_CMD_33()
+void SCR_CMD_33_JMP_CharaNotInParty()
 {
   struct GlobalPlayerInfo *playerInfo;
   u8 idx;
@@ -882,7 +869,7 @@ void SCR_CMD_33()
   ++gScriptPtr;
 }
 
-void SCR_CMD_34()
+void SCR_CMD_34_JMP_NotUnk()
 {
     if ( *gScriptPtr != gUnknown_03001D30 )
     {
@@ -894,9 +881,9 @@ void SCR_CMD_34()
     }
 }
 
-void SCR_CMD_35()
+// jump unless touching object
+void SCR_CMD_35_JMP_NotTouching()
 {
-    // jump unless touching object
     if ( *gScriptPtr != gUnknown_03001D30 )
     {
         SCR_CMD_01_Jump();
@@ -907,7 +894,7 @@ void SCR_CMD_35()
     }
 }
 
-void SCR_CMD_36()
+void SCR_CMD_36_JMP_NotFacing()
 {
     if ( (*(u8 *)(gUnknown_03000784->ScriptPtr + 2) & 7) != gUnknown_030007A4 )
     {
@@ -919,12 +906,12 @@ void SCR_CMD_36()
     }
 }
 
-void SCR_CMD_37()
+// show 2-option menu, jump to p1 if second option selected or jump to p2 if B selected
+void SCR_CMD_37_CustomMenu()
 {
     u16 textId;
     u32 v2;
 
-    // show 2-option menu, jump to p1 if second option selected or jump to p2 if B selected
     textId = *++gScriptPtr;
     textId |= *++gScriptPtr << 8;
     gTextDelayAfterWriteCharacterEnabled |= 0x80u;
@@ -944,13 +931,13 @@ void SCR_CMD_37()
     }
 }
 
-void SCR_CMD_38()
+// jump if no items in inventory
+void SCR_CMD_38_JMP_InvEmpty()
 {
     u8 v0;
     u8 charId;
     u8 *charIdPtr;
 
-    // jump if no items in inventory
     v0 = 0;
     while ( 1)
     {
@@ -973,9 +960,9 @@ void SCR_CMD_38()
     ++gScriptPtr;
 }
 
-void SCR_CMD_39()
+// jump if no items in closet
+void SCR_CMD_39_JMP_StorageEmpty()
 {
-    // jump if no items in closet
     if ( !gGameInfo.Closet[0] )
     {
         SCR_CMD_01_Jump();
@@ -986,9 +973,9 @@ void SCR_CMD_39()
     }
 }
 
-void SCR_CMD_3A()
+// select nn'th character in party (first is 0), jump if not present
+void SCR_CMD_3A_LoadCharaInParty()
 {
-    // select nn'th character in party (first is 0), jump if not present
     ++gScriptPtr;
     if ( !gGameInfo.PlayerInfo.Struct.CharactersInParty[*gScriptPtr] )
     {
@@ -1000,22 +987,23 @@ void SCR_CMD_3A()
     }
 }
 
-void SCR_CMD_3B()
+// change object type (tt=type) e.g. 26=run away
+void SCR_CMD_3B_SetObjectType()
 {
-    // change object type (tt=type) e.g. 26=run away
     u8 tt = *++gScriptPtr;
     gUnknown_03000784->Type = tt;
-    gUnknown_03000784->field_2 = gUnknown_08F645B4[tt];
-    gUnknown_03000784->field_14 = gUnknown_08F645B4[tt] >> 8;
+    gUnknown_03000784->field_2 = gObject_Configs[tt];
+    gUnknown_03000784->bitfield1 = gObject_Configs[tt] >> 8;
 }
 
-void SCR_CMD_3C()
+void SCR_CMD_3C_SetFadeType()
 {
     ++gScriptPtr;
-    gUnknown_030007E8 = *gScriptPtr;
+    gFade_Type = *gScriptPtr;
 }
 
-void SCR_CMD_3D()
+// teleport player
+void SCR_CMD_3D_Teleport()
 {
     union
     {
@@ -1024,7 +1012,6 @@ void SCR_CMD_3D()
         u32 val;
     } temp;
 
-    // teleport player
     gUnknown_030007A0 = -1;
 
     // start
@@ -1051,31 +1038,31 @@ void SCR_CMD_3D()
     gUnknown_03000840 = gUnknown_030034A8 = 0;
 }
 
-#if NON_MATCHING
-void SCR_CMD_3E()
+#ifdef NON_MATCHING
+void SCR_CMD_3E_MoveObject()
 {
     //TODO: Not attempted
 }
 #else
 NAKED
-void SCR_CMD_3E()
+void SCR_CMD_3E_MoveObject()
 {
-    asm(".include \"asm/non_matching/scripting/SCR_CMD_3E.s\"");
+    asm(".include \"asm/non_matching/scripting/SCR_CMD_3E_MoveObject.s\"");
 }
 #endif
 
+// signal another object (oo=object number)
 void SCR_CMD_3F_JumpToObjectScript()
 {
-    // signal another object (oo=object number)
     ++gScriptPtr;
-    gUnknown_030007EC = &gUnknown_03001D40[*gScriptPtr];
+    gUnknown_030007EC = &gObjectMemory[*gScriptPtr];
     gUnknown_03001510 = 0;
     gUnknown_03001514 = 64;
 }
 
-void SCR_CMD_40()
+// jump unless signaled
+void SCR_CMD_40_JMP_NotSignaled()
 {
-    // jump unless signaled
     if ( *gScriptPtr != gUnknown_03001D30 )
     {
         SCR_CMD_01_Jump();
@@ -1086,23 +1073,23 @@ void SCR_CMD_40()
     }
 }
 
-void SCR_CMD_41()
+// teleport to saved game location
+void SCR_CMD_41_WarpToSaveSpot()
 {
-    // teleport to saved game location
     gUnknown_030007A0 = -1;
-    gPlayerX = gGameInfo.PlayerInfo.Struct.field_C + 0x40;
-    gPlayerY = gGameInfo.PlayerInfo.Struct.field_E + 0x80;
+    gPlayerX = gGameInfo.PlayerInfo.Struct.save_xpos_music + 0x40;
+    gPlayerY = gGameInfo.PlayerInfo.Struct.save_ypos_direction + 0x80;
     gUnknown_03000840 = gGameInfo.field_2AE;
     gUnknown_030034A8 = gGameInfo.field_2AF;
     UpdatePartyLocationsAfterTeleport();
 }
 
-void SCR_CMD_42()
+// add character to party, jump if party full
+void SCR_CMD_42_AddChara()
 {
     u8 i;
     u8 *ptr;
 
-    // add character to party, jump if party full
     ++gScriptPtr;
     gCurrentCharacterId = *gScriptPtr;
     i = 0;
@@ -1126,22 +1113,22 @@ void SCR_CMD_42()
     ++gScriptPtr;
 }
 
-void SCR_CMD_43()
+// remove character from party, jump if absent
+void SCR_CMD_43_RemoveChara()
 {
     u8 v0;
     u8 *v1;
     u8 *ptr;
     u32 id;
-    struct GlobalPlayerInfo * gpi;
+    GlobalPlayerInfo * gpi;
     u8 temp;
 
-    // remove character from party, jump if absent
     ++gScriptPtr;
     id = gCurrentCharacterId = *gScriptPtr;
     v0 = 0;
     while ( 1 )
     {
-        gpi = &gGameInfo.PlayerInfo;
+        gpi = &gGameInfo.PlayerInfo.Struct;
         ptr = gpi->CharactersInParty;
         temp = id;
         if(temp != ptr[v0]) //REG DIFF
@@ -1170,11 +1157,11 @@ void SCR_CMD_43()
     ++gScriptPtr;
 }
 
-void SCR_CMD_44()
+// start battle (gg=enemy group)
+void SCR_CMD_44_StartEncounter()
 {
     s32 res;
 
-    // start battle (gg=enemy group)
     if ( gUnknown_03003170 )
     {
         WaitForActionButtonPress();
@@ -1191,14 +1178,14 @@ void SCR_CMD_44()
     }
 }
 
-void SCR_CMD_45()
+// multiply by number of characters
+void SCR_CMD_45_MultiplyByPartySize()
 {
     s32 v0;
     u8 v1;
     u8 v2;
     u8 v3;
 
-    // multiply by number of characters
     v0 = 0;
     v1 = 0;
     do
@@ -1222,9 +1209,9 @@ void SCR_CMD_45()
     }
 }
 
-void SCR_CMD_46()
+// rocket (dd=direction)
+void SCR_CMD_46_MoveRocket()
 {
-    // rocket (dd=direction)
     sub_8F0302C(0);
     ++gScriptPtr;
     gUnknown_0300317C = 45;
@@ -1232,9 +1219,9 @@ void SCR_CMD_46()
     gUnknown_03000800 = 0;
 }
 
-void SCR_CMD_47()
+// airplane
+void SCR_CMD_47_DoPlane()
 {
-    // airplane
     sub_8F0302C(0);
     ++gScriptPtr;
     gUnknown_0300317C = 9;
@@ -1244,9 +1231,9 @@ void SCR_CMD_47()
     gUnknown_030034A4 = 4;
 }
 
-void SCR_CMD_48()
+// tank
+void SCR_CMD_48_DoTank()
 {
-    // tank
     sub_8F0302C(0);
     ++gScriptPtr;
     gUnknown_0300317C = 10;
@@ -1258,9 +1245,9 @@ void SCR_CMD_48()
     gUnknown_030007A0 = 8;
 }
 
-void SCR_CMD_49()
+// boat
+void SCR_CMD_49_DoBoat()
 {
-    // boat
     if ( gUnknown_03003170 )
     {
         WaitForActionButtonPress();
@@ -1280,17 +1267,17 @@ void SCR_CMD_49()
     }
 }
 
-void SCR_CMD_4A()
+// train
+void SCR_CMD_4A_DoTrain()
 {
-    // train
     DelayByAmount(0x1Eu);
     sub_8F07374();
     gUnknown_030007A8 = 1;
 }
 
-void SCR_CMD_4B()
+// elevator
+void SCR_CMD_4B_DoElevator()
 {
-    // elevator
     sub_8F0302C(1u);
     ++gScriptPtr;
     gUnknown_0300317C = 15;
@@ -1298,9 +1285,9 @@ void SCR_CMD_4B()
     gUnknown_030007A4 = *gScriptPtr;
 }
 
-void SCR_CMD_4C()
+// no vehicle
+void SCR_CMD_4C_DismountVehicle()
 {
-    // no vehicle
     if ( gUnknown_0300317C == 9 )
     {
         gUnknown_03000784->X += 24;
@@ -1323,18 +1310,18 @@ void SCR_CMD_4C()
     gUnknown_030007A0 = 8;
 }
 
-void SCR_CMD_4D()
+void SCR_CMD_4D_EndPlane()
 {
     gUnknown_030034A4 = -gUnknown_030034A4;
     gUnknown_030007C0 = 2;
 }
 
-void SCR_CMD_4E()
+void SCR_CMD_4E_TeleportUpdate()
 {
     UpdatePartyLocationsAfterTeleport();
 }
 
-void SCR_CMD_4F()
+void SCR_CMD_4F_JMP_HasMoved()
 {
     u8 *v0;
     u16 v1;
@@ -1354,9 +1341,9 @@ void SCR_CMD_4F()
     }
 }
 
-void SCR_CMD_50()
+// jump if at less than max HP
+void SCR_CMD_50_JMP_CharaHPNotFull()
 {
-    // jump if at less than max HP
     if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP < gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxHP )
     {
         SCR_CMD_01_Jump();
@@ -1367,12 +1354,12 @@ void SCR_CMD_50()
     }
 }
 
-void SCR_CMD_51()
+// heal HP
+void SCR_CMD_51_RecoverHP()
 {
     s32 curHP;
     u16 maxHP;
 
-    // heal HP
     ++gScriptPtr;
     curHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentHP + *gScriptPtr;
     maxHP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxHP;
@@ -1388,9 +1375,9 @@ void SCR_CMD_51()
     }
 }
 
-void SCR_CMD_52()
+// jump if character has status
+void SCR_CMD_52_JMP_CharaHasStatus()
 {
-    // jump if character has status
     ++gScriptPtr;
     if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition & *gScriptPtr )
     {
@@ -1402,13 +1389,13 @@ void SCR_CMD_52()
     }
 }
 
-void SCR_CMD_53()
+// remove statuses not in ss
+void SCR_CMD_53_CharaHealStatusExcept()
 {
     u32 cond;
     u32 ss;
     u32 maxHP;
 
-    // remove statuses not in ss
     ++gScriptPtr;
     cond = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Condition;
     ss = *gScriptPtr;
@@ -1433,9 +1420,9 @@ void SCR_CMD_53()
     }
 }
 
-void SCR_CMD_54()
+// jump if character below level
+void SCR_CMD_54_JMP_CharaLvLessThan()
 {
-    // jump if character below level
     ++gScriptPtr;
     if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Level < *gScriptPtr )
     {
@@ -1447,9 +1434,9 @@ void SCR_CMD_54()
     }
 }
 
-void SCR_CMD_55()
+// sleep
+void SCR_CMD_55_Sleep()
 {
-    // sleep
     WaitForActionButtonPress();
     FadeOut();
     sub_8F0B040();
@@ -1457,19 +1444,20 @@ void SCR_CMD_55()
     FadeIn();
 }
 
+// save game
 void SCR_CMD_56_SaveGame()
 {
-    // save game
-    gGameInfo.PlayerInfo.Struct.field_4 = ((gUnknown_03000788 - 0x40) & 0xFFC0);
-    gGameInfo.PlayerInfo.Struct.field_6 = ((gUnknown_03001508 - 0x80) & 0xFFC0);
-    gGameInfo.PlayerInfo.Struct.field_4 |= (gCurrentBgMusic & 0x3F);
-    gGameInfo.PlayerInfo.Struct.field_6 |= (gUnknown_030007A4 & 7);
+    gGameInfo.PlayerInfo.Struct.xpos_music = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.ypos_direction = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.xpos_music |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.Struct.ypos_direction |= (gUnknown_030007A4 & 7);
     gGameInfo.field_2AC = (gUnknown_03000788 - 0x40) & 0x3F;
     gGameInfo.field_2AD = (gUnknown_03001508 + 0x80) & 0x3F;
     gGameInfo.field_288 = 8;
     M1_CalculateChecksumAndWriteSave(&gGameInfo, gUnknown_030007E4);
 }
 
+// load character's exp needed for next level
 void SCR_CMD_57_LoadExpForNextLevel()
 {
     u32 level;
@@ -1478,7 +1466,6 @@ void SCR_CMD_57_LoadExpForNextLevel()
     u32 v3;
     u16 *ptr;
 
-    // load character's exp needed for next level
     level = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].Level;
     if ( level >= 99 )
     {
@@ -1488,7 +1475,7 @@ void SCR_CMD_57_LoadExpForNextLevel()
     else
     {
         v1 = (level + 2) * (level + 1) * (level + 1);
-        v2 = gUnknown_08F5C31C[8 * (gCurrentCharacterId + 56)];
+        v2 = gOtherItemData[gCurrentCharacterId + 56].CharacterRate.exp;
         v1 = (v2*v1) >> 8;
         v2 = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].ExpLo << 0;
         v2 |= gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].ExpMid << 8;
@@ -1500,10 +1487,10 @@ void SCR_CMD_57_LoadExpForNextLevel()
     gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositHi = 0;
     gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositMid = 0;
     gGameInfo.PlayerInfo.Struct.MoneyReadyToDepositLo = 0;
-    gGameInfo.PlayerInfo.Struct.field_C = ((gUnknown_03000788 - 0x40) & 0xFFC0);
-    gGameInfo.PlayerInfo.Struct.field_E = ((gUnknown_03001508 - 0x80) & 0xFFC0);
-    gGameInfo.PlayerInfo.Struct.field_C |= (gCurrentBgMusic & 0x3F);
-    gGameInfo.PlayerInfo.Struct.field_E |= (gUnknown_030007A4 & 7);
+    gGameInfo.PlayerInfo.Struct.save_xpos_music = ((gUnknown_03000788 - 0x40) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.save_ypos_direction = ((gUnknown_03001508 - 0x80) & 0xFFC0);
+    gGameInfo.PlayerInfo.Struct.save_xpos_music |= (gCurrentBgMusic & 0x3F);
+    gGameInfo.PlayerInfo.Struct.save_ypos_direction |= (gUnknown_030007A4 & 7);
     gGameInfo.field_2AE = (gUnknown_03000788 - 0x40) & 0x3F;
     gGameInfo.field_2AF = (gUnknown_03001508 - 0x80) & 0x3F;
 }
@@ -1528,45 +1515,45 @@ void SCR_CMD_5A_ChangeBgMusic()
     ChangeBgMusic(*gScriptPtr);
 }
 
-void SCR_CMD_5B_PlaySfxById0()
+void SCR_CMD_5B_QueueNoiseSfx()
 {
     // play sound (1)
     ++gScriptPtr;
-    PlaySfxById0(*gScriptPtr);
+    PlayNoiseSfx(*gScriptPtr);
 }
 
-void SCR_CMD_5C_PlaySfxById1()
+void SCR_CMD_5C_QueuePulseSfx()
 {
     // play sound (2)
     ++gScriptPtr;
-    PlaySfxById1(*gScriptPtr);
+    PlayPulse1Sfx(*gScriptPtr);
 }
 
-void SCR_CMD_5D_PlaySfxById2()
+void SCR_CMD_5D_QueueTriangleSfx()
 {
     // play sound (3)
     ++gScriptPtr;
-    PlaySfxById2(*gScriptPtr);
+    PlayTriangleSfx(*gScriptPtr);
 }
 
 //Stubbed - Not in retail rom
 /*
 void SCR_CMD_5E()
 {
-    //TODO: Check is this exists in the NES version
+    //This exists in the NES version
 }
 */
 
-void SCR_CMD_5F()
+// teach characters 1 and 2 to Teleport
+void SCR_CMD_5F_TeachTeleport()
 {
-    // teach characters 1 and 2 to Teleport
     gGameInfo.PlayerInfo.Struct.CharacterInfo[0].PsiLearned[0] |= 0x20u;
     gGameInfo.PlayerInfo.Struct.CharacterInfo[1].PsiLearned[0] |= 0x20u;
 }
 
-void SCR_CMD_60()
+// jump if at less than max PP
+void SCR_CMD_60_JMP_CharaPPNotFull()
 {
-    // jump if at less than max PP
     if ( gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentPP < gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxPP )
     {
         SCR_CMD_01_Jump();
@@ -1577,12 +1564,12 @@ void SCR_CMD_60()
     }
 }
 
-void SCR_CMD_61()
+// heal PP
+void SCR_CMD_61_RecoverPP()
 {
     s32 curPP;
     u16 maxPP;
 
-    // heal PP
     ++gScriptPtr;
     curPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].CurrentPP + *gScriptPtr;
     maxPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gCurrentCharacterId - 1].MaxPP;
@@ -1598,13 +1585,13 @@ void SCR_CMD_61()
     }
 }
 
-void SCR_CMD_62()
+// take weapon, jump if none
+void SCR_CMD_62_RemoveWeapon()
 {
     u8 weapon;
     u32 idx;
     sCharacterStatusInfo *info;
 
-    // take weapon, jump if none
     idx = gGameInfo.PlayerInfo.Struct.CharactersInParty[0] - 1;
     weapon = gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0];
     if ( !gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0] ) //This duplication is required
@@ -1619,30 +1606,27 @@ void SCR_CMD_62()
     }
 }
 
-void SCR_CMD_63()
+// select confiscated weapon, jump if none
+void SCR_CMD_63_LoadConfiscatedWeapon()
 {
-    // select confiscated weapon, jump if none
     u8 weapon = gGameInfo.Weapon;
-    if ( !weapon )
-    {
+    if (!weapon) {
         SCR_CMD_01_Jump();
-    }
-    else
-    {
-        ++gScriptPtr;
+    } else {
+        gScriptPtr++;
         SelectItem(weapon);
         gUnknown_030007D8 = -1;
     }
 }
 
-void SCR_CMD_64()
+// live show
+void SCR_CMD_64_DoLiveHouse()
 {
-    struct_off_3000784 *v0;
+    sObjectMemory *v0;
     u8 *v1;
     u16 v3;
     u8 v4;
 
-    // live show
     v0 = gUnknown_03000784;
     v0->X = v0->ScriptPtr[0];
     v0->X += (v0->ScriptPtr[1] << 8);
@@ -1664,18 +1648,18 @@ void SCR_CMD_64()
     {
         gUnknown_03000838 = gUnknown_0300081C + 36;
     }
-    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_030007B0][1] &= ~3;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_030007BC][1] &= ~3;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_03000838][1] &= ~3;
     sub_8F07144(0, 0);
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007B0][1] |= 2u;
+    gPositionBuffer[gUnknown_030007B0][1] |= 2;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007BC][1] |= 2u;
+    gPositionBuffer[gUnknown_030007BC][1] |= 2;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_03000838][1] |= 2u;
+    gPositionBuffer[gUnknown_03000838][1] |= 2;
     sub_8F07144(0, 0);
     sub_8F07144(0, 0);
     sub_8F07058(1u);
@@ -1704,36 +1688,36 @@ void SCR_CMD_64()
     sub_8F07058(3u);
     sub_8F07058(6u);
     sub_8F07058(1u);
-    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_030007B0][1] &= ~3;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_030007BC][1] &= ~3;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
+    gPositionBuffer[gUnknown_03000838][1] &= ~3;
     sub_8F07144(0, 0);
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007B0][1] |= 2u;
+    gPositionBuffer[gUnknown_030007B0][1] |= 2;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_030007BC][1] |= 2u;
+    gPositionBuffer[gUnknown_030007BC][1] |= 2;
     sub_8F07144(0, 0);
-    gUnknown_03002850[gUnknown_03000838][1] |= 2u;
+    gPositionBuffer[gUnknown_03000838][1] |= 2;
     sub_8F07144(0, 0);
     sub_8F07144(0, 0);
     DelayByAmount(45);
     gUnknown_03000818 = v4;
-    gUnknown_03002850[gUnknown_030007B0][0] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_030007B0][1] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_030007B0][1] |= 1u;
-    gUnknown_03002850[gUnknown_030007BC][0] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_030007BC][1] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_030007BC][1] |= 1u;
-    gUnknown_03002850[gUnknown_03000838][0] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_03000838][1] &= 0xFFFCu;
-    gUnknown_03002850[gUnknown_03000838][1] |= 1u;
+    gPositionBuffer[gUnknown_030007B0][0] &= ~3;
+    gPositionBuffer[gUnknown_030007B0][1] &= ~3;
+    gPositionBuffer[gUnknown_030007B0][1] |= 1;
+    gPositionBuffer[gUnknown_030007BC][0] &= ~3;
+    gPositionBuffer[gUnknown_030007BC][1] &= ~3;
+    gPositionBuffer[gUnknown_030007BC][1] |= 1;
+    gPositionBuffer[gUnknown_03000838][0] &= ~3;
+    gPositionBuffer[gUnknown_03000838][1] &= ~3;
+    gPositionBuffer[gUnknown_03000838][1] |= 1;
 }
 
-void SCR_CMD_65()
+// jump unless all 8 melodies learned
+void SCR_CMD_65_JMP_NotHas8Melodies()
 {
-    // jump unless all 8 melodies learned
     if ( gGameInfo.Flags[30] != 0xFF )           // MelodiesUnlocked
     {
         SCR_CMD_01_Jump();
@@ -1741,43 +1725,41 @@ void SCR_CMD_65()
     else
     {
         ++gScriptPtr;
-        gGameInfo.PlayerInfo.Struct.field_C = 0xD2;
-        gGameInfo.PlayerInfo.Struct.field_E = 0x4780;
+        gGameInfo.PlayerInfo.Struct.save_xpos_music = 0xD2;
+        gGameInfo.PlayerInfo.Struct.save_ypos_direction = 0x4780;
         gGameInfo.field_2AE = 0;
         gGameInfo.field_2AF = 0;
     }
 }
 
-void SCR_CMD_66()
+// register your name
+void SCR_CMD_66_RegisterName()
 {
     sTextState state;
 
-    // register your name
     SaveTextSystemState(&state);
-    sub_8F0BC04(&gGameInfo.PlayerInfo.Struct.field_20, 28u);
+    sub_8F0BC04((u8*) &gGameInfo.PlayerInfo.Struct.player_name, 28u);
     LoadTextSystemState(&state);
     gTextDelayAfterWriteCharacterEnabled |= 0x80u;
 }
 
-void SCR_CMD_67()
-{
+// darken palette (Magicant end)
+void SCR_CMD_67_DarkenPalettes() {
     s32 i;
 
-    // darken palette (Magicant end)
-    for(i = 0; i < 8; i++)
-    {
-        DarkenPalette((u16 *)0x05000000, gNESPalette[15], 0x40u, 1u);
-        DelayByAmount(8u);
+    for(i = 0; i < 8; i++) {
+        DarkenPalette((u16 *)BG_PLTT, gNESPalette[15], 0x40, 1);
+        DelayByAmount(8);
     }
 }
 
-void SCR_CMD_68()
+// land mine
+void SCR_CMD_68_DoLandmine()
 {
     u8 i;
     u32 v1;
     u32 v2;
 
-    // land mine
     sub_8F099D8();
     for(i = 0; i < 4; i++)
     {
@@ -1803,12 +1785,12 @@ void SCR_CMD_68()
     }
 }
 
+// horiz. shake (EVE?)
 void SCR_CMD_69_Quake()
 {
     s32 i; // r4
     u32 temp;
 
-    // horiz. shake (EVE?)
     for(i = 3; i >= 0; i--)
     {
         REG_BG2HOFS = ((gUnknown_03000788 / 4u) % 16u) ^ ((i * 2u) & 4u);
@@ -1816,18 +1798,11 @@ void SCR_CMD_69_Quake()
     }
 }
 
-#if NON_MATCHING
-void SCR_CMD_6A() //Not attempted
-{
-    TODO: attempt this
-}
-#else
 NAKED
 void SCR_CMD_6A()
 {
     asm(".include \"asm/non_matching/scripting/SCR_CMD_6A.s\"");
 }
-#endif
 
 void SCR_CMD_6B_Dummy()
 {

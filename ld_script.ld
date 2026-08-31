@@ -17,34 +17,32 @@ SECTIONS
     {
         INCLUDE "sym_iwram.txt"
     }
-    
+
 	. = 0x08000000;
     .m2_data :
 	ALIGN(4)
 	{
 		data/m2.o(.data);
 	} = 0
-    
+
     . = 0x08F00000;
     .text :
 	ALIGN(4)
 	{
         src/crt0.o(.text);
 		src/main.o(.text);
-		asm/code.o(.text);
+		src/code.o(.text);
 		src/code1.o(.text);
-		asm/code1.o(.text);
 		src/menu.o(.text);
 		src/scripting.o(.text);
-		asm/code2.o(.text);
+		src/code2.o(.text);
 		src/item_effects.o(.text);
-		asm/item_effects.o(.text);
-		asm/misc.o(.text);
-		asm/menu_and_text_system.o(.text);
-		asm/save.o(.text);
-		asm/newgame.o(.text);
-		asm/battle.o(.text);
-		asm/sub_8F12338.o(.text);
+		src/misc.o(.text);
+		src/menu_and_text_system.o(.text);
+		src/save.o(.text);
+		src/newgame.o(.text);
+		src/gfx.o(.text);
+		src/battle.o(.text);
         asm/m1_translation_new_code.o(.text);
 		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);
@@ -63,18 +61,30 @@ SECTIONS
     .data :
 	ALIGN(4)
     {
-        data/data.o(.data);
+        src/data.o(.rodata);
+        src/data.o(.data);
         src/main.o(.rodata);
-        data/data2.o(.data);
+        src/main.o(.data);
+		src/code.o(.rodata);
+		src/code.o(.data);
+        src/code2.o(.rodata);
         src/item_effects.o(.rodata);
-        data/data3.o(.data);
-        data/main_strings.o(.data);
-        data/data_after_main_strings.o(.data);
+        src/misc.o(.rodata);
+        src/menu_and_text_system.o(.rodata);
+        src/menu_and_text_system.o(.data);
+		src/save.o(.rodata);
+		src/newgame.o(.rodata);
+		src/newgame.o(.data);
+		src/gfx.o(.rodata);
+		src/gfx.o(.data);
+        src/battle.o(.rodata);
+        src/battle.o(.data);
+        data/sound.o(.data);
         sound/sound.o(.data);
         src/agb_sram.o(.rodata);
-        data/data_after_sound.o(.data);
+        data/debug.o(.data);
     } = 0
-    
+
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning
        of the section so we begin them at 0.  */
