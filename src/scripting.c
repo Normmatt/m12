@@ -840,7 +840,6 @@ void SCR_CMD_32_MultiplyNumBy100()
 
 void SCR_CMD_33_JMP_CharaNotInParty()
 {
-  struct GlobalPlayerInfo *playerInfo;
   u8 idx;
   u8 *party;
   u32 charId;
@@ -1117,7 +1116,6 @@ void SCR_CMD_42_AddChara()
 void SCR_CMD_43_RemoveChara()
 {
     u8 v0;
-    u8 *v1;
     u8 *ptr;
     u32 id;
     GlobalPlayerInfo * gpi;
@@ -1590,7 +1588,6 @@ void SCR_CMD_62_RemoveWeapon()
 {
     u8 weapon;
     u32 idx;
-    sCharacterStatusInfo *info;
 
     idx = gGameInfo.PlayerInfo.Struct.CharactersInParty[0] - 1;
     weapon = gGameInfo.PlayerInfo.Struct.CharacterInfo[idx].EquipedItems[0];
@@ -1623,8 +1620,6 @@ void SCR_CMD_63_LoadConfiscatedWeapon()
 void SCR_CMD_64_DoLiveHouse()
 {
     sObjectMemory *v0;
-    u8 *v1;
-    u16 v3;
     u8 v4;
 
     v0 = gUnknown_03000784;
@@ -1758,7 +1753,6 @@ void SCR_CMD_68_DoLandmine()
 {
     u8 i;
     u32 v1;
-    u32 v2;
 
     sub_8F099D8();
     for(i = 0; i < 4; i++)
@@ -1789,7 +1783,6 @@ void SCR_CMD_68_DoLandmine()
 void SCR_CMD_69_Quake()
 {
     s32 i; // r4
-    u32 temp;
 
     for(i = 3; i >= 0; i--)
     {

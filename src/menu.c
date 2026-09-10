@@ -412,8 +412,6 @@ LOOP:
 void GoodsMenu()
 {
     s32 v0;
-    u8 *v1;
-    u8 v2;
 
 LOOP:
     gUnknown_03001504 = 0;
@@ -577,7 +575,7 @@ void Goods_Eat()
         WaitForActionButtonPress();
         return;
     }
-    ptr = &gItemData[gCurrentItemId];
+    ptr = (sItemData*) &gItemData[gCurrentItemId];
     v0 = *ptr;
     if ( v0.Flags & 0x40 )
     {

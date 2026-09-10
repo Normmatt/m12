@@ -3,18 +3,22 @@ git clone https://github.com/pret/agbcc
 cd agbcc
 ./build.sh
 ./install.sh ../../m12
+cd -
+
+apt install gcc-arm-none-eabi
 
 cd ./tools/aif2pcm
-make clean && make
+make
 cd ../bin2c
-make clean && make
+make
 cd ../gbafix
-make clean && make
+make
 cd ../gbagfx
-make clean && make
+make
 cd ../mid2agb
-make clean && make
+make
 cd ../preproc
-make clean && make
+make
 cd ../scaninc
-make clean && make
+make
+cd ../../

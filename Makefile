@@ -23,6 +23,7 @@ LD := $(PREFIX)ld
 # warning in the case of invalid backslash-u escapes...
 # Why would those ever pop up, though??
 CPP := $(CC) -E
+CPP := $(PREFIX)cpp
 
 EXE :=
 ifeq ($(OS),Windows_NT)
@@ -40,7 +41,7 @@ SCANINC := tools/scaninc/scaninc$(EXE)
 PREPROC := tools/preproc/preproc$(EXE)
 GBAFIX := tools/gbafix/gbafix$(EXE)
 
-CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm -g
+CC1FLAGS := -mthumb-interwork -Wall -Wimplicit -Wparentheses -O2 -fhex-asm -g
 CPPFLAGS := -I tools/agbcc/include -iquote include -nostdinc -undef -D VERSION_$(GAME_VERSION) -D REVISION=$(GAME_REVISION) -D $(GAME_LANGUAGE)
 ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -I asminclude -I include --defsym VERSION_$(GAME_VERSION)=1 --defsym REVISION=$(GAME_REVISION) --defsym $(GAME_LANGUAGE)=1 --defsym DEBUG=$(DEBUG)
 
@@ -200,11 +201,11 @@ endif
 
 ifeq ($(NODEP),1)
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s
-	$(CPP) $(CPPFLAGS) -x c $< | $(PREPROC) $< -i charmap.txt | $(AS) $(ASFLAGS) -o $@
+	$(CPP) $(CPPFLAGS) -x c $< | $(PREPROC) -i $< charmap.txt | $(AS) $(ASFLAGS) -o $@
 else
 define DATA_ASM_DEP
 $1: $2 $$(shell $(SCANINC) -I include -I "" $2)
-	$$(CPP) $$(CPPFLAGS) -x c $$< | $$(PREPROC) $$< -i charmap.txt | $$(AS) $$(ASFLAGS) -o $$@
+	$$(CPP) $$(CPPFLAGS) -x c $$< | $$(PREPROC) -i $$< charmap.txt | $$(AS) $$(ASFLAGS) -o $$@
 endef
 $(foreach src, $(REGULAR_DATA_ASM_SRCS), $(eval $(call DATA_ASM_DEP,$(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o, $(src)),$(src))))
 endif

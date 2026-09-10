@@ -2262,23 +2262,35 @@ gMsg_BattleTextSpeed // 21 / 0x15
 };
 
 //colors loaded to 0x50001E0
-u16 gUnknown_08F29F58[] = {
-    0x0000, 0x0000, 0x03E0, 0x7FFF
+NO_NDS_STACK u16 gUnknown_08F29F58[] = {
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB(0, 31, 0),
+    RGB_WHITE
 };
 
 //colors loaded to 0x50001C0
-u16 gUnknown_08F29F60[] = {
-    0x0000, 0x0000, 0x01EF, 0x03FF
+NO_NDS_STACK u16 gUnknown_08F29F60[] = {
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB(15, 15, 0),
+    RGB(31, 31, 0)
 };
 
 //colors loaded to 0x50001A0
-u16 gUnknown_08F29F68[] = {
-    0x0000, 0x0000, 0x3C0F, 0x7C1F
+NO_NDS_STACK u16 gUnknown_08F29F68[] = {
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB(15, 0, 15),
+    RGB(31, 0, 31)
 };
 
 //colors loaded to 0x5000180
-u16 gUnknown_08F29F70[] = {
-    0x0000, 0x0000, 0x000F, 0x001F
+NO_NDS_STACK u16 gUnknown_08F29F70[] = {
+    RGB_BLACK,
+    RGB_BLACK,
+    RGB(15, 0, 0),
+    RGB(31, 0, 0)
 };
 
 //Used in HandleStatusMenu
@@ -2378,54 +2390,151 @@ CURSOR_POSITION gUnknown_08F29FF0[] = {
 {0x00, 0x00, 0x00}
 };
 
-NAKED
-void sub_8F0AD0C()
-{
-    #ifdef NDS_VERSION
-    asm(".include \"asm/non_matching/menu_and_text_system/sub_8F0AD0C_nds.s\"");
-    #else
-    asm(".include \"asm/non_matching/menu_and_text_system/sub_8F0AD0C_gba.s\"");
-    #endif
+
+void sub_8F0AD0C(void) {
+    //TODO: this is rodata but like. where. how
+	u16 row15start[4];
+	u16 row14start[4];
+	u16 row13start[4];
+    u16 row12start[4];
+
+    memcpy(row15start, gUnknown_08F29F58, sizeof(gUnknown_08F29F58));
+    memcpy(row14start, gUnknown_08F29F60, sizeof(gUnknown_08F29F60));
+    memcpy(row13start, gUnknown_08F29F68, sizeof(gUnknown_08F29F68));
+    memcpy(row12start, gUnknown_08F29F70, sizeof(gUnknown_08F29F70));
+	BitUnpack(gFont, (u8*)BG_VRAM + 0x8000, 0x140);
+
+	DmaFill32(3, 0, gBg0TilemapBuffer, sizeof(gBg0TilemapBuffer));
+	DmaCopy32(3, row15start, BG_PLTT + 0x1E0, sizeof(row15start));
+	DmaCopy32(3, row14start, BG_PLTT + 0x1C0, sizeof(row14start));
+	DmaCopy32(3, row13start, BG_PLTT + 0x1A0, sizeof(row13start));
+	DmaCopy32(3, row12start, BG_PLTT + 0x180, sizeof(row12start));
+
+	gUnknown_030034E8 = gUnknown_08F27A90;
+	SetTextPosition(0, 0);
+	SetLineMaximums(32, 20);
+	gUnknown_030034C0 = 0xF000;
+	gTextDelayAfterWriteCharacter = 1;
+	gTextDelayAfterWritePeriod = 1;
+	gUnknown_030034E0 = 0;
+	gTextPlaySfx = 0;
+	gUnknown_030034D0 = 0;
+	gUnknown_03003170 = 0;
 }
 
 void sub_8F0AE34(void) {
-    HandleControlCodes(&gMsg_WindowMessage);
+    HandleControlCodes((u8*) gMsg_WindowMessage);
     gTextPlaySfx = 0x80;
 }
 
-NAKED
-void DrawPartyInfoWindow()
-{
-    asm(".include \"asm/non_matching/menu_and_text_system/DrawPartyInfoWindow.s\"");
+extern u8 gUnknown_03003198[4];
+void DrawPartyInfoWindow(void) {
+	u8 i;
+    u8 charCounter;
+    u8 counter2;
+	u32 backup_34C0;
+
+    charCounter = 0;
+
+	for (i = 0; i < 4; ++i) {
+		if (gUnknown_03003198[i] >= 1 && gUnknown_03003198[i] <= 5) {
+			++charCounter;
+		}
+	}
+
+	SetTextPosition(0, 18 - charCounter);
+	if (gTextPlaySfx == 0) {
+		HandleControlCodes(gMsg_StatBar_Top);
+	}
+
+	backup_34C0 = gUnknown_030034C0;
+
+	for (counter2 = 0, i = 0; i < 4; ++i) {
+		u8 character = gGameInfo.PlayerInfo.Struct.CharactersInParty[i];
+        do {} while (0); // fakematch
+
+		if (character >= 1 && character <= 5) {
+			// AEC6
+			sCharacterStatusInfo *charInfo;
+            charInfo = &gGameInfo.PlayerInfo.Struct.CharacterInfo[character - 1];
+			SetTextPosition(0, counter2 + (19 - charCounter));
+			HandleControlCodes(gMsg_StatBar_Middle);
+			if (charInfo->Condition & 0x80) {
+				gUnknown_030034C0 = 0xC000;
+			} else if (charInfo->Condition & 3) {
+				gUnknown_030034C0 = 0xD000;
+			} else if (charInfo->Condition & 0x40) {
+				gUnknown_030034C0 = 0xE000;
+			} else if (charInfo->MaxHP / 4 > charInfo->CurrentHP) {
+				gUnknown_030034C0 = 0xE000;
+			} else {
+				gUnknown_030034C0 = 0xF000;
+			}
+
+			SetTextPosition(2, counter2 + (19 - charCounter));
+
+			HandleControlCodes(charInfo->Name);
+			if (gTextPlaySfx == 0) {
+				SetTextPosition(8, counter2 + (19 - charCounter));
+				DrawNumberWithMaxDigits(charInfo->CurrentHP, 5);
+				DrawNumberWithMaxDigits(charInfo->CurrentPP, 4);
+				DrawNumberWithMaxDigits(charInfo->Level, 4);
+
+				if (charInfo->Condition != 0) {
+					DrawSpaceTiles(2);
+					DrawPlayerCondition(charInfo->Condition);
+				} else {
+                    u32 exp = charInfo->ExpLo;
+					exp += charInfo->ExpMid << 8;
+					exp += charInfo->ExpHi << 16;
+					DrawNumberWithMaxDigits(exp, 8);
+				}
+			}
+
+			gUnknown_030034C0 = backup_34C0;
+
+			if (gTextPlaySfx == 0) {
+				WriteCharacterToTilemap(0x80DF);
+			}
+
+			++counter2;
+		}
+	}
+
+	SetTextPosition(0, 19);
+	if (gTextPlaySfx == 0) {
+		HandleControlCodes(gMsg_StatBar_Bottom);
+	}
 }
 
 void sub_8F0B004(void) {
-    sTextState sp0;
-    u8* flat = &gBg0TilemapBuffer;
-    if (flat[0x4c0] == 0xFB) {
-        SaveTextSystemState(&sp0);
-        #ifdef JAPANESE
-        DrawPartyInfoWindow();
-        #endif
-        LoadTextSystemState(&sp0);
-    }
+	if ((gBg0TilemapBuffer[0x260] & 0xFF) == 0xFB) {
+		sTextState state;
+		SaveTextSystemState(&state);
+#ifdef JAPANESE
+		DrawPartyInfoWindow();
+#elif defined(ENGLISH)
+		// "keep game from updating character status on top of dialog boxes"
+#endif
+		LoadTextSystemState(&state);
+	}
 }
 
 void DrawMoneyWindow(void) {
-    HandleControlCodes(&gMsg_CashBox);
+    HandleControlCodes((u8*) gMsg_CashBox);
 }
 
 void sub_8F0B040(void) {
-    if (0x80 & gUnknown_03003170) {
-        gUnknown_03003170 &= 0x7F;
-        gTextPlaySfx = 0;
-        DrawPartyInfoWindow();
-        UpdateBg0Tilemap();
-        WaitForActionButtonPress();
-    }
-    DmaFill32(3, 0, gBg0TilemapBuffer, 0x800);
-    DmaCopy32(3, gBg0TilemapBuffer, 0x06000000, 0x800);
-    gTextPlaySfx = 0;
+	if (gUnknown_03003170 & 0x80) {
+		gUnknown_03003170 &= ~0x80;
+		gTextPlaySfx = 0;
+		DrawPartyInfoWindow();
+		UpdateBg0Tilemap();
+		WaitForActionButtonPress();
+	}
+	DmaFill32(3, 0, gBg0TilemapBuffer, sizeof(gBg0TilemapBuffer));
+	DmaCopy32(3, gBg0TilemapBuffer, BG_SCREEN_ADDR(0), sizeof(gBg0TilemapBuffer));
+	gTextPlaySfx = 0;
 }
 
 NAKED
@@ -2434,11 +2543,103 @@ void HandleStatusMenu()
     asm(".include \"asm/non_matching/menu_and_text_system/HandleStatusMenu.s\"");
 }
 
+#ifndef NON_MATCHING
 NAKED
 s32 HandleCommandMenu(u32 selectedIdx)
 {
     asm(".include \"asm/non_matching/menu_and_text_system/HandleCommandMenu.s\"");
 }
+#else
+void HandleStatusMenu(void) {
+	const u16 gUnknown_08F29F78[6] = {
+		0x8001, 0x010A, 0x9002, 0x0312, 0, 0
+	};
+	s32 spC;
+	u8 slot = 0;
+	u8 i;
+	u32 inputResult;
+
+	while (1) {
+		if (slot >= 4) {
+			slot = 0;
+		}
+		gCurrentCharacterId = gGameInfo.PlayerInfo.CharactersInParty[slot];
+
+		if (gCurrentCharacterId >= 1 && gCurrentCharacterId <= 5) {
+			// B0EA
+			HandleControlCodes(gUnknown_08F26ED2);
+			SetTextPosition(11, 1);
+			HandleControlCodes(gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].Name);
+
+			// Equipped items
+			for (i = 0; i < 4; ++i) {
+				u8 thing;
+				SetTextPosition(18, i + 11);
+
+				// FIXME: Make a field_28 containing equipped items,
+				//        change for loop to use ARRAY_COUNT(equipped) or something
+				thing = gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].field_21[i + 7];
+				if (thing) {
+					DrawTextWithIdNoWait(1000 + thing);
+				}
+			}
+
+			spC = 0;
+			i = 0;
+			// B142
+			do {
+				if (gCurrentCharacterId <= 2) {
+					u8 thing; // r6
+					u8 r5;    // r5
+					if (i >= 0x40) {
+						i = 0;
+					}
+					// B150
+					HandleControlCodes(gUnknown_08F27068);
+					do {
+						// B156
+						thing = 0;
+						for (r5 = 0; r5 < 5; ++r5, ++i) {
+						// B15C
+							while (gUnknown_08F5C51C[i].ActionNonBattle == 0 && gUnknown_08F5C51C[i].ActionInBattle == 0) {
+								// r2 = gUnknown_08F5C51C
+								// r3 = 0xFFFF
+								// B16C
+								++i;
+								if (i >= 0x40) {
+									i = 0;
+									goto _B1F6;
+								}
+								// B19C
+							}
+							// B1AA
+							// if ((gUnknown_03003200[(gCurrentCharacterId - 1) * 64 + (i >> 3)] << (i & 7)) & 0x80) {
+							if ((gGameInfo.PlayerInfo.CharacterInfo[gCurrentCharacterId - 1].PsiLearned[i >> 3] << (i & 7)) & 0x80) {
+								SetTextPosition(18, thing + 4);
+								DrawTextWithIdNoWait(1128 + i);
+								++thing;
+							}
+							// B1E6: increment stage of loop, condition check
+						}
+					_B1F6:
+						;
+					} while (thing == 0);
+				}
+				// B1FA
+				inputResult = HandleSelectMenuInput(gUnknown_08F29F78, &spC);
+			} while (inputResult > 0x8001);
+
+			if (inputResult != 0x8001) {
+				break; // goto B220
+			}
+		}
+		// B20C
+		++slot;
+	}
+	// B220
+	gTextPlaySfx = 0;
+}
+#endif
 
 NAKED
 s32 sub_8F0B2C8(u32 a1)
@@ -2717,7 +2918,7 @@ void DrawTextWithIdWaitForButton(u8* a1) {
 #ifdef JAPANESE
 void DrawTextWithId(u16 textId) {
     if (gUnknown_030034E8[textId] != NULL) {
-        DrawTextWithIdWaitForButton(gUnknown_030034E8[textId]);
+        DrawTextWithIdWaitForButton((u8*) gUnknown_030034E8[textId]);
     }
 }
 #elif ENGLISH
@@ -2730,7 +2931,7 @@ void DrawTextWithId(u16 textId)
 
 void DrawTextWithIdNoWait(u16 textId) {
     if (gUnknown_030034E8[textId] != NULL) {
-        HandleControlCodes(gUnknown_030034E8[textId]);
+        HandleControlCodes((u8*) gUnknown_030034E8[textId]);
     }
 }
 

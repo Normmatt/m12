@@ -30,7 +30,6 @@ void sub_8F03460()
     s32 v0;
     u32 v1;
     u32 v2;
-    u32 val;
 
     union
     {
@@ -114,7 +113,6 @@ void sub_8F03844(void) {
 
 void sub_8F03850(void) {
     s32 temp_r0_2;
-    sObjectMemory* var_r1;
     u16 x_store, y_store;
     u8 temp_r4;
 
