@@ -17,6 +17,10 @@
 
 #define ITEM_IS_SELLABLE 0x80
 
+//doorArgDef bitshift. common in positons related to doorArgDefs
+#define daHalf(long, short) (long << 6) | short
+#define areaEncounterDef(id, frequency) (id << 3) | frequency
+
 typedef enum PlayerCondition
 {
   CONDITION_NONE            = 0x00,
@@ -41,6 +45,27 @@ typedef enum PlayerCondition2
   CONDITION2_PSI_BLOCKED    = 0x40,
   CONDITION2_BLIND          = 0x80,
 } PlayerCondition2;
+
+enum character_ids {
+  CHAR_ID_NINTEN = 1,
+  CHAR_ID_ANA,
+  CHAR_ID_LLOYD,
+  CHAR_ID_TEDDY,
+  CHAR_ID_PIPPI,
+  CHAR_ID_EVE,
+  CHAR_ID_FLYINGMAN
+};
+
+enum DIRECTIONS {
+  DIR_UP = 0,
+  DIR_UP_RIGHT,
+  DIR_RIGHT,
+  DIR_DOWN_RIGHT,
+  DIR_DOWN,
+  DIR_DOWN_LEFT,
+  DIR_LEFT,
+  DIR_UP_LEFT
+};
 
 #ifdef NDS_VERSION
 #define OAM_VRAM_OFFSET 0x00400000

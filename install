@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+git clone https://github.com/pret/agbcc
+cd agbcc
+./build.sh
+./install.sh ../../m12
+cd -
+
+apt install gcc-arm-none-eabi
+
+cd ./tools/aif2pcm
+make
+cd ../bin2c
+make
+cd ../gbafix
+make
+cd ../gbagfx
+make
+cd ../mid2agb
+make
+cd ../preproc
+make
+cd ../scaninc
+make
+cd ../../

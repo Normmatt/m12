@@ -13,31 +13,29 @@ __sp_usr	=	__sp_irq - 0x100;
 
 SECTIONS
 {
-   
+
 	. = 0x02000800;
     .text :
 	ALIGN(4)
-	{        
+	{
         src/crt0.o(.text);
 		asm/nds.o(.text);
 		asm/nds_interrupts.o(.text);
 		asm/nds_intrwait.o(.text);
 		asm/nds_mpu_setup.o(.text);
 		src/main.o(.text);
-		asm/code.o(.text);
+		src/code.o(.text);
 		src/code1.o(.text);
-		asm/code1.o(.text);
 		src/menu.o(.text);
 		src/scripting.o(.text);
-		asm/code2.o(.text);
+		src/code2.o(.text);
 		src/item_effects.o(.text);
-		asm/item_effects.o(.text);
-		asm/misc.o(.text);
-		asm/menu_and_text_system.o(.text);
-		asm/save.o(.text);
-		asm/newgame.o(.text);
-		asm/battle.o(.text);
-		asm/sub_8F12338.o(.text);
+		src/misc.o(.text);
+		src/menu_and_text_system.o(.text);
+		src/save.o(.text);
+		src/newgame.o(.text);
+		src/gfx.o(.text);
+		src/battle.o(.text);
         asm/m1_translation_new_code.o(.text);
         src/vwf.o(.text);
 		src/mks4agbLib.o(.text);
@@ -60,7 +58,6 @@ SECTIONS
     {
         data/data.o(.data);
         src/main.o(.rodata);
-        data/data2.o(.data);
         sound/sound.o(.data);
         src/vwf.o(.data);
         src/vwf.o(.rodata);
@@ -81,7 +78,7 @@ SECTIONS
     {
         __dtcm_start = ABSOLUTE(.);
     }
-    
+
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning
        of the section so we begin them at 0.  */

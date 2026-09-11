@@ -1,0 +1,104 @@
+	.align 2
+	@********************** Track  1 **********************@
+
+	.global mus_vs_giegue_1
+mus_vs_giegue_1:	@ 0x08F7AA44
+	.byte	0xBC
+	.byte	0x00
+gUnknown_08F7AA46:
+	.byte	0xBB
+	.byte	0x41
+	.byte	0xBD
+	.byte	0x41
+	.byte	0xBE
+	.byte	0x15
+	.byte	0xC3
+	.byte	0x00
+	.byte	0xC5
+	.byte	0x00
+	.byte	0xC2
+	.byte	0x1E
+	.byte	0xBF
+	.byte	0x40
+	.byte	0xC4
+	.byte	0x0A
+	.byte	0xE8
+	.byte	0x65
+	.byte	0x7F
+	.byte	0x88
+	.byte	0xBE
+	.byte	0x22
+	.byte	0x84
+	.byte	0x32
+	.byte	0x84
+	.byte	0x44
+	.byte	0x84
+	.byte	0x60
+	.byte	0x84
+	.byte	0x6E
+	.byte	0x81
+	.byte	0x6B
+	.byte	0x81
+	.byte	0x58
+	.byte	0x81
+	.byte	0x48
+	.byte	0x81
+	.byte	0x3B
+	.byte	0x81
+	.byte	0x33
+	.byte	0x81
+	.byte	0x26
+	.byte	0x81
+	.byte	0x22
+	.byte	0xA5
+	.byte	0x81
+	.byte	0xB2
+	.word	gUnknown_08F7AA46
+	.byte	0xB0
+	.byte	0xB1
+
+	@********************** Track  2 **********************@
+
+	.global mus_vs_giegue_2
+mus_vs_giegue_2:	@ 0x08F7AA7B
+	.byte	0xBC
+	.byte	0x00
+gUnknown_08F7AA7D:
+	.byte	0xBD
+	.byte	0x40
+	.byte	0xBE
+	.byte	0x33
+	.byte	0xC3
+	.byte	0x00
+	.byte	0xC5
+	.byte	0x00
+	.byte	0xC2
+	.byte	0x1E
+	.byte	0xBF
+	.byte	0x40
+	.byte	0xC4
+	.byte	0x0A
+	.byte	0xFF
+	.byte	0x62
+	.byte	0x7F
+	.byte	0xB0
+	.byte	0xB2
+	.word	gUnknown_08F7AA7D
+	.byte	0xB0
+	.byte	0xB1
+	.byte	0x00
+	.byte	0x00
+
+	.align 2
+	.global mus_vs_giegue
+mus_vs_giegue:	@ 0x08F7AA98
+	.byte	2		@ trackCount
+	.byte	0		@ blockCount
+	.byte	10		@ priority
+	.byte	128		@ reverb
+
+	.word	gUnknown_08F711F0		@ voicegroup/tone
+
+	.word	mus_vs_giegue_1		@ track
+	.word	mus_vs_giegue_2		@ track
+

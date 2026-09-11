@@ -18,7 +18,7 @@
 . = 0x000007A8; gUnknown_030007A8 = .;
 . = 0x000007AC; gKeysDown = .;
 . = 0x000007B0; gUnknown_030007B0 = .;
-. = 0x000007B4; gUnknown_030007B4 = .;
+. = 0x000007B4; gNullTileset = .;
 . = 0x000007B8; gUnknown_030007B8 = .;
 . = 0x000007BC; gUnknown_030007BC = .;
 . = 0x000007C0; gUnknown_030007C0 = .;
@@ -31,7 +31,7 @@
 . = 0x000007DC; gScriptPtr = .;
 . = 0x000007E0; gUnknown_030007E0 = .;
 . = 0x000007E4; gUnknown_030007E4 = .;
-. = 0x000007E8; gUnknown_030007E8 = .;
+. = 0x000007E8; gFade_Type = .;
 . = 0x000007EC; gUnknown_030007EC = .;
 . = 0x000007F0; gConsumableType = .;
 . = 0x000007F4; gKeysRepeat = .;
@@ -45,11 +45,11 @@
 . = 0x00000814; gPlayerY = .;
 . = 0x00000818; gUnknown_03000818 = .;
 . = 0x0000081C; gUnknown_0300081C = .;
-. = 0x00000820; gUnknown_03000820 = .;
+. = 0x00000820; gNullChunk = .;
 . = 0x00000824; gUnknown_03000824 = .;
 . = 0x00000828; gTempNumber = .;
 . = 0x0000082C; gUnknown_0300082C = .;
-. = 0x00000830; gUnknown_03000830 = .;
+. = 0x00000830; gCurrentArea = .;
 . = 0x00000838; gUnknown_03000838 = .;
 . = 0x0000083C; gUnknown_0300083C = .;
 . = 0x00000840; gUnknown_03000840 = .;
@@ -75,11 +75,11 @@
 . = 0x00001530; gBg0TilemapBuffer = .;
 . = 0x00001D30; gUnknown_03001D30 = .;
 . = 0x00001D34; gUnknown_03001D34 = .;
-. = 0x00001D40; gUnknown_03001D40 = .;
+. = 0x00001D40; gObjectMemory = .;
 . = 0x00002240; gUnknown_03002240 = .;
 . = 0x00002440; gUnknown_03002440 = .;
 . = 0x00002450; gSpriteBuffer = .;
-. = 0x00002850; gUnknown_03002850 = .;
+. = 0x00002850; gPositionBuffer = .;
 . = 0x00002852; gUnknown_03002852 = .;
 . = 0x00002964; gUnknown_03002964 = .;
 . = 0x00002970; gBg2TilemapBuffer = .;
@@ -137,7 +137,7 @@
 . = 0x000034F4; gUnknown_030034F4 = .;
 . = 0x000034F8; gUnknown_030034F8 = .;
 . = 0x000034FC; gUnknown_030034FC = .;
-. = 0x00003500; gUnknown_03003500 = .;
+. = 0x00003500; gBattlerData = .;
 . = 0x00003502; gUnknown_03003502 = .;
 . = 0x00003600; gUnknown_03003600 = .;
 . = 0x00003604; gUnknown_03003604 = .;
@@ -169,7 +169,7 @@
 . = 0x000036C0; gUnknown_030036C0 = .;
 . = 0x000036E8; gUnknown_030036E8 = .;
 . = 0x000036EC; gUnknown_030036EC = .;
-. = 0x000036F0; gUnknown_030036F0 = .;
+. = 0x000036F0; off_30036F0 = .;
 . = 0x000036F4; gOverworldMusic = .;
 . = 0x000036F8; gMoneyGained = .;
 . = 0x000036FC; gUnknown_030036FC = .;

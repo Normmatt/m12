@@ -7,7 +7,7 @@ void sub_8F03F3C(u8 a1)
     if ( gUnknown_030007D0 != a1 )
     {
         gUnknown_030007D0 = a1;
-        BitUnpack(gUnknown_08F6453C[(a1 - 98) / 2], (void *)VRAM+0x1000+OAM_VRAM_OFFSET, 128);
+        BitUnpack(characters_gfxs[(a1 - 98) / 2], (void *)VRAM+0x1000+OAM_VRAM_OFFSET, 128);
     }
 }
 
@@ -15,8 +15,8 @@ void sub_8F03F3C(u8 a1)
 //Non-matching
 void sub_8F03F74()
 {
-    struct_3003190 *gameInfo;
-    //struct_off_3000784 *v0;
+    SaveGameStruct *gameInfo;
+    //sObjectMemory *v0;
     u32 selectedItemId;
     u32 itemId;
     u32 eventId;
@@ -32,14 +32,14 @@ void sub_8F03F74()
     eventId = gUnknown_03000784->ScriptPtr[7];
     //gameInfo = &gGameInfo;
     idx = ((u8)(((selectedItemId & 0x80u) << 24) >> 26)) + (eventId / 8);
-    if ( (gGameInfo.field_220[idx] << (eventId & 7)) & 0x80 )
+    if ( (gGameInfo.present_flags[idx] << (eventId & 7)) & 0x80 )
     {
         DrawTextWithId(0x3A1u);                 // "@It's empty...{BREAK}"
     }
     else
     {
-        gGameInfo.field_220[idx] |= 128 >> (eventId & 7);
-        PlaySfxById1(0xAu);
+        gGameInfo.present_flags[idx] |= 128 >> (eventId & 7);
+        PlayPulse1Sfx(0xAu);
         gUnknown_0300150C = gUnknown_03000784;
         sub_8F03128();
         gUnknown_0300150C = 0;
@@ -63,14 +63,14 @@ void sub_8F03F74()
                             gCurrentCharacterId = v5;
                             ptr[v6] = gCurrentItemId;
                             DrawTextWithId(0x39Bu);             // "@{0x03}{0x16}{0x03}{0x17} took the{BREAK}{0x03}{0x1D}.{BREAK}"
-                            PlaySfxById1(6u);
+                            PlayPulse1Sfx(6u);
                             gUnknown_03003170 |= 1u;
                             return;
                         }
                     }
                 }
             }
-            gGameInfo.field_220[idx] &= ~(128 >> (eventId & 7));
+            gGameInfo.present_flags[idx] &= ~(128 >> (eventId & 7));
             DrawTextWithId(0x39Du);     // "@But you can't hold any{BREAK}more stuff.{BREAK}"
         }
         DrawTextWithId(0x3A1u);             // "@It's empty...{BREAK}"
@@ -159,7 +159,7 @@ void WaitForActionButtonPress()
 
 void OpenCommandMenu()
 {
-    gUnknown_03001504 = 0;  
+    gUnknown_03001504 = 0;
     switch ( HandleCommandMenu(0) )
     {
         case 1:                                 // Talk
@@ -183,7 +183,7 @@ void OpenCommandMenu()
             HandleStatusMenu();
             break;
         case 6:                                 // Map
-            HandleMap();
+            UseMap();
             break;
         default:
             break;
@@ -224,21 +224,22 @@ LOOP:
     {
         gUnknown_03003170 = 0;
         i = 0;
-        gUnknown_03000784 = &gUnknown_03001D40[i];
+        gUnknown_03000784 = &gObjectMemory[i];
         while( 1 )
         {
             if ( !gUnknown_03000784->Type )
             {
                 break;
             }
-            
-            if ( !(gUnknown_03000784->Type & 0x80) && (gUnknown_03000784->field_14 & 0x40))
+
+            if ( !(gUnknown_03000784->Type & 0x80) &&
+            (gUnknown_03000784->bitfield1 & OBJECT_M_BF1_INTERACTABLE))
             {
                 u16 x1 = v1 - gUnknown_03000784->X;
                 u16 y1 = v2 - gUnknown_03000784->Y;
                 if(x1 < 64 && y1 < 64)
                 {
-                    if ( gUnknown_03000784->field_14 & 0x20 )
+                    if ( gUnknown_03000784->bitfield1 & OBJECT_M_BF1_CHANGEDIR )
                     {
                         gUnknown_03000784->Direction = gUnknown_030007A4 ^ 4;
                     }
@@ -256,7 +257,7 @@ LOOP:
                 break;
             }
 
-            gUnknown_03000784 = &gUnknown_03001D40[i];
+            gUnknown_03000784 = &gObjectMemory[i];
         }
         if ( !(hasRunOnce || gUnknown_03003170 || gUnknown_030007A4 || !sub_8F01CBC(v1, v2)) )
         {
@@ -281,15 +282,16 @@ LOOP:
         gUnknown_03003170 = 0;
         for(i=0; i<40; i++)
         {
-            gUnknown_03000784 = &gUnknown_03001D40[i];
+            gUnknown_03000784 = &gObjectMemory[i];
 
             if ( !gUnknown_03000784->Type )
             {
                 break;
             }
-            
+
             if ( !(gUnknown_03000784->Type & 0x80)
-             && ((gUnknown_03000784->Type == 0x20) || (gUnknown_03000784->field_14 & 0x40)))
+             && ((gUnknown_03000784->Type == 0x20) ||
+            (gUnknown_03000784->bitfield1 & OBJECT_M_BF1_INTERACTABLE)))
             {
                 u16 x1 = worldX - gUnknown_03000784->X;
                 u16 y1 = worldY - gUnknown_03000784->Y;
@@ -322,14 +324,15 @@ LOOP:
     {
         for(i=0; i<40; i++)
         {
-            gUnknown_03000784 = &gUnknown_03001D40[i];
+            gUnknown_03000784 = &gObjectMemory[i];
 
             if ( !gUnknown_03000784->Type )
             {
                 break;
             }
-            
-            if ( !(gUnknown_03000784->Type & 0x80) && (gUnknown_03000784->field_14 & 0x40))
+
+            if ( !(gUnknown_03000784->Type & 0x80) &&
+            (gUnknown_03000784->bitfield1 & OBJECT_M_BF1_INTERACTABLE))
             {
                 worldX = gUnknown_03000784->X - gUnknown_03000788 + 64;
                 worldY = gUnknown_03000784->Y - gUnknown_03001508 + 64; //reg alloc
@@ -363,7 +366,7 @@ void PSIMenu()
 {
     s32 v0;
     sPsiData v1;
-    sPsiData *psi_data;
+    const sPsiData *psi_data;
     u16 curPP;
 
 LOOP:
@@ -385,7 +388,7 @@ LOOP:
             {
                 gCurrentItemId = v0 - 64;
 
-                psi_data = &gUnknown_08F5C51C[v0];
+                psi_data = &gPsiData[v0];
                 curPP = gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].CurrentPP;
                 v1 = *psi_data;
                 if ( psi_data->PPRequired <= curPP)
@@ -409,8 +412,6 @@ LOOP:
 void GoodsMenu()
 {
     s32 v0;
-    u8 *v1;
-    u8 v2;
 
 LOOP:
     gUnknown_03001504 = 0;
@@ -491,7 +492,7 @@ void Goods_Use()
     u32 v3;
     u32 v4;
     sItemData v0;
-    sItemData *ptr;
+    const sItemData *ptr;
 
     if ( (gGameInfo.PlayerInfo.Struct.CharacterInfo[gUnknown_03003174 - 1].Condition & CONDITION_UNCONSCIOUS)
       && (gCurrentItemId != 3) )
@@ -521,7 +522,7 @@ void Goods_Use()
                 {
                     RemoveItemFromInventory(gUnknown_03003174);
                 }
-                PlaySfxById2(4u);
+                PlayTriangleSfx(4u);
                 // "@{0x03}{0x1A} equipped the{BREAK}{0x03}{0x1C}.{BREAK}"
                 DrawTextWithId(0x391u);
             }
@@ -574,7 +575,7 @@ void Goods_Eat()
         WaitForActionButtonPress();
         return;
     }
-    ptr = &gItemData[gCurrentItemId];
+    ptr = (sItemData*) &gItemData[gCurrentItemId];
     v0 = *ptr;
     if ( v0.Flags & 0x40 )
     {
@@ -726,11 +727,11 @@ void SelectItem(u8 a1)
     gCurrentItemId = a1;
     if ( (s8)a1 >= 0 )
     {
-        gTempNumber = a1[gItemData].Price;
+        gTempNumber = (gItemData+0)[a1].Price;
     }
     else
     {
-        gTempNumber = a1[(struct sItemData*)gTeleportLocations].Price;
+        gTempNumber = (gOtherItemData-0x80)[a1].ChoicerData.Price;
     }
 }
 

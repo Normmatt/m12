@@ -91,8 +91,8 @@ lowerencounterrate:
 #ifdef DEBUG
   // load no-enemies data if debug mode is on
   ldr  r1,=enratetable2
-#else 
-  ldr  r1,=enratetable1
+#else
+  ldr  r1,=enratetable
 #endif
 
 lowerencounterrate_end:
@@ -163,7 +163,7 @@ producescreen2:
 choose_text_window_type:
   push {lr}
   push {r4}
-  ldr  r0,=gUnknown_08F26D4A_small      // load original, small text box window
+  ldr  r0,=gMsg_WindowMessage_small      // load original, small text box window
 
   // sometimes r4 doesn't have the actual line number, usually when doing non-dialog stuff
   // like when you use items. So we check for that now here
@@ -171,7 +171,7 @@ choose_text_window_type:
   ldrh r4,[r4,#0]          // variable to see what the actual line # is
   cmp  r4,#0
   beq  choose_text_window_type_2
-  
+
 
   // if we're here, we're looking at a standard dialog line, with the line number in r4
   // so we'll load from a custom table to see if this line needs a small window or not
@@ -183,7 +183,7 @@ choose_text_window_type:
   cmp  r1,#0x1
   beq  choose_text_window_type_2
 
-  ldr  r0,=gUnknown_08F26D4A  // load wide text box window
+  ldr  r0,=gMsg_WindowMessage  // load wide text box window
 
 choose_text_window_type_2:
   movs r4,#0               // unset our custom "current line #" variable
@@ -263,7 +263,7 @@ save_line_number_a:
 	thumb_func_start strcopy
 strcopy:
    push {r2,r3,lr}
-   
+
 strcopy_loop:
    ldrb r2,[r0,#0x0]
    strb r2,[r1,#0x0]
@@ -296,7 +296,7 @@ parsecopy:
 
   .parse_control_code:
   ldrb r3,[r0,#0x1]      // load control code argument
-  cmp  r3,#0x10; 
+  cmp  r3,#0x10;
   bne parse_control_code_11
   bl control_code_10
   b .loop_start
@@ -376,7 +376,7 @@ parse_control_code_F1:
   adds r1,#0x1
   cmp  r2,#0x0
   beq  parsecopy_end
-  b    .loop_start  
+  b    .loop_start
 
 parsecopy_end:
   pop  {r0-r7,pc}
@@ -454,7 +454,7 @@ perform_auto_wrap:
 
    .space_found:
    movs r7,r1                    // last_space = curr_char_address
-                     
+
    //--------------------------------------------------------------------------------------------
    // Here is the real meat of the auto word wrap routine
 
@@ -561,7 +561,7 @@ control_code_17:
   cmp  r0,#0x0
   beq  control_code_17_end
 
-  ldr  r0,=gUnknown_08F278F5
+  ldr  r0,=gMsg_Tachi
   bl   strcopy
   subs r1,#1
 
@@ -668,7 +668,7 @@ control_code_F0:
   push {r2-r7}
   push {r0}
 
-  ldr  r5,=gUnknown_08F70840
+  ldr  r5,=gBattleActionData
   ldr  r4,=gUnknown_03003690
   ldrh r0,[r4,#0x0]
   adds r0,#0x1
@@ -792,7 +792,7 @@ possibly_ignore_auto_indents:
    push {lr}
    push {r2-r7}
    movs r0,r1
-   
+
    mov  r3,sp
    adds r3,#0x2C
    ldr  r3,[r3,#0]
