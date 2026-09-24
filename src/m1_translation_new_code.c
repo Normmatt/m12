@@ -20,7 +20,7 @@ const u8 m1_window_yes_no_small[] = __("  Yes       No     \0");
 
 u8* choose_window(u8* small, u8* big) {
     if (CUSTOM_CURRENT_LINE != 0) {
-        if (m1_window_data[CUSTOM_CURRENT_LINE] == 1) {
+        if (m1_window_data[CUSTOM_CURRENT_LINE] != 1) {
             return big;
         }
     }
