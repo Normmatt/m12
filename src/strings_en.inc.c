@@ -3832,7 +3832,7 @@ const u8 gMsg_B_Ready[] = __("{ATTACKER} is in a defensive stance!\0");
 const u8 gMsg_B_Giegue_Sing[] = __("{ATTACKER} sang!\0");
 const u8 gMsg_B_Guard[] = __("{ATTACKER} is guarding.\0");
 const u8 gMsg_B_Approach_Slowly[] = __("{ATTACKER} edged closer!\0");
-const u8 gMsg_B_Used[] = __("{ATTACKER} used p{0x03}{0x22}!\0");
+const u8 gMsg_B_Used[] = __("{ATTACKER} used {0x03 0xF0}{0x03 0x22}!\0");
 const u8 gMsg_B_Tried[] = __("{ATTACKER} tried {0x03}{0x22}!\0");
 const u8 gMsg_B_Cant_Use[] = __("{ATTACKER} can't use {0x03}{0x22}!\0");
 const u8 gMsg_B_Circumstances[] = __("{ATTACKER} is sizing up the situation...\0");
@@ -3975,7 +3975,7 @@ const u8 gMsg_B_StatUp_Wisdom[] = __("Wisdom went up {0x03}{0x23}!{BREAK}{WAIT}{
 const u8 gMsg_B_StatUp_Strength[] = __("Strength went up {0x03}{0x23}!{BREAK}{WAIT}{0x03}{0x01}\0");
 const u8 gMsg_B_StatUp_Force[] = __("Force went up {0x03}{0x23}!{BREAK}{WAIT}{0x03}{0x01}\0");
 const u8 gMsg_B_StatUp_New_Psi[] = __("{ATTACKER} learned a new PSI in battle!{BREAK}{WAIT}{0x03}{0x01}\0");
-const u8 gMsg_B_StatUp_Get_Item[] = __("Picked up q{0x03}{0x1D}!{BREAK}{WAIT}{0x03}{0x01}\0");
+const u8 gMsg_B_StatUp_Get_Item[] = __("Picked up {0x03 0xF1}{0x03 0x1D}!{BREAK}{WAIT}{0x03}{0x01}\0");
 const u8 gMsg_Giegue_Check_Real[] = __("(From somewhere,{BREAK}"
                                    "{WAIT}{PARTYLEAD} heard Queen Mary's voice...){BREAK}"
                                    "{WAIT}You can't beat Giygas with brute strength...{BREAK}"

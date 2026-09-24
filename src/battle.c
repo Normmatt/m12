@@ -7,7 +7,7 @@
 //english asm externs
 #ifdef ENGLISH
 void copy_battle_line_to_ram(u16);
-void add_space_to_enemy_name(u8);
+void add_space_to_enemy_name(u8*, u8);
 #endif
 
 extern const u8* gUnknown_08F29F00[];
@@ -809,10 +809,23 @@ void sub_8F0EAA8(void) {
 
 }
 
-NAKED
-s32 sub_8F0EAAC(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F0EAAC.s\"");
+s32 sub_8F0EAAC(u8 a1) {
+    u16 var_r0;
+    if (a1 < 4) {
+        var_r0 = gGameInfo.PlayerInfo.Struct.CharacterInfo[gBattlerData[a1].fulldata].MaxHP;
+         if ((var_r0 / 4) <= gBattlerData[a1].curr_hp) {
+            return 1;
+        } else {
+            return 0;
+        }
+    } else {
+        var_r0 = gEnemyData[gBattlerData[a1].fulldata].hp_palette_tilemap;
+        if ((var_r0 / 4) <= gBattlerData[a1].curr_hp) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 void sub_8F0EAF8(void) {
@@ -825,10 +838,15 @@ void sub_8F0EB14(void)
     v_blank_fnc = gUnknown_03003650;
 }
 
-NAKED
-void sub_8F0EB28()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F0EB28.s\"");
+void sub_8F0EB28(void) {
+    if (gUnknown_03003650 != NULL) {
+        gUnknown_03003650();
+    }
+    if ((gUnknown_030036E8) && (gUnknown_030036B4) && (gKeysDown & 6)) {
+        gKeysDown &= ~6;
+        gUnknown_030036E8 = 0;
+        gUnknown_030036C0[4].unk0 = 0;
+    }
 }
 
 // Battle - Enemy tile layouts
@@ -1111,7 +1129,8 @@ void CopyName(u8 a1, u8* a2) {
         *a2 = (letter >> 2) + 0xC0;
         a2++;
         #elif ENGLISH
-        add_space_to_enemy_name((letter >> 2) + 0xC0);
+        add_space_to_enemy_name(a2, (letter >> 2) + 0xC0);
+        a2 += 2;
         #endif
     }
     *a2 = 0;
@@ -1130,27 +1149,29 @@ void sub_8F0F3B0()
     asm(".include \"asm/non_matching/battle/sub_8F0F3B0.s\"");
 }
 
-void (*const gUnknown_08F66FD8[])(void) = {
-sub_8F0F560,
-sub_8F0F570,
-sub_8F0F734,
-sub_8F0F820,
-HandleBattleState,
-sub_8F0F940,
-sub_8F0FA90,
-sub_8F0FD24,
-sub_8F0FD44,
-sub_8F100A0,
-sub_8F100BC,
-sub_8F100F4,
-sub_8F0F890
-};
-
-NAKED
-void sub_8F0F514()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F0F514.s\"");
+void sub_8F0F514(void) {
+    void (*sp0[])(void) = {
+    sub_8F0F560,
+    sub_8F0F570,
+    sub_8F0F734,
+    sub_8F0F820,
+    HandleBattleState,
+    sub_8F0F940,
+    sub_8F0FA90,
+    sub_8F0FD24,
+    sub_8F0FD44,
+    sub_8F100A0,
+    sub_8F100BC,
+    sub_8F100F4,
+    sub_8F0F890
+    };
+    do {
+        gUnknown_03003604 = gBattleActionData[gUnknown_03003690] >> 4;
+        sp0[gUnknown_03003604]();
+    } while (gUnknown_03003604 != 0);
+    gUnknown_03003604 = 0xFF;
 }
+
 
 void sub_8F0F560(void) {
     gUnknown_03003690++;
@@ -1253,17 +1274,39 @@ void sub_8F100C8(void) {
     gUnknown_03003690 = ((*p2 << 8) | *p1) + 0x6805;
 }
 
-NAKED
-void sub_8F100F4()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F100F4.s\"");
+void sub_8F100F4(void) {
+    u16 temp_r1;
+    u16 temp_r6;
+    u8 var_r4;
+
+    var_r4 = 0xF & gBattleActionData[gUnknown_03003690];
+    gUnknown_03003690++;
+    temp_r6 = gUnknown_03003690;
+    do {
+        sub_8F0F514();
+        temp_r1 = gUnknown_03003690;
+        gUnknown_03003690 = temp_r6;
+        var_r4--;
+    } while (var_r4 > 0);
+    gUnknown_03003690 = temp_r1;
 }
 
-NAKED
-s32 sub_8F10130()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10130.s\"");
+s32 sub_8F10130(void) {
+    u8 i;
+    for (i = 4; i < 8; i++) {
+        if ((i != gUnknown_03003700) && (1 & gBattlerData[i].m_status)) goto found;
+    }
+    return 0;
+    found:
+    gUnknown_030036EC = i;
+    sub_8F1045C(gUnknown_030036EC);
+    gBattlerData[gUnknown_030036EC].m_status &= 0xFE;
+    gBattlerData[gUnknown_030036EC].action = 0;
+    gBattlerData[gUnknown_030036EC].unk_0 = gBattlerData[gUnknown_03003700].unk_0;
+    DrawBattleStatusTextById(0x42U);
+    return 1;
 }
+
 
 s32 CanUsePsi(void) {
     if (gBattlerData[gUnknown_03003700].m_status & 0x40) {
@@ -1305,23 +1348,42 @@ void Maybe_WinBattle(u8 a1) {
     sub_8F0EA98();
 }
 
-
-NAKED
-void sub_8F10398()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10398.s\"");
+void sub_8F10398(void) {
+    sub_8F103C4(&gGameInfo.PlayerInfo.Struct.CharacterInfo[gBattlerData[gUnknown_03003700].fulldata].Inventory,
+                gBattlerData[gUnknown_03003700].unk_19,
+                gBattlerData[gUnknown_03003700].unk_1b);
 }
 
-NAKED
-void sub_8F103C4(void *a1, u8 a2, u8 a3)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F103C4.s\"");
+void sub_8F103C4(u8* inventory, u8 start_pos, u8 item) {
+    //key flag
+    sItemData* this_item = &gItemData[item];
+    if (this_item->Flags & 0x80) {
+        return;
+    }
+
+    if (inventory[start_pos] != item) {
+        for (start_pos = 0; start_pos < 8; start_pos++) {
+            if (inventory[start_pos] == item) goto found;
+        }
+        return;
+    }
+
+found:
+    //shift backwards 1
+    while (start_pos < 7) {
+        inventory[start_pos] = inventory[start_pos+1];
+        start_pos++;
+    }
+    inventory[start_pos] = 0;
 }
 
-NAKED
-void sub_8F10420(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10420.s\"");
+
+void sub_8F10420(u8 a1) {
+    s8 letter;
+    gMiscContainer = &gEnemyData[gBattlerData[a1].fulldata].unk_0;
+    letter = gBattlerData[a1].enemy_letter;
+    gUnknown_03003684 = letter & 3;
+    gUnknown_030034F4 = (letter & 3) * 8;
 }
 
 void sub_8F1045C(u8 a1) {
@@ -1331,11 +1393,15 @@ void sub_8F1045C(u8 a1) {
     sub_8F0EE8C(a1);
 }
 
-NAKED
-void sub_8F10490(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10490.s\"");
+void sub_8F10490(u8 a1) {
+    sub_8F10420(a1);
+    gBattlerData[a1].unk_0 = 0;
+    sub_8F0F014(a1, 0);
+    sub_8F0EF4C(a1);
+    gUnknown_030036C0[a1 - 4].unk0 = 0;
+    DmaFill32(3, 0, ((3 & gBattlerData[a1].enemy_letter) << 11) + BG_VRAM+0xE000, 0x800)
 }
+
 
 void sub_8F104FC(u8 a1, u8 a2) {
     sub_8F0E770(2);
@@ -1351,11 +1417,33 @@ void sub_8F104FC(u8 a1, u8 a2) {
     } while (a2 > 0);
 }
 
-NAKED
-void sub_8F10548(u8 a1, u8 *a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10548.s\"");
+void sub_8F10548(u8 a1, u8* a2) {
+    u8 temp_r7;
+    u8 var_r1;
+    u8 var_r4;
+
+    sub_8F0E770(0x10);
+    var_r1 = *a2++;
+    temp_r7 = *a2++;
+    do {
+        var_r4 = 0;
+        do {
+            if (2 & var_r4) {
+                sub_8F0EA18(a1);
+            } else {
+                sub_8F0EA18(0xF);
+            }
+            REG_BG0VOFS = (s8) a2[var_r4++];
+            REG_BG0HOFS = (s8) a2[var_r4++];
+            sub_8F0E7F0();
+        } while(var_r4 < temp_r7);
+        var_r1--;
+    } while (var_r1 > 0);
+    REG_BG0VOFS = var_r1;
+    REG_BG0HOFS = var_r1;
+    sub_8F0EA18(0xF);
 }
+
 
 NAKED
 s32 sub_8F105E4()
@@ -1375,22 +1463,43 @@ void sub_8F107D8()
     asm(".include \"asm/non_matching/battle/sub_8F107D8.s\"");
 }
 
-NAKED
-s32 sub_8F10B1C(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10B1C.s\"");
+s32 sub_8F10B1C(u8 a1) {
+    u8 shift;
+    sub_8F10E6C();
+    shift = a1 >> 3;
+    if ((0x80 >> (a1 & 7)) & gMiscContainer[shift]) {
+        gUnknown_03003688 = (sPsiData*) &gPsiData[a1];
+        gBattlerData[gUnknown_03003700].action = gUnknown_03003688->ActionInBattle;
+        gActionPpRequired = gUnknown_03003688->PPRequired;
+        if ((AttackerHasEnoughPP()) && (CanUsePsi())) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
-NAKED
-void sub_8F10B94()
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10B94.s\"");
+
+void sub_8F10B94(void) {
+    sBattlerData* temp_r1;
+    u32 temp_r2;
+
+    do {
+        do {
+            temp_r2 = Random() >> 29;
+            temp_r1 = &gBattlerData[temp_r2];
+        } while (temp_r1->unk_0 == 0);
+    } while (CONDITION_UNCONSCIOUS & temp_r1->status);
+    gUnknown_030036EC = temp_r2;
 }
 
-NAKED
-s32 sub_8F10BC4(u8 a1, u8 a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10BC4.s\"");
+s32 sub_8F10BC4(u8 a1, u8 a2) {
+    if (gGameInfo.PlayerInfo.Struct.CharactersInParty[a1] == a2) {
+        if ((gBattlerData[a1].unk_0 != 0) && !(CONDITION_UNCONSCIOUS & gBattlerData[a1].status)) {
+            gUnknown_030036EC = a1;
+            return 1;
+        }
+    }
+    return 0;
 }
 
 const CURSOR_POSITION gUnknown_08F6700C[] = {
@@ -1434,11 +1543,29 @@ void sub_8F10E6C(void) {
         gBattlerData[gUnknown_03003700].fulldata].PsiLearned;
 }
 
-NAKED
-s32 sub_8F10E94(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F10E94.s\"");
+s32 sub_8F10E94(u8 a1) {
+    s32 temp_r0;
+    s32 var_r1;
+
+    temp_r0 = sub_8F11230(a1);
+    if (temp_r0 == 0) {
+        return 0;
+    }
+    var_r1 = 0;
+    if (temp_r0 == 2) {
+        var_r1 = 4;
+    }
+    gUnknown_030036EC = var_r1 ^ (4 & gUnknown_03003700);
+    temp_r0 = sub_8F10EEC();
+    if (temp_r0 < 0) {
+        return 1;
+    } else {
+        gUnknown_030036EC = temp_r0 - 1;
+        gBattlerData[gUnknown_03003700].target = gUnknown_030036EC;
+        return 0;
+    }
 }
+
 
 NAKED
 s32 sub_8F10EEC()
@@ -1565,29 +1692,84 @@ void sub_8F11DF0(void) {
     gActionPpRequired = sub_8F0E8DC(gActionPpRequired);
 }
 
-NAKED
-void sub_8F11E08(u8 a1, u8 a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F11E08.s\"");
+void sub_8F11E08(u8 a1, u8 a2) {
+    s32 var_r2;
+    u32 var_r1;
+    u8 pp;
+
+    pp = *(((u8*) &gBattlerData[a1]) + a2);
+    if (a1 < 4) {
+        var_r1 = (u8) sub_8F12074(a1, a2) << 1;
+    } else {
+        var_r1 = *(((u8*) &gEnemyData[gBattlerData[a1].fulldata]) + a2) * 2;
+    }
+    var_r2 = gActionPpRequired + pp;
+    if (var_r2 > 0xFF) {
+        var_r2 = 0xFF;
+    }
+    if (var_r2 > (s32) var_r1) {
+        var_r2 = (s32) var_r1;
+    }
+    *(((u8*) &gBattlerData[a1]) + a2) = var_r2;
+    gUnknown_03003708 = (u8) (var_r2 - pp);
 }
 
-NAKED
-void sub_8F11E80(u8 a1, u8 a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F11E80.s\"");
+void sub_8F11E80(u8 a1, u8 a2) {
+    u32 var_r3;
+    u16 pp;
+    u32 var_r2;
+
+    pp = *(((u16*) &gBattlerData[a1]) + (a2 >> 1));
+    if (a1 < 4) {
+        var_r2 = sub_8F12074(a1, a2) * 2;
+    } else {
+        var_r2 = (*(((u16*) &gEnemyData[gBattlerData[a1].fulldata]) + (a2 >> 1)) & 0x3FF) << 1;
+    }
+    var_r3 = gActionPpRequired + pp;
+    if ((s32) var_r3 > 0xFFFF) {
+        var_r3 = 0xFFFF;
+    }
+    if (var_r3 > var_r2) {
+        var_r3 = var_r2;
+    }
+    *(((u16*) &gBattlerData[a1]) + (a2 >> 1)) = (s16) var_r3;
+    gUnknown_03003708 = (u16) (var_r3 - pp);
 }
 
-NAKED
-void sub_8F11F10(u8 a1, u8 a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F11F10.s\"");
+
+void sub_8F11F10(u8 a1, u8 a2) {
+    s32 var_r3;
+    u16 pp;
+    u16 var_r2;
+
+    pp = *(((u16*) &gBattlerData[a1]) + (a2 >> 1));
+    if (a1 < 4) {
+        var_r2 = sub_8F12074(a1, a2);
+    } else {
+        var_r2 = *(((u16*) &gEnemyData[gBattlerData[a1].fulldata]) + (a2 >> 1)) & 0x3FF;
+    }
+    var_r3 = gActionPpRequired + pp;
+    if (var_r3 > (s32) var_r2) {
+        var_r3 = (s32) var_r2;
+    }
+    *(((u16*) &gBattlerData[a1]) + (a2 >> 1)) = (s16) var_r3;
+    gUnknown_03003708 = (u16) (var_r3 - pp);
 }
 
-NAKED
-void sub_8F11F90(u8 a1, u8 a2)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F11F90.s\"");
+
+void sub_8F11F90(u8 a1, u8 a2) {
+    s32 remaining;
+    u8 old_pp;
+    //???? this sucks
+    old_pp = *(((u8*) &gBattlerData[a1]) + a2);
+    remaining = old_pp - gActionPpRequired;
+    if (remaining < 0) {
+        remaining = 0;
+    }
+    *(((u8*) &gBattlerData[a1]) + a2) = remaining;
+    gUnknown_03003708 = (u8) (old_pp - remaining);
 }
+
 
 void sub_8F11FC8(u8 a1, u8 a2) {
     s32 var_r0;
@@ -1615,7 +1797,7 @@ void sub_8F12038(u8 a1, u8 a2) {
 }
 
 NAKED
-u32 sub_8F12074(u8 a1, u8 a2)
+u16 sub_8F12074(u8 a1, u8 a2)
 {
     asm(".include \"asm/non_matching/battle/sub_8F12074.s\"");
 }
@@ -1624,16 +1806,19 @@ s32 sub_8F12198(void) {
     return sub_8F12228(gBattlerData[gUnknown_03003700].wisdom, gBattlerData[gUnknown_030036EC].strength);
 }
 
-NAKED
-s32 sub_8F121C4()
+s32 sub_8F121C4(void)
 {
-    asm(".include \"asm/non_matching/battle/sub_8F121C4.s\"");
+    return sub_8F12228(gBattlerData[gUnknown_03003700].wisdom, gBattlerData[gUnknown_030036EC].force);
 }
 
-NAKED
-void sub_8F121F0(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F121F0.s\"");
+void sub_8F121F0(u8 a1) {
+    if (gBattlerData[a1].resistances & gUnknown_03003654) {
+        gActionPpRequired >>= 1;
+        if (gActionPpRequired == 0) {
+            gActionPpRequired = 1;
+        }
+    }
+    gUnknown_03003654 = 0;
 }
 
 s32 sub_8F12228(u8 a1, u8 a2) {
@@ -1650,10 +1835,19 @@ s32 sub_8F12228(u8 a1, u8 a2) {
     return 1;
 }
 
-NAKED
-s32 sub_8F1225C(u8 a1)
-{
-    asm(".include \"asm/non_matching/battle/sub_8F1225C.s\"");
+s32 sub_8F1225C(u8 a1) {
+    u8 *inventory = gGameInfo.PlayerInfo.Struct.CharacterInfo[gBattlerData[a1].fulldata].Inventory;
+    for (gBattleItemInventoryIdx = 0; gBattleItemInventoryIdx < 8; gBattleItemInventoryIdx++){
+        gBattleItemId = inventory[gBattleItemInventoryIdx];
+        if (gBattleItemId) {
+            off_30036F0 = (sItemData*) &gItemData[gBattleItemId];
+            gUnknown_03003694 = off_30036F0->ItemActionInBattle;
+            if (0x40 & off_30036F0->Flags) {
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
 
 s32 sub_8F122DC(void) {

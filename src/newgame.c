@@ -2,6 +2,10 @@
 #include "m4a.h"
 #include "definitions.h"
 
+extern const u8 earth_gfx;
+extern const u8 title_gfx;
+extern const u8 titlegba_copyright_gfx;
+
 const u16 gUnknown_08F2A0D0[] = {
 0x280F, 0x1830, 0x210F, 0x1230, 0x160F, 0x1230, 0x3A0F, 0x1230
 };
@@ -71,10 +75,16 @@ void sub_8F0D59C()
     #endif
 }
 
-NAKED
-s32 sub_8F0DA58(u8 a1)
-{
-    asm(".include \"asm/non_matching/newgame/sub_8F0DA58.s\"");
+s32 sub_8F0DA58(u8 a1) {
+    while(a1 > 0) {
+        sub_8F040E0();
+        UpdateInput();
+        if (gKeysDown & (START_BUTTON|A_BUTTON)) {
+            return 1;
+        }
+        a1--;
+    }
+    return 0;
 }
 
 const CURSOR_POSITION gUnknown_08F2A270[] = {

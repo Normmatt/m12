@@ -36,7 +36,7 @@ SECTIONS
 		src/newgame.o(.text);
 		src/gfx.o(.text);
 		src/battle.o(.text);
-        asm/m1_translation_new_code.o(.text);
+        src/m1_translation_new_code.o(.text);
         src/vwf.o(.text);
 		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);

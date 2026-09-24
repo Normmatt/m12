@@ -85,75 +85,58 @@ void sub_8F03F74()
 }
 #endif
 
-void sub_8F040E0()
-{
-    u16 keys;
-
-    keys = ~REG_KEYINPUT & 0x3FF;
-    if ( keys == (START_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON) )
-    {
+void sub_8F040E0() {
+    u16 keys = ~REG_KEYINPUT & 0x3FF;
+    if (keys == (START_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON)) {
         sub_8F0ACB8();
     }
-    if ( keys == (L_BUTTON|R_BUTTON|SELECT_BUTTON) )
-    {
+    if (keys == (L_BUTTON|R_BUTTON|SELECT_BUTTON)) {
         sub_8F0ABD8();
     }
-    ++gUnknown_030007CC;
-    if ( keys )
-    {
-        ++gUnknown_03002964;
+    gUnknown_030007CC++;
+    if (keys != 0) {
+        gUnknown_03002964++;
         gUnknown_030007C4 = 0;
-    }
-    else if ( gUnknown_030007C4 <= 10799u )
-    {
-        ++gUnknown_03002964;
-        ++gUnknown_030007C4;
+    } else if (gUnknown_030007C4 <= 10799) {
+        gUnknown_03002964++;
+        gUnknown_030007C4++;
     }
     m4aSoundMain();
     VBlankIntrWait();
 }
 
-void DelayByAmount(u32 delay)
-{
-    while(--delay != -1)
-    {
+void DelayByAmount(u32 delay) {
+    while(--delay != -1) {
         sub_8F040E0();
         UpdateInput();
     }
 }
 
-void UpdateBg0Tilemap()
-{
+void UpdateBg0Tilemap() {
     sub_8F040E0();
     DmaCopy32(3, gBg0TilemapBuffer, VRAM, 0x800);
     UpdateInput();
 }
 
-void WaitForAnyButtonPress()
-{
-    do
-    {
-        if ( gUnknown_030007A8 )
-        {
+void WaitForAnyButtonPress() {
+    do {
+        if (gUnknown_030007A8) {
             break;
         }
         UpdateBg0Tilemap();
     }
-    while ( !(gKeysDown & (L_BUTTON|R_BUTTON|DPAD_DOWN|DPAD_UP|DPAD_LEFT|DPAD_RIGHT|START_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON)) );
+    while (!(gKeysDown & (L_BUTTON|R_BUTTON|DPAD_DOWN|DPAD_UP|DPAD_LEFT|DPAD_RIGHT|START_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON)));
     gUnknown_030007A8 = 0;
 }
 
-void WaitForActionButtonPress()
-{
-    do
-    {
-        if ( gUnknown_030007A8 )
-        {
+void WaitForActionButtonPress() {
+    do {
+        if (gUnknown_030007A8) {
             break;
         }
         UpdateBg0Tilemap();
     }
-    while ( !(gKeysDown & (L_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON)) );
+    while (!(gKeysDown & (L_BUTTON|SELECT_BUTTON|B_BUTTON|A_BUTTON)));
     gUnknown_030007A8 = 0;
 }
 

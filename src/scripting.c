@@ -10,8 +10,8 @@ extern const u8 gCurrentItemId;
 extern void_pointer gSCR_CMD_Handlers[];
 extern u8 gMsg_Menu_Yes_No[];
 
-#ifndef JAPANESE
-u8 *choose_yes_no_size();
+#ifdef ENGLISH
+u8* choose_yes_no_size();
 #endif
 
 void ExecuteScript(u8 numInstructionsToExecute)

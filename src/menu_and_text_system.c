@@ -16,6 +16,7 @@
 #include "strings_jp.inc.c"
 #elif ENGLISH
 void choose_text_window_type();
+void save_line_number_a(u16 textId);
 #include "strings_en.inc.c"
 #endif
 
@@ -2444,7 +2445,7 @@ void DrawPartyInfoWindow(void) {
 
 	SetTextPosition(0, 18 - charCounter);
 	if (gTextPlaySfx == 0) {
-		HandleControlCodes(gMsg_StatBar_Top);
+		HandleControlCodes((u8*) gMsg_StatBar_Top);
 	}
 
 	backup_34C0 = gUnknown_030034C0;
@@ -2458,7 +2459,7 @@ void DrawPartyInfoWindow(void) {
 			sCharacterStatusInfo *charInfo;
             charInfo = &gGameInfo.PlayerInfo.Struct.CharacterInfo[character - 1];
 			SetTextPosition(0, counter2 + (19 - charCounter));
-			HandleControlCodes(gMsg_StatBar_Middle);
+			HandleControlCodes((u8*) gMsg_StatBar_Middle);
 			if (charInfo->Condition & 0x80) {
 				gUnknown_030034C0 = 0xC000;
 			} else if (charInfo->Condition & 3) {
@@ -2503,7 +2504,7 @@ void DrawPartyInfoWindow(void) {
 
 	SetTextPosition(0, 19);
 	if (gTextPlaySfx == 0) {
-		HandleControlCodes(gMsg_StatBar_Bottom);
+		HandleControlCodes((u8*) gMsg_StatBar_Bottom);
 	}
 }
 
@@ -2915,19 +2916,14 @@ void DrawTextWithIdWaitForButton(u8* a1) {
     HandleControlCodes(a1);
 }
 
-#ifdef JAPANESE
 void DrawTextWithId(u16 textId) {
+    #ifdef ENGLISH
+    save_line_number_a(textId);
+    #endif
     if (gUnknown_030034E8[textId] != NULL) {
         DrawTextWithIdWaitForButton((u8*) gUnknown_030034E8[textId]);
     }
 }
-#elif ENGLISH
-NAKED
-void DrawTextWithId(u16 textId)
-{
-    asm(".include \"asm/non_matching/menu_and_text_system/DrawTextWithId_en.s\"");
-}
-#endif
 
 void DrawTextWithIdNoWait(u16 textId) {
     if (gUnknown_030034E8[textId] != NULL) {

@@ -43,7 +43,7 @@ SECTIONS
 		src/newgame.o(.text);
 		src/gfx.o(.text);
 		src/battle.o(.text);
-        asm/m1_translation_new_code.o(.text);
+        src/m1_translation_new_code.o(.text);
 		src/mks4agbLib.o(.text);
 		src/libagbsyscall.o(.text);
         src/agb_sram.o(.text);
@@ -81,6 +81,8 @@ SECTIONS
         src/battle.o(.data);
         data/sound.o(.data);
         sound/sound.o(.data);
+        src/m1_translation_new_code.o(.rodata);
+        src/m1_translation_new_code.o(.data);
         src/agb_sram.o(.rodata);
         data/debug.o(.data);
     } = 0
